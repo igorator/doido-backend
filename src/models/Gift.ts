@@ -1,25 +1,25 @@
 import { User } from './User';
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity()
 export class Gift {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryColumn('text', { unique: true })
+  gift_id: string;
 
   @Column('text')
-  title: string;
+  received_gift_id: string;
+
+  @Column('text')
+  gift_title: string;
 
   @Column('int')
-  number: number;
+  gift_number: number;
 
   @Column('text')
   model_name: string;
+
+  @Column('float')
+  model_rarity: number;
 
   @Column('text')
   model_emoji: string;
@@ -27,11 +27,17 @@ export class Gift {
   @Column('text')
   symbol_name: string;
 
+  @Column('float')
+  symbol_rarity: number;
+
   @Column('text')
   symbol_emoji: string;
 
   @Column('text')
   backdrop_name: string;
+
+  @Column('float')
+  backdrop_rarity: number;
 
   @Column('text')
   backdrop_center_color: string;
@@ -51,7 +57,13 @@ export class Gift {
   @Column('text')
   thumbnail_remote_id: string;
 
+  @Column('boolean')
+  is_published: boolean;
+
+  @Column('float', { default: null })
+  sell_price: number | null;
+
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  owner: User;
 }
