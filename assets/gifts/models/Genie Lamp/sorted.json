@@ -1,0 +1,247 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aladdin",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lava Lamp",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cat Spirit",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Snow Globe",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tea Time",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Space Travel",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lightning",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Herbal Wind",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Thunder",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Arctic Winds",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lost Souls",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Star Dust",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Liquid Cat",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Goldfish",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Desire",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Witch’s Secret",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Flammable",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Piggy Bank",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Monstrous",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "To The Moon",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inflated",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crypto Dream",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meowgical",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Neon",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Night’s Wish",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Astral Planes",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Star Power",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Love Thirst",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "White Sprite",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Devil",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jade Lantern",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronze Dust",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blueprint",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Arabian Night",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Silver",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lime Art",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moonlight",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Copper Pot",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mystic Aura",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Sketch",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset Rays",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Enigma",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Eternal Smoke",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunshine",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sahara",
+    "rarityPermille": 35
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chrome",
+    "rarityPermille": 35
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Persian Dawn",
+    "rarityPermille": 35
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Flame",
+    "rarityPermille": 35
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gold Tarnish",
+    "rarityPermille": 35
+  }
+]

@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Boulevard",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Producer",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Solid Bronze",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fiery-Hot",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightmare",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nebula",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Zebra",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset Idol",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Carpet",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Makeup",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grape Cola",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Trailer",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Sky",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Patina",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cold Feet",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hot Shots",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fading Flare",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zesty",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nominee",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Screen",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Lagoon",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Emerald",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Regent",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grenadine",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Radioactive",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Sky",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jokester",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sour Gummy",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starlight",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Prestige",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Giraffe",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hobgoblin",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spirulina",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Dream",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cobalt",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Premiere",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Obsidian",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Woody Allen",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Leopard",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Police",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Molten Gold",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mango Tango",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Banana",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pumpkin",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Finest Fish",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amanita",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ballerino",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Martian",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gas Mask",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Khajiit",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brain Slug",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Catwoman",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Android",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rear End",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Skeleton",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mars Attacks",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Stuntman",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moai Figure",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Eye Candy",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blockbuster",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Flexible",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golfer",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Robocop",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crusader",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Undead",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Poseidon",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Knight",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pigeon",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mummy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aztec God",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Caveman",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Side",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Guard",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Speaker",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Viking",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Static",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chieftain",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Santa Claus",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pharaoh",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Best Comedy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Legionary",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sprunki",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Seraphim",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Scream",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cyclopes",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Welder",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spidey",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pirate",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brainiac",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Astronaut",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Main Villain",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "The Deep",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dracula",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tribal Idol",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Deep Freeze",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Action Film",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Laser Scan",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Electric",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Christmas",
+    "rarityPermille": 20
+  }
+]

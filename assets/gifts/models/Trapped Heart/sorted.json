@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jinx",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "PXL PNK",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Comic Book",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jack-o-Love",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Stardust",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Magic Kiss",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glitch",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zap Core",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Love Bomb",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Premium",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Iron Pulse",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Goldie",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cozy Season",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tattoo",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fire and Ice",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Feline Fury",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweetheart",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Wrap",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toxic Love",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Luxe",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mystic Mark",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bloodvine",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vampie",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Love Potion",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Abyss Heart",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bandaged",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phantom",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Undead Beat",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crime Scene",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Orange Blaze",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Heartworm",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meadow",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Twilight",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grey Ember",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Haze",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Patchwork",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Colorful Beats",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Patched Up",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cold-Hearted",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sandy Red",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Faded Relic",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Empty Silent",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blood Stains",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet Shadow",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Whisper",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lovesick",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mended Love",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bejeweled",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Valentine",
+    "rarityPermille": 26
+  }
+]

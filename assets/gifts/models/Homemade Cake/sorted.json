@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Cane",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toxicake",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Birthday",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Volcano",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry Kiss",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Interstellar",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frosty",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bonecake",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fire Blast",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Depth",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Diamond",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sugar Bows",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Pearl",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jelly Fantasy",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cream Pie",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainbow Glow",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meadow",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Just A Slice",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Velvet",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sand Castle",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Luigi Cake",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Premium",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Best Wishes",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Strawberry",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Paradise",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jellycious",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mario Cake",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cheesecake",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet  Lilac",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Valentine",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Honey Cake",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mistletoe",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Naughty",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry Cake",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Berry Сrown",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yours Only",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starry Sky",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ice Cream",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Telegram",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sprinkles",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cotton Candy",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pinkie Pie",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Whirl",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fondant Fancy",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Midsummer",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Сhoco Сhips",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Noir Night",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toffee",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cocoa Cloud",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mickey Mousse",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jam Layer",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wishlist",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Candle",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "It’s My Party",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Festive Mint",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Choco Dream",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pistachio",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ocean Wave",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Bite",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Layer",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spring Bloom",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Сitrus Matcha",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lilac Slice",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fantasy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frosted Mint",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chocolate",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Velvet",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lemon Mint",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Dawn",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pumpkin Pie",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meringue",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blush",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Caramel Joy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Velvet Cocoa",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Hour",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nutty Joy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Choco Twist",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pistachio Sky",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mellow Gold",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tropical Mist",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cold Heaven",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frosty Mocha",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "French Yogurt",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lilac Splash",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sponge Cake",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Angel Cake",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Carrot Cake",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Parade",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peachy Bloom",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lil Princess",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rosy Frost",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Opera Cake",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sugarstorm",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mint Kiss",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cream Dream",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cinnamon",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tender Peach",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pastel",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vanilla Sky",
+    "rarityPermille": 15
+  }
+]

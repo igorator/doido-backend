@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Secret Look",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glitch",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Teasing Look",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zombie Bite",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Club",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Melony",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pop Art",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Punk Girl",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Karlach",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweety",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frostbite",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Acid Witch",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Redlight",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Comics",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Padme",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Berry",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ferrum Fatale",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Leopard",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Galaxy",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Minimalipstick",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vampire",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Girl",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Succubus",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lizard",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "High Voltage",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Devilfish",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Night Club",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Coral Reef",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sour Bite",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spicy Mint",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Manga Smile",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glamour",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainbow",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mystique",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Femme Fatale",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Avatar",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tangy Coil",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cold Bite",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Daring Kiss",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glossy Hot",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lady Night",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Morticia",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Velvety",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vegan Snake",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Mamba",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hypnotic",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Queen",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hot Summer",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pepelicious",
+    "rarityPermille": 25
+  }
+]

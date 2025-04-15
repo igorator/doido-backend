@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sneak Attack",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Banished",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Daphnaie",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Green Flag",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ultraviolet",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Halftone",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Patchwork",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherub",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bat Swarm",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Polka Dot",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Side",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Flag",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Freyja",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Arctic",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hat Shot",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phantom",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spyglass",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bouquet",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Black Magic",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candelabra",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "DJ Witch",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cat Familiar",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Illusion",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Merlin",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jumpscare",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cone of Cold",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mine Time",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Confetti",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Necromancy",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Radagast",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Christmas",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Holiday",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fae Touched",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Obi-Wan",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sylvester",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainbow",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sorting Cat",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sorcière",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cthulhu",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mordor",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cobweb",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Observer",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hatroulette",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Alchemy",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Arts Major",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Circus",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pinstripe",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Downtown",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nebula Mist",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Striped",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hypnosis",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hex Taxi",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Canvas",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Techno",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Picasso",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pyromancy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Twilight",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hallowed",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ethereal",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Luminous",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Guava",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Color Spray",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Classic",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Junk Mage",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Witch Hazel",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Little Wizard",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sanctuary",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Baba Yaga",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mad Wizard",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blood Mage",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lemon Aid",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Pixie",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hobbit",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cat’s Grasp",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Morrigan",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sand Cloak",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ember Touch",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Incense",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Seaside",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Old Ochre",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Orchard",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Smoke Veil",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Manacost",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wild Magic",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Folklore",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ube Tea",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Morgana",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Martian Night",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dragonfruit",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spellcaster",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ectoplasm",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Harvest",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aeromancy",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Narnia",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Young Witch",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Midnight",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Beetroot",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Maleficar",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vintage",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lorendale",
+    "rarityPermille": 15
+  }
+]

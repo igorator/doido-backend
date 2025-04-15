@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Darth Vader",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Disco Blast",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Stellar Map",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Stuart",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Last Player",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Confetti",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dead Space",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Orb",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ghost Fog",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tinker Bell",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blizzard",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Beehive",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Soap Bubble",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Line Art",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Poké Bell",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dracula",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fireball",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Piranha Plant",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cowbell",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Dusk",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mortabella",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moon Ride",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Holy Grenade",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Night Club",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Arctic Igloo",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Obsidian Oak",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Zebra",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spetsnaz",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Police Siren",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Iron Mint",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Cane",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Black Silver",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Faint Pearl",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Satin Brass",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pistachio",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rose Gold",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Joker",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Deutschland",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Raspberry",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Copper Rose",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sparkles",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Cloud",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Deep Echo",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronze",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Gold",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Argentum",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Truffle",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Green Light",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fairycore",
+    "rarityPermille": 50
+  }
+]

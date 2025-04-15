@@ -1,0 +1,402 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amortentia",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fire Storm",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Felix Felicis",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pikabrew",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Defensive",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gust of Wind",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Coldbrew",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Beholder",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubble Bath",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Halloween Brew",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hypnosis",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tornado",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fine Wine",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Digital Sap",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainbow Pearl",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Daiquiri",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Choco Cloud",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Death Star",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Quicksilver",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blueprint",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Holiday Spirit",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Malibu",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ice Citrus",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peachy Fume",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peppermint",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Citrus Bubbles",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Strike",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inky",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Melon Brew",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry Bomb",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Matrix",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starlight",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Desert Friend",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lava",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Code Red",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Backstroke",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Movie Night",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mad Eye",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Banana Split",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Firefly",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Minty Fresh",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gummy Worm",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Haze",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Greenwitch",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Heat Map",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Soft Coral",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Glow",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Petalwine",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spectral Dew",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ruby Ocean",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Shift",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Butterbeer",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fairy Fluff",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Night Mixture",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moonlight",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet Veil",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Burned Love",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aurora",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Honeydew",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Mirage",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Burnt Roses",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Burnt Petals",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sangria",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vermilion",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Skywash",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jade Grog",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Indigo Storm",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Citrus",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Scarlet Sun",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Full Moon",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Skygold",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Inferno",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rusty",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Potpourri",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fairy",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amethyst",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Orchid Volt",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Witchy",
+    "rarityPermille": 30
+  }
+]

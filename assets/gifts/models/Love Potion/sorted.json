@@ -1,0 +1,352 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Banana",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Whole Milk",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Star Power",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Angel Wings",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ice Queen",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Beholder",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Emo Tears",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bloodlust",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Energy Drink",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Molten Gold",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "No Signal",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Healing Potion",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jinx Tonic",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nurgle’s Rot",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dragon Soul",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "First Kiss",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lucky Charm",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pickle Rick",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Unicorn Tears",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Durov Duck",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Astral Guide",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Espresso",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Eye-lixir",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubble Gum",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spades",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Kiwi Juice",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gothic Cola",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Clubs",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tropicano",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Beauty Brew",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Diamonds",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hearts",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubble Bath",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fragrant Oil",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "First Aid",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "White Ink",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Laxative",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fine Mead",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Surreal",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Flat Pink",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crime Scene",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Paint Bottle",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ruby Essence",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Mire",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peach Nectar",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Romeo",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Milkshake",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mouthwash",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Poison Flask",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry Wine",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Berry Bomb",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Copper Sulfate",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mystic Dew",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Royal Spritz",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset Serum",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Formic Acid",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fairy Pollen",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sour Cider",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Liquid Pearl",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toxic Waste",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Seeker’s Wish",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starry Night",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Old Rum",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gold Rush",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aerogel",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ocean Glow",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sugar Ponies",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sea Salt",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Juliet",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rusty Water",
+    "rarityPermille": 25
+  }
+]

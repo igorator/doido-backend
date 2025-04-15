@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Flowey",
+    "rarityPermille": 1
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zap Aster",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunflower",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Carnation",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dog Flower",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wilted",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meower",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Monsoon",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Heartbeat",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sakura",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blazing Dusk",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Snowdrop",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bull’s Eye",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Big Bang",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pixel Bloom",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Loves Or Not",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fire Bloom",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Neo",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubblia",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Venus Flytrap",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Shake It",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Icebound",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Myrtella",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jellybud",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wildflower",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Luminosia",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ping Blossom",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pokerface",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glitch",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Savanna",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Party Time",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Shimeria",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spotty Leo",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peony",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Loader",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Windy",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Morning Sun",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yellow Poppy",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "White Peony",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Poppy",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silveria",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronzula",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Goldensia",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Party Bloom",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Plumeria",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hellebore",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gerbera",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brunnera",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Petunia",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hydrangea",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightshade",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Clivia",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Allamanda",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bumblebee",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Geranium",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aetheris",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Anemone",
+    "rarityPermille": 12
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hybrid",
+    "rarityPermille": 12
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dahlia",
+    "rarityPermille": 12
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hollyhock",
+    "rarityPermille": 12
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lemon Queen",
+    "rarityPermille": 12
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crimsonia",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tropicana",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Oxalis",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Indigo",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Floravelle",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Solivine",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Barbia",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Eclipsia",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Noctivis",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aurivelle",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet Iris",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aubrieta",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nectarium",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lunaris",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Twilight",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Floraven",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hibiscus",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aster",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Azure",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Verdania",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Celestara",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Primrose",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fabulous",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ghostia",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meadowlyn",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Marigold",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Floris",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Orchidra",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vanilla",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hawaii",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lanceolata",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Flameris",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cosmea",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peach Perfect",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zephyra",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Seraphina",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "False Bird",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sylvaris",
+    "rarityPermille": 15
+  }
+]

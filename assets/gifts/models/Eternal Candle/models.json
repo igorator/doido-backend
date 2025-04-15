@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Carnation",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Late Dusk",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Ephemeral",
+    "rarityPermille": 15
+  },
+  {
+    "name": "White Ash",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cherry Burn",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Winter Mist",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Pop Art",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Burnt Amber",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Citrus Burst",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Hydrangea",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Toxic Smoke",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Warm Embrace",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Two-Tone",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Hot Cocoa",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Twilight",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sunrise",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Purple Wave",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Gruyere",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Gold Stars",
+    "rarityPermille": 10
+  },
+  {
+    "name": "My Precious",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Bubble Bath",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Red Melter",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Evening Star",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Little Star",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Rose Tea",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Poison Ivy",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Jasmine",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Neroli Noir",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Hot Emerald",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Spiced Apple",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Horoscope",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Wolfsbane",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cult Candle",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Wildflowers",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Frosted Glass",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Floral Scent",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Healing Mist",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Pinstripe",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sugar Skull",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Tortuga",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Supernova",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Rare Jewels",
+    "rarityPermille": 5
+  },
+  {
+    "name": "First Dawn",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sacred Lotus",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Half Moon",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cool Metal",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Candyman",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Coastal Cove",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Thick Honey",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Witch’s Candle",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Mirkwood",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Pearl Clam",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Satin Bow",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hot Kiss",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Iceberg",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Saturated",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Unicorn",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Deep Sea",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Yellow Gold",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Blue Steel",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cranberry",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Vanilla Oasis",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Silver Spark",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Indiglow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Blue Beam",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Dreamscape",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Proposal",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Snake Skin",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Rainbow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Dark Desire",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sequin",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Love Dreams",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Baphomet",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Bronze Rose",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Mermaid",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Serenity",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Gradient Wax",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Krakatoa",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Honeycomb",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Spring Bloom",
+    "rarityPermille": 10
+  }
+]

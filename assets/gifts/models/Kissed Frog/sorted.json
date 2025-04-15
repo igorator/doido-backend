@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tree Frog",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brewtoad",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Puddles",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Honeyhop",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Melty Butter",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lucifrog",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rocky Hopper",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zodiak Croak",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Count Croakula",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Happy Pepe",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lilie Pond",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Dream",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frogmaid",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Icefrog",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lava Leap",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Trixie",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tesla Frog",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pond Fairy",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toadstool",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Desert Frog",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cupid",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Boingo",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hopberry",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ms. Toad",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Prince Ribbit",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronze",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starry Night",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ectofrog",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Poison",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Minty Bloom",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sarutoad",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Void Hopper",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ramune",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lemon Drop",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ectobloom",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Duskhopper",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Melon",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frogtart",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Banana Pox",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lily Pond",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toadberry",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frogwave",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sky Leaper",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peach",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sea Breeze",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lemon Juice",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cranberry",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tide Pod",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brownie",
+    "rarityPermille": 40
+  }
+]

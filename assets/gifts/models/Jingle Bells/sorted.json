@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Launchpad",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yule Bells",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ribbit",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glass Bloom",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Star Prize",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Radar",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fire and Ice",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spinner",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Deep Roots",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Puppet",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Strawberry",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Topsoil",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fractal",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "LED Disco",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glitch",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "New Blooms",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Confection",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Motion Blur",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ice Chime",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lipstick",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Galaxy",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fish Bowl",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Conductive",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Light",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Secret",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Buffering",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jam Jar",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Melting",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubble Pop",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bumblebell",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Sparkle",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Color Shift",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bellrog",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gingerbread",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Liquid Glass",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Solid Gold",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Waffle Cone",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tulip Time",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jeweler",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Santa Hat",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brick Wall",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Polynesia",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Bells",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Test Image",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Berry Bell",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Horns",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Orchid Ring",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bell Hive",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Harlequin",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Elsa Bell",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hypno Swirl",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Classic Cane",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Cane",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Ribbon",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peppermint",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Petals",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Scarlet Leaf",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Magnet",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lothlorien",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Uranium",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Barbie",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Chrome",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Woodland",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Copper Pink",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jade Jingle",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lilac Chime",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rose Gold",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Saltwater",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Ring",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Teal Rust",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Old Steel",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Crystal",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Pearl",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inner Glow",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pale Moss",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightshade",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dusty Rose",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Glass",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lichen",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crimson Steel",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Heatwave",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lithograph",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Twilight",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cyber Glow",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cast Bronze",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meadow",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainforest",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Season",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sagebrush",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Shiny Opal",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Shadows",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gamer Color",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Antique",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Citrus Bell",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Monochrome",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Placeholder",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "White Gold",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glacier",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Soft Blush",
+    "rarityPermille": 15
+  }
+]

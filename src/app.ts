@@ -2,9 +2,11 @@ import 'reflect-metadata';
 import { AppDataSource } from './database/db';
 import { login } from './telegram/tdClient';
 import { setupTelegramListeners } from './telegram/listeners/onUpdateListener';
+import { startServer } from './server';
 
 async function bootstrap() {
   try {
+    startServer();
     console.log('🔄 Initializing database connection...');
     await AppDataSource.initialize();
     console.log('📦 Database connected');
@@ -13,17 +15,15 @@ async function bootstrap() {
     await login();
     console.log('✅ Logged in to Telegram');
 
-    console.log('🔄 Setting up gift update listener...');
-
+    console.log('🔄 Setting up Telegram listeners...');
     setupTelegramListeners();
-
-    console.log('✅ Listening for gift-related messages...');
+    console.log('✅ Telegram listeners initialized');
   } catch (error) {
     if (error instanceof Error) {
-      console.error('❌ Error during bot initialization:', error.message);
+      console.error('❌ Error during initialization:', error.message);
       console.error('Stack trace:', error.stack);
     } else {
-      console.error('❌ Unknown error during bot initialization:', error);
+      console.error('❌ Unknown error:', error);
     }
   }
 }

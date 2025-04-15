@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Graffiti",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Ocean Gem",
+    "rarityPermille": 5
+  },
+  {
+    "name": "El Dorado",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Aurora",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Steampunk",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Firestorm",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Acid Green",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Water Lily",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Royal Purple",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Silver Lake",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Bubble Burst",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Line Art",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Dark Orchid",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Midnight",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Champagne",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Freehand",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Pink Diamond",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Red Wedding",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Canary",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Silver Star",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Doodle",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Valentine",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Cold Desire",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Black Velvet",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Nocturne",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Sketch",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Miami Beach",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Blood Orange",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Color Chaos",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Red Light",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Citrus Shift",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Bloodstone",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Iron Feather",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Forest Lake",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Quick Silver",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Marigold",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hot Pink",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Emerald",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Topaz",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Snake Eye",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Sunrise",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Barbie Gem",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sunset",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Black Hole",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Color Blocks",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Arabian Night",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Vintage Glam",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Honeydew",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Color Spray",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Rose Quartz",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Ocean Agate",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Azurite",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Obsidian",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Fireball",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Manhattan",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Space Steel",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Bondi Blue",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Whirlpool",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Mikado Yellow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Mint Candy",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Pure Love",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Dragon Eyes",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Bronze Heart",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sapphire",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Scrapyard",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Prismatic",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Peridot",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Rainbow",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Black Amber",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Ultramarine",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Diamond",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Blue Pearl",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Tesla",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Twilight",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Goldfinger",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Silver Smoke",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Black Thorn",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Flamingo",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Nightshade",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Amethyst",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cold Fusion",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Cobalt Rose",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Dorodango",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Inferno",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Vice City",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Eclipse",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Elven Tears",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Copper Rose",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Clam Shell",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Blood Band",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Princess Cut",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Orion",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Glamour",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Velvet Rose",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Neon Chrome",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Couture",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Sovereign",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Pink Lover",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Frostband",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Red Velvet",
+    "rarityPermille": 5
+  }
+]

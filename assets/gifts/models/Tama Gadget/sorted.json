@@ -1,0 +1,452 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Diamond Ton",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pepe Feels",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Alien Attack",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nokia 3310",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Underdog",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Seraph",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nyan Cat",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Egg Catch",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toxic Glitch",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Heartbeat",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Birthday",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Water Rings",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lazy Egg",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Puck Man",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Doom",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Poo Byte",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Portal",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "R2D2",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mecha Fight",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Furby",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "The Demon",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Game Boy",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pixel Pink",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Funky Stitch",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pastel Thread",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mono Patch",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pixel Bunny",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Stone Kitty",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "BMO",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wooden Dog",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yellow",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Classic Blue",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bunny Grid",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Love Wish",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wish Granted",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Money Wish",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lucky Wish",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Health Wish",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Laa-Laa-Lag",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Error-Po",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dipsy",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Icy Zebra",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Sun",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Green Candy",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lush Stripe",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tropic Wave",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sapphire",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lime Chip",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ruby Glaze",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tinky Winky",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spectrum",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Mirage",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bondi Blue",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dalmatian",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Shiny Pearl",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crystal View",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Strawberry",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dino Egg",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Holo Shell",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wild Hunt",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peach",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Shadow",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Verdant",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry Milk",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronze",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Citrus Ice",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tangerine",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inferno",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yang",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Clover",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunrise",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lime Shock",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Argentum",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amber",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pearl White",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Winter",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Twilight",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grape",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gold Rush",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vivid Sky",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Melon Pop",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Malachite",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Orchid",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ocean",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sakura",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Cane",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lavender",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yin",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grayscale",
+    "rarityPermille": 20
+  }
+]

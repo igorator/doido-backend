@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Blizzard",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Polarized",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Poisonous",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Lunar Year",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Prismatic",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Purple Cap",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Orange Rocks",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Caustic Moss",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Hot Cherry",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Stone Python",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Tropicool",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Golden Bleu",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Fire Dragon",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Water Snake",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Candy Stripe",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Hong Kong",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Snake Game",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Green Flakes",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Crimson Jade",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Jade Serpent",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Diamondback",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Soul Eater",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Black Mamba",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Gulal",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Aurium",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Rorschach",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hissmas Tree",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Python Dev",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Taipei",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Dark Rattle",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Hissium",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Sunset Snake",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Gold Rush",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Sea Snake",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Venomous",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Hydra",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Limescale",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Blue Horizon",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Hellspawn",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Super Hot",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Spring Burst",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Vibrant Venom",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Bear Paw",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Cyber Ruby",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Sandrift",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Synthwave",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Wood Snake",
+    "rarityPermille": 10
+  },
+  {
+    "name": "The Deadliest",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Gold Quartz",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Psychedelic",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Copperhead",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Golden Sky",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Golden Coal",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Sun Serpent",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Red Reptile",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Green Viper",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Hisstagram",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Pink Venom",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Xenomorph",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Frost Fangs",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Red Cheddar",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Iron Mine",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Pearl Scales",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Jelly Hazard",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Saffron",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Amber Adder",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Glowbra",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Redstone",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Fromage",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Adhesive",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Red Amethyst",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Gen Zmei",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Lapis",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Kinder Garter",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Frosting",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Ender Snake",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Rosepepper",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Mandarin",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Purple Mamba",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Amethyssst",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Cherry Glitch",
+    "rarityPermille": 13
+  },
+  {
+    "name": "White Grape",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Yellow Cobra",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Banded Boa",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Neurotoxin",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Blood Adder",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lancehead",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Straciatella",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Dragon Ball",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Fallen Star",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Arctic Viper",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Angelic",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Timelock",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Rainbow Scale",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Purple Laser",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Night Market",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Blue Boa",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Albino",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Geodesic",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Cryoshard",
+    "rarityPermille": 5
+  }
+]

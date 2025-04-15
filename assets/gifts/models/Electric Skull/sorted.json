@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightmare",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Terminator",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bad Fortune",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Calavera",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Clockwork",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Creeper Berry",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sleepy Hollow",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Party Soul",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cobweb",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Smiley",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fiesta",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Divinity",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starman",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Half Alive",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starborn",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ink Skull",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Wild Desire",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gentleman",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Void Totem",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dead Apple",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Twisted Heart",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hellfire",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Polka Dead",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dead Kitty",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cactus",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cute Monster",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Happy End",
+    "rarityPermille": 15
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phantom",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightfall",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset Veil",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubblegum",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Corpse Mint",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Deadly Sweet",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chromatic",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Death",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Frost Wraith",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Radiant",
+    "rarityPermille": 30
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Green",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Indigo Husk",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Metal Shade",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Solar Stone",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Diablo",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Herbal Glow",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brass Fossil",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tangerine",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ruby Eyes",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Deadman",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rose Quartz",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bone White",
+    "rarityPermille": 40
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Zombie",
+    "rarityPermille": 40
+  }
+]

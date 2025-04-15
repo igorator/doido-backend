@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hex Pot",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Weasley",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mythic Candy",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Masterpiece",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Designer",
+    "rarityPermille": 6
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Honeycomb",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toxic Treat",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grinch",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Oblina",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Discount",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Malfoy",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Short Circuit",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Goldium",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Demonius",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lovegood",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Argento",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hologlow",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Wave",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Old School",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cherry Charm",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightmare",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Angelius",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lazy Nap",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sticky Sweet",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sweet Deal",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Frost",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Jelly",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Mango",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starry Cane",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phantom",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lime Twist",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tropico",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Minty Mirth",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Final Offer",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet Berry",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Iceblink",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peppy Pink",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lovely Kiss",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronzy",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Polka Pop",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "New Layer",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sugar Crush",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Joker",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Negativus",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Colorfunk",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phoenix",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amber Glitter",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Bliss",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Diggory",
+    "rarityPermille": 26
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toxicane",
+    "rarityPermille": 26
+  }
+]

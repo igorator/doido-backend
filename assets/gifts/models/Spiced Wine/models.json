@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Greenwein",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Aqua Vita",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Color Theory",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Shark Attack",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Moon Rocks",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Whiskey Wine",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Vague Berry",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Vitamin C",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Over Ice",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Magenta Mix",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Cool Water",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Blueberry",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Blackout",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Capri Sun",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Pisces Sour",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Melted Ice",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Desaturated",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Pink Orange",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Cancer Collins",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Vin Virgo",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Turquoise",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Deep Blue Sea",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Night Sky",
+    "rarityPermille": 8
+  },
+  {
+    "name": "With Caution",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Gaso Green",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Indigo Orange",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Pink Colada",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Kiwi Degree",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Tea Infusion",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Thought Tonic",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Green Glitter",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Cube Libra",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Green Gradient",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Birthday Parfait",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Glitterwine",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Blue Burn",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Blue Brew",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Pink Flame",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Gluhwein",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Low Tide",
+    "rarityPermille": 13
+  },
+  {
+    "name": "South Pacific",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Yellow Pop",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Light Grape",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Tequila Sunrise",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Lightly Chilled",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Tarkhuna",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Water Spout",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Gin Gemini",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Rosemary",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Persimmon",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Golden Glow",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Magmarita",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Purple Potion",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Copper Sun",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Leonade",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Intense Indigo",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Shadow Spirit",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Hazmat",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Captain Nemo",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Indigo",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Kalamansi",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Nightbulb",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Sag Sangria",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Loading",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Absinthe",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Minty Fresh",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Tiny Trifle",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Swamp Gas",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Aries Rum",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Scorpio Sling",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Brass Monkey",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Brain Enhancer",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Black Hole",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Dark Disco",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Magenta Mist",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Taurus-tini",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Going Grape",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Love Elixir",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Milky Way",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Blood Orange",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Hot Cold",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Chocolate Cherry",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Aquarium",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Purplexed",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Citrus Punch",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Dusky Draft",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Green Energy",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Blew Bubble",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Buckwheat",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Cranberry Lime",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Scuba Dive",
+    "rarityPermille": 8
+  },
+  {
+    "name": "High Class",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Golden Goblet",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Mellow Merlot",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Dehydrated",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Lime Slice",
+    "rarityPermille": 13
+  },
+  {
+    "name": "The Grinch",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Ember Elixir",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Earl Grey",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Flaming Mint",
+    "rarityPermille": 8
+  }
+]

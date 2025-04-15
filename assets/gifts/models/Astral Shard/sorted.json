@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dark Soul",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Elven Might",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Eve’s Apple",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Excalibrite",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lovestone",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aquarium",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Muffin",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nectarite",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crystal Punk",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fractured",
+    "rarityPermille": 17
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Barbed",
+    "rarityPermille": 17
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blender",
+    "rarityPermille": 17
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ivy Vine",
+    "rarityPermille": 17
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Arctite",
+    "rarityPermille": 17
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gold 999",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Art",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gramite",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Premium",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jurassic",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Galactite",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nouveau Gold",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pure Silver",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bogartite",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Warholite",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Uranium",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moonstone",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "RGB-ite",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glowstone",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "White Opal",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "True Opal",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Black Diamond",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Labradorite",
+    "rarityPermille": 23
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Emerald",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sapphire",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ammolite",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amethyst",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ethereal",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ocean Jasper",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tourmaline",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Garnet",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Flossite",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bouquet",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ruby Fuchsite",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aquamarine",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Ruby",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Citrine",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moonlit",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunstone",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spinel",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tanzanite",
+    "rarityPermille": 24
+  }
+]

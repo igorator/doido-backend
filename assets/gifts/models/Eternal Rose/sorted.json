@@ -1,0 +1,252 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Quantum",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vivid Prize",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Atlantis",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Winter",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fracture",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glitchy Spell",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Thor-ny",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inferno",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Stolen Bloom",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Lock",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Paper Bloom",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Addams",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ink Blaze",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mystic Ink",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Smooch",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "3D Glow",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ice Artifact",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Halftone",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vampire",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pop Petal",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainglow",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silver Flower",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronze Sparkle",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sketchy",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Shine",
+    "rarityPermille": 19
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Opal Dream",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Poison Ivy",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ember Spark",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Moonstone",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lunar Charm",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Silent Bloom",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mirage",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Aurora Veil",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phantom Glow",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightfall",
+    "rarityPermille": 22
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Jade Bloom",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cobalt Magic",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fireflies",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Bloom",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gentle Magic",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Celestial Bud",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Solar Flare",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunset Jewel",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Twilight Mist",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lilac Relic",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Gilded Petal",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Midnight Glow",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Prism",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fallout",
+    "rarityPermille": 25
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mystic Frost",
+    "rarityPermille": 25
+  }
+]

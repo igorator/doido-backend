@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mon Amour",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Clown",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peachless",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Toilet Paper",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pepe Diary",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Alien Script",
+    "rarityPermille": 3
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Grimoire",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ink Splatter",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cursed Tome",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spellbook",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Enigma",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inferno",
+    "rarityPermille": 5
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Leopard",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Swatch",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Girlboss",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Springfield",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mermaid",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Princess",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Error Log",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Grid",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Star",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Brainstorm",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Trade Ledger",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Twin Stars",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Love Affair",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Smoothie",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pearlescent",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Le Club",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "True Love",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "North Pole",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hippie",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Florist",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phoenix",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Telegram",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tiger",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hologram",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Color Switch",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Metallic",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Paper Plane",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Paw Pads",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Superstar",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Snow Globe",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Executive",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Positive",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Novelist",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Starry Night",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "King Arthur",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chronicles",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lord Byron",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Anemone",
+    "rarityPermille": 10
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Savoy Blue",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Daily Blues",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Walnut",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hazelnut",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cyprus",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainbow",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Negative",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tangerine",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Indigo",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lemonade",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ranger",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Death Note",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Joker’s Notes",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "The Cutie",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Matcha",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Pink",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tutti Frutti",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Newmarket",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sunflower",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Cover",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Marmalade",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Daybook",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Oak Tree",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hipster",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hot Pink",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mustard",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Matte Black",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Watermelon",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tropical",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Jeans",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tobacco",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Central Park",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Meadow",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Timber",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crimson",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cheerleader",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fashion Doll",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Faculty",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Leather",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vice City",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Vineyard",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Marakuja",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Côte d’Azur",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sterling",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Monarch",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Skies Above",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Snow White",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Nightpad",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Coyote",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ocean Wave",
+    "rarityPermille": 13
+  }
+]

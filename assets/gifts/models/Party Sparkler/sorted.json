@@ -1,0 +1,502 @@
+[
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Power Line",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mad Chemist",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Premium",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bitcoin",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Star Time",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Superpower",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dryad Wand",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Party Hard",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "La Bomba",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bumble",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tri-Nitro",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Uranium",
+    "rarityPermille": 4
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Windy Day",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Fortune",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pika Pika",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Privacy",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Druidic",
+    "rarityPermille": 7
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Spearmint",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Peppermint",
+    "rarityPermille": 8
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lady Serenity",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bronze",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Safety First",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blueberry",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "4th of July",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sailor Moon",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Crystal",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Candy Goth",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lord Vader",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Assault",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Kenobi",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Glenda",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blue Sparks",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Golden Gun",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Le Pepe",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Holographic",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sparkly Eve",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Timebomb",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Running Hot",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Dynamite",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neo Tokyo",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sonic Blue",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Shimmer",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Birthday",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chrome",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Yoshi Green",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cupid Caster",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Carapace",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Al Capone",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Midas Party",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Chosen One",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Punk Caster",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Franky",
+    "rarityPermille": 9
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ruby Shine",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Marksman",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Teal Polish",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Polychrome",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Iris Shine",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Patina Chrome",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Copper",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cobalt",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Green Shine",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Airsoft",
+    "rarityPermille": 11
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Inverted",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Sour Gummy",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Molten Core",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bright Flare",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mint Powder",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Pink Pocky",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Luminous",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Phosphor",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Violet Rave",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mint Stick",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Rainbow",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Blueshift",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Azurite",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Anemone",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Tutti Frutti",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Lime Time",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Punk Pink",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Hot",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Green Stripe",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Burnt End",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hot Core",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Classic",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cool Hue",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Mai Tai",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hot Handle",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Ninja Turtle",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Iridescent",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Hellfire",
+    "rarityPermille": 13
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Little Fairy",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Purple Rain",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Seafoam",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Neon Pink",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Red Burst",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Amethyst",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Bubblegum",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Cyan Sizzle",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Green Light",
+    "rarityPermille": 14
+  },
+  {
+    "_": "starGiftAttributeModel",
+    "name": "Indigo Dance",
+    "rarityPermille": 14
+  }
+]

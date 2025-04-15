@@ -1,0 +1,282 @@
+[
+  {
+    "name": "The Grinch",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Frosted Sun",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Jingle Volts",
+    "rarityPermille": 2
+  },
+  {
+    "name": "All-Star",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Fireball",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Icicle",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Candy Coral",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Zesty",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Nighttime",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Jingle Bells",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Inky White",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cold Slushy",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Warm Sky",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Below Zero",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sweet Cane",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cold Limeade",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Hearth’s Fire",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Thin Ice",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lemon Sorbet",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Monosnow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Aurora Borealis",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Panda Puff",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Ice Cap",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Cherry Ice",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sunrise",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Citrus Flakes",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Warm Winter",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Peachy",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Night Sky",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lagoon",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Santa Claus",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sunset",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Minty Fresh",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Night Cap",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Festive",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Let It Go",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Royal Gleam",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Dandelion",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Mistletoe",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Holiday Spirit",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Rave",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Berry Frosty",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sleepy Claus",
+    "rarityPermille": 15
+  },
+  {
+    "name": "KFC",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Black Drops",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Warm Light",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Evergreen",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Bubbly",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Sweet Tooth",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Blueberry Mint",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Pinkie Cap",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Creamy",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Lollipop",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Mother Frost",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sweet Night",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Polar Glow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "80s TV",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Whipped Lime",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Yule Hat",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Golden Tide",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Cheery Vibe",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Pure Chill",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cold Autumn",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Minted Rose",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Dreamy",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cold Vapor",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Magic Love",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Telecap",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Rave-1",
+    "rarityPermille": 10
+  },
+  {
+    "name": "RGBling",
+    "rarityPermille": 10
+  }
+]

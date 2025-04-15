@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Celestial",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Huntsman",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Performer",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Megawatt",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Silver Glass",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Witch Doctor",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Starlight",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Elegance",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Abracadabra",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hat Toss",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Grandmaster",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Constable",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Pixel Perfect",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Hypnosis",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Lucifer",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Spectrum",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Lincoln",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Dreamwave",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Burned Brass",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Willy Wonka",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Purple Rain",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Tree Stump",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Solar System",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Edison",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Prestige",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Pickle Jar",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Victorian Era",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Crosswalk",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Limoncello",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Glam Safari",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Golden Ratio",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Leprechaun",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Charlie",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Blackjack",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Green Stars",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Bloodline",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Romantic",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Scrooge",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Clockwork",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Graphite",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Blood Veil",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sceleritas Fel",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Steampunk",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Chronos",
+    "rarityPermille": 12
+  },
+  {
+    "name": "Is It Cake?",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Brainiac",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Low Rider",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Cardinal",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Alien Invasion",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Antiquity",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Mr. Whiskers",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hippie",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Bubble Top",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Pink Bunny",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Grey Gatsby",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Bull Baron",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Submarine",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Snowstorm",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Polygon",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Uncle Sam",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Dairy Dandy",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Atlantis",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Mad Hatter",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Alabaster",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Cranberry",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Maroon",
+    "rarityPermille": 30
+  },
+  {
+    "name": "White Windsor",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Black Raven",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Maestro",
+    "rarityPermille": 30
+  },
+  {
+    "name": "Blake",
+    "rarityPermille": 15
+  }
+]

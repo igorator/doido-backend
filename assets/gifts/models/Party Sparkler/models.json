@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Inverted",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Little Fairy",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Purple Rain",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Sour Gummy",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Molten Core",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Seafoam",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Bright Flare",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Power Line",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Mad Chemist",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Mint Powder",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Neon Pink",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Ruby Shine",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Marksman",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Lady Serenity",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Bronze",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Safety First",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Blueberry",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Pink Pocky",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Windy Day",
+    "rarityPermille": 7
+  },
+  {
+    "name": "4th of July",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Sailor Moon",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Crystal",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Luminous",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Red Burst",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Candy Goth",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Lord Vader",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Phosphor",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Assault",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Kenobi",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Glenda",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Violet Rave",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Fortune",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Mint Stick",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Rainbow",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Blue Sparks",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Golden Gun",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Le Pepe",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Premium",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Superpower",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Amethyst",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Blueshift",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Bitcoin",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Holographic",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Sparkly Eve",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Timebomb",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Running Hot",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Bubblegum",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Azurite",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Anemone",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Dynamite",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Dryad Wand",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Teal Polish",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Neo Tokyo",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Party Hard",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Sonic Blue",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Spearmint",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Polychrome",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Iris Shine",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Patina Chrome",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Peppermint",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Tutti Frutti",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Cyan Sizzle",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Lime Time",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Copper",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Pika Pika",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Punk Pink",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Shimmer",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Red Hot",
+    "rarityPermille": 13
+  },
+  {
+    "name": "La Bomba",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Green Stripe",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Birthday",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Cobalt",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Burnt End",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Hot Core",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Chrome",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Privacy",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Green Light",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Yoshi Green",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Classic",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Cupid Caster",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Carapace",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Cool Hue",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Green Shine",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Mai Tai",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Bumble",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Hot Handle",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Al Capone",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Midas Party",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Chosen One",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Star Time",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Tri-Nitro",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Punk Caster",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Airsoft",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Franky",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Druidic",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Ninja Turtle",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Iridescent",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Hellfire",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Uranium",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Indigo Dance",
+    "rarityPermille": 14
+  }
+]

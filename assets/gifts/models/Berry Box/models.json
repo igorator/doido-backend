@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Purple Ribbon",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Fresh",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Rose Gold",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Gryffindor",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Glimglam",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sine Wave",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cupid",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Rawberry",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lovely Bites",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Sweet Kiss",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Refraction",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Bowtied",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Frosty Icing",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Natural",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Manga",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Alpha",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Starberry",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Berrific",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Luxury",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Infrared",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Sweet Game",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Canis Major",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Zomberry",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Berryllium",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Comic Book",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Spring",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Unicorns",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Teeth Crush",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lemon Lime",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Iridescent",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Confetti",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Mood Ring",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Anniversary",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Wedded",
+    "rarityPermille": 10
+  },
+  {
+    "name": "RGBerry",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Eiffel 95",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Rarity",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Clarity",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sketchy",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Kawaii",
+    "rarityPermille": 10
+  },
+  {
+    "name": "High Voltage",
+    "rarityPermille": 10
+  },
+  {
+    "name": "White Cocoa",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Strobe",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Lady Bites",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Nature Box",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Noir",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Chillberry",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Baubles",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Foraged",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sweet Star",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Ribbons",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Pointilism",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Art Project",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Atmosphere",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Harlequin",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Valentine",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Tuxedo",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Golden Dip",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Bumberries",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Anatomy",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lovestorm",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Glitchberry",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Megabite",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Magenta",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Lovey Dovey",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Martian",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Ice Diamond",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Extra Berry",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Milky Cows",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Paparazzi",
+    "rarityPermille": 20
+  }
+]

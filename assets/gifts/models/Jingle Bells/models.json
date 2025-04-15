@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Fire and Ice",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Uranium",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Heatwave",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Lithograph",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Spinner",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Deep Roots",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Bumblebell",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Golden Cane",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Barbie",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Blue Chrome",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Red Sparkle",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Blue Ribbon",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Pink Twilight",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Solid Gold",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Launchpad",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Woodland",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Cyber Glow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Cast Bronze",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Puppet",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Strawberry",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Elsa Bell",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Copper Pink",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Jade Jingle",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Waffle Cone",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Topsoil",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Meadow",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Tulip Time",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Color Shift",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Rainforest",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Motion Blur",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Jeweler",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Peppermint",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Yule Bells",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Ice Chime",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Lipstick",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Pink Season",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Santa Hat",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Fractal",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Lilac Chime",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Galaxy",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Red Petals",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Bellrog",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Gingerbread",
+    "rarityPermille": 7
+  },
+  {
+    "name": "LED Disco",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Brick Wall",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Fish Bowl",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Polynesia",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Conductive",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Silver Bells",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Liquid Glass",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Test Image",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Rose Gold",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Sagebrush",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Berry Bell",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Scarlet Leaf",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Saltwater",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Purple Ring",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Teal Rust",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Shiny Opal",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Old Steel",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Purple Horns",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Neon Light",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Blue Shadows",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Magnet",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Pink Crystal",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Gamer Color",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Glitch",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Antique",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Citrus Bell",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Orchid Ring",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Lothlorien",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Pink Pearl",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Inner Glow",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Dark Secret",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Ribbit",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Pale Moss",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Monochrome",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Glass Bloom",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bell Hive",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Hypno Swirl",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Cherry",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Buffering",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Nightshade",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Dusty Rose",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Purple Glass",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Classic Cane",
+    "rarityPermille": 11
+  },
+  {
+    "name": "Lichen",
+    "rarityPermille": 14
+  },
+  {
+    "name": "New Blooms",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Star Prize",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Placeholder",
+    "rarityPermille": 15
+  },
+  {
+    "name": "White Gold",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Radar",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Jam Jar",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Confection",
+    "rarityPermille": 4
+  },
+  {
+    "name": "Melting",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Glacier",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Crimson Steel",
+    "rarityPermille": 14
+  },
+  {
+    "name": "Bubble Pop",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Harlequin",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Soft Blush",
+    "rarityPermille": 15
+  }
+]

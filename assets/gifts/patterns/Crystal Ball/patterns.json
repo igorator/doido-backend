@@ -1,0 +1,554 @@
+[
+  {
+    "name": "Scarecrow",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Baphomet",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Illuminati",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Phoenix",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Carambola",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Grim Reaper",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Garden Pot",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Seahorse",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Scissors",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Pencil",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Magic Wand",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Bloody Axe",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Severed Hand",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Mushroom",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Lily",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Autumn Leaves",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Spooky Cat",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Spirit Impala",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Fire",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Treats",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Potion",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Voodoo Doll",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Bastet",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Venetian Mask",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Key",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Fish",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Sword",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bunny",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Shark Knife",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Axe",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Jellyfish",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Piggy Bank",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Lightning",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Vortex",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Fleur-de-lis",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Poison Drop",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Plume",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Sparks",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Knight",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Star",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Ghost",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Sun",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Pear",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Coin Purse",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bandage",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Hamburger",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Flashlight",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Coffin",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Cobra",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Tie",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cursor",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Jaws",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Planet",
+    "rarityPermille": 2
+  },
+  {
+    "name": "UFO",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Love Letter",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Unicorn Head",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Shield",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Pegasus",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Flying Witch",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Shooting Star",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Spades",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cupcake",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Nice Ghost",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Sprout",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Yogi Shaman",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Moon Eagle",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Twin Peaks",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Dragonfly",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Oxen of Fire",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Oak Leaf",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bell Pepper",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Moon",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Dessert",
+    "rarityPermille": 2
+  },
+  {
+    "name": "PC Mouse",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Lovely Kiss",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Police Badge",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cash",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Black Widow",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Flower Tulip",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bunny Ears",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cherry",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Monstera",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Genie Lamp",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Night Bats",
+    "rarityPermille": 24
+  },
+  {
+    "name": "The Eye",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Half Moon",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Mountain Goat",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cone",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Feather",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Maple",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cicada",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Crystal Ball",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Witch’s Hat",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Sauron",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Sunflower",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Carrot",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Lollipop",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Skull",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Money Bag",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Candle",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Evil Pumpkin",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Ladybug",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Spider Web",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Happy Smile",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Conch",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Sun Lion",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Eyeball",
+    "rarityPermille": 16
+  },
+  {
+    "name": "Hand of God",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Flower",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Owl",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Blood Drop",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Totem Bear",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Nordic Wolf",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Ram of Amun",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bottlenose",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Doberman",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Gravestone",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Sumerian Bird",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Guitar",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Fish Skeleton",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Celtic Wolf",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Gear",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Inguz Rune",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Manta Ray",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Human Scull",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Bee",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Paw",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Octopus",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Tulip",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Bow Tie",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Mafdet",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Fehu Rune",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Wolf Rage",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Boat",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Melon",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Cauldron",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Crow",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Chest",
+    "rarityPermille": 2
+  }
+]

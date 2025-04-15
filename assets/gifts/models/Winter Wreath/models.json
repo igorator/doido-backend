@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Chocolate",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Mojito",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Dragee",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Candy Cane",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Telegram",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Raspberry",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Starry Night",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Honey Dew",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Pumpkin",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Spider Web",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Bubble Gum",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Glimmer",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Harmony",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Halloween",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Sunny Bunny",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Noel Twist",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Gingerbread",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Snowman",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Tinsel",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Cheesecake",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Winter Tea",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Festivity",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Hearth",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Ornament",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Seashell",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Old Movie",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Flamingo",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Grape",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Fluffy",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hellfire",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Berry Yogurt",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Mouse",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Night Bell",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Pine Bloom",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Mulled Wine",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Butterfly",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Barbie Core",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Golden Bough",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Happy Santa",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Candles",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Crossbones",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Comics",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Lemon Cake",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Holly Leaves",
+    "rarityPermille": 7
+  },
+  {
+    "name": "Coloring Book",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Snowball",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Moon Cat",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Princess Day",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Negative",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Black Kitty",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Fireworks",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Everbright",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Rowan Berry",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Cold Night",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Cotton Candy",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Unicorn",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Evergreen",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Frosty",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Berry Meadow",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Heart Bell",
+    "rarityPermille": 9
+  },
+  {
+    "name": "Blueberry",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Wonderland",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Celebration",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Spirit",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Aquamarine",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Neon Sign",
+    "rarityPermille": 3
+  },
+  {
+    "name": "Confetti",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Sprinkles",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Festive Pepe",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Love Smoke",
+    "rarityPermille": 3
+  }
+]

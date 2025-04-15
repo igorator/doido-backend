@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Yellow Line",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Police Party",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Snow White",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Punk Forever!",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Strawberry",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Mr. Orange",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Purple Swag",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Moonglows",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Melon Blues",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Red Mirage",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Gentle Soul",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Lemonight",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Misfits",
+    "rarityPermille": 5
+  },
+  {
+    "name": "The Wall",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Poisonwave",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Eucalyptus",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Black Gold",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Folk Revival",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Vanilla Sky",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Neo-Noir",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Coldwave",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Mon Cherry",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Cameroon",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Holy Spirit",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Broken Record",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Jazz Bar",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Watermelon",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Toxic Rave",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Pink Chrome",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Happy Clown",
+    "rarityPermille": 5
+  },
+  {
+    "name": "School Disco",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Golden Record",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Milk Pop",
+    "rarityPermille": 5
+  },
+  {
+    "name": "High-End",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Passion Funk",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Fluorescent",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Birthday",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Mono Chrome",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Unicorn Pop",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hellfire",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Barbie Rock",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Iceberg",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Stardust",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Mangosteen",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Golden Blues",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Party Hard",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Chartreuse",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Electric Pink",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Sonic Fuchsia",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Fizzy Dizzy",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Winter",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Olive Groove",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Fire Show",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Hot Ruby",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Mood Swing",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Midas Jazz",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Driftwood",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Azure Dream",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Bloodbeat",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Retrowave",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Matrix",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Radio Active",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Emocore",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Jamaica",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Dark Noir",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Ladybugs",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Color Splash",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Sunny",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Bang-Bang",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Banana Split",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Candyland",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Illuminati",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Inktober",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Serenity",
+    "rarityPermille": 20
+  },
+  {
+    "name": "High Voltage",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Maroon",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Blueberry Hill",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Sakura",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Jade Beat",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Disco Fever",
+    "rarityPermille": 5
+  },
+  {
+    "name": "DJ Neon",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Pink Records",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Dragon Brute",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Neon Citrus",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Meadow",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Pink Noir",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Acid Neon",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Retro Silver",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Acid Jazz",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Neon Disco",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Inverted",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Yin-Yang",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Red Cruiser",
+    "rarityPermille": 15
+  },
+  {
+    "name": "Party Time",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Rattlesnake",
+    "rarityPermille": 10
+  },
+  {
+    "name": "Sunset Beach",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Barbie Land",
+    "rarityPermille": 2
+  },
+  {
+    "name": "Until Dusk",
+    "rarityPermille": 5
+  },
+  {
+    "name": "Velvet Draft",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Mint Vinyl",
+    "rarityPermille": 10
+  }
+]
