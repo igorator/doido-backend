@@ -4,16 +4,16 @@ import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 @Entity()
 export class Gift {
   @PrimaryColumn('text', { unique: true })
-  gift_id: string;
+  id: string;
+
+  @Column('text', { unique: true })
+  received_id: string;
 
   @Column('text')
-  received_gift_id: string;
-
-  @Column('text')
-  gift_title: string;
+  title: string;
 
   @Column('int')
-  gift_number: number;
+  number: number;
 
   @Column('text')
   model_name: string;
@@ -25,13 +25,13 @@ export class Gift {
   model_emoji: string;
 
   @Column('text')
-  symbol_name: string;
+  pattern_name: string;
 
   @Column('float')
-  symbol_rarity: number;
+  pattern_rarity: number;
 
   @Column('text')
-  symbol_emoji: string;
+  pattern_emoji: string;
 
   @Column('text')
   backdrop_name: string;
@@ -62,6 +62,9 @@ export class Gift {
 
   @Column('float', { default: null })
   sell_price: number | null;
+
+  @Column('date', { default: null })
+  sell_date: Date | null;
 
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })

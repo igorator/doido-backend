@@ -15,6 +15,9 @@ export class User {
   @Column('float', { default: 0 })
   ton_balance: number;
 
-  @OneToMany(() => Gift, (gift) => gift.gift_id)
+  @Column('float', { default: 0 })
+  total_market_amount: number;
+
+  @OneToMany(() => Gift, (gift) => gift.id)
   gifts: Gift[];
 }

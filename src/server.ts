@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // ✅ Fix CORS
+app.use(cors());
 app.use(express.json());
 
 const assetsPath = path.resolve(__dirname, '../assets');
