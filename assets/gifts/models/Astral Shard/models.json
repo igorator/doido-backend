@@ -1,5 +1,85 @@
 [
   {
+    "name": "Labradorite",
+    "rarityPermille": 23
+  },
+  {
+    "name": "Warholite",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Gold 999",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Fractured",
+    "rarityPermille": 17
+  },
+  {
+    "name": "Muffin",
+    "rarityPermille": 13
+  },
+  {
+    "name": "Citrine",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Amethyst",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Candy Flossite",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Pure Silver",
+    "rarityPermille": 20
+  },
+  {
+    "name": "White Opal",
+    "rarityPermille": 23
+  },
+  {
+    "name": "Moonlit",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Tourmaline",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Ruby Fuchsite",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Arctite",
+    "rarityPermille": 17
+  },
+  {
+    "name": "Bogartite",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Elven Might",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Spinel",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Ammolite",
+    "rarityPermille": 24
+  },
+  {
+    "name": "True Opal",
+    "rarityPermille": 23
+  },
+  {
+    "name": "Jurassic",
+    "rarityPermille": 20
+  },
+  {
     "name": "Emerald",
     "rarityPermille": 24
   },
@@ -8,31 +88,19 @@
     "rarityPermille": 24
   },
   {
-    "name": "Ammolite",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Fractured",
-    "rarityPermille": 17
-  },
-  {
-    "name": "Excalibrite",
-    "rarityPermille": 13
-  },
-  {
-    "name": "Moonstone",
+    "name": "Black Diamond",
     "rarityPermille": 23
   },
   {
-    "name": "Gold 999",
-    "rarityPermille": 20
+    "name": "Tanzanite",
+    "rarityPermille": 24
   },
   {
-    "name": "Silver Art",
-    "rarityPermille": 20
+    "name": "Crystal Punk",
+    "rarityPermille": 13
   },
   {
-    "name": "Lovestone",
+    "name": "Nectarite",
     "rarityPermille": 13
   },
   {
@@ -40,155 +108,19 @@
     "rarityPermille": 13
   },
   {
-    "name": "Amethyst",
-    "rarityPermille": 24
+    "name": "Excalibrite",
+    "rarityPermille": 13
   },
   {
-    "name": "Ethereal",
-    "rarityPermille": 24
+    "name": "Lovestone",
+    "rarityPermille": 13
   },
   {
     "name": "Ocean Jasper",
     "rarityPermille": 24
   },
   {
-    "name": "Dark Soul",
-    "rarityPermille": 8
-  },
-  {
-    "name": "Tourmaline",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Gramite",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Premium",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Barbed",
-    "rarityPermille": 17
-  },
-  {
-    "name": "Garnet",
-    "rarityPermille": 24
-  },
-  {
-    "name": "RGB-ite",
-    "rarityPermille": 23
-  },
-  {
-    "name": "Jurassic",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Blender",
-    "rarityPermille": 17
-  },
-  {
-    "name": "Candy Flossite",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Muffin",
-    "rarityPermille": 13
-  },
-  {
-    "name": "Ivy Vine",
-    "rarityPermille": 17
-  },
-  {
-    "name": "Bouquet",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Glowstone",
-    "rarityPermille": 23
-  },
-  {
-    "name": "Galactite",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Nectarite",
-    "rarityPermille": 13
-  },
-  {
-    "name": "White Opal",
-    "rarityPermille": 23
-  },
-  {
-    "name": "Ruby Fuchsite",
-    "rarityPermille": 24
-  },
-  {
-    "name": "True Opal",
-    "rarityPermille": 23
-  },
-  {
-    "name": "Nouveau Gold",
-    "rarityPermille": 20
-  },
-  {
     "name": "Aquamarine",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Pure Silver",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Red Ruby",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Bogartite",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Citrine",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Black Diamond",
-    "rarityPermille": 23
-  },
-  {
-    "name": "Crystal Punk",
-    "rarityPermille": 13
-  },
-  {
-    "name": "Elven Might",
-    "rarityPermille": 8
-  },
-  {
-    "name": "Moonlit",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Arctite",
-    "rarityPermille": 17
-  },
-  {
-    "name": "Sunstone",
-    "rarityPermille": 24
-  },
-  {
-    "name": "Eve’s Apple",
-    "rarityPermille": 8
-  },
-  {
-    "name": "Warholite",
-    "rarityPermille": 20
-  },
-  {
-    "name": "Labradorite",
-    "rarityPermille": 23
-  },
-  {
-    "name": "Spinel",
     "rarityPermille": 24
   },
   {
@@ -196,7 +128,75 @@
     "rarityPermille": 20
   },
   {
-    "name": "Tanzanite",
+    "name": "Moonstone",
+    "rarityPermille": 23
+  },
+  {
+    "name": "Galactite",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Premium",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Red Ruby",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Nouveau Gold",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Barbed",
+    "rarityPermille": 17
+  },
+  {
+    "name": "Silver Art",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Ivy Vine",
+    "rarityPermille": 17
+  },
+  {
+    "name": "Sunstone",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Ethereal",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Blender",
+    "rarityPermille": 17
+  },
+  {
+    "name": "Glowstone",
+    "rarityPermille": 23
+  },
+  {
+    "name": "RGB-ite",
+    "rarityPermille": 23
+  },
+  {
+    "name": "Gramite",
+    "rarityPermille": 20
+  },
+  {
+    "name": "Eve’s Apple",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Dark Soul",
+    "rarityPermille": 8
+  },
+  {
+    "name": "Garnet",
+    "rarityPermille": 24
+  },
+  {
+    "name": "Bouquet",
     "rarityPermille": 24
   }
 ]
