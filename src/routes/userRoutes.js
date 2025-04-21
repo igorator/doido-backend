@@ -3,6 +3,6 @@ import { addUser } from '../controllers/userController/addUser';
 
 const router = Router();
 
-router.post('/users', addUser);
+router.post('/', addUser);
 
 export default router;
