@@ -7,10 +7,13 @@ export class User {
   id: number;
 
   @Column('text')
-  user_name: string;
+  username: string;
 
-  @Column('text', { unique: true })
-  chat_id: string;
+  @Column('text', { nullable: true })
+  first_name: string;
+
+  @Column('boolean', { default: false })
+  allows_write_to_pm: boolean;
 
   @Column('float', { default: 0 })
   ton_balance: number;

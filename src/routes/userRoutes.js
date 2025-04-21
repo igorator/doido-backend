@@ -1,9 +1,8 @@
 import { Router } from 'express';
 import { addUser } from '../controllers/userController/addUser';
-import { verifyTelegramHash } from '../middlewares/middleware';
 
 const router = Router();
 
-router.post('/users', verifyTelegramHash, addUser);
+router.post('/users', addUser);
 
 export default router;
