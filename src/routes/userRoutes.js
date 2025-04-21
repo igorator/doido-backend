@@ -4,6 +4,6 @@ import { verifyTelegramHash } from '../middlewares/middleware';
 
 const router = Router();
 
-router.post('/', verifyTelegramHash, addUser);
+router.post('/users', verifyTelegramHash, addUser);
 
 export default router;
