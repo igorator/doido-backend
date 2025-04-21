@@ -4,6 +4,9 @@
   "description": "Gift Transfer Bot using TDLib, TypeORM and TypeScript",
   "main": "src/app.js",
   "type": "module",
+  "author": {
+    "name": "Ihor Kliushnyk"
+  },
   "scripts": {
     "start": "tsx src/app.ts",
     "dev": "tsx watch src/app.ts"
