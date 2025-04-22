@@ -11,6 +11,7 @@ export const getGifts = async (req, res) => {
       min_price,
       max_price,
       sort,
+      gift_id,
     } = req.query;
 
     console.log(req.query);
@@ -22,7 +23,7 @@ export const getGifts = async (req, res) => {
     if (backdrop) where['backdrop_name'] = Like(`%${backdrop}%`);
     if (is_published !== undefined)
       where['is_published'] = is_published === 'true';
-
+    if (gift_id) where['gift_number'] = Number(gift_id);
     if (min_price || max_price) {
       if (min_price) where['sell_price'] = MoreThanOrEqual(Number(min_price));
       if (max_price) {
@@ -41,9 +42,9 @@ export const getGifts = async (req, res) => {
         : sort === 'latest'
         ? { gift_number: 'DESC' }
         : sort === 'id-asc'
-        ? { gift_id: 'ASC' }
+        ? { gift_number: 'ASC' }
         : sort === 'id-desc'
-        ? { gift_id: 'DESC' }
+        ? { gift_number: 'DESC' }
         : {};
 
     const gifts = await giftRepository.find({ where, order });
