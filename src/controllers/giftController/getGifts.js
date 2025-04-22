@@ -23,7 +23,7 @@ export const getGifts = async (req, res) => {
     if (backdrop) where['backdrop_name'] = Like(`%${backdrop}%`);
     if (is_published !== undefined)
       where['is_published'] = is_published === 'true';
-    if (gift_id) where['gift_number'] = Number(gift_id);
+    if (gift_id) where['number'] = Number(gift_id);
     if (min_price || max_price) {
       if (min_price) where['sell_price'] = MoreThanOrEqual(Number(min_price));
       if (max_price) {
@@ -51,6 +51,7 @@ export const getGifts = async (req, res) => {
 
     res.json(gifts);
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       message: 'Ошибка при получении подарков',
       error: err.message,
