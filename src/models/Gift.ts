@@ -7,7 +7,7 @@ export class Gift {
   id: string;
 
   @Column('text')
-  title: string;
+  collection_name: string;
 
   @Column('int')
   number: number;

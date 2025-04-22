@@ -3,11 +3,21 @@ import { Like, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 
 export const getGifts = async (req, res) => {
   try {
-    const { model, backdrop, is_published, min_price, max_price, sort } =
-      req.query;
+    const {
+      collection,
+      model,
+      backdrop,
+      is_published,
+      min_price,
+      max_price,
+      sort,
+    } = req.query;
+
+    console.log(req.query);
 
     const where = {};
 
+    if (collection) where['collection_name'] = Like(`%${collection}%`);
     if (model) where['model_name'] = Like(`%${model}%`);
     if (backdrop) where['backdrop_name'] = Like(`%${backdrop}%`);
     if (is_published !== undefined)
