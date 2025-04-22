@@ -40,11 +40,11 @@ export const getGifts = async (req, res) => {
         : sort === 'price-desc'
         ? { sell_price: 'DESC' }
         : sort === 'latest'
-        ? { gift_number: 'DESC' }
+        ? { number: 'DESC' }
         : sort === 'id-asc'
-        ? { gift_number: 'ASC' }
+        ? { number: 'ASC' }
         : sort === 'id-desc'
-        ? { gift_number: 'DESC' }
+        ? { number: 'DESC' }
         : {};
 
     const gifts = await giftRepository.find({ where, order });
