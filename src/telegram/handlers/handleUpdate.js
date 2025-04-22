@@ -1,6 +1,7 @@
 import { TELEGRAM_USER_ID } from '../config/telegramConfig.js';
 import { addGift } from '../../controllers/giftController/addGift.js';
 import { userRepository } from '../../database/repositories/userRepository.js';
+import { giftRepository } from '../../database/repositories/giftRepository.js';
 
 export const handleUpdate = async (update) => {
   if (
@@ -38,6 +39,8 @@ export const handleUpdate = async (update) => {
     console.log(
       `📥 Мне пришёл улучшенный подарок от пользователя: ${senderId}`,
     );
+
+    console.log('🎁 Подарок:', gift);
 
     const user = await userRepository.findOneBy({ id: senderId });
 

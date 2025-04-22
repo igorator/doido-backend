@@ -38,6 +38,8 @@ export const getGifts = async (req, res) => {
 
     const gifts = await giftRepository.find({ where, order });
 
+    console.log(res);
+
     res.json(gifts);
   } catch (err) {
     res.status(500).json({

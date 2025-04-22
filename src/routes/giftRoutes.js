@@ -7,8 +7,8 @@ import {
 
 const router = Router();
 
-router.get('/gifts', getGifts);
-router.get('/gifts/:id', getGiftById);
-router.get('/user/:userId', getUserGifts);
+router.get('/', getGifts);
+router.get('/:id', getGiftById);
+router.get('/:userId', getUserGifts);
 
 export default router;

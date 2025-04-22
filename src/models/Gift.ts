@@ -57,7 +57,7 @@ export class Gift {
   @Column('text')
   thumbnail_remote_id: string;
 
-  @Column('boolean')
+  @Column('boolean', { default: false })
   is_published: boolean;
 
   @Column('float', { default: null })

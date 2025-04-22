@@ -3,6 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import userRouter from './routes/userRoutes';
+import giftRouter from './routes/giftRoutes';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use('/users', userRouter);
+app.use('/gifts', giftRouter);
 
 const assetsPath = path.resolve(__dirname, '../assets');
 app.use('/assets', express.static(assetsPath));
