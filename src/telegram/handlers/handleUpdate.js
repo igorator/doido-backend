@@ -40,8 +40,6 @@ export const handleUpdate = async (update) => {
       `📥 Мне пришёл улучшенный подарок от пользователя: ${senderId}`,
     );
 
-    console.log('🎁 Подарок:', gift);
-
     const user = await userRepository.findOneBy({ id: senderId });
 
     if (!user) {

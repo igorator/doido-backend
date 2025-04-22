@@ -7,9 +7,10 @@ export const addGift = async (giftData, user) => {
 
   const { id, title, number, model, symbol, backdrop } = giftData;
 
+  console.log(JSON.stringify(giftData, null, 2));
+
   const gift = giftRepository.create({
     id,
-    received_id: giftData.received_gift_id ?? '',
     title,
     number,
     model_name: model?.name ?? '',

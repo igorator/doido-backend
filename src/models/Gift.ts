@@ -6,9 +6,6 @@ export class Gift {
   @PrimaryColumn('text', { unique: true })
   id: string;
 
-  @Column('text', { unique: true })
-  received_id: string;
-
   @Column('text')
   title: string;
 
