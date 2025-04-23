@@ -12,9 +12,9 @@ export const getGifts = async (req, res) => {
       max_price,
       sort,
       gift_id,
+      owner_id,
     } = req.query;
 
-    // 💡 Приводим типы
     const collections = Array.isArray(collection)
       ? collection
       : collection
@@ -22,6 +22,14 @@ export const getGifts = async (req, res) => {
       : [];
 
     const baseFilters = {};
+
+    if (owner_id) {
+      baseFilters['owner.id'] = Number(owner_id);
+    }
+
+    if (typeof listed !== 'undefined') {
+      baseFilters['is_listed'] = listed === 'true';
+    }
 
     if (model) {
       baseFilters['model.name'] = Like(`%${model}%`);
