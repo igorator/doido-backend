@@ -14,24 +14,45 @@ export const getGifts = async (req, res) => {
       gift_id,
     } = req.query;
 
-    console.log(req.query);
+    // 💡 Приводим типы
+    const collections = Array.isArray(collection)
+      ? collection
+      : collection
+      ? [collection]
+      : [];
 
-    const where = {};
+    const baseFilters = {};
 
-    if (collection) where['collection_name'] = Like(`%${collection}%`);
-    if (model) where['model_name'] = Like(`%${model}%`);
-    if (backdrop) where['backdrop_name'] = Like(`%${backdrop}%`);
-    if (is_published !== undefined)
-      where['is_published'] = is_published === 'true';
-    if (gift_id) where['number'] = Number(gift_id);
+    if (model) {
+      baseFilters['model.name'] = Like(`%${model}%`);
+    }
+
+    if (backdrop) {
+      baseFilters['backdrop.name'] = Like(`%${backdrop}%`);
+    }
+
+    if (typeof is_published !== 'undefined') {
+      baseFilters['is_listed'] = is_published === 'true';
+    }
+
+    if (gift_id) {
+      baseFilters['number'] = Number(gift_id);
+    }
+
     if (min_price || max_price) {
-      if (min_price) where['sell_price'] = MoreThanOrEqual(Number(min_price));
-      if (max_price) {
-        where['sell_price'] = {
-          ...(where['sell_price'] || {}),
-          ...LessThanOrEqual(Number(max_price)),
-        };
-      }
+      const priceFilters = {};
+      if (min_price) priceFilters['$gte'] = Number(min_price);
+      if (max_price) priceFilters['$lte'] = Number(max_price);
+
+      baseFilters['sell_price'] =
+        priceFilters['$gte'] && priceFilters['$lte']
+          ? {
+              ...MoreThanOrEqual(priceFilters['$gte']),
+              ...LessThanOrEqual(priceFilters['$lte']),
+            }
+          : priceFilters['$gte']
+          ? MoreThanOrEqual(priceFilters['$gte'])
+          : LessThanOrEqual(priceFilters['$lte']);
     }
 
     const order =
@@ -47,12 +68,21 @@ export const getGifts = async (req, res) => {
         ? { number: 'DESC' }
         : {};
 
+    // 🧠 Основной where
+    const where =
+      collections.length > 0
+        ? collections.map((col) => ({
+            ...baseFilters,
+            collection_name: Like(`%${col}%`),
+          }))
+        : baseFilters;
+
     const gifts = await giftRepository.find({ where, order });
 
-    res.json(gifts);
+    return res.json(gifts);
   } catch (err) {
-    console.log(err);
-    res.status(500).json({
+    console.error('❌ Ошибка при получении подарков:', err);
+    return res.status(500).json({
       message: 'Ошибка при получении подарков',
       error: err.message,
     });

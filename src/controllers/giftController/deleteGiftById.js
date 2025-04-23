@@ -2,14 +2,16 @@ import { giftRepository } from '../../database/repositories/giftRepository';
 
 export const deleteGiftById = async (req, res) => {
   try {
-    const gift = await giftRepository.findOneBy({
-      id: parseInt(req.params.id),
-    });
+    const giftId = req.params.id;
+
+    const gift = await giftRepository.findOneBy({ id: giftId });
+
     if (!gift) {
       return res
         .status(404)
         .json({ message: 'Подарок не найден для удаления' });
     }
+
     await giftRepository.remove(gift);
     res.json({ message: 'Подарок успешно удалён' });
   } catch (err) {

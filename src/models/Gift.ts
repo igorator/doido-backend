@@ -1,5 +1,47 @@
-import { User } from './User';
 import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { User } from './User';
+
+class Model {
+  @Column('text')
+  name: string;
+
+  @Column('float')
+  rarity: number;
+
+  @Column('text')
+  emoji: string;
+}
+
+class Pattern {
+  @Column('text')
+  name: string;
+
+  @Column('float')
+  rarity: number;
+
+  @Column('text')
+  emoji: string;
+}
+
+class Backdrop {
+  @Column('text')
+  name: string;
+
+  @Column('float')
+  rarity: number;
+
+  @Column('text')
+  center_color: string;
+
+  @Column('text')
+  edge_color: string;
+
+  @Column('text')
+  symbol_color: string;
+
+  @Column('text')
+  text_color: string;
+}
 
 @Entity()
 export class Gift {
@@ -12,56 +54,23 @@ export class Gift {
   @Column('int')
   number: number;
 
-  @Column('text')
-  model_name: string;
+  @Column(() => Model, { prefix: 'model' })
+  model: Model;
 
-  @Column('float')
-  model_rarity: number;
+  @Column(() => Pattern, { prefix: 'pattern' })
+  pattern: Pattern;
 
-  @Column('text')
-  model_emoji: string;
-
-  @Column('text')
-  pattern_name: string;
-
-  @Column('float')
-  pattern_rarity: number;
-
-  @Column('text')
-  pattern_emoji: string;
-
-  @Column('text')
-  backdrop_name: string;
-
-  @Column('float')
-  backdrop_rarity: number;
-
-  @Column('text')
-  backdrop_center_color: string;
-
-  @Column('text')
-  backdrop_edge_color: string;
-
-  @Column('text')
-  backdrop_symbol_color: string;
-
-  @Column('text')
-  backdrop_text_color: string;
-
-  @Column('text')
-  sticker_remote_id: string;
-
-  @Column('text')
-  thumbnail_remote_id: string;
-
-  @Column('boolean', { default: false })
-  is_published: boolean;
+  @Column(() => Backdrop, { prefix: 'backdrop' })
+  backdrop: Backdrop;
 
   @Column('float', { default: null })
   sell_price: number | null;
 
+  @Column('boolean', { default: false })
+  is_listed: boolean;
+
   @Column('date', { default: null })
-  sell_date: Date | null;
+  listed_date: Date | null;
 
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
