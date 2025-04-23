@@ -1,5 +1,5 @@
 import { giftRepository } from '../../database/repositories/giftRepository';
-import { Like, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
+import { Like, In, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 
 export const getGifts = async (req, res) => {
   try {
@@ -7,18 +7,36 @@ export const getGifts = async (req, res) => {
       collection,
       model,
       backdrop,
+      pattern,
       is_published,
       min_price,
       max_price,
       sort,
       gift_id,
       owner_id,
+      listed,
     } = req.query;
+
+    console.log('🔍 Параметры запроса:', req.query);
 
     const collections = Array.isArray(collection)
       ? collection
       : collection
       ? [collection]
+      : [];
+
+    const models = Array.isArray(model) ? model : model ? [model] : [];
+
+    const backdrops = Array.isArray(backdrop)
+      ? backdrop
+      : backdrop
+      ? [backdrop]
+      : [];
+
+    const patterns = Array.isArray(pattern)
+      ? pattern
+      : pattern
+      ? [pattern]
       : [];
 
     const baseFilters = {};
@@ -31,16 +49,8 @@ export const getGifts = async (req, res) => {
       baseFilters['is_listed'] = listed === 'true';
     }
 
-    if (model) {
-      baseFilters['model.name'] = Like(`%${model}%`);
-    }
-
-    if (backdrop) {
-      baseFilters['backdrop.name'] = Like(`%${backdrop}%`);
-    }
-
     if (typeof is_published !== 'undefined') {
-      baseFilters['is_listed'] = is_published === 'true';
+      baseFilters['is_published'] = is_published === 'true';
     }
 
     if (gift_id) {
@@ -48,19 +58,14 @@ export const getGifts = async (req, res) => {
     }
 
     if (min_price || max_price) {
-      const priceFilters = {};
-      if (min_price) priceFilters['$gte'] = Number(min_price);
-      if (max_price) priceFilters['$lte'] = Number(max_price);
-
-      baseFilters['sell_price'] =
-        priceFilters['$gte'] && priceFilters['$lte']
-          ? {
-              ...MoreThanOrEqual(priceFilters['$gte']),
-              ...LessThanOrEqual(priceFilters['$lte']),
-            }
-          : priceFilters['$gte']
-          ? MoreThanOrEqual(priceFilters['$gte'])
-          : LessThanOrEqual(priceFilters['$lte']);
+      if (min_price && max_price) {
+        baseFilters['sell_price'] = MoreThanOrEqual(Number(min_price));
+        baseFilters['sell_price'] = LessThanOrEqual(Number(max_price));
+      } else if (min_price) {
+        baseFilters['sell_price'] = MoreThanOrEqual(Number(min_price));
+      } else if (max_price) {
+        baseFilters['sell_price'] = LessThanOrEqual(Number(max_price));
+      }
     }
 
     const order =
@@ -76,14 +81,23 @@ export const getGifts = async (req, res) => {
         ? { number: 'DESC' }
         : {};
 
-    // 🧠 Основной where
     const where =
       collections.length > 0
         ? collections.map((col) => ({
             ...baseFilters,
             collection_name: Like(`%${col}%`),
+            ...(models.length > 0 && { 'model.name': In(models) }),
+            ...(backdrops.length > 0 && { 'backdrop.name': In(backdrops) }),
+            ...(patterns.length > 0 && { 'pattern.name': In(patterns) }),
           }))
-        : baseFilters;
+        : [
+            {
+              ...baseFilters,
+              ...(models.length > 0 && { 'model.name': In(models) }),
+              ...(backdrops.length > 0 && { 'backdrop.name': In(backdrops) }),
+              ...(patterns.length > 0 && { 'pattern.name': In(patterns) }),
+            },
+          ];
 
     const gifts = await giftRepository.find({ where, order });
 
