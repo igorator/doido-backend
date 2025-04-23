@@ -3,8 +3,8 @@ import { Gift } from './Gift';
 
 @Entity()
 export class User {
-  @PrimaryColumn('int')
-  id: number;
+  @PrimaryColumn('text')
+  id: string;
 
   @Column('text')
   username: string;
