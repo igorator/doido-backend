@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 
-// Сервисная логика
 const listGiftForSaleService = async (id: string, price: number) => {
   const gift = await giftRepository.findOne({
     where: { id },
@@ -16,7 +15,6 @@ const listGiftForSaleService = async (id: string, price: number) => {
 
   const updatedGift = await giftRepository.save(gift);
 
-  // Убираем потенциальную рекурсию
   if (updatedGift.owner) {
     delete updatedGift.owner.gifts;
   }
@@ -40,7 +38,6 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
       return res.status(404).json({ error: 'Gift not found' });
     }
 
-    // Возвращаем очищенный объект
     return res.json({
       id: gift.id,
       collection_name: gift.collection_name,

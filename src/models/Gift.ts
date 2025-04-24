@@ -72,7 +72,7 @@ export class Gift {
   @Column('date', { default: null })
   listed_date: Date | null;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
   owner: User;
 }

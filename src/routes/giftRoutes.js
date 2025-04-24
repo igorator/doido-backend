@@ -4,6 +4,7 @@ import {
   getGiftById,
   getUserGifts,
   listGiftForSaleById,
+  unlistGiftFromSaleById,
 } from '../controllers/giftController';
 
 const router = Router();
@@ -13,5 +14,6 @@ router.get('/gift/:id', getGiftById);
 router.get('/user/:userId', getUserGifts);
 
 router.patch('/:id/list', listGiftForSaleById);
+router.patch('/:id/unlist', unlistGiftFromSaleById);
 
 export default router;
