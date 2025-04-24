@@ -20,7 +20,8 @@ export const unlistGiftFromSaleById = async (
     }
 
     gift.is_listed = false;
-    gift.sell_price = null;
+    gift.sell_price = 0;
+    gift.sell_price_with_fee = 0;
     gift.listed_date = null;
 
     const updatedGift: Gift = await giftRepository.save(gift);

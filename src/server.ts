@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
+import pricigRouter from './routes/pricingRoutes';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
+app.use('/pricing', pricigRouter);
 
 const assetsPath = path.resolve(__dirname, '../assets');
 app.use('/assets', express.static(assetsPath));

@@ -63,8 +63,11 @@ export class Gift {
   @Column(() => Backdrop, { prefix: 'backdrop' })
   backdrop: Backdrop;
 
-  @Column('float', { default: null })
-  sell_price: number | null;
+  @Column('float', { default: 0 })
+  sell_price: number;
+
+  @Column('float', { default: 0 })
+  sell_price_with_fee: number;
 
   @Column('boolean', { default: false })
   is_listed: boolean;
