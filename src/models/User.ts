@@ -21,6 +21,6 @@ export class User {
   @Column('float', { default: 0 })
   total_market_amount: number;
 
-  @OneToMany(() => Gift, (gift) => gift.id)
+  @OneToMany(() => Gift, (gift) => gift.owner)
   gifts: Gift[];
 }
