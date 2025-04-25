@@ -3,10 +3,11 @@ import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitDa
 import { userRepository } from '../../database/repositories/userRepository';
 
 export const authTelegramUser = async (req: Request, res: Response) => {
+  console.log(144444444444444444444444444444444444444444);
+  console.log(req);
+
   try {
     const { initData } = req.query;
-
-    console.log(req.query);
 
     if (typeof initData !== 'string') {
       return res.status(400).json({ error: 'Missing or invalid initData' });
