@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { calculateSellerReceivesFromBuyerAmount } from '../../lib/pricing';
+import { calculateSellerReceivesFromBuyerAmount } from '../../shared/lib/pricing';
 
 export const getSellerReceivesByBuyerPrice = (req: Request, res: Response) => {
   const amount = Number(req.query.amount);

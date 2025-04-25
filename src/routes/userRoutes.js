@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { addUser } from '../controllers/userController/addUser';
+import { addTelegramUser } from '../controllers/userController/addTelegramUser';
 
 const router = Router();
 
-router.post('/', addUser);
+router.post('/', addTelegramUser);
 
 export default router;
