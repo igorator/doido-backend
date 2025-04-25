@@ -6,6 +6,8 @@ export const authTelegramUser = async (req: Request, res: Response) => {
   try {
     const { initData } = req.query;
 
+    console.log(req.query);
+
     if (typeof initData !== 'string') {
       return res.status(400).json({ error: 'Missing or invalid initData' });
     }
@@ -23,7 +25,6 @@ export const authTelegramUser = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'User field missing in initData' });
     }
 
-    // 2. Парсим TelegramUserData
     const rawUser = JSON.parse(parsed.user as string);
 
     if (!rawUser?.id) {
@@ -45,7 +46,6 @@ export const authTelegramUser = async (req: Request, res: Response) => {
       ? await userRepository.save({ ...existing, ...userData })
       : await userRepository.save(userRepository.create(userData));
 
-    // 4. Возврат
     return res.status(200).json({ user: savedUser });
   } catch (err) {
     console.warn('❌ Telegram auth failed:', err);
