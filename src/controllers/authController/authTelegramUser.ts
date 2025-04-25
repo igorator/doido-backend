@@ -3,7 +3,7 @@ import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitDa
 import { userRepository } from '../../database/repositories/userRepository';
 
 export const authTelegramUser = async (req: Request, res: Response) => {
-  console.log(144444444444444444444444444444444444444444);
+  console.log(1444444);
   console.log(req);
 
   try {
