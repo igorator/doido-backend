@@ -1,66 +1,41 @@
 import type { Request, Response } from 'express';
 import dotenv from 'dotenv';
-import crypto from 'crypto';
 import { userRepository } from '../../database/repositories/userRepository';
+import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitData';
 
 dotenv.config();
 
 export const authTelegramUser = async (req: Request, res: Response) => {
   try {
     const token = process.env.TELEGRAM_BOT_TOKEN;
-    if (!token) {
-      throw new Error('TELEGRAM_BOT_TOKEN is not defined');
-    }
+    if (!token) throw new Error('TELEGRAM_BOT_TOKEN is not defined');
 
-    const query = req.query as Record<string, string>;
+    const params = req.query as Record<string, string>;
+    const { valid, reason, user } = checkTelegramInitData(params, token);
 
-    const { hash, ...params } = query;
-    if (!hash) {
-      return res.status(400).json({ error: 'Missing hash parameter' });
-    }
-
-    const dataCheckString = Object.keys(params)
-      .sort()
-      .map((key) => `${key}=${params[key]}`)
-      .join('\n');
-
-    // 2. Генерируем хэш
-    const secretKey = crypto
-      .createHmac('sha256', 'WebAppData')
-      .update(token)
-      .digest();
-
-    const calculatedHash = crypto
-      .createHmac('sha256', secretKey)
-      .update(dataCheckString)
-      .digest('hex');
-
-    if (calculatedHash !== hash) {
-      return res.status(403).json({ error: 'Invalid Telegram initData hash' });
-    }
-
-    const rawUser = JSON.parse(params.user);
-    if (!rawUser?.id) {
-      return res.status(400).json({ error: 'Invalid Telegram user data' });
+    if (!valid || !user) {
+      console.warn('❌ Invalid initData:', reason);
+      return res.status(403).json({ error: 'Invalid Telegram auth' });
     }
 
     const userData = {
-      id: String(rawUser.id),
-      username: rawUser.username ?? null,
-      first_name: rawUser.first_name ?? null,
-      last_name: rawUser.last_name ?? null,
-      photo_url: rawUser.photo_url ?? null,
-      allows_write_to_pm: rawUser.allows_write_to_pm ?? true,
+      id: String(user.id),
+      username: user.username ?? null,
+      first_name: user.first_name ?? null,
+      last_name: user.last_name ?? null,
+      photo_url: user.photo_url ?? null,
+      allows_write_to_pm: user.allows_write_to_pm ?? true,
     };
 
     const existing = await userRepository.findOneBy({ id: userData.id });
+
     const savedUser = existing
       ? await userRepository.save({ ...existing, ...userData })
       : await userRepository.save(userRepository.create(userData));
 
     return res.status(200).json({ user: savedUser });
   } catch (err) {
-    console.warn('❌ Telegram auth failed:', err);
+    console.warn('❌ Telegram auth error:', err);
     return res.status(403).json({ error: 'Unauthorized' });
   }
 };

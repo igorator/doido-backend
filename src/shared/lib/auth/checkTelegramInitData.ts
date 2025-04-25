@@ -1,37 +1,40 @@
 import crypto from 'crypto';
-import querystring from 'querystring';
 
-export const checkTelegramInitData = (
-  initData: string,
+export function checkTelegramInitData(
+  params: Record<string, string>,
   botToken: string,
-): Record<string, string> => {
-  const parsed = querystring.parse(initData);
-  const hash = parsed.hash as string;
+): { valid: boolean; reason?: string; user?: any } {
+  const { hash, ...rest } = params;
+  if (!hash) return { valid: false, reason: 'Missing hash' };
 
-  if (!hash) {
-    throw new Error('Missing initData hash');
-  }
-
-  delete parsed.hash;
-
-  const dataCheckString = Object.keys(parsed)
+  // 1. Формируем строку проверки
+  const dataCheckString = Object.keys(rest)
     .sort()
-    .map((key) => `${key}=${parsed[key]}`)
+    .map((key) => `${key}=${rest[key]}`)
     .join('\n');
 
+  // 2. Секретный ключ
   const secretKey = crypto
     .createHmac('sha256', 'WebAppData')
     .update(botToken)
     .digest();
 
-  const computedHash = crypto
+  // 3. Хеш
+  const calculatedHash = crypto
     .createHmac('sha256', secretKey)
     .update(dataCheckString)
     .digest('hex');
 
-  if (computedHash !== hash) {
-    throw new Error('Invalid Telegram initData hash');
+  if (calculatedHash !== hash) {
+    return { valid: false, reason: 'Hash mismatch' };
   }
 
-  return parsed as Record<string, string>;
-};
+  if (!rest.user) return { valid: false, reason: 'Missing user' };
+
+  try {
+    const user = JSON.parse(rest.user);
+    return { valid: true, user };
+  } catch {
+    return { valid: false, reason: 'Invalid JSON in user field' };
+  }
+}
