@@ -1,11 +1,11 @@
 import type { Request, Response } from 'express';
+import dotenv from 'dotenv';
 import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitData';
 import { userRepository } from '../../database/repositories/userRepository';
 
-export const authTelegramUser = async (req: Request, res: Response) => {
-  console.log(1444444);
-  console.log(req);
+dotenv.config();
 
+export const authTelegramUser = async (req: Request, res: Response) => {
   try {
     const { initData } = req.query;
 
@@ -13,12 +13,10 @@ export const authTelegramUser = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Missing or invalid initData' });
     }
 
-    if (initData.length < 10) {
-      return res.status(400).json({ error: 'initData too short' });
-    }
+    const decoded = decodeURIComponent(initData);
 
     const parsed = checkTelegramInitData(
-      initData,
+      decoded,
       process.env.TELEGRAM_BOT_TOKEN!,
     );
 
