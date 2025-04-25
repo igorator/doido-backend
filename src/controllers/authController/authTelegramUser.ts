@@ -1,31 +1,45 @@
 import type { Request, Response } from 'express';
 import dotenv from 'dotenv';
-import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitData';
+import crypto from 'crypto';
 import { userRepository } from '../../database/repositories/userRepository';
 
 dotenv.config();
 
 export const authTelegramUser = async (req: Request, res: Response) => {
   try {
-    const { initData } = req.query;
-
-    if (typeof initData !== 'string') {
-      return res.status(400).json({ error: 'Missing or invalid initData' });
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    if (!token) {
+      throw new Error('TELEGRAM_BOT_TOKEN is not defined');
     }
 
-    const decoded = decodeURIComponent(initData);
+    const query = req.query as Record<string, string>;
 
-    const parsed = checkTelegramInitData(
-      decoded,
-      process.env.TELEGRAM_BOT_TOKEN!,
-    );
-
-    if (!parsed.user) {
-      return res.status(400).json({ error: 'User field missing in initData' });
+    const { hash, ...params } = query;
+    if (!hash) {
+      return res.status(400).json({ error: 'Missing hash parameter' });
     }
 
-    const rawUser = JSON.parse(parsed.user as string);
+    const dataCheckString = Object.keys(params)
+      .sort()
+      .map((key) => `${key}=${params[key]}`)
+      .join('\n');
 
+    // 2. Генерируем хэш
+    const secretKey = crypto
+      .createHmac('sha256', 'WebAppData')
+      .update(token)
+      .digest();
+
+    const calculatedHash = crypto
+      .createHmac('sha256', secretKey)
+      .update(dataCheckString)
+      .digest('hex');
+
+    if (calculatedHash !== hash) {
+      return res.status(403).json({ error: 'Invalid Telegram initData hash' });
+    }
+
+    const rawUser = JSON.parse(params.user);
     if (!rawUser?.id) {
       return res.status(400).json({ error: 'Invalid Telegram user data' });
     }
@@ -40,7 +54,6 @@ export const authTelegramUser = async (req: Request, res: Response) => {
     };
 
     const existing = await userRepository.findOneBy({ id: userData.id });
-
     const savedUser = existing
       ? await userRepository.save({ ...existing, ...userData })
       : await userRepository.save(userRepository.create(userData));
