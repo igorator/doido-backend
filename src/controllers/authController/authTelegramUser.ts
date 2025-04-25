@@ -1,13 +1,12 @@
 import type { Request, Response } from 'express';
-import dotenv from 'dotenv';
+
 import { userRepository } from '../../database/repositories/userRepository';
 import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitData';
-
-dotenv.config();
 
 export const authTelegramUser = async (req: Request, res: Response) => {
   try {
     const token = process.env.TELEGRAM_BOT_TOKEN;
+
     if (!token) throw new Error('TELEGRAM_BOT_TOKEN is not defined');
 
     const params = req.query as Record<string, string>;
