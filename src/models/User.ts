@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryColumn, OneToMany, ManyToOne } from 'typeorm';
 import { Gift } from './Gift';
 
 @Entity()
@@ -20,6 +20,9 @@ export class User {
 
   @Column('float', { default: 0 })
   total_market_amount: number;
+
+  @ManyToOne(() => User, { nullable: true })
+  referred_by?: User;
 
   @OneToMany(() => Gift, (gift) => gift.owner)
   gifts: Gift[];
