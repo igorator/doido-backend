@@ -1,7 +1,7 @@
 {
-  "name": "gift-transfer-bot",
+  "name": "doido-backend",
   "version": "1.0.0",
-  "description": "Gift Transfer Bot using TDLib, TypeORM and TypeScript",
+  "description": "Backend for DOIDO using TDLib, TypeORM and TypeScript",
   "main": "src/app.js",
   "type": "module",
   "author": {

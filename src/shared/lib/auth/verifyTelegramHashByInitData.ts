@@ -7,19 +7,16 @@ export function checkTelegramInitData(
   const { hash, ...rest } = params;
   if (!hash) return { valid: false, reason: 'Missing hash' };
 
-  // 1. Формируем строку проверки
   const dataCheckString = Object.keys(rest)
     .sort()
     .map((key) => `${key}=${rest[key]}`)
     .join('\n');
 
-  // 2. Секретный ключ
   const secretKey = crypto
     .createHmac('sha256', 'WebAppData')
     .update(botToken)
     .digest();
 
-  // 3. Хеш
   const calculatedHash = crypto
     .createHmac('sha256', secretKey)
     .update(dataCheckString)

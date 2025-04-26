@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 
 import { userRepository } from '../../database/repositories/userRepository';
-import { checkTelegramInitData } from '../../shared/lib/auth/checkTelegramInitData';
+import { checkTelegramInitData } from '../../shared/lib/auth/verifyTelegramHashByInitData';
 
 export const authTelegramUser = async (req: Request, res: Response) => {
   try {
