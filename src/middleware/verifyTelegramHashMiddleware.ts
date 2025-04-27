@@ -22,5 +22,7 @@ export function verifyTelegramHashMiddleware(
 
   (req as any).telegramUser = user;
 
+  console.log('Auth passed', user);
+
   next();
 }
