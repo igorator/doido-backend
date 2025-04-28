@@ -6,6 +6,8 @@ export const updateUserReferral = async (req: Request, res: Response) => {
     const userId = req.params.id;
     const { referred_by } = req.body;
 
+    console.log(userId, referred_by);
+
     if (!userId || !referred_by) {
       return res.status(400).json({ error: 'Missing userId or referred_by' });
     }
