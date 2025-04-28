@@ -1,11 +1,16 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
-import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
+import { Like, In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 
 export const getGiftsByUserId = async (req: Request, res: Response) => {
   try {
+    const telegramUser = (req as any).telegramUser;
+    if (!telegramUser || !telegramUser.id) {
+      console.error('❌ No authenticated user in request');
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+
     const {
-      owner_id,
       collection,
       model,
       backdrop,
@@ -17,16 +22,11 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       is_listed,
     } = req.query;
 
-    if (!owner_id || typeof owner_id !== 'string') {
-      return res.status(400).json({ message: 'owner_id is required' });
-    }
-
     const collections = Array.isArray(collection)
       ? collection
       : collection
       ? [collection]
       : [];
-
     const models = Array.isArray(model) ? model : model ? [model] : [];
     const backdrops = Array.isArray(backdrop)
       ? backdrop
@@ -40,16 +40,12 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       : [];
 
     const baseFilters: any = {
-      owner: { id: String(owner_id) },
+      owner: { id: String(telegramUser.id) },
+      ...(typeof is_listed !== 'undefined' && {
+        is_listed: is_listed === 'true',
+      }),
+      ...(gift_id && { number: Number(gift_id) }),
     };
-
-    if (typeof is_listed !== 'undefined') {
-      baseFilters.is_listed = is_listed === 'true';
-    }
-
-    if (gift_id) {
-      baseFilters.number = Number(gift_id);
-    }
 
     if (min_price && max_price) {
       baseFilters.sell_price = Between(Number(min_price), Number(max_price));
@@ -59,7 +55,7 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       baseFilters.sell_price = LessThanOrEqual(Number(max_price));
     }
 
-    const order: any =
+    const order: Record<string, 'asc' | 'desc'> =
       sort === 'price-asc'
         ? { sell_price: 'asc' }
         : sort === 'price-desc'
@@ -76,16 +72,16 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       ? collections.map((col) => ({
           ...baseFilters,
           collection_name: Like(`%${col}%`),
-          ...(models.length > 0 && { model: { name: In(models) } }),
-          ...(backdrops.length > 0 && { backdrop: { name: In(backdrops) } }),
-          ...(patterns.length > 0 && { pattern: { name: In(patterns) } }),
+          ...(models.length && { model: { name: In(models) } }),
+          ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
+          ...(patterns.length && { pattern: { name: In(patterns) } }),
         }))
       : [
           {
             ...baseFilters,
-            ...(models.length > 0 && { model: { name: In(models) } }),
-            ...(backdrops.length > 0 && { backdrop: { name: In(backdrops) } }),
-            ...(patterns.length > 0 && { pattern: { name: In(patterns) } }),
+            ...(models.length && { model: { name: In(models) } }),
+            ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
+            ...(patterns.length && { pattern: { name: In(patterns) } }),
           },
         ];
 
@@ -102,10 +98,9 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
 
     return res.json(sanitized);
   } catch (err) {
-    console.error('❌ Ошибка при получении подарков пользователя:', err);
+    console.error('❌ Error fetching user gifts:', err);
     return res.status(500).json({
-      message: 'Ошибка при получении подарков пользователя',
-      error: (err as Error).message,
+      error: (err as Error).message || 'Server error',
     });
   }
 };

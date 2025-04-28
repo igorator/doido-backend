@@ -9,15 +9,13 @@ export const authTelegramUser = async (req: Request, res: Response) => {
       return res.status(403).json({ error: 'Unauthorized' });
     }
 
-    console.log(telegramUser);
-
     const userData = {
       id: String(telegramUser.id),
       username: telegramUser.username ?? null,
       first_name: telegramUser.first_name ?? null,
       last_name: telegramUser.last_name ?? null,
       photo_url: telegramUser.photo_url ?? null,
-      allows_write_to_pm: telegramUser.allows_write_to_pm ?? true,
+      allows_write_to_pm: telegramUser.allows_write_to_pm ?? false,
     };
 
     const existing = await userRepository.findOneBy({ id: userData.id });
@@ -28,7 +26,7 @@ export const authTelegramUser = async (req: Request, res: Response) => {
 
     return res.status(200).json({ user: savedUser });
   } catch (err) {
-    console.warn('❌ Telegram auth error:', err);
+    console.error('❌ Telegram auth error:', err);
     return res.status(500).json({ error: 'Server error' });
   }
 };
