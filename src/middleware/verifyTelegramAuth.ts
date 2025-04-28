@@ -12,25 +12,34 @@ export function verifyTelegramAuth(
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  const params = req.query as Record<string, string>;
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Telegram ')) {
+    console.warn('❌ Missing or invalid Authorization header');
+    return res.status(401).json({ error: 'Unauthorized: missing auth header' });
+  }
+
+  const initDataRaw = authHeader.slice('Telegram '.length).trim();
+  const initDataParams = new URLSearchParams(initDataRaw);
+  const params: Record<string, string> = {};
+
+  initDataParams.forEach((value, key) => {
+    params[key] = value;
+  });
+
   const { valid, reason, user } = checkTelegramInitData(params, token);
 
   if (!valid || !user) {
     if (process.env.NODE_ENV !== 'production') {
       console.warn('❌ Invalid Telegram initData:', reason);
     }
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorized: invalid initData' });
   }
 
-  (req as any).telegramUser = {
-    id: user.id,
-    username: user.username,
-    first_name: user.first_name,
-    allows_write_to_pm: user.allows_write_to_pm,
-  };
+  (req as any).telegramUser = user;
 
   if (process.env.NODE_ENV !== 'production') {
-    console.log('✅ Authenticated user:', (req as any).telegramUser);
+    console.log('✅ Authenticated user:', user);
   }
 
   next();

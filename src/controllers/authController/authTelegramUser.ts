@@ -9,6 +9,8 @@ export const authTelegramUser = async (req: Request, res: Response) => {
       return res.status(403).json({ error: 'Unauthorized' });
     }
 
+    console.log(telegramUser);
+
     const userData = {
       id: String(telegramUser.id),
       username: telegramUser.username ?? null,

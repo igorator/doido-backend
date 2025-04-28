@@ -21,5 +21,13 @@ export const client = createClient({
 });
 
 export const login = async () => {
+  const authState = await client.invoke({ '@type': 'getAuthorizationState' });
+
+  if (authState['@type'] === 'authorizationStateReady') {
+    console.log('✅ Already authorized. Skipping login.');
+    return;
+  }
+
+  console.log('🔒 Not authorized yet. Starting login flow...');
   await client.login();
 };
