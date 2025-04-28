@@ -15,8 +15,9 @@ if (!apiId || !apiHash) {
 }
 
 export const client = createClient({
-  apiId,
-  apiHash,
+  apiId: TELEGRAM_API_ID,
+  apiHash: TELEGRAM_API_HASH,
+  databaseDirectory: './tdlib-data',
 });
 
 export const login = async () => {

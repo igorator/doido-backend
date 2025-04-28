@@ -6,7 +6,6 @@ import { startServer } from './server';
 
 async function bootstrap() {
   try {
-    startServer();
     console.log('🔄 Initializing database connection...');
     await AppDataSource.initialize();
     console.log('📦 Database connected');
@@ -18,6 +17,8 @@ async function bootstrap() {
     console.log('🔄 Setting up Telegram listeners...');
     setupTelegramListeners();
     console.log('✅ Telegram listeners initialized');
+
+    startServer();
   } catch (error) {
     if (error instanceof Error) {
       console.error('❌ Error during initialization:', error.message);
