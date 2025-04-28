@@ -1,64 +1,54 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 
-const listGiftForSaleService = async (
-  id: string,
-  price: number,
-  sell_price_with_fee: number,
-) => {
-  const gift = await giftRepository.findOne({
-    where: { id },
-    relations: ['owner'],
-  });
-
-  if (!gift) return null;
-
-  gift.is_listed = true;
-  gift.sell_price = price;
-  gift.sell_price_with_fee = sell_price_with_fee;
-  gift.listed_date = new Date();
-
-  const updatedGift = await giftRepository.save(gift);
-
-  if (updatedGift.owner) {
-    delete updatedGift.owner.gifts;
-  }
-
-  return updatedGift;
-};
-
-// Контроллер
 export const listGiftForSaleById = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { gift_id } = req.params;
   const { price, price_with_fee } = req.body;
+  const telegramUser = (req as any).telegramUser;
 
   if (!price || isNaN(price)) {
     return res.status(400).json({ error: 'Invalid price' });
   }
 
   try {
-    const gift = await listGiftForSaleService(
-      id,
-      Number(price),
-      Number(price_with_fee),
-    );
+    const gift = await giftRepository.findOne({
+      where: { id: gift_id },
+      relations: ['owner'],
+    });
 
     if (!gift) {
       return res.status(404).json({ error: 'Gift not found' });
     }
 
+    // 🚨 Критичная проверка: что подарок принадлежит этому юзеру
+    if (!gift.owner || gift.owner.id !== telegramUser.id) {
+      console.warn('❌ User tried to list a gift that does not belong to them');
+      return res.status(403).json({ error: 'Forbidden: not your gift' });
+    }
+
+    gift.is_listed = true;
+    gift.sell_price = Number(price);
+    gift.sell_price_with_fee = Number(price_with_fee);
+    gift.listed_date = new Date();
+
+    const updatedGift = await giftRepository.save(gift);
+
+    if (updatedGift.owner) {
+      delete updatedGift.owner.gifts;
+    }
+
     return res.json({
-      id: gift.id,
-      collection_name: gift.collection_name,
-      number: gift.number,
-      is_listed: gift.is_listed,
-      sell_price: gift.sell_price,
-      sell_price_with_fee: gift.sell_price_with_fee,
-      listed_date: gift.listed_date,
-      owner: gift.owner
+      id: updatedGift.id,
+      collection_name: updatedGift.collection_name,
+      number: updatedGift.number,
+      is_listed: updatedGift.is_listed,
+      sell_price: updatedGift.sell_price,
+      sell_price_with_fee: updatedGift.sell_price_with_fee,
+      listed_date: updatedGift.listed_date,
+      owner: updatedGift.owner
         ? {
-            id: gift.owner.id,
-            username: gift.owner.username,
+            id: updatedGift.owner.id,
+            username: updatedGift.owner.username,
           }
         : null,
     });

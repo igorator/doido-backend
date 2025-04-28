@@ -1,3 +1,5 @@
-import { verifyTelegramHashMiddleware } from './verifyTelegramHashMiddleware';
+import { verifyTelegramAuth } from './verifyTelegramAuth';
+import { verifyUserIdMatch } from './verifyUserIdMatch';
+import { verifyGiftOwnerMatch } from './verifyGiftOwnerMatch';
 
-export { verifyTelegramHashMiddleware };
+export { verifyTelegramAuth, verifyUserIdMatch, verifyGiftOwnerMatch };

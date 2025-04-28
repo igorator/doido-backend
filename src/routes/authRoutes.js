@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { authTelegramUser } from '../controllers/authController/authTelegramUser';
-import { verifyTelegramHashMiddleware } from '../middleware';
+import { verifyTelegramAuth } from '../middleware';
 
 const router = Router();
 
-router.get('/', verifyTelegramHashMiddleware, authTelegramUser);
+router.get('/', verifyTelegramAuth, authTelegramUser);
 
 export default router;

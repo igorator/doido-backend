@@ -7,6 +7,7 @@ export const unlistGiftFromSaleById = async (
   res: Response,
 ): Promise<void> => {
   const { id } = req.params;
+  const telegramUser = (req as any).telegramUser;
 
   try {
     const gift = await giftRepository.findOne({
@@ -16,6 +17,14 @@ export const unlistGiftFromSaleById = async (
 
     if (!gift) {
       res.status(404).json({ error: 'Gift not found' });
+      return;
+    }
+
+    if (!gift.owner || gift.owner.id !== telegramUser.id) {
+      console.warn(
+        '❌ User tried to unlist a gift that does not belong to them',
+      );
+      res.status(403).json({ error: 'Forbidden: not your gift' });
       return;
     }
 
@@ -30,7 +39,21 @@ export const unlistGiftFromSaleById = async (
       delete (updatedGift.owner as any).gifts;
     }
 
-    res.json(updatedGift);
+    res.json({
+      id: updatedGift.id,
+      collection_name: updatedGift.collection_name,
+      number: updatedGift.number,
+      is_listed: updatedGift.is_listed,
+      sell_price: updatedGift.sell_price,
+      sell_price_with_fee: updatedGift.sell_price_with_fee,
+      listed_date: updatedGift.listed_date,
+      owner: updatedGift.owner
+        ? {
+            id: updatedGift.owner.id,
+            username: updatedGift.owner.username,
+          }
+        : null,
+    });
   } catch (error) {
     console.error('❌ Ошибка при снятии подарка с продажи:', error);
     res.status(500).json({ error: 'Internal server error' });

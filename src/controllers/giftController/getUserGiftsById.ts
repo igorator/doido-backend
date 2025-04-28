@@ -2,9 +2,10 @@ import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
 
-export const getGifts = async (req: Request, res: Response) => {
+export const getGiftsByUserId = async (req: Request, res: Response) => {
   try {
     const {
+      owner_id,
       collection,
       model,
       backdrop,
@@ -13,7 +14,12 @@ export const getGifts = async (req: Request, res: Response) => {
       max_price,
       sort,
       gift_id,
+      is_listed,
     } = req.query;
+
+    if (!owner_id || typeof owner_id !== 'string') {
+      return res.status(400).json({ message: 'owner_id is required' });
+    }
 
     const collections = Array.isArray(collection)
       ? collection
@@ -34,8 +40,12 @@ export const getGifts = async (req: Request, res: Response) => {
       : [];
 
     const baseFilters: any = {
-      is_listed: true,
+      owner: { id: String(owner_id) },
     };
+
+    if (typeof is_listed !== 'undefined') {
+      baseFilters.is_listed = is_listed === 'true';
+    }
 
     if (gift_id) {
       baseFilters.number = Number(gift_id);
@@ -92,9 +102,9 @@ export const getGifts = async (req: Request, res: Response) => {
 
     return res.json(sanitized);
   } catch (err) {
-    console.error('❌ Ошибка при получении подарков:', err);
+    console.error('❌ Ошибка при получении подарков пользователя:', err);
     return res.status(500).json({
-      message: 'Ошибка при получении подарков',
+      message: 'Ошибка при получении подарков пользователя',
       error: (err as Error).message,
     });
   }
