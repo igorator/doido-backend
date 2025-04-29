@@ -85,12 +85,7 @@ export const getGifts = async (req: Request, res: Response) => {
       relations: ['owner', 'model', 'pattern', 'backdrop'],
     });
 
-    const sanitized = gifts.map((gift) => ({
-      ...gift,
-      owner: gift.owner ? { id: gift.owner.id } : null,
-    }));
-
-    return res.json(sanitized);
+    return res.json(gifts);
   } catch (err) {
     console.error('❌ Ошибка при получении подарков:', err);
     return res.status(500).json({
