@@ -20,7 +20,7 @@ export const unlistGiftFromSaleById = async (
       return;
     }
 
-    if (!gift.owner || gift.owner.id !== telegramUser.id) {
+    if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
       console.warn(
         '❌ User tried to unlist a gift that does not belong to them',
       );

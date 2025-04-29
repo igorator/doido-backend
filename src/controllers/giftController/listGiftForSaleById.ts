@@ -20,8 +20,11 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
       return res.status(404).json({ error: 'Gift not found' });
     }
 
+    console.log(gift.owner.id);
+    console.log(telegramUser.id);
+
     // 🚨 Критичная проверка: что подарок принадлежит этому юзеру
-    if (!gift.owner || gift.owner.id !== telegramUser.id) {
+    if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
       console.warn('❌ User tried to list a gift that does not belong to them');
       return res.status(403).json({ error: 'Forbidden: not your gift' });
     }
