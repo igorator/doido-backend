@@ -6,7 +6,7 @@ export const updateUserReferral = async (req: Request, res: Response) => {
     const userId = req.params.id;
     const { referred_by } = req.body;
 
-    console.log(userId, referred_by);
+    console.log('➡️ Referral attempt:', { userId, referred_by });
 
     if (!userId || !referred_by) {
       return res.status(400).json({ error: 'Missing userId or referred_by' });
@@ -23,6 +23,7 @@ export const updateUserReferral = async (req: Request, res: Response) => {
 
     const referrer = await userRepository.findOne({
       where: { id: String(referred_by) },
+      relations: ['referred_by'],
     });
 
     if (!user || !referrer) {
@@ -31,6 +32,10 @@ export const updateUserReferral = async (req: Request, res: Response) => {
 
     if (user.referred_by) {
       return res.status(409).json({ error: 'User already has a referrer' });
+    }
+
+    if (referrer.referred_by?.id === user.id) {
+      return res.status(409).json({ error: 'Mutual referral is not allowed' });
     }
 
     user.referred_by = referrer;
