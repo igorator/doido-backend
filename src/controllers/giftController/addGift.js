@@ -30,7 +30,8 @@ export const addGift = async (giftData, user) => {
       text_color: backdrop?.colors?.text_color?.toString() ?? '',
     },
     is_listed: false,
-    sell_price: null,
+    sell_price: 0,
+    sell_price_with_fee: 0,
     listed_date: null,
     owner: user,
   });
