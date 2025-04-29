@@ -3,6 +3,7 @@ import { AppDataSource } from './database/db';
 import { login } from './telegram/tdClient';
 import { setupTelegramListeners } from './telegram/listeners/onUpdateListener';
 import { startServer } from './server';
+import { initializeBotUserId } from './telegram/config/botInstanse';
 
 async function bootstrap() {
   try {
@@ -13,6 +14,10 @@ async function bootstrap() {
     console.log('🔄 Logging in to Telegram...');
     await login();
     console.log('✅ Logged in to Telegram');
+
+    console.log('🔄 Initializing bot user ID...');
+    await initializeBotUserId();
+    console.log('✅ Bot user ID initialized');
 
     console.log('🔄 Setting up Telegram listeners...');
     setupTelegramListeners();

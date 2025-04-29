@@ -1,7 +1,7 @@
-import { TELEGRAM_USER_ID } from '../config/telegramConfig.js';
 import { addGift } from '../../controllers/giftController/addGift.js';
 import { userRepository } from '../../database/repositories/userRepository.js';
 import { giftRepository } from '../../database/repositories/giftRepository.js';
+import { getBotUserId } from '../config/botInstanse.js';
 
 export const handleUpdate = async (update) => {
   if (
@@ -11,7 +11,7 @@ export const handleUpdate = async (update) => {
   ) {
     const senderId = update.message.sender_id?.user_id;
     const chatId = update.message.chat_id;
-    const isFromMe = senderId === TELEGRAM_USER_ID;
+    const isFromMe = senderId === getBotUserId();
     const gift = update.message.content.gift;
 
     if (isFromMe) {
