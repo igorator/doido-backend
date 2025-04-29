@@ -4,12 +4,15 @@ import { listGiftForSaleById } from '../controllers/giftController/listGiftForSa
 import { unlistGiftFromSaleById } from '../controllers/giftController/unlistGiftFromSaleById';
 import { getGiftsByUserId } from '../controllers/giftController/getUserGiftsById';
 import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
+import { BuyGiftById } from '../controllers/giftController/buyGiftById';
 
 const router = Router();
 
 router.get('/', getGifts);
 
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
+
+router.post('/:gift_id/buy', verifyTelegramAuth, BuyGiftById);
 
 router.patch(
   '/:gift_id/list',
