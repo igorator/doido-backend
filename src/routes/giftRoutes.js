@@ -4,7 +4,7 @@ import { listGiftForSaleById } from '../controllers/giftController/listGiftForSa
 import { unlistGiftFromSaleById } from '../controllers/giftController/unlistGiftFromSaleById';
 import { getGiftsByUserId } from '../controllers/giftController/getUserGiftsById';
 import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
-import { BuyGiftById } from '../controllers/giftController/buyGiftsById';
+import { BuyGiftsByIds } from '../controllers/giftController/buyGiftsById';
 
 const router = Router();
 
@@ -12,7 +12,7 @@ router.get('/', getGifts);
 
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
 
-router.post('/buy', verifyTelegramAuth, BuyGiftById);
+router.post('/buy', verifyTelegramAuth, BuyGiftsByIds);
 
 router.patch(
   '/:gift_id/list',
