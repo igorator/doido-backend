@@ -18,8 +18,6 @@ export function checkTelegramInitData(
     .map((key) => `${key}=${params[key]}`)
     .join('\n');
 
-  console.log('▶ Corrected data_check_string:\n', queryString);
-
   const secretKey = crypto
     .createHmac('sha256', 'WebAppData')
     .update(botToken)
