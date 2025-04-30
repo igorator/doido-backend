@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from 'express';
-import { checkTelegramInitData } from '../shared/lib/auth/verifyTelegramHashByInitData';
+import { checkTelegramInitData } from '../shared/lib/auth/checkTelegramInitData';
 
 export function verifyTelegramAuth(
   req: Request,
