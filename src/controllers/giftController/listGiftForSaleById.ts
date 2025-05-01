@@ -6,6 +6,8 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
   const { price, price_with_fee } = req.body;
   const telegramUser = (req as any).telegramUser;
 
+  console.log(price, price_with_fee);
+
   if (!price || isNaN(price)) {
     return res.status(400).json({ error: 'Invalid price' });
   }
