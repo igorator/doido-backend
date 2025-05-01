@@ -6,12 +6,12 @@ export const unlistGiftFromSaleById = async (
   req: Request,
   res: Response,
 ): Promise<void> => {
-  const { id } = req.params;
+  const { gift_id } = req.params;
   const telegramUser = (req as any).telegramUser;
 
   try {
     const gift = await giftRepository.findOne({
-      where: { id },
+      where: { id: gift_id },
       relations: ['owner'],
     });
 
@@ -20,6 +20,7 @@ export const unlistGiftFromSaleById = async (
       return;
     }
 
+    console.log(gift_id);
     console.log(gift);
     console.log(telegramUser);
 
