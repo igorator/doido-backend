@@ -48,6 +48,9 @@ export class Gift {
   @PrimaryColumn('text', { unique: true })
   id: string;
 
+  @Column('text', { default: 'gift' })
+  readonly type: 'gift';
+
   @Column('text')
   collection_name: string;
 
