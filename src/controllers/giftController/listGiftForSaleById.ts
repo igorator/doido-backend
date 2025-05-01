@@ -6,10 +6,12 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
   const { price, price_with_fee } = req.body;
   const telegramUser = (req as any).telegramUser;
 
-  console.log(price, price_with_fee);
-
   if (!price || isNaN(price)) {
     return res.status(400).json({ error: 'Invalid price' });
+  }
+
+  if (gift_id) {
+    return res.status(404).json({ error: 'Gift not found' });
   }
 
   try {
@@ -18,14 +20,13 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
       relations: ['owner'],
     });
 
-    if (!gift) {
+    if (!gift || gift_id) {
       return res.status(404).json({ error: 'Gift not found' });
     }
 
     console.log(gift.owner.id);
     console.log(telegramUser.id);
 
-    // 🚨 Критичная проверка: что подарок принадлежит этому юзеру
     if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
       console.warn('❌ User tried to list a gift that does not belong to them');
       return res.status(403).json({ error: 'Forbidden: not your gift' });
