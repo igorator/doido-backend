@@ -1,9 +1,8 @@
+// src/app.ts или src/index.ts
 import 'reflect-metadata';
 import { AppDataSource } from './database/db';
-import { login } from './telegram/tdClient';
-import { setupTelegramListeners } from './telegram/listeners/onUpdateListener';
 import { startServer } from './server';
-import { initializeBotUserId } from './telegram/config/botInstanse';
+import './bot/bot';
 
 async function bootstrap() {
   try {
@@ -11,17 +10,7 @@ async function bootstrap() {
     await AppDataSource.initialize();
     console.log('📦 Database connected');
 
-    console.log('🔄 Logging in to Telegram...');
-    await login();
-    console.log('✅ Logged in to Telegram');
-
-    console.log('🔄 Initializing bot user ID...');
-    await initializeBotUserId();
-    console.log('✅ Bot user ID initialized');
-
-    console.log('🔄 Setting up Telegram listeners...');
-    setupTelegramListeners();
-    console.log('✅ Telegram listeners initialized');
+    console.log('✅ Telegram bot loaded');
 
     startServer();
   } catch (error) {

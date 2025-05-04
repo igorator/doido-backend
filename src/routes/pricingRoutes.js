@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { getSellerReceivesByBuyerPrice } from '../controllers/pricingContoller/getSellerReceivesByBuyerPrice';
-import { getBuyerPaysBySellerPrice } from '../controllers/pricingContoller/getBuyerPaysBySellerPrice';
-import { getSellPriceLimits } from '../controllers/pricingContoller/getSellPriceLimits';
+import { getSellerReceivesByBuyerPrice } from '../controllers/pricing/getSellerReceivesByBuyerPrice';
+import { getBuyerPaysBySellerPrice } from '../controllers/pricing/getBuyerPaysBySellerPrice';
+import { getSellPriceLimits } from '../controllers/pricing/getSellPriceLimits';
 
 const router = Router();
 

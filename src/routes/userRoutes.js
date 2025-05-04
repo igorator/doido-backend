@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { addTelegramUser } from '../controllers/userController/addTelegramUser';
-import { updateUserReferral } from '../controllers/userController/updateUserRefferal';
+import { addTelegramUser } from '../controllers/user/addTelegramUser';
+import { updateUserReferral } from '../controllers/user/updateUserRefferal';
 
 const router = Router();
 

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { authTelegramUser } from '../controllers/authController/authTelegramUser';
+import { authTelegramUser } from '../controllers/auth/authTelegramUser';
 import { verifyTelegramAuth } from '../middleware';
 
 const router = Router();

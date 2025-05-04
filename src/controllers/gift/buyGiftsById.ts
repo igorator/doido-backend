@@ -69,7 +69,6 @@ export const BuyGiftsByIds = async (req: Request, res: Response) => {
 
     affectedUsers.set(buyer.id, buyer);
 
-    // Save users and gifts
     await queryRunner.manager.save(
       userRepository.target,
       Array.from(affectedUsers.values()),

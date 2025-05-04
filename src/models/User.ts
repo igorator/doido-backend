@@ -13,7 +13,7 @@ export class User {
   @PrimaryColumn('text')
   id: string;
 
-  @Column('text', { nullable: true })
+  @Column('text', { nullable: true, default: null })
   chat_id: string;
 
   @Column('text')

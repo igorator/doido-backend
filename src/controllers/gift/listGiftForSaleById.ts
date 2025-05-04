@@ -10,8 +10,8 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Invalid price' });
   }
 
-  if (gift_id) {
-    return res.status(404).json({ error: 'Gift not found' });
+  if (!gift_id) {
+    return res.status(404).json({ error: 'Gift_id not found' });
   }
 
   try {
@@ -20,12 +20,9 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
       relations: ['owner'],
     });
 
-    if (!gift || gift_id) {
+    if (!gift) {
       return res.status(404).json({ error: 'Gift not found' });
     }
-
-    console.log(gift.owner.id);
-    console.log(telegramUser.id);
 
     if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
       console.warn('❌ User tried to list a gift that does not belong to them');

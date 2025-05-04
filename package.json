@@ -12,10 +12,14 @@
     "dev": "tsx watch src/app.ts"
   },
   "dependencies": {
+    "@grammyjs/auto-retry": "^2.0.2",
+    "@grammyjs/ratelimiter": "^1.2.1",
+    "@grammyjs/runner": "^2.0.3",
     "cors": "^2.8.5",
     "decimal.js": "^10.5.0",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "grammy": "^1.36.1",
     "pg": "^8.14.1",
     "prebuilt-tdlib": "^0.1008046.0",
     "reflect-metadata": "^0.2.2",
