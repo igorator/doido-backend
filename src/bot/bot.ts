@@ -1,4 +1,3 @@
-// src/bot/bot.ts
 import { Bot } from 'grammy';
 import { config } from 'dotenv';
 import { limit } from '@grammyjs/ratelimiter';
