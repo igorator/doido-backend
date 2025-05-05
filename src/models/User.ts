@@ -13,9 +13,6 @@ export class User {
   @PrimaryColumn('text')
   id: string;
 
-  @Column('text', { nullable: true, default: null })
-  chat_id: string;
-
   @Column('text')
   username: string;
 
@@ -29,7 +26,7 @@ export class User {
   language_code: string;
 
   @Column('text', { nullable: true })
-  photo_url: string; // 👈 добавлено поле для аватарки
+  photo_url: string;
 
   @Column('boolean', { default: false })
   allows_write_to_pm: boolean;

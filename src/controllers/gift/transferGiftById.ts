@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 import { bot } from '../../bot/bot';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
-import { businessConnectionService } from '../../bot/services/telegram/businessConnectionService';
+import { transferStarsCount } from '../../shared/constants';
+import { deleteGiftFromDatabaseById } from '../../bot/services/gifts/deleteGiftFromDatabaseById';
 
 export const transferGiftById = async (req: Request, res: Response) => {
   const { gift_id } = req.params;
@@ -24,20 +25,25 @@ export const transferGiftById = async (req: Request, res: Response) => {
         .json({ error: 'You are not the owner of this gift' });
     }
 
-    const owner = await userRepository.findOneBy({
-      id: gift.owner.id,
-    });
-
-    if (!owner || !owner.chat_id) {
+    const owner = await userRepository.findOneBy({ id: gift.owner.id });
+    if (!owner || !owner.id) {
       return res.status(400).json({ error: 'Chat ID for owner not found' });
     }
 
-    const businessId = businessConnectionService.get(owner.id);
+    const businessId = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
     if (!businessId) {
-      return res.status(400).json({ error: 'Business connection not found' });
+      return res.status(400).json({ error: 'Business connection ID not set' });
     }
 
-    await bot.api.transferGift(businessId, gift.id, Number(owner.chat_id), 0);
+    await bot.api.transferGift(
+      businessId,
+      gift.id,
+      Number(owner.id),
+      transferStarsCount,
+    );
+
+    await deleteGiftFromDatabaseById(gift.id);
+    console.log(`🗑 Подарок ${gift.id} удалён после трансфера`);
 
     return res.json({ success: true });
   } catch (err) {

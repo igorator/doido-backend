@@ -9,30 +9,26 @@ import {
 import { User } from './User';
 
 export type ActivityItemType = 'gift' | 'sticker';
-export type ActivityAction = 'buy' | 'sell';
 
-@Entity('activity')
+@Entity()
 export class Activity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: string;
 
   @Column({ type: 'enum', enum: ['gift', 'sticker'] })
   item_type: ActivityItemType;
 
-  @Column()
-  item_id: number;
+  @Column('text')
+  item_id: string;
 
   @Column({ type: 'jsonb' })
   item_snapshot: Record<string, any>;
 
-  @Column({ type: 'enum', enum: ['buy', 'sell'] })
-  action: ActivityAction;
-
-  @ManyToOne(() => User, { eager: true })
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'seller_id' })
   seller: User;
 
-  @ManyToOne(() => User, { eager: true })
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'buyer_id' })
   buyer: User;
 

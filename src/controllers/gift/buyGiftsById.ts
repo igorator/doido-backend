@@ -1,13 +1,15 @@
-import type { Request, Response } from 'express';
+import { Request, Response } from 'express';
+import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
-import { AppDataSource } from '../../database/db';
+import { activityRepository } from '../../database/repositories/activityRepository';
+import { Activity } from '../../models/Activity';
 
 export const BuyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
   const { gift_ids, externalPurchase } = req.body;
 
-  if (!telegramUser || !telegramUser.id) {
+  if (!telegramUser?.id) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
@@ -15,81 +17,76 @@ export const BuyGiftsByIds = async (req: Request, res: Response) => {
     return res.status(400).json({ error: 'No gift IDs provided' });
   }
 
-  const queryRunner = AppDataSource.createQueryRunner();
-  await queryRunner.connect();
-  await queryRunner.startTransaction();
-
   try {
-    const buyer = await queryRunner.manager.findOneByOrFail(
-      userRepository.target,
-      { id: String(telegramUser.id) },
-    );
+    const result = await AppDataSource.transaction(async (manager) => {
+      const buyer = await manager.findOneByOrFail(userRepository.target, {
+        id: String(telegramUser.id),
+      });
 
-    const gifts = await queryRunner.manager.find(giftRepository.target, {
-      where: gift_ids.map((id) => ({ id })),
-      relations: ['owner'],
+      const gifts = await manager.find(giftRepository.target, {
+        where: gift_ids.map((id) => ({ id })),
+        relations: ['owner'],
+      });
+
+      const affectedUsers = new Map<string, typeof buyer>();
+      const activities: Activity[] = [];
+      let totalCost = 0;
+
+      for (const gift of gifts) {
+        if (!gift?.is_listed || !gift.owner || gift.owner.id === buyer.id) {
+          throw new Error(`Invalid gift ID ${gift?.id}`);
+        }
+
+        const seller = gift.owner;
+        totalCost += gift.sell_price_with_fee;
+
+        buyer.ton_balance -= gift.sell_price_with_fee;
+        seller.ton_balance += gift.sell_price;
+
+        gift.owner = buyer;
+        gift.is_listed = false;
+        gift.sell_price = 0;
+        gift.sell_price_with_fee = 0;
+        gift.listed_date = null;
+
+        affectedUsers.set(seller.id, seller);
+
+        const { owner, ...snapshot } = gift;
+        const activity = manager.create(Activity, {
+          item_type: 'gift',
+          item_id: gift.id,
+          item_snapshot: snapshot,
+          amount: gift.sell_price_with_fee,
+          buyer,
+          seller,
+        });
+
+        activities.push(activity);
+      }
+
+      if (buyer.ton_balance < 0) {
+        throw new Error('Insufficient balance');
+      }
+
+      affectedUsers.set(buyer.id, buyer);
+
+      await manager.save(userRepository.target, [...affectedUsers.values()]);
+      await manager.save(giftRepository.target, gifts);
+      await manager.save(activityRepository.target, activities);
+
+      return {
+        success: true,
+        bought: gifts.map((g) => g.id),
+        total: totalCost,
+        external: Boolean(externalPurchase),
+      };
     });
 
-    // Validate gifts
-    let totalCost = 0;
-    for (const gift of gifts) {
-      if (!gift) {
-        throw new Error('Gift not found');
-      }
-      if (!gift.is_listed) {
-        throw new Error(`Gift ${gift.id} is not listed`);
-      }
-      if (gift.owner.id === buyer.id) {
-        throw new Error(`Cannot buy your own gift ${gift.id}`);
-      }
-
-      totalCost += gift.sell_price_with_fee;
-    }
-
-    if (buyer.ton_balance < totalCost) {
-      throw new Error('Insufficient balance');
-    }
-
-    const affectedUsers = new Map<string, typeof buyer>();
-
-    for (const gift of gifts) {
-      const seller = gift.owner;
-
-      buyer.ton_balance -= gift.sell_price_with_fee;
-      seller.ton_balance += gift.sell_price;
-
-      gift.owner = buyer;
-      gift.is_listed = false;
-      gift.sell_price = 0;
-      gift.sell_price_with_fee = 0;
-      gift.listed_date = null;
-
-      affectedUsers.set(seller.id, seller);
-    }
-
-    affectedUsers.set(buyer.id, buyer);
-
-    await queryRunner.manager.save(
-      userRepository.target,
-      Array.from(affectedUsers.values()),
-    );
-    await queryRunner.manager.save(giftRepository.target, gifts);
-
-    await queryRunner.commitTransaction();
-
-    return res.status(200).json({
-      success: true,
-      bought: gifts.map((g) => g.id),
-      total: totalCost,
-      external: Boolean(externalPurchase),
-    });
+    return res.status(200).json(result);
   } catch (err: any) {
-    await queryRunner.rollbackTransaction();
     console.error('❌ Transaction failed:', err);
     return res
       .status(400)
       .json({ error: err.message || 'Failed to buy gifts' });
-  } finally {
-    await queryRunner.release();
   }
 };

@@ -2,10 +2,7 @@
 
 import { Bot, Context } from 'grammy';
 import { saveGiftToDatabase } from '../../services/gifts/saveGiftToDatabase';
-import { deleteGiftFromDatabaseById } from '../../services/gifts/deleteGiftFromDatabaseById';
-import { updateUserChatId } from '../../services/users/updateUserChatId';
 import { userRepository } from '../../../database/repositories/userRepository';
-import { setBusinessConnectionId } from '../../shared/businessConnectionId';
 
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
@@ -15,10 +12,12 @@ export const onGiftRouter = (bot: Bot) => {
     const giftId = String(giftPayload.owned_gift_id);
     const gift = giftPayload.gift;
 
+    console.log(JSON.stringify(ctx, null, 2));
+
     let connection;
     try {
       connection = await ctx.getBusinessConnection();
-      setBusinessConnectionId(connection.id);
+      console.log(connection);
     } catch (err) {
       console.error('❌ Не удалось получить business connection:', err);
       return;
@@ -28,29 +27,17 @@ export const onGiftRouter = (bot: Bot) => {
     const isFromBot = senderId === connection.user.id;
 
     if (isFromBot) {
-      try {
-        await deleteGiftFromDatabaseById(giftId);
-        console.log(`🗑 Подарок ${giftId} удалён (отправлен ботом).`);
-      } catch (err) {
-        console.error(`❌ Ошибка при удалении подарка ${giftId}:`, err);
-      }
+      console.log(`📤 Подарок ${giftId} отправлен ботом — пропуск сохранения.`);
       return;
     }
 
     const userId = String(senderId);
-    const chatId = String(ctx.chat.id);
 
     const user = await userRepository.findOneBy({ id: userId });
     if (!user) {
       console.warn(`❌ Пользователь ${userId} не найден в БД`);
       await ctx.reply('⛔️ Ошибка: пользователь не зарегистрирован.');
       return;
-    }
-
-    try {
-      await updateUserChatId(userId, chatId);
-    } catch (err) {
-      console.error(`❌ Ошибка при обновлении chat_id (${userId}):`, err);
     }
 
     try {

@@ -1,11 +1,12 @@
+import { transferStarsCount } from '../../../shared/constants';
 import { bot } from '../../bot';
 
 export const transferGift = async ({
   business_connection_id,
   owned_gift_id,
   new_owner_chat_id,
-  star_count,
-  signal,
+  star_count = transferStarsCount,
+  signal = undefined,
 }) => {
   try {
     const result = await bot.api.transferGift(
