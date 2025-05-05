@@ -17,7 +17,7 @@ export const onGiftRouter = (bot: Bot) => {
     let connection;
     try {
       connection = await ctx.getBusinessConnection();
-      console.log(connection);
+      console.log(ctx);
     } catch (err) {
       console.error('❌ Не удалось получить business connection:', err);
       return;
