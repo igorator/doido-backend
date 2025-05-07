@@ -5,8 +5,7 @@ import { Like, In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 export const getGiftsByUserId = async (req: Request, res: Response) => {
   try {
     const telegramUser = (req as any).telegramUser;
-    if (!telegramUser || !telegramUser.id) {
-      console.error('❌ No authenticated user in request');
+    if (!telegramUser?.id) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
@@ -20,7 +19,12 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       sort,
       gift_id,
       is_listed,
+      skip = '0',
+      take = '20',
     } = req.query;
+
+    const skipNum = parseInt(skip as string, 10);
+    const takeNum = parseInt(take as string, 10);
 
     const collections = Array.isArray(collection)
       ? collection
@@ -85,10 +89,12 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
           },
         ];
 
-    const gifts = await giftRepository.find({
+    const [gifts, total] = await giftRepository.findAndCount({
       where,
       order,
       relations: ['owner', 'model', 'pattern', 'backdrop'],
+      skip: skipNum,
+      take: takeNum,
     });
 
     const sanitized = gifts.map((gift) => ({
@@ -96,7 +102,7 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       owner: gift.owner ? { id: gift.owner.id } : null,
     }));
 
-    return res.json(sanitized);
+    return res.json({ gifts: sanitized, total });
   } catch (err) {
     console.error('❌ Error fetching user gifts:', err);
     return res.status(500).json({
