@@ -13,7 +13,12 @@ export const getGifts = async (req: Request, res: Response) => {
       max_price,
       sort,
       gift_id,
+      skip = '0',
+      take = '20',
     } = req.query;
+
+    const skipNum = Number(skip);
+    const takeNum = Number(take);
 
     const collections = Array.isArray(collection)
       ? collection
@@ -79,13 +84,15 @@ export const getGifts = async (req: Request, res: Response) => {
           },
         ];
 
-    const gifts = await giftRepository.find({
+    const [gifts, total] = await giftRepository.findAndCount({
       where,
       order,
       relations: ['owner', 'model', 'pattern', 'backdrop'],
+      skip: skipNum,
+      take: takeNum,
     });
 
-    return res.json(gifts);
+    return res.json({ gifts, total });
   } catch (err) {
     console.error('❌ Ошибка при получении подарков:', err);
     return res.status(500).json({
