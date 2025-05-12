@@ -19,12 +19,12 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       sort,
       gift_id,
       is_listed,
-      skip = '0',
-      take = '20',
+      skip = 0,
+      take = 20,
     } = req.query;
 
-    const skipNum = parseInt(skip as string, 10);
-    const takeNum = parseInt(take as string, 10);
+    const skipNum = Number(skip);
+    const takeNum = Number(take);
 
     const collections = Array.isArray(collection)
       ? collection

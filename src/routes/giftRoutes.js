@@ -6,6 +6,7 @@ import { getGiftsByUserId } from '../controllers/gift/getUserGiftsById';
 import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
 import { BuyGiftsByIds } from '../controllers/gift/buyGiftsById';
 import { transferGiftById } from '../controllers/gift/transferGiftById';
+import { checkIsGiftInStock } from '../controllers/gift/checkIsGiftInStock';
 
 const router = Router();
 
@@ -14,6 +15,8 @@ router.get('/', getGifts);
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
 
 router.post('/buy', verifyTelegramAuth, BuyGiftsByIds);
+
+router.get('/is-in-stock', verifyTelegramAuth, checkIsGiftInStock);
 
 router.patch(
   '/:gift_id/list',

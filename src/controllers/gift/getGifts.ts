@@ -13,8 +13,8 @@ export const getGifts = async (req: Request, res: Response) => {
       max_price,
       sort,
       gift_id,
-      skip = '0',
-      take = '20',
+      skip = 0,
+      take = 20,
     } = req.query;
 
     const skipNum = Number(skip);
