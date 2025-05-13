@@ -92,7 +92,9 @@ export const getGifts = async (req: Request, res: Response) => {
       take: takeNum,
     });
 
-    return res.json({ gifts, total });
+    const hasMore = skipNum + takeNum < total;
+
+    return res.json({ gifts, total, hasMore });
   } catch (err) {
     console.error('❌ Ошибка при получении подарков:', err);
     return res.status(500).json({
