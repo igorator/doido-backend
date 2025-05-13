@@ -102,7 +102,13 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
       owner: gift.owner ? { id: gift.owner.id } : null,
     }));
 
-    return res.json({ gifts: sanitized, total });
+    const hasMore = skipNum + takeNum < total;
+
+    return res.json({
+      gifts: sanitized,
+      total,
+      hasMore,
+    });
   } catch (err) {
     console.error('❌ Error fetching user gifts:', err);
     return res.status(500).json({
