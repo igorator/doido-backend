@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
 import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
+import { fileURLToPath } from 'url';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -16,10 +16,10 @@ const app = express();
 const PORT = process.env.SERVER_PORT || 3000;
 
 const assetsPath = path.resolve(__dirname, '../assets');
-app.use('/assets', express.static(assetsPath));
 
 app.use(cors());
 app.use(express.json());
+app.use('/assets', express.static(assetsPath));
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
