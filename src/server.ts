@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
-import pricigRouter from './routes/pricingRoutes';
+import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
 
 console.log('🔔 Загрузка server.ts');
@@ -22,8 +22,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
-app.use('/pricing', pricigRouter);
-app.use('activity', activityRouter);
+app.use('/pricing', pricingRouter);
+app.use('/activity', activityRouter);
 
 app.get('/', (_req, res) => {
   res.send('🎁 Express сервер работает!');
