@@ -6,6 +6,7 @@ import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
 import pricigRouter from './routes/pricingRoutes';
 import authRouter from './routes/authRoutes';
+import activityRouter from './routes/activityRoutes';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -21,6 +22,7 @@ app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricigRouter);
 app.use('/auth', authRouter);
+app.use('activity', activityRouter);
 
 const assetsPath = path.resolve(__dirname, '../assets');
 app.use('/assets', express.static(assetsPath));

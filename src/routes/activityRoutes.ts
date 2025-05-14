@@ -5,6 +5,6 @@ import { getUserActivity } from '../controllers/activity/getUserActivity';
 const router = Router();
 
 router.get('/', getActivity);
-router.get('/user_id', getUserActivity);
+router.get('/:user_id', getUserActivity);
 
 export default router;
