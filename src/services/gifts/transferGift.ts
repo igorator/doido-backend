@@ -17,7 +17,7 @@ export const transferGift = async ({
 }) => {
   new_owner_chat_id = Number(new_owner_chat_id);
 
-  checkCurrentStarsBalance(business_connection_id);
+  await checkCurrentStarsBalance(business_connection_id);
 
   try {
     const result = await bot.api.transferGift(
