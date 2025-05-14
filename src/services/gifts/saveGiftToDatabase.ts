@@ -1,4 +1,4 @@
-import { giftRepository } from '../../../database/repositories/giftRepository';
+import { giftRepository } from '../../database/repositories/giftRepository';
 
 export const saveGiftToDatabase = async ({
   giftId,

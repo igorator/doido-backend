@@ -1,13 +1,24 @@
-import { transferStarsCount } from '../../../shared/constants';
-import { bot } from '../../bot';
+import { bot } from '../../bot/bot';
+import { transferStarsCount } from '../../shared/constants';
+import { checkCurrentStarsBalance } from '../stars/checkCurrentStarsBalance';
 
 export const transferGift = async ({
   business_connection_id,
   owned_gift_id,
   new_owner_chat_id,
   star_count = transferStarsCount,
-  signal = undefined,
+  signal,
+}: {
+  business_connection_id: string;
+  owned_gift_id: string;
+  new_owner_chat_id: string | number;
+  star_count: number;
+  signal?: any;
 }) => {
+  new_owner_chat_id = Number(new_owner_chat_id);
+
+  checkCurrentStarsBalance(business_connection_id);
+
   try {
     const result = await bot.api.transferGift(
       business_connection_id,

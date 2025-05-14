@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { bot } from '../../bot/bot';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { transferStarsCount } from '../../shared/constants';
-import { deleteGiftFromDatabaseById } from '../../bot/services/gifts/deleteGiftFromDatabaseById';
+import { deleteGiftFromDatabaseById } from '../../services/gifts/deleteGiftFromDatabaseById';
+import { transferGift } from '../../services/gifts/transferGift';
 
 export const transferGiftById = async (req: Request, res: Response) => {
   const { gift_id } = req.params;
@@ -35,12 +35,12 @@ export const transferGiftById = async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Business connection ID not set' });
     }
 
-    await bot.api.transferGift(
-      businessId,
-      gift.id,
-      Number(owner.id),
-      transferStarsCount,
-    );
+    await transferGift({
+      business_connection_id: businessId,
+      owned_gift_id: gift.id,
+      new_owner_chat_id: owner.id,
+      star_count: transferStarsCount,
+    });
 
     await deleteGiftFromDatabaseById(gift.id);
     console.log(`🗑 Подарок ${gift.id} удалён после трансфера`);

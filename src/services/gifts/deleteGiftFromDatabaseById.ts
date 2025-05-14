@@ -1,4 +1,4 @@
-import { giftRepository } from '../../../database/repositories/giftRepository';
+import { giftRepository } from '../../database/repositories/giftRepository';
 
 export const deleteGiftFromDatabaseById = async (gift_id: string) => {
   const gift = await giftRepository.findOneBy({ id: gift_id });

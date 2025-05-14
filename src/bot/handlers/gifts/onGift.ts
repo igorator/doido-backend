@@ -1,8 +1,8 @@
 // src/bot/handlers/gifts/onGiftRouter.ts
 
 import { Bot, Context } from 'grammy';
-import { saveGiftToDatabase } from '../../services/gifts/saveGiftToDatabase';
 import { userRepository } from '../../../database/repositories/userRepository';
+import { saveGiftToDatabase } from '../../../services/gifts/saveGiftToDatabase';
 
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {

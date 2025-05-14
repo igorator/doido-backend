@@ -3,10 +3,21 @@ import { activityRepository } from '../../database/repositories/activityReposito
 
 export const getUserActivity = async (req: Request, res: Response) => {
   const userId = String(req.query.user_id);
+  const type = req.query.type as string | undefined;
 
   try {
+    const where = [];
+
+    if (type) {
+      where.push({ buyer: { id: userId }, type });
+      where.push({ seller: { id: userId }, type });
+    } else {
+      where.push({ buyer: { id: userId } });
+      where.push({ seller: { id: userId } });
+    }
+
     const activities = await activityRepository.find({
-      where: [{ buyer: { id: userId } }, { seller: { id: userId } }],
+      where,
       order: { created_at: 'DESC' },
       take: 20,
     });
