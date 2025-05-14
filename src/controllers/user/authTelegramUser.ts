@@ -16,7 +16,6 @@ export const authTelegramUser = async (req: Request, res: Response) => {
     };
 
     await userRepository.upsert(userData, ['id']);
-
     const user = await userRepository.findOneBy({ id: userData.id });
 
     return res.status(200).json({ user });

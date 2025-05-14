@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { addTelegramUser } from '../controllers/user/addTelegramUser';
 import { updateUserReferral } from '../controllers/user/updateUserRefferal';
+import { verifyTelegramAuth } from '../middleware';
+import { authTelegramUser } from '../controllers/user/authTelegramUser';
 
 const router = Router();
 
-router.post('/', addTelegramUser);
+router.get('/auth', verifyTelegramAuth, authTelegramUser);
 router.patch('/:id/referral', updateUserReferral);
 
 export default router;
