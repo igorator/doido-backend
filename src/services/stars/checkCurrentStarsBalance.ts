@@ -2,7 +2,7 @@ import { botSendMessage } from '../messages/botSendMessage';
 import { getStarsBalance } from './getStarsBalance';
 
 const STARS_DEPOSITER_ID = Number(process.env.TELEGRAM_STARS_DEPOSITER_ID);
-const MIN_STARS_THRESHOLD = Number(process.env.TELEGRAM_STARS_THRESHOLD);
+const MIN_STARS_THRESHOLD = Number(process.env.TELEGRAM_MIN_STARS_THRESHOLD);
 const CHECK_BALANCE_COOLDOWN_MS = 60_000;
 
 const lastCheckTimestamps = new Map<string, number>();

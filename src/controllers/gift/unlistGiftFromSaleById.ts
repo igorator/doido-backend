@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { Gift } from '../../models/Gift';
-import { botSendMessage } from '../../services/messages/botSendMessage';
 
 export const unlistGiftFromSaleById = async (
   req: Request,
@@ -59,12 +58,6 @@ export const unlistGiftFromSaleById = async (
           }
         : null,
     });
-
-    await botSendMessage(
-      updatedGift.owner.id,
-      `🛒 You unlisted <b>${updatedGift.collection_name} #${updatedGift.number}</b> from sale 💰`,
-      'HTML',
-    );
   } catch (error) {
     console.error('❌ Ошибка при снятии подарка с продажи:', error);
     res.status(500).json({ error: 'Internal server error' });
