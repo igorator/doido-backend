@@ -38,7 +38,7 @@ export const checkCurrentStarsBalance = async (
     if (currentAmount < MIN_STARS_THRESHOLD) {
       await bot.api.sendMessage(
         STARS_DEPOSITER_ID,
-        `⚠️ На балансе бизнес-аккаунта ${business_connection_id} всего ${currentAmount} звёзд.\nПожалуйста, пополни баланс. Юрчик, друууууг.`,
+        `⚠️ Юрчик друууууг, На балансе бота всего ${currentAmount} звёзд.\nПожалуйста, бери рыжегооо.`,
       );
 
       console.log('Юрчик друг оповещён');
