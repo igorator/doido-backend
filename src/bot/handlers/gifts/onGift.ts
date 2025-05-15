@@ -5,33 +5,57 @@ import { saveGiftToDatabase } from '../../../services/gifts/saveGiftToDatabase';
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
     const giftPayload = ctx.businessMessage?.unique_gift;
-    if (!giftPayload) return;
 
-    const giftId = String(giftPayload.owned_gift_id);
+    if (!giftPayload) {
+      console.warn('⚠️ businessMessage есть, но нет unique_gift');
+      return;
+    }
+
+    const giftId = giftPayload.owned_gift_id;
     const gift = giftPayload.gift;
 
-    console.log(JSON.stringify(ctx, null, 2));
+    if (!giftId || !gift) {
+      console.warn('⚠️ Подарок не содержит giftId или gift');
+      return;
+    }
+
+    console.log('📥 Получен подарок:', {
+      giftId,
+      giftName: gift.name,
+      senderId: ctx.from?.id,
+      chatId: ctx.chat?.id,
+      origin: giftPayload.origin,
+    });
 
     let connection;
     try {
       connection = await ctx.getBusinessConnection();
-      console.log(ctx);
+      console.log('✅ Business connection получен:', {
+        botUserId: ctx.me.id,
+        connectionUserId: connection.user.id,
+      });
     } catch (err) {
       console.error('❌ Не удалось получить business connection:', err);
       return;
     }
 
     const senderId = ctx.from?.id;
-    const isFromBot = senderId === connection.user.id;
+    const botUserId = ctx.me.id;
 
-    if (isFromBot) {
+    console.log('🔍 Сравнение ID:', {
+      senderId,
+      botUserId,
+      isFromBot: senderId === botUserId,
+    });
+
+    if (senderId === botUserId) {
       console.log(`📤 Подарок ${giftId} отправлен ботом — пропуск сохранения.`);
       return;
     }
 
     const userId = String(senderId);
-
     const user = await userRepository.findOneBy({ id: userId });
+
     if (!user) {
       console.warn(`❌ Пользователь ${userId} не найден в БД`);
       await ctx.reply('⛔️ Ошибка: пользователь не зарегистрирован.');
@@ -40,7 +64,7 @@ export const onGiftRouter = (bot: Bot) => {
 
     try {
       await saveGiftToDatabase({
-        giftId,
+        giftId: String(giftId),
         collectionName: gift.base_name,
         number: gift.number,
         model: {
