@@ -62,7 +62,7 @@ export const unlistGiftFromSaleById = async (
 
     await botSendMessage(
       updatedGift.owner.id,
-      `🛒 You unlisted <b>${updatedGift.collection_name} #${updatedGift.number}</b> from sale\n💰`,
+      `🛒 You unlisted <b>${updatedGift.collection_name} #${updatedGift.number}</b> from sale 💰`,
       'HTML',
     );
   } catch (error) {

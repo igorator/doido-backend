@@ -1,8 +1,10 @@
-import { bot } from '../../bot/bot';
+import { botSendMessage } from '../messages/botSendMessage';
+import { getStarsBalance } from './getStarsBalance';
 
 const STARS_DEPOSITER_ID = Number(process.env.TELEGRAM_STARS_DEPOSITER_ID);
 const MIN_STARS_THRESHOLD = Number(process.env.TELEGRAM_STARS_THRESHOLD);
 const CHECK_BALANCE_COOLDOWN_MS = 60_000;
+
 const lastCheckTimestamps = new Map<string, number>();
 
 export const checkCurrentStarsBalance = async (
@@ -15,43 +17,41 @@ export const checkCurrentStarsBalance = async (
   const lastCheck = lastCheckTimestamps.get(business_connection_id);
 
   if (lastCheck && now - lastCheck < CHECK_BALANCE_COOLDOWN_MS) {
-    console.log('⏱ Пропущена повторная проверка баланса (cooldown)');
+    console.log(
+      `⏱ Пропущена проверка баланса для ${business_connection_id} (cooldown ${CHECK_BALANCE_COOLDOWN_MS}ms)`,
+    );
     return { ok: true, currentAmount: Infinity };
   }
 
   lastCheckTimestamps.set(business_connection_id, now);
+  console.log(`🔍 Проверка баланса звёзд для ${business_connection_id}...`);
 
-  try {
-    const result = await bot.api.getBusinessAccountStarBalance(
-      business_connection_id,
-    );
-    const currentAmount = Number(result.amount);
+  const currentAmount = await getStarsBalance(business_connection_id);
 
-    if (isNaN(currentAmount)) {
-      await bot.api.sendMessage(
-        STARS_DEPOSITER_ID,
-        `⚠️ Ошибка: не удалось распознать количество звёзд для бизнес-аккаунта ${business_connection_id}`,
-      );
-      return { ok: false, currentAmount: 0 };
-    }
-
-    if (currentAmount < MIN_STARS_THRESHOLD) {
-      await bot.api.sendMessage(
-        STARS_DEPOSITER_ID,
-        `⚠️ Юрчик друууууг, На балансе бота всего ${currentAmount} звёзд.\nПожалуйста, бери рыжегооо.`,
-      );
-
-      console.log('Юрчик друг оповещён');
-      return { ok: false, currentAmount };
-    }
-
-    return { ok: true, currentAmount };
-  } catch (err) {
-    console.error('❌ Ошибка при получении баланса звёзд:', err);
-    await bot.api.sendMessage(
+  if (currentAmount === null) {
+    await botSendMessage(
       STARS_DEPOSITER_ID,
-      `❌ Ошибка при попытке получить баланс звёзд для бизнес-аккаунта ${business_connection_id}`,
+      `❌ Ошибка при попытке получить баланс звёзд для бизнес-аккаунта <code>${business_connection_id}</code>`,
+      'HTML',
     );
     return { ok: false, currentAmount: 0 };
   }
+
+  console.log(`⭐ Баланс для ${business_connection_id}: ${currentAmount}`);
+
+  if (currentAmount < MIN_STARS_THRESHOLD) {
+    console.log(
+      `⚠️ Баланс звёзд ниже порога: ${currentAmount} < ${MIN_STARS_THRESHOLD}`,
+    );
+
+    await botSendMessage(
+      STARS_DEPOSITER_ID,
+      `⚠️ Юрчик друууууг! На балансе бота всего <b>${currentAmount}</b> звёзд. Пожалуйста, бери рыжегооо.`,
+      'HTML',
+    );
+
+    return { ok: false, currentAmount };
+  }
+
+  return { ok: true, currentAmount };
 };

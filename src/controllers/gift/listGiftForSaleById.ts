@@ -66,7 +66,7 @@ export const listGiftForSaleById = async (
 
     await botSendMessage(
       updatedGift.owner.id,
-      `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b>\n💰 <code>${updatedGift.sell_price} TON</code>`,
+      `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b> 💰 for <code>${updatedGift.sell_price} TON</code>`,
       'HTML',
     );
   } catch (error) {
