@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
+import { botSendMessage } from '../../services/messages/botSendMessage';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -46,6 +47,11 @@ export const listGiftForSaleById = async (
     if (updatedGift.owner) {
       delete updatedGift.owner.gifts;
     }
+
+    await botSendMessage(
+      updatedGift.owner.id,
+      `🛒 You listed ${updatedGift.collection_name} #${updatedGift.number} for ${updatedGift.sell_price} TON`,
+    );
 
     res.json({
       id: updatedGift.id,
