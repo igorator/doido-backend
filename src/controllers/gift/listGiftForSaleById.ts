@@ -1,17 +1,22 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 
-export const listGiftForSaleById = async (req: Request, res: Response) => {
+export const listGiftForSaleById = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
   const { gift_id } = req.params;
   const { price, price_with_fee } = req.body;
   const telegramUser = (req as any).telegramUser;
 
   if (!price || isNaN(price)) {
-    return res.status(400).json({ error: 'Invalid price' });
+    res.status(400).json({ error: 'Invalid price' });
+    return;
   }
 
   if (!gift_id) {
-    return res.status(404).json({ error: 'Gift_id not found' });
+    res.status(404).json({ error: 'Gift_id not found' });
+    return;
   }
 
   try {
@@ -21,12 +26,14 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
     });
 
     if (!gift) {
-      return res.status(404).json({ error: 'Gift not found' });
+      res.status(404).json({ error: 'Gift not found' });
+      return;
     }
 
     if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
       console.warn('❌ User tried to list a gift that does not belong to them');
-      return res.status(403).json({ error: 'Forbidden: not your gift' });
+      res.status(403).json({ error: 'Forbidden: not your gift' });
+      return;
     }
 
     gift.is_listed = true;
@@ -40,7 +47,7 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
       delete updatedGift.owner.gifts;
     }
 
-    return res.json({
+    res.json({
       id: updatedGift.id,
       collection_name: updatedGift.collection_name,
       number: updatedGift.number,
@@ -57,6 +64,6 @@ export const listGiftForSaleById = async (req: Request, res: Response) => {
     });
   } catch (error) {
     console.error('❌ Ошибка при выставлении подарка на продажу:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

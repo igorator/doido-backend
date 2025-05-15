@@ -5,7 +5,10 @@ import { transferStarsCount } from '../../shared/constants';
 import { deleteGiftFromDatabaseById } from '../../services/gifts/deleteGiftFromDatabaseById';
 import { transferGift } from '../../services/gifts/transferGift';
 
-export const transferGiftById = async (req: Request, res: Response) => {
+export const transferGiftById = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
   const { gift_id } = req.params;
   const telegramUser = (req as any).telegramUser;
 
@@ -16,23 +19,25 @@ export const transferGiftById = async (req: Request, res: Response) => {
     });
 
     if (!gift) {
-      return res.status(404).json({ error: 'Gift not found' });
+      res.status(404).json({ error: 'Gift not found' });
+      return;
     }
 
     if (gift.owner.id !== String(telegramUser.id)) {
-      return res
-        .status(403)
-        .json({ error: 'You are not the owner of this gift' });
+      res.status(403).json({ error: 'You are not the owner of this gift' });
+      return;
     }
 
     const owner = await userRepository.findOneBy({ id: gift.owner.id });
     if (!owner || !owner.id) {
-      return res.status(400).json({ error: 'Chat ID for owner not found' });
+      res.status(400).json({ error: 'Chat ID for owner not found' });
+      return;
     }
 
     const businessId = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
     if (!businessId) {
-      return res.status(400).json({ error: 'Business connection ID not set' });
+      res.status(400).json({ error: 'Business connection ID not set' });
+      return;
     }
 
     await transferGift({
@@ -45,9 +50,9 @@ export const transferGiftById = async (req: Request, res: Response) => {
     await deleteGiftFromDatabaseById(gift.id);
     console.log(`🗑 Подарок ${gift.id} удалён после трансфера`);
 
-    return res.json({ success: true });
+    res.json({ success: true });
   } catch (err) {
     console.error('❌ Error during transferGift:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

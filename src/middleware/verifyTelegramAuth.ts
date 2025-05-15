@@ -1,22 +1,20 @@
-import type { Request, Response, NextFunction } from 'express';
+import type { RequestHandler } from 'express';
 import { checkTelegramInitData } from '../shared/lib/auth/checkTelegramInitData';
 
-export function verifyTelegramAuth(
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) {
+export const verifyTelegramAuth: RequestHandler = (req, res, next) => {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   if (!token) {
     console.error('❌ TELEGRAM_BOT_TOKEN is not defined');
-    return res.status(500).json({ error: 'Server configuration error' });
+    res.status(500).json({ error: 'Server configuration error' });
+    return;
   }
 
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Telegram ')) {
     console.warn('❌ Missing or invalid Authorization header');
-    return res.status(401).json({ error: 'Unauthorized: missing auth header' });
+    res.status(401).json({ error: 'Unauthorized: missing auth header' });
+    return;
   }
 
   const initDataRaw = authHeader.slice('Telegram '.length).trim();
@@ -33,7 +31,8 @@ export function verifyTelegramAuth(
     if (process.env.NODE_ENV !== 'production') {
       console.warn('❌ Invalid Telegram initData:', reason);
     }
-    return res.status(401).json({ error: 'Unauthorized: invalid initData' });
+    res.status(401).json({ error: 'Unauthorized: invalid initData' });
+    return;
   }
 
   (req as any).telegramUser = user;
@@ -43,4 +42,4 @@ export function verifyTelegramAuth(
   }
 
   next();
-}
+};

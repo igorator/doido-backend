@@ -2,11 +2,15 @@ import type { Request, Response } from 'express';
 import { In } from 'typeorm';
 import { giftRepository } from '../../database/repositories/giftRepository';
 
-export const checkIsGiftInStock = async (req: Request, res: Response) => {
+export const checkIsGiftInStock = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
   const { gift_id, gift_ids } = req.body;
 
   if (!gift_id && !Array.isArray(gift_ids)) {
-    return res.status(400).json({ error: 'gift_id or gift_ids[] required' });
+    res.status(400).json({ error: 'gift_id or gift_ids[] required' });
+    return;
   }
 
   try {
@@ -17,12 +21,14 @@ export const checkIsGiftInStock = async (req: Request, res: Response) => {
       });
 
       if (!gift) {
-        return res
-          .status(404)
-          .json({ error: `Gift ${gift_id} not found or not listed` });
+        res.status(404).json({
+          error: `Gift ${gift_id} not found or not listed`,
+        });
+        return;
       }
 
-      return res.status(200).json({ success: true, gifts: [gift] });
+      res.status(200).json({ success: true, gifts: [gift] });
+      return;
     }
 
     const gifts = await giftRepository.find({
@@ -37,15 +43,16 @@ export const checkIsGiftInStock = async (req: Request, res: Response) => {
     const missingIds = gift_ids.filter((id: string) => !foundIds.includes(id));
 
     if (missingIds.length > 0) {
-      return res.status(404).json({
+      res.status(404).json({
         error: `Some gifts not found or not listed`,
         missing: missingIds,
       });
+      return;
     }
 
-    return res.status(200).json({ success: true, gifts });
+    res.status(200).json({ success: true, gifts });
   } catch (error) {
     console.error('❌ Error checking gift stock:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

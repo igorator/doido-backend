@@ -4,7 +4,7 @@ import { listGiftForSaleById } from '../controllers/gift/listGiftForSaleById';
 import { unlistGiftFromSaleById } from '../controllers/gift/unlistGiftFromSaleById';
 import { getGiftsByUserId } from '../controllers/gift/getUserGiftsById';
 import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
-import { BuyGiftsByIds } from '../controllers/gift/buyGiftsById';
+import { buyGiftsByIds } from '../controllers/gift/buyGiftsById';
 import { transferGiftById } from '../controllers/gift/transferGiftById';
 import { checkIsGiftInStock } from '../controllers/gift/checkIsGiftInStock';
 
@@ -14,7 +14,7 @@ router.get('/', getGifts);
 
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
 
-router.post('/buy', verifyTelegramAuth, BuyGiftsByIds);
+router.post('/buy', verifyTelegramAuth, buyGiftsByIds);
 
 router.get('/is-in-stock', verifyTelegramAuth, checkIsGiftInStock);
 

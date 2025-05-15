@@ -2,11 +2,15 @@ import type { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { Like, In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 
-export const getGiftsByUserId = async (req: Request, res: Response) => {
+export const getGiftsByUserId = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
   try {
     const telegramUser = (req as any).telegramUser;
     if (!telegramUser?.id) {
-      return res.status(401).json({ error: 'Unauthorized' });
+      res.status(401).json({ error: 'Unauthorized' });
+      return;
     }
 
     const {
@@ -104,14 +108,14 @@ export const getGiftsByUserId = async (req: Request, res: Response) => {
 
     const hasMore = skipNum + takeNum < total;
 
-    return res.json({
+    res.json({
       gifts: sanitized,
       total,
       hasMore,
     });
   } catch (err) {
     console.error('❌ Error fetching user gifts:', err);
-    return res.status(500).json({
+    res.status(500).json({
       error: (err as Error).message || 'Server error',
     });
   }

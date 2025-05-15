@@ -1,13 +1,17 @@
 import { Request, Response } from 'express';
 import { calculateBuyerPaysFromSellerAmount } from '../../shared/lib/pricing';
 
-export const getBuyerPaysBySellerPrice = (req: Request, res: Response) => {
+export const getBuyerPaysBySellerPrice = (
+  req: Request,
+  res: Response,
+): void => {
   const amount = Number(req.query.amount);
 
   if (!amount || isNaN(amount) || amount <= 0) {
-    return res.status(400).json({ error: 'Invalid amount' });
+    res.status(400).json({ error: 'Invalid amount' });
+    return;
   }
 
   const buyerPays = calculateBuyerPaysFromSellerAmount(amount);
-  return res.json({ buyerPays });
+  res.json({ buyerPays });
 };

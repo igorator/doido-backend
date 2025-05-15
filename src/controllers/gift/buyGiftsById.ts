@@ -5,16 +5,21 @@ import { userRepository } from '../../database/repositories/userRepository';
 import { activityRepository } from '../../database/repositories/activityRepository';
 import { Activity } from '../../models/Activity';
 
-export const BuyGiftsByIds = async (req: Request, res: Response) => {
+export const buyGiftsByIds = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
   const telegramUser = (req as any).telegramUser;
   const { gift_ids, externalPurchase } = req.body;
 
   if (!telegramUser?.id) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
   }
 
   if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
-    return res.status(400).json({ error: 'No gift IDs provided' });
+    res.status(400).json({ error: 'No gift IDs provided' });
+    return;
   }
 
   try {
@@ -82,11 +87,9 @@ export const BuyGiftsByIds = async (req: Request, res: Response) => {
       };
     });
 
-    return res.status(200).json(result);
+    res.status(200).json(result);
   } catch (err: any) {
     console.error('❌ Transaction failed:', err);
-    return res
-      .status(400)
-      .json({ error: err.message || 'Failed to buy gifts' });
+    res.status(400).json({ error: err.message || 'Failed to buy gifts' });
   }
 };

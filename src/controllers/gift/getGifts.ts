@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
 
-export const getGifts = async (req: Request, res: Response) => {
+export const getGifts = async (req: Request, res: Response): Promise<void> => {
   try {
     const {
       collection,
@@ -94,10 +94,10 @@ export const getGifts = async (req: Request, res: Response) => {
 
     const hasMore = skipNum + takeNum < total;
 
-    return res.json({ gifts, total, hasMore });
+    res.json({ gifts, total, hasMore });
   } catch (err) {
     console.error('❌ Ошибка при получении подарков:', err);
-    return res.status(500).json({
+    res.status(500).json({
       message: 'Ошибка при получении подарков',
       error: (err as Error).message,
     });
