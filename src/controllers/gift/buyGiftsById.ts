@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
+import { botSendMessage } from '../../services/messages/botSendMessage';
 import { activityRepository } from '../../database/repositories/activityRepository';
-import { Activity } from '../../models/Activity';
 
 export const buyGiftsByIds = async (
   req: Request,
@@ -22,19 +22,20 @@ export const buyGiftsByIds = async (
     return;
   }
 
+  let gifts: any[] = [];
+
   try {
     const result = await AppDataSource.transaction(async (manager) => {
       const buyer = await manager.findOneByOrFail(userRepository.target, {
         id: String(telegramUser.id),
       });
 
-      const gifts = await manager.find(giftRepository.target, {
+      gifts = await manager.find(giftRepository.target, {
         where: gift_ids.map((id) => ({ id })),
         relations: ['owner'],
       });
 
       const affectedUsers = new Map<string, typeof buyer>();
-      const activities: Activity[] = [];
       let totalCost = 0;
 
       for (const gift of gifts) {
@@ -55,18 +56,6 @@ export const buyGiftsByIds = async (
         gift.listed_date = null;
 
         affectedUsers.set(seller.id, seller);
-
-        const { owner, ...snapshot } = gift;
-        const activity = manager.create(Activity, {
-          item_type: 'gift',
-          item_id: gift.id,
-          item_snapshot: snapshot,
-          amount: gift.sell_price_with_fee,
-          buyer,
-          seller,
-        });
-
-        activities.push(activity);
       }
 
       if (buyer.ton_balance < 0) {
@@ -77,7 +66,6 @@ export const buyGiftsByIds = async (
 
       await manager.save(userRepository.target, [...affectedUsers.values()]);
       await manager.save(giftRepository.target, gifts);
-      await manager.save(activityRepository.target, activities);
 
       return {
         success: true,
@@ -88,6 +76,19 @@ export const buyGiftsByIds = async (
     });
 
     res.status(200).json(result);
+
+    for (const gift of gifts) {
+      const seller = gift.owner;
+      const price = gift.sell_price_with_fee;
+
+      if (!seller?.id) continue;
+
+      await botSendMessage(
+        seller.id,
+        `🎉 <b>Your gift ${gift.collection_name} #${gift.number}</b> was sold for <code>${price} TON</code>`,
+        'HTML',
+      );
+    }
   } catch (err: any) {
     console.error('❌ Transaction failed:', err);
     res.status(400).json({ error: err.message || 'Failed to buy gifts' });
