@@ -39,6 +39,10 @@ export const checkCurrentStarsBalance = async (
 
   console.log(`⭐ Баланс для ${business_connection_id}: ${currentAmount}`);
 
+  console.log(
+    `ℹ️ Проверка порога: currentAmount = ${currentAmount}, MIN_STARS_THRESHOLD = ${MIN_STARS_THRESHOLD}, тип = ${typeof MIN_STARS_THRESHOLD}`,
+  );
+
   if (currentAmount < MIN_STARS_THRESHOLD) {
     console.log(
       `⚠️ Баланс звёзд ниже порога: ${currentAmount} < ${MIN_STARS_THRESHOLD}`,
