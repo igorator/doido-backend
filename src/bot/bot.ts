@@ -2,7 +2,6 @@ import { Bot } from 'grammy';
 import { config } from 'dotenv';
 import { limit } from '@grammyjs/ratelimiter';
 import { autoRetry } from '@grammyjs/auto-retry';
-import { run } from '@grammyjs/runner';
 import { setupBotHandlers } from './handlers/setupHandlers';
 
 config();
@@ -15,16 +14,12 @@ bot.use(limit());
 setupBotHandlers(bot);
 
 bot.catch((err) => {
-  console.error(`❌ Error in update ${err.ctx.update.update_id}`);
+  console.error(
+    `❌ Error in update ${err.ctx?.update?.update_id ?? 'unknown update'}`,
+  );
   if (err.error instanceof Error) {
     console.error('→', err.error.message);
   } else {
     console.error('→ Non-standard error:', err.error);
   }
 });
-
-const runner = run(bot);
-
-const stopRunner = () => runner.isRunning() && runner.stop();
-process.once('SIGINT', stopRunner);
-process.once('SIGTERM', stopRunner);

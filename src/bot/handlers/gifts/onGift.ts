@@ -1,5 +1,3 @@
-// src/bot/handlers/gifts/onGiftRouter.ts
-
 import { Bot, Context } from 'grammy';
 import { userRepository } from '../../../database/repositories/userRepository';
 import { saveGiftToDatabase } from '../../../services/gifts/saveGiftToDatabase';
