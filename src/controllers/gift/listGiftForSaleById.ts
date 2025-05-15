@@ -48,11 +48,6 @@ export const listGiftForSaleById = async (
       delete updatedGift.owner.gifts;
     }
 
-    await botSendMessage(
-      updatedGift.owner.id,
-      `🛒 You listed ${updatedGift.collection_name} #${updatedGift.number} for ${updatedGift.sell_price} TON`,
-    );
-
     res.json({
       id: updatedGift.id,
       collection_name: updatedGift.collection_name,
@@ -68,6 +63,12 @@ export const listGiftForSaleById = async (
           }
         : null,
     });
+
+    await botSendMessage(
+      updatedGift.owner.id,
+      `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b>\n💰 <code>${updatedGift.sell_price} TON</code>`,
+      'HTML',
+    );
   } catch (error) {
     console.error('❌ Ошибка при выставлении подарка на продажу:', error);
     res.status(500).json({ error: 'Internal server error' });
