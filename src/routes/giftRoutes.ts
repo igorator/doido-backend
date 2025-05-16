@@ -7,11 +7,8 @@ import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
 import { buyGiftsByIds } from '../controllers/gift/buyGiftsById';
 import { transferGiftById } from '../controllers/gift/transferGiftById';
 import { checkGiftsIsInStock } from '../controllers/gift/checkIsGiftsInStock';
-import { migrateGiftStatus } from '../controllers/gift/migratedGiftStatus';
 
 const router = Router();
-
-router.post('/migrate-status', migrateGiftStatus); // 👈 Добавлено
 
 router.get('/', getGifts);
 
