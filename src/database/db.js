@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import { DataSource } from 'typeorm';
 import { Gift } from '../models/Gift';
 import { User } from '../models/User';
+import { Activity } from '../models/Activity';
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ export const AppDataSource = new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [Gift, User],
+  entities: [Gift, User, Activity],
   //synchronize: true,
   logging: true,
 });

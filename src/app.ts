@@ -3,11 +3,13 @@ import 'reflect-metadata';
 import { AppDataSource } from './database/db';
 import { startServer } from './server';
 import './bot/bot';
+import { migrateGiftStatus } from '../migration';
 
 async function bootstrap() {
   try {
     console.log('🔄 Initializing database connection...');
     await AppDataSource.initialize();
+    await migrateGiftStatus();
     console.log('📦 Database connected');
 
     console.log('✅ Telegram bot loaded');
