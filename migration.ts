@@ -7,23 +7,16 @@ export const migrateGiftStatus = async () => {
   console.log('🔄 Starting gift status migration...');
 
   try {
-    // 1. Добавляем колонку status, если нет
+    // 1. Добавляем колонку status, если вдруг её ещё нет
     await queryRunner.query(`
       ALTER TABLE "gift"
       ADD COLUMN IF NOT EXISTS "status" VARCHAR DEFAULT 'unlisted'
     `);
     console.log('✅ Added status column');
 
-    // 2. Обновляем значения статуса на основе is_listed
-    await queryRunner.query(`
-      UPDATE "gift" SET "status" = 'listed' WHERE "is_listed" = true
-    `);
-    await queryRunner.query(`
-      UPDATE "gift" SET "status" = 'unlisted' WHERE "is_listed" = false
-    `);
-    console.log('✅ Updated status values');
+    // ⚠️ Удаляем обновление по is_listed – оно уже не нужно
 
-    // 3. Удаляем колонку is_listed
+    // 2. Удаляем колонку is_listed, если она каким-то образом ещё есть
     await queryRunner.query(`
       ALTER TABLE "gift" DROP COLUMN IF EXISTS "is_listed"
     `);
