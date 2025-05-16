@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
-import { Gift } from '../../models/Gift';
+import { GiftStatus } from '../../models/Gift';
 
 export const unlistGiftFromSaleById = async (
   req: Request,
@@ -20,10 +20,6 @@ export const unlistGiftFromSaleById = async (
       return;
     }
 
-    console.log(gift_id);
-    console.log(gift);
-    console.log(telegramUser);
-
     if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
       console.warn(
         '❌ User tried to unlist a gift that does not belong to them',
@@ -32,22 +28,18 @@ export const unlistGiftFromSaleById = async (
       return;
     }
 
-    gift.is_listed = false;
+    gift.status = GiftStatus.UNLISTED;
     gift.sell_price = 0;
     gift.sell_price_with_fee = 0;
     gift.listed_date = null;
 
-    const updatedGift: Gift = await giftRepository.save(gift);
-
-    if (updatedGift.owner) {
-      delete (updatedGift.owner as any).gifts;
-    }
+    const updatedGift = await giftRepository.save(gift);
 
     res.json({
       id: updatedGift.id,
       collection_name: updatedGift.collection_name,
       number: updatedGift.number,
-      is_listed: updatedGift.is_listed,
+      status: updatedGift.status,
       sell_price: updatedGift.sell_price,
       sell_price_with_fee: updatedGift.sell_price_with_fee,
       listed_date: updatedGift.listed_date,

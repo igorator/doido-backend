@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { transferStarsCount } from '../../shared/constants';
-import { deleteGiftFromDatabaseById } from '../../services/gifts/deleteGiftFromDatabaseById';
 import { transferGift } from '../../services/gifts/transferGift';
+import { GiftStatus } from '../../models/Gift';
 
 export const transferGiftById = async (
   req: Request,
@@ -47,8 +47,10 @@ export const transferGiftById = async (
       star_count: transferStarsCount,
     });
 
-    await deleteGiftFromDatabaseById(gift.id);
-    console.log(`🗑 Подарок ${gift.id} удалён после трансфера`);
+    gift.status = GiftStatus.TRANSFERRED;
+    await giftRepository.save(gift);
+
+    console.log(`✅ Подарок ${gift.id} помечен как TRANSFERRED`);
 
     res.json({ success: true });
   } catch (err) {

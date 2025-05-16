@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
+import { GiftStatus } from '../../models/Gift';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -37,22 +38,18 @@ export const listGiftForSaleById = async (
       return;
     }
 
-    gift.is_listed = true;
+    gift.status = GiftStatus.LISTED;
     gift.sell_price = Number(price);
     gift.sell_price_with_fee = Number(price_with_fee);
     gift.listed_date = new Date();
 
     const updatedGift = await giftRepository.save(gift);
 
-    if (updatedGift.owner) {
-      delete updatedGift.owner.gifts;
-    }
-
     res.json({
       id: updatedGift.id,
       collection_name: updatedGift.collection_name,
       number: updatedGift.number,
-      is_listed: updatedGift.is_listed,
+      status: updatedGift.status,
       sell_price: updatedGift.sell_price,
       sell_price_with_fee: updatedGift.sell_price_with_fee,
       listed_date: updatedGift.listed_date,

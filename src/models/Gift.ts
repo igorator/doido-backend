@@ -43,6 +43,13 @@ class Backdrop {
   text_color: string;
 }
 
+export enum GiftStatus {
+  UNLISTED = 'unlisted',
+  LISTED = 'listed',
+  SOLD = 'sold',
+  TRANSFERRED = 'transferred',
+}
+
 @Entity()
 export class Gift {
   @PrimaryColumn('text', { unique: true })
@@ -72,11 +79,18 @@ export class Gift {
   @Column('float', { default: 0 })
   sell_price_with_fee: number;
 
-  @Column('boolean', { default: false })
-  is_listed: boolean;
+  @Column({
+    type: 'enum',
+    enum: GiftStatus,
+    default: GiftStatus.UNLISTED,
+  })
+  status: GiftStatus;
 
-  @Column('date', { default: null })
+  @Column('date', { nullable: true })
   listed_date: Date | null;
+
+  @Column('date', { nullable: true })
+  sold_date: Date | null;
 
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })

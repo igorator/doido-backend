@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import { giftRepository } from '../../database/repositories/giftRepository';
 import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
+import { giftRepository } from '../../database/repositories/giftRepository';
+import { GiftStatus } from '../../models/Gift';
 
 export const getGifts = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -39,7 +40,7 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
       : [];
 
     const baseFilters: any = {
-      is_listed: true,
+      status: GiftStatus.LISTED,
     };
 
     if (gift_id) {
@@ -87,7 +88,7 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
     const [gifts, total] = await giftRepository.findAndCount({
       where,
       order,
-      relations: ['owner', 'model', 'pattern', 'backdrop'],
+      relations: ['owner'],
       skip: skipNum,
       take: takeNum,
     });

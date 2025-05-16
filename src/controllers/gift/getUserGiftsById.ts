@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { Like, In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
+import { GiftStatus } from '../../models/Gift';
 
 export const getGiftsByUserId = async (
   req: Request,
@@ -22,7 +23,7 @@ export const getGiftsByUserId = async (
       max_price,
       sort,
       gift_id,
-      is_listed,
+      status,
       skip = 0,
       take = 20,
     } = req.query;
@@ -49,9 +50,7 @@ export const getGiftsByUserId = async (
 
     const baseFilters: any = {
       owner: { id: String(telegramUser.id) },
-      ...(typeof is_listed !== 'undefined' && {
-        is_listed: is_listed === 'true',
-      }),
+      ...(status && { status }),
       ...(gift_id && { number: Number(gift_id) }),
     };
 
@@ -96,7 +95,7 @@ export const getGiftsByUserId = async (
     const [gifts, total] = await giftRepository.findAndCount({
       where,
       order,
-      relations: ['owner', 'model', 'pattern', 'backdrop'],
+      relations: ['owner'],
       skip: skipNum,
       take: takeNum,
     });

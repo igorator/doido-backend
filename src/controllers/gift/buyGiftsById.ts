@@ -3,7 +3,7 @@ import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
-import { activityRepository } from '../../database/repositories/activityRepository';
+import { GiftStatus } from '../../models/Gift';
 
 export const buyGiftsByIds = async (
   req: Request,
@@ -39,8 +39,13 @@ export const buyGiftsByIds = async (
       let totalCost = 0;
 
       for (const gift of gifts) {
-        if (!gift?.is_listed || !gift.owner || gift.owner.id === buyer.id) {
-          throw new Error(`Invalid gift ID ${gift?.id}`);
+        if (
+          !gift?.status ||
+          gift.status !== GiftStatus.LISTED ||
+          !gift.owner ||
+          gift.owner.id === buyer.id
+        ) {
+          throw new Error(`Invalid or unavailable gift ID: ${gift?.id}`);
         }
 
         const seller = gift.owner;
@@ -50,10 +55,12 @@ export const buyGiftsByIds = async (
         seller.ton_balance += gift.sell_price;
 
         gift.owner = buyer;
-        gift.is_listed = false;
+        gift.status = GiftStatus.SOLD;
+        gift.sold_date = new Date();
         gift.sell_price = 0;
         gift.sell_price_with_fee = 0;
         gift.listed_date = null;
+        gift.transferred_date = null;
 
         affectedUsers.set(seller.id, seller);
       }
@@ -79,13 +86,13 @@ export const buyGiftsByIds = async (
 
     for (const gift of gifts) {
       const seller = gift.owner;
-      const price = gift.sell_price_with_fee;
+      const price = gift.sell_price;
 
       if (!seller?.id) continue;
 
       await botSendMessage(
         seller.id,
-        `🎉 <b>Your gift ${gift.collection_name} #${gift.number}</b> was sold for <code>${price} TON</code>`,
+        `🎉 <b>Your gift ${gift.collection_name} #${gift.number}</b> was sold. For ${price}`,
         'HTML',
       );
     }
