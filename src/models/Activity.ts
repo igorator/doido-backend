@@ -3,17 +3,17 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  JoinColumn,
   CreateDateColumn,
 } from 'typeorm';
 import { User } from './User';
+import { Gift } from './Gift';
 
 export type ActivityItemType = 'gift' | 'sticker';
 
 @Entity()
 export class Activity {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column({ type: 'enum', enum: ['gift', 'sticker'] })
   item_type: ActivityItemType;
@@ -21,15 +21,17 @@ export class Activity {
   @Column('text')
   item_id: string;
 
-  @Column({ type: 'jsonb' })
-  item_snapshot: Record<string, any>;
+  @ManyToOne(() => Gift, { nullable: true, onDelete: 'SET NULL' })
+  gift?: Gift;
+
+  // ⏳ Stickers
+  // @ManyToOne(() => Sticker, { nullable: true, onDelete: 'SET NULL' })
+  // sticker?: Sticker;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'seller_id' })
   seller: User;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'buyer_id' })
   buyer: User;
 
   @Column({ type: 'float' })
