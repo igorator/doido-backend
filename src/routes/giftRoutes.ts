@@ -7,8 +7,11 @@ import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
 import { buyGiftsByIds } from '../controllers/gift/buyGiftsById';
 import { transferGiftById } from '../controllers/gift/transferGiftById';
 import { checkGiftsIsInStock } from '../controllers/gift/checkIsGiftsInStock';
+import { migrateGiftStatus } from '../controllers/gift/migratedGiftStatus';
 
 const router = Router();
+
+router.post('/migrate-status', migrateGiftStatus); // 👈 Добавлено
 
 router.get('/', getGifts);
 
@@ -37,6 +40,6 @@ router.get(
   transferGiftById,
 );
 
-router.post('/is-in-stock', verifyTelegramAuth, checkGiftsIsInStock);
+router.post('/is-in-stock', checkGiftsIsInStock);
 
 export default router;
