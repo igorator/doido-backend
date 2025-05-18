@@ -1,13 +1,13 @@
 import type { Request, Response } from 'express';
 import {
-  UserService,
+  updateUserReferral,
   AlreadyReferredError,
   MutualReferralError,
   SelfReferralError,
   UserNotFoundError,
 } from '../../services/user/referral/updateUserReferral';
 
-export const updateUserReferral = async (
+export const updateUserReferralController = async (
   req: Request,
   res: Response,
 ): Promise<void> => {
@@ -29,10 +29,7 @@ export const updateUserReferral = async (
   }
 
   try {
-    const updatedUser = await UserService.updateUserReferral(
-      userId,
-      referred_by,
-    );
+    const updatedUser = await updateUserReferral(userId, referred_by);
     res.status(200).json(updatedUser);
   } catch (err) {
     console.error('❌ Referral update failed:', err);

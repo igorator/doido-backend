@@ -5,36 +5,45 @@ export class MutualReferralError extends Error {}
 export class AlreadyReferredError extends Error {}
 export class UserNotFoundError extends Error {}
 
-export const UserService = {
-  async updateUserReferral(userId: string, referredById: string) {
-    if (userId === referredById) {
-      throw new SelfReferralError('User cannot refer themselves');
-    }
+export async function updateUserReferral(userId: string, referredById: string) {
+  if (userId === referredById) {
+    throw new SelfReferralError('User cannot refer themselves');
+  }
 
-    const [user, referrer] = await Promise.all([
-      userRepository.findOne({
-        where: { id: userId },
-        relations: ['referred_by'],
-      }),
-      userRepository.findOne({
-        where: { id: referredById },
-        relations: ['referred_by'],
-      }),
-    ]);
+  const [user, referrer] = await Promise.all([
+    userRepository.findOne({
+      where: { id: userId },
+      relations: ['referred_by'],
+    }),
+    userRepository.findOne({
+      where: { id: referredById },
+      relations: ['referred_by'],
+    }),
+  ]);
 
-    if (!user || !referrer) {
-      throw new UserNotFoundError('User or referrer not found');
-    }
+  if (!user || !referrer) {
+    throw new UserNotFoundError('User or referrer not found');
+  }
 
-    if (user.referred_by) {
-      throw new AlreadyReferredError('User already has a referrer');
-    }
+  if (user.referred_by) {
+    throw new AlreadyReferredError('User already has a referrer');
+  }
 
-    if (referrer.referred_by?.id === user.id) {
-      throw new MutualReferralError('Mutual referral is not allowed');
-    }
+  if (referrer.referred_by?.id === user.id) {
+    throw new MutualReferralError('Mutual referral is not allowed');
+  }
 
-    user.referred_by = referrer;
-    return await userRepository.save(user);
-  },
-};
+  user.referred_by = referrer;
+  await userRepository.save(user);
+
+  const fullUser = await userRepository.findOne({
+    where: { id: userId },
+    relations: ['referred_by', 'referred_users'],
+  });
+
+  if (!fullUser) {
+    throw new UserNotFoundError('User not found after referral update');
+  }
+
+  return fullUser;
+}
