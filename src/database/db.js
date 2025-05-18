@@ -27,5 +27,7 @@ export const AppDataSource = new DataSource({
   entities: [Gift, User, Activity],
   synchronize: true,
   logging: true,
-  ssl: true,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
