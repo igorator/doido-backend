@@ -3,115 +3,122 @@ import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
+import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
 
-export const buyGiftsByIds = async (
-  req: Request,
-  res: Response,
-): Promise<void> => {
+export const buyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
   const { gift_ids, externalPurchase } = req.body;
 
   if (!telegramUser?.id) {
-    res.status(401).json({ error: 'Unauthorized' });
-    return;
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
-    res.status(400).json({ error: 'No gift IDs provided' });
-    return;
+    return res.status(400).json({ error: 'No gift IDs provided' });
   }
 
-  type NotificationPayload = {
+  const notifications: {
     sellerId: string;
     collection_name: string;
     number: number;
     price: number;
-  };
-
-  const notifications: NotificationPayload[] = [];
-  let buyerBalance = 0;
+  }[] = [];
 
   try {
-    const result = await AppDataSource.transaction(async (manager) => {
-      const buyer = await manager.findOneByOrFail(userRepository.target, {
-        id: String(telegramUser.id),
-      });
-
-      const gifts = await manager.find(giftRepository.target, {
-        where: gift_ids.map((id) => ({ id })),
-        relations: ['owner'],
-      });
-
-      const affectedUsers = new Map<string, typeof buyer>();
-      let totalCost = 0;
-
-      for (const gift of gifts) {
-        if (
-          !gift?.status ||
-          gift.status !== GiftStatus.LISTED ||
-          !gift.owner ||
-          gift.owner.id === buyer.id
-        ) {
-          throw new Error(`Invalid or unavailable gift ID: ${gift?.id}`);
-        }
-
-        const seller = gift.owner;
-        const sellPrice = gift.sell_price;
-        const sellPriceWithFee = gift.sell_price_with_fee;
-
-        totalCost += sellPriceWithFee;
-
-        buyer.ton_balance -= sellPriceWithFee;
-        seller.ton_balance += sellPrice;
-
-        gift.owner = buyer;
-        gift.status = externalPurchase ? GiftStatus.SOLD : GiftStatus.UNLISTED;
-        gift.sell_price = 0;
-        gift.sell_price_with_fee = 0;
-        gift.listed_date = null;
-        gift.transferred_date = null;
-
-        notifications.push({
-          sellerId: seller.id,
-          collection_name: gift.collection_name,
-          number: gift.number,
-          price: sellPrice,
+    const { boughtGifts, updatedBalance } = await AppDataSource.transaction(
+      async (manager) => {
+        const buyer = await manager.findOneByOrFail(userRepository.target, {
+          id: String(telegramUser.id),
         });
 
-        affectedUsers.set(seller.id, seller);
-      }
+        const gifts = await manager.find(giftRepository.target, {
+          where: gift_ids.map((id) => ({ id })),
+          relations: ['owner'],
+        });
 
-      if (buyer.ton_balance < 0) {
-        throw new Error('Insufficient balance');
-      }
+        const affectedUsers = new Map<string, typeof buyer>();
+        let totalCost = 0;
 
-      affectedUsers.set(buyer.id, buyer);
-      buyerBalance = buyer.ton_balance;
+        for (const gift of gifts) {
+          if (
+            gift.status !== GiftStatus.LISTED ||
+            !gift.owner ||
+            gift.owner.id === buyer.id
+          ) {
+            throw new Error(`Invalid gift ID: ${gift?.id}`);
+          }
 
-      await manager.save(userRepository.target, [...affectedUsers.values()]);
-      await manager.save(giftRepository.target, gifts);
+          const { owner: seller, sell_price, sell_price_with_fee } = gift;
 
-      return {
-        success: true,
-        bought: gifts.map((g) => g.id),
-        total: totalCost,
-        external: Boolean(externalPurchase),
-      };
-    });
+          totalCost += sell_price_with_fee;
+          buyer.ton_balance -= sell_price_with_fee;
+          seller.ton_balance += sell_price;
+
+          gift.owner = buyer;
+          gift.status = externalPurchase
+            ? GiftStatus.SOLD
+            : GiftStatus.UNLISTED;
+          gift.sell_price = 0;
+          gift.sell_price_with_fee = 0;
+          gift.listed_date = null;
+          gift.transferred_date = null;
+
+          notifications.push({
+            sellerId: seller.id,
+            collection_name: gift.collection_name,
+            number: gift.number,
+            price: sell_price,
+          });
+
+          affectedUsers.set(seller.id, seller);
+        }
+
+        if (buyer.ton_balance < 0) {
+          throw new Error('Insufficient balance');
+        }
+
+        affectedUsers.set(buyer.id, buyer);
+
+        await manager.save([...affectedUsers.values()]);
+        await manager.save(gifts);
+
+        return {
+          boughtGifts: gifts,
+          updatedBalance: buyer.ton_balance,
+        };
+      },
+    );
 
     res.status(200).json({
-      ...result,
-      updated_balance: buyerBalance,
+      success: true,
+      bought: boughtGifts.map((g) => g.id),
+      updated_balance: updatedBalance,
+      external: Boolean(externalPurchase),
     });
 
-    for (const note of notifications) {
-      await botSendMessage(
-        note.sellerId,
-        `🎉 <b>Your gift ${note.collection_name} #${note.number}</b> was sold. For ${note.price}`,
-        'HTML',
+    if (externalPurchase) {
+      await Promise.all(
+        boughtGifts.map((gift) =>
+          transferGift({
+            giftId: gift.id,
+            newOwnerId: telegramUser.id,
+          }).catch((err) =>
+            console.error(`❌ Failed to transfer gift ${gift.id}:`, err),
+          ),
+        ),
       );
     }
+
+    await Promise.all(
+      notifications.map((note) =>
+        botSendMessage(
+          note.sellerId,
+          `🎉 <b>Your gift ${note.collection_name} #${note.number}</b> was sold. For ${note.price}`,
+          'HTML',
+        ),
+      ),
+    );
   } catch (err: any) {
     console.error('❌ Transaction failed:', err);
     res.status(400).json({ error: err.message || 'Failed to buy gifts' });

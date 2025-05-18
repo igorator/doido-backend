@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
-import { transferStarsCount } from '../../shared/constants';
 import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
 
@@ -34,17 +33,9 @@ export const transferGiftById = async (
       return;
     }
 
-    const businessId = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
-    if (!businessId) {
-      res.status(400).json({ error: 'Business connection ID not set' });
-      return;
-    }
-
     await transferGift({
-      business_connection_id: businessId,
-      owned_gift_id: gift.id,
-      new_owner_chat_id: owner.id,
-      star_count: transferStarsCount,
+      giftId: gift.id,
+      newOwnerId: owner.id,
     });
 
     gift.status = GiftStatus.TRANSFERRED;

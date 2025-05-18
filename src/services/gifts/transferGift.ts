@@ -2,22 +2,18 @@ import { bot } from '../../bot/bot';
 import { transferStarsCount } from '../../shared/constants';
 import { checkCurrentStarsBalance } from '../stars/checkCurrentStarsBalance';
 
-export const transferGift = async ({
-  business_connection_id,
-  owned_gift_id,
-  new_owner_chat_id,
-  star_count = transferStarsCount,
-  signal,
-}: {
-  business_connection_id: string;
-  owned_gift_id: string;
-  new_owner_chat_id: string | number;
-  star_count: number;
-  signal?: any;
-}) => {
-  new_owner_chat_id = Number(new_owner_chat_id);
+const BUSINESS_CONNECTION_ID = process.env.BUSINESS_CONNECTION_ID;
 
-  const balanceCheck = await checkCurrentStarsBalance(business_connection_id);
+export const transferGift = async ({
+  giftId,
+  newOwnerId,
+}: {
+  giftId: string;
+  newOwnerId: string | number;
+}) => {
+  newOwnerId = Number(newOwnerId);
+
+  const balanceCheck = await checkCurrentStarsBalance(BUSINESS_CONNECTION_ID);
 
   if (!balanceCheck.ok) {
     console.warn(
@@ -28,11 +24,10 @@ export const transferGift = async ({
 
   try {
     const result = await bot.api.transferGift(
-      business_connection_id,
-      owned_gift_id,
-      new_owner_chat_id,
-      star_count,
-      signal,
+      BUSINESS_CONNECTION_ID,
+      giftId,
+      newOwnerId,
+      transferStarsCount,
     );
     return result;
   } catch (error) {
