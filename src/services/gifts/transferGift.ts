@@ -2,7 +2,7 @@ import { bot } from '../../bot/bot';
 import { transferStarsCount } from '../../shared/constants';
 import { checkCurrentStarsBalance } from '../stars/checkCurrentStarsBalance';
 
-const BUSINESS_CONNECTION_ID = process.env.BUSINESS_CONNECTION_ID;
+const BUSINESS_CONNECTION_ID = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
 
 export const transferGift = async ({
   giftId,

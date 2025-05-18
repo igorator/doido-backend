@@ -27,7 +27,7 @@ export const saveGiftToDatabase = async ({
     sell_price: 0,
     sell_price_with_fee: 0,
     listed_date: null,
-    trasfered_date: null,
+    transferred_date: null,
   });
 
   return await giftRepository.save(gift);

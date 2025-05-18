@@ -5,6 +5,7 @@ import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
 import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
+import { Activity } from '../../models/Activity';
 
 export const buyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
@@ -17,13 +18,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
   if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
     return res.status(400).json({ error: 'No gift IDs provided' });
   }
-
-  const notifications: {
-    sellerId: string;
-    collection_name: string;
-    number: number;
-    price: number;
-  }[] = [];
 
   try {
     const { boughtGifts, updatedBalance } = await AppDataSource.transaction(
@@ -55,6 +49,17 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           buyer.ton_balance -= sell_price_with_fee;
           seller.ton_balance += sell_price;
 
+          await manager.save(
+            manager.create(Activity, {
+              item_type: 'gift',
+              item_id: gift.id,
+              gift,
+              seller,
+              buyer,
+              amount: sell_price,
+            }),
+          );
+
           gift.owner = buyer;
           gift.status = externalPurchase
             ? GiftStatus.SOLD
@@ -63,13 +68,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           gift.sell_price_with_fee = 0;
           gift.listed_date = null;
           gift.transferred_date = null;
-
-          notifications.push({
-            sellerId: seller.id,
-            collection_name: gift.collection_name,
-            number: gift.number,
-            price: sell_price,
-          });
 
           affectedUsers.set(seller.id, seller);
         }
@@ -111,10 +109,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
     }
 
     await Promise.all(
-      notifications.map((note) =>
+      boughtGifts.map((gift) =>
         botSendMessage(
-          note.sellerId,
-          `🎉 <b>Your gift ${note.collection_name} #${note.number}</b> was sold. For ${note.price}`,
+          gift.owner.id,
+          `🎉 Your gift <b>${gift.collection_name} #${gift.number}</b> was sold for <code>${gift.sell_price} TON</code>`,
           'HTML',
         ),
       ),
