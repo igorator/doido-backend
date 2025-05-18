@@ -4,9 +4,12 @@ import { Gift } from '../models/Gift';
 import { User } from '../models/User';
 import { Activity } from '../models/Activity';
 
-dotenv.config();
+dotenv.config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
+});
 
 const port = parseInt(process.env.POSTGRES_PORT || '5432', 10);
+const isProduction = process.env.NODE_ENV === 'production';
 
 if (
   !process.env.POSTGRES_HOST ||
@@ -20,14 +23,12 @@ if (
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
-  port: port,
+  port,
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   entities: [Gift, User, Activity],
-  synchronize: true,
-  logging: true,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  synchronize: !isProduction,
+  logging: !isProduction,
+  ssl: isProduction ? false : { rejectUnauthorized: false },
 });
