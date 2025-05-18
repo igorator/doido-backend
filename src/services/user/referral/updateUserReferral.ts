@@ -30,7 +30,7 @@ export const UserService = {
       throw new AlreadyReferredError('User already has a referrer');
     }
 
-    if (isMutualReferral(user, referrer)) {
+    if (referrer.referred_by?.id === user.id) {
       throw new MutualReferralError('Mutual referral is not allowed');
     }
 
@@ -38,8 +38,3 @@ export const UserService = {
     return await userRepository.save(user);
   },
 };
-
-// 🧠 Вынесено для читаемости
-function isMutualReferral(user: any, referrer: any): boolean {
-  return referrer.referred_by?.id === user.id;
-}

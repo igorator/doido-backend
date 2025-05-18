@@ -6,6 +6,6 @@ import { authTelegramUser } from '../controllers/user/authTelegramUser';
 const router = Router();
 
 router.get('/auth', verifyTelegramAuth, authTelegramUser);
-router.patch('/:id/referral', updateUserReferral);
+router.patch('/:id/referral', verifyTelegramAuth, updateUserReferral);
 
 export default router;

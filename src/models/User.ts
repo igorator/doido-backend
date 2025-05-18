@@ -37,6 +37,9 @@ export class User {
   @Column('float', { default: 0 })
   total_market_amount: number;
 
+  @Column('float', { default: 0 })
+  weekly_market_amount: number;
+
   @ManyToOne(() => User, (user) => user.referred_users, { nullable: true })
   @JoinColumn({ name: 'referredById' })
   referred_by?: User;
