@@ -11,7 +11,6 @@ export function checkTelegramInitData(
     return { valid: false, reason: 'Missing hash', user: null };
   }
 
-  // 🔥 Правильный способ формирования строки
   const queryString = Object.keys(params)
     .filter((key) => key !== 'hash')
     .sort()
@@ -32,8 +31,6 @@ export function checkTelegramInitData(
 
   if (!valid) {
     console.warn('❌ Hash mismatch. Computed:', computedHash, '!=', hash);
-  } else {
-    console.log('✅ Hash is valid');
   }
 
   let user = null;

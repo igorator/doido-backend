@@ -22,7 +22,15 @@ export const buyGiftsByIds = async (
     return;
   }
 
-  let gifts: any[] = [];
+  type NotificationPayload = {
+    sellerId: string;
+    collection_name: string;
+    number: number;
+    price: number;
+  };
+
+  const notifications: NotificationPayload[] = [];
+  let buyerBalance = 0;
 
   try {
     const result = await AppDataSource.transaction(async (manager) => {
@@ -30,7 +38,7 @@ export const buyGiftsByIds = async (
         id: String(telegramUser.id),
       });
 
-      gifts = await manager.find(giftRepository.target, {
+      const gifts = await manager.find(giftRepository.target, {
         where: gift_ids.map((id) => ({ id })),
         relations: ['owner'],
       });
@@ -49,18 +57,27 @@ export const buyGiftsByIds = async (
         }
 
         const seller = gift.owner;
-        totalCost += gift.sell_price_with_fee;
+        const sellPrice = gift.sell_price;
+        const sellPriceWithFee = gift.sell_price_with_fee;
 
-        buyer.ton_balance -= gift.sell_price_with_fee;
-        seller.ton_balance += gift.sell_price;
+        totalCost += sellPriceWithFee;
+
+        buyer.ton_balance -= sellPriceWithFee;
+        seller.ton_balance += sellPrice;
 
         gift.owner = buyer;
-        gift.status = GiftStatus.SOLD;
-        gift.sold_date = new Date();
+        gift.status = externalPurchase ? GiftStatus.SOLD : GiftStatus.UNLISTED;
         gift.sell_price = 0;
         gift.sell_price_with_fee = 0;
         gift.listed_date = null;
         gift.transferred_date = null;
+
+        notifications.push({
+          sellerId: seller.id,
+          collection_name: gift.collection_name,
+          number: gift.number,
+          price: sellPrice,
+        });
 
         affectedUsers.set(seller.id, seller);
       }
@@ -70,6 +87,7 @@ export const buyGiftsByIds = async (
       }
 
       affectedUsers.set(buyer.id, buyer);
+      buyerBalance = buyer.ton_balance;
 
       await manager.save(userRepository.target, [...affectedUsers.values()]);
       await manager.save(giftRepository.target, gifts);
@@ -82,17 +100,15 @@ export const buyGiftsByIds = async (
       };
     });
 
-    res.status(200).json(result);
+    res.status(200).json({
+      ...result,
+      updated_balance: buyerBalance,
+    });
 
-    for (const gift of gifts) {
-      const seller = gift.owner;
-      const price = gift.sell_price;
-
-      if (!seller?.id) continue;
-
+    for (const note of notifications) {
       await botSendMessage(
-        seller.id,
-        `🎉 <b>Your gift ${gift.collection_name} #${gift.number}</b> was sold. For ${price}`,
+        note.sellerId,
+        `🎉 <b>Your gift ${note.collection_name} #${note.number}</b> was sold. For ${note.price}`,
         'HTML',
       );
     }

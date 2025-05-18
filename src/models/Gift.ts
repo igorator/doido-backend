@@ -90,7 +90,7 @@ export class Gift {
   listed_date: Date | null;
 
   @Column('date', { nullable: true })
-  trasfered_date: Date | null;
+  transferred_date: Date | null;
 
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
