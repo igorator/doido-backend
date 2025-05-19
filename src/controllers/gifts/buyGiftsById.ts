@@ -12,16 +12,18 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
   const { gift_ids, externalPurchase } = req.body;
 
   if (!telegramUser?.id) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
   }
 
   if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
-    return res.status(400).json({ error: 'No gift IDs provided' });
+    res.status(400).json({ error: 'No gift IDs provided' });
+    return;
   }
 
   try {
-    const { boughtGifts, updatedBalance } = await AppDataSource.transaction(
-      async (manager) => {
+    const { boughtGifts, updatedBalance, activities } =
+      await AppDataSource.transaction(async (manager) => {
         const buyer = await manager.findOneByOrFail(userRepository.target, {
           id: String(telegramUser.id),
         });
@@ -32,6 +34,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
         });
 
         const affectedUsers = new Map<string, typeof buyer>();
+        const createdActivities: Activity[] = [];
         let totalCost = 0;
 
         for (const gift of gifts) {
@@ -43,22 +46,25 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             throw new Error(`Invalid gift ID: ${gift?.id}`);
           }
 
-          const { owner: seller, sell_price, sell_price_with_fee } = gift;
+          const seller = gift.owner;
+          const sellPrice = gift.sell_price;
+          const sellPriceWithFee = gift.sell_price_with_fee;
 
-          totalCost += sell_price_with_fee;
-          buyer.ton_balance -= sell_price_with_fee;
-          seller.ton_balance += sell_price;
+          totalCost += sellPriceWithFee;
+          buyer.ton_balance -= sellPriceWithFee;
+          seller.ton_balance += sellPrice;
 
-          await manager.save(
-            manager.create(Activity, {
-              item_type: ActivityItemType.GIFT,
-              item_id: gift.id,
-              gift,
-              seller,
-              buyer,
-              amount: sell_price,
-            }),
-          );
+          const activity = manager.create(Activity, {
+            item_type: ActivityItemType.GIFT,
+            item_id: gift.id,
+            gift,
+            seller,
+            buyer,
+            amount: sellPrice,
+            created_at: new Date().toISOString(),
+          });
+
+          createdActivities.push(activity);
 
           gift.owner = buyer;
           gift.status = externalPurchase
@@ -80,13 +86,14 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
         await manager.save([...affectedUsers.values()]);
         await manager.save(gifts);
+        await manager.save(createdActivities);
 
         return {
           boughtGifts: gifts,
           updatedBalance: buyer.ton_balance,
+          activities: createdActivities,
         };
-      },
-    );
+      });
 
     res.status(200).json({
       success: true,
@@ -109,10 +116,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
     }
 
     await Promise.all(
-      boughtGifts.map((gift) =>
+      activities.map((activity) =>
         botSendMessage(
-          gift.owner.id,
-          `🎉 Your gift <b>${gift.collection_name} #${gift.number}</b> was sold for <code>${gift.sell_price} TON</code>`,
+          activity.seller.id,
+          `🎉 Your gift <b>${activity.gift.collection_name} #${activity.gift.number}</b> was sold for <code>${activity.amount} TON</code>`,
           'HTML',
         ),
       ),

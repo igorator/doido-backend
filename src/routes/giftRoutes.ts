@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { getGifts } from '../controllers/gift/getGifts';
-import { listGiftForSaleById } from '../controllers/gift/listGiftForSaleById';
-import { unlistGiftFromSaleById } from '../controllers/gift/unlistGiftFromSaleById';
-import { getGiftsByUserId } from '../controllers/gift/getUserGiftsById';
+import { getGifts } from '../controllers/gifts/getGifts';
+import { listGiftForSaleById } from '../controllers/gifts/listGiftForSaleById';
+import { unlistGiftFromSaleById } from '../controllers/gifts/unlistGiftFromSaleById';
+import { getGiftsByUserId } from '../controllers/gifts/getUserGiftsById';
 import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
-import { buyGiftsByIds } from '../controllers/gift/buyGiftsById';
-import { transferGiftById } from '../controllers/gift/transferGiftById';
-import { checkGiftsIsInStock } from '../controllers/gift/checkIsGiftsInStock';
+import { transferGiftById } from '../controllers/gifts/transferGiftById';
+import { checkGiftsIsInStock } from '../controllers/gifts/checkIsGiftsInStock';
+import { buyGiftsByIds } from '../controllers/gifts/buyGiftsById';
 
 const router = Router();
 
