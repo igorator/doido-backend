@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
-import { Like, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 import { ActivityItemType } from '../../../models/Activity';
-import { activityRepository } from '../../../database/repositories/activityRepository';
+import { AppDataSource } from '../../../database/db';
 
 export const getGiftsActivity = async (req: Request, res: Response) => {
   try {
@@ -10,51 +9,85 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
       model,
       backdrop,
       pattern,
+      gift_id,
       min_price,
       max_price,
-      skip = 0,
-      take = 20,
+      skip = '0',
+      take = '10',
+      sort = 'latest',
     } = req.query;
 
     const skipNum = Number(skip);
     const takeNum = Number(take);
+    const minPriceNum = min_price ? Number(min_price) : undefined;
+    const maxPriceNum = max_price ? Number(max_price) : undefined;
+    const giftIdNum = gift_id ? Number(gift_id) : undefined;
 
-    const where: any = {
-      item_type: ActivityItemType.GIFT,
-    };
+    const query = AppDataSource.getRepository('Activity')
+      .createQueryBuilder('activity')
+      .leftJoinAndSelect('activity.gift', 'gift')
+      .leftJoinAndSelect('activity.seller', 'seller')
+      .leftJoinAndSelect('activity.buyer', 'buyer')
+      .where('activity.item_type = :type', { type: ActivityItemType.GIFT });
 
     if (collection) {
-      where.gift = { ...where.gift, collection_name: Like(`%${collection}%`) };
+      const values = Array.isArray(collection) ? collection : [collection];
+      query.andWhere('gift.collection_name IN (:...collections)', {
+        collections: values,
+      });
     }
 
     if (model) {
-      where.gift = { ...where.gift, modelName: model };
+      const values = Array.isArray(model) ? model : [model];
+      query.andWhere('gift.model_name IN (:...models)', { models: values });
     }
 
     if (backdrop) {
-      where.gift = { ...where.gift, backdropName: backdrop };
+      const values = Array.isArray(backdrop) ? backdrop : [backdrop];
+      query.andWhere('gift.backdrop_name IN (:...backdrops)', {
+        backdrops: values,
+      });
     }
 
     if (pattern) {
-      where.gift = { ...where.gift, patternName: pattern };
+      const values = Array.isArray(pattern) ? pattern : [pattern];
+      query.andWhere('gift.pattern_name IN (:...patterns)', {
+        patterns: values,
+      });
     }
 
-    if (min_price && max_price) {
-      where.amount = Between(Number(min_price), Number(max_price));
-    } else if (min_price) {
-      where.amount = MoreThanOrEqual(Number(min_price));
-    } else if (max_price) {
-      where.amount = LessThanOrEqual(Number(max_price));
+    if (!isNaN(giftIdNum)) {
+      query.andWhere('gift.number = :giftId', { giftId: giftIdNum });
     }
 
-    const [activities, total] = await activityRepository.findAndCount({
-      where,
-      relations: ['gift', 'seller', 'buyer'],
-      order: { created_at: 'DESC' },
-      skip: skipNum,
-      take: takeNum,
-    });
+    if (minPriceNum != null && maxPriceNum != null) {
+      query.andWhere('activity.amount BETWEEN :min AND :max', {
+        min: minPriceNum,
+        max: maxPriceNum,
+      });
+    } else if (minPriceNum != null) {
+      query.andWhere('activity.amount >= :min', { min: minPriceNum });
+    } else if (maxPriceNum != null) {
+      query.andWhere('activity.amount <= :max', { max: maxPriceNum });
+    }
 
+    const sortMap: Record<string, [string, 'ASC' | 'DESC']> = {
+      latest: ['activity.created_at', 'DESC'],
+      'price-asc': ['activity.amount', 'ASC'],
+      'price-desc': ['activity.amount', 'DESC'],
+      'id-asc': ['gift.number', 'ASC'],
+      'id-desc': ['gift.number', 'DESC'],
+    };
+
+    const [orderField, orderDirection] = sortMap[
+      sort as keyof typeof sortMap
+    ] ?? ['activity.created_at', 'DESC'];
+
+    query.orderBy(orderField, orderDirection);
+    query.skip(skipNum);
+    query.take(takeNum);
+
+    const [activities, total] = await query.getManyAndCount();
     const hasMore = skipNum + takeNum < total;
 
     res.json({ activities, total, hasMore });
