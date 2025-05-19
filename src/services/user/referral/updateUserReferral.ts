@@ -25,6 +25,12 @@ export async function updateUserReferral(userId: string, referredById: string) {
     throw new UserNotFoundError('User or referrer not found');
   }
 
+  console.log('👀 Current referred_by of user:', user.referred_by?.id ?? null);
+  console.log(
+    '👀 Referrer is referred_by of:',
+    referrer.referred_by?.id ?? null,
+  );
+
   if (user.referred_by) {
     throw new AlreadyReferredError('User already has a referrer');
   }

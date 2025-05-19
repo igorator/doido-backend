@@ -40,7 +40,8 @@ export const updateUserReferralController = async (
     }
 
     if (err instanceof MutualReferralError) {
-      res.status(409).json({ error: 'Mutual referral is not allowed' });
+      console.warn('⚠️ Skipping mutual referral');
+      res.status(200).json({ skipped: true });
       return;
     }
 

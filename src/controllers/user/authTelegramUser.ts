@@ -20,7 +20,16 @@ export const authTelegramUser = async (
     };
 
     await userRepository.upsert(userData, ['id']);
-    const user = await userRepository.findOneBy({ id: userData.id });
+
+    const user = await userRepository.findOne({
+      where: { id: userData.id },
+      relations: ['referred_by', 'referred_users'],
+    });
+
+    if (!user) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
 
     res.status(200).json({ user });
   } catch (err) {
