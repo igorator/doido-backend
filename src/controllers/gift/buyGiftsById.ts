@@ -5,7 +5,7 @@ import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
 import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
-import { Activity } from '../../models/Activity';
+import { Activity, ActivityItemType } from '../../models/Activity';
 
 export const buyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
@@ -51,7 +51,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
           await manager.save(
             manager.create(Activity, {
-              item_type: 'gift',
+              item_type: ActivityItemType.GIFT,
               item_id: gift.id,
               gift,
               seller,

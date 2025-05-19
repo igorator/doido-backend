@@ -2,44 +2,44 @@ import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from './User';
 
 class Model {
-  @Column('text')
+  @Column('varchar', { length: 50 })
   name: string;
 
-  @Column('float')
+  @Column('decimal', { precision: 10, scale: 6 })
   rarity: number;
 
-  @Column('text')
+  @Column('varchar', { length: 8 })
   emoji: string;
 }
 
 class Pattern {
-  @Column('text')
+  @Column('varchar', { length: 50 })
   name: string;
 
-  @Column('float')
+  @Column('decimal', { precision: 10, scale: 6 })
   rarity: number;
 
-  @Column('text')
+  @Column('varchar', { length: 8 })
   emoji: string;
 }
 
 class Backdrop {
-  @Column('text')
+  @Column('varchar', { length: 50 })
   name: string;
 
-  @Column('float')
+  @Column('decimal', { precision: 10, scale: 6 })
   rarity: number;
 
-  @Column('text')
+  @Column('varchar', { length: 12 })
   center_color: string;
 
-  @Column('text')
+  @Column('varchar', { length: 12 })
   edge_color: string;
 
-  @Column('text')
+  @Column('varchar', { length: 12 })
   symbol_color: string;
 
-  @Column('text')
+  @Column('varchar', { length: 12 })
   text_color: string;
 }
 
@@ -52,13 +52,13 @@ export enum GiftStatus {
 
 @Entity()
 export class Gift {
-  @PrimaryColumn('text', { unique: true })
+  @PrimaryColumn('varchar', { length: 20 })
   id: string;
 
-  @Column('text', { default: 'gift' })
+  @Column('varchar', { length: 10, default: 'gift' })
   readonly type: 'gift';
 
-  @Column('text')
+  @Column('varchar', { length: 50 })
   collection_name: string;
 
   @Column('int')
@@ -73,10 +73,10 @@ export class Gift {
   @Column(() => Backdrop, { prefix: 'backdrop' })
   backdrop: Backdrop;
 
-  @Column('float', { default: 0 })
+  @Column('decimal', { precision: 20, scale: 10, default: 0 })
   sell_price: number;
 
-  @Column('float', { default: 0 })
+  @Column('decimal', { precision: 20, scale: 10, default: 0 })
   sell_price_with_fee: number;
 
   @Column({

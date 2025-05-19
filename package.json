@@ -19,6 +19,7 @@
     "decimal.js": "^10.5.0",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "fs-extra": "^11.3.0",
     "grammy": "^1.36.1",
     "pg": "^8.14.1",
     "prebuilt-tdlib": "^0.1008046.0",

@@ -10,34 +10,34 @@ import { Gift } from './Gift';
 
 @Entity()
 export class User {
-  @PrimaryColumn('text')
+  @PrimaryColumn('varchar', { length: 20 }) // Telegram ID
   id: string;
 
-  @Column('text')
+  @Column('varchar', { length: 32 }) // Telegram username (максимум 32 символа)
   username: string;
 
-  @Column('text', { nullable: true })
+  @Column('varchar', { length: 64, nullable: true }) // first_name
   first_name: string;
 
-  @Column('text', { nullable: true })
+  @Column('varchar', { length: 64, nullable: true }) // last_name
   last_name: string;
 
-  @Column('text', { nullable: true })
+  @Column('varchar', { length: 10, nullable: true }) // ISO-код языка (en, ru, uk)
   language_code: string;
 
-  @Column('text', { nullable: true })
+  @Column('varchar', { length: 512, nullable: true }) // безопасный запас для URL
   photo_url: string;
 
   @Column('boolean', { default: false })
   allows_write_to_pm: boolean;
 
-  @Column('float', { default: 0 })
+  @Column('decimal', { precision: 20, scale: 10, default: 0 })
   ton_balance: number;
 
-  @Column('float', { default: 0 })
+  @Column('decimal', { precision: 20, scale: 10, default: 0 })
   total_market_amount: number;
 
-  @Column('float', { default: 0 })
+  @Column('decimal', { precision: 20, scale: 10, default: 0 })
   weekly_market_amount: number;
 
   @ManyToOne(() => User, (user) => user.referred_users, { nullable: true })

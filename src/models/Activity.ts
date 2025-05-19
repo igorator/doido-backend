@@ -8,33 +8,40 @@ import {
 import { User } from './User';
 import { Gift } from './Gift';
 
-export type ActivityItemType = 'gift' | 'sticker';
+export enum ActivityItemType {
+  GIFT = 'gift',
+  STICKER = 'sticker',
+}
 
 @Entity()
 export class Activity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'enum', enum: ['gift', 'sticker'] })
+  @Column({ type: 'enum', enum: ActivityItemType })
   item_type: ActivityItemType;
 
-  @Column('text')
+  @Column('varchar', { length: 20 })
   item_id: string;
 
-  @ManyToOne(() => Gift, { nullable: true, onDelete: 'SET NULL' })
+  @ManyToOne(() => Gift, {
+    nullable: true,
+    onDelete: 'SET NULL',
+    eager: false, // загружать вручную при необходимости
+  })
   gift?: Gift;
 
-  // ⏳ Stickers
+  // Можно добавить в будущем:
   // @ManyToOne(() => Sticker, { nullable: true, onDelete: 'SET NULL' })
   // sticker?: Sticker;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { nullable: false })
   seller: User;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { nullable: false })
   buyer: User;
 
-  @Column({ type: 'float' })
+  @Column('decimal', { precision: 20, scale: 10 })
   amount: number;
 
   @CreateDateColumn()
