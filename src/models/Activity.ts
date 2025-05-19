@@ -27,7 +27,7 @@ export class Activity {
   @ManyToOne(() => Gift, {
     nullable: true,
     onDelete: 'SET NULL',
-    eager: false, // загружать вручную при необходимости
+    eager: true,
   })
   gift?: Gift;
 
