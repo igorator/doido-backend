@@ -14,20 +14,39 @@ export const authTelegramUser = async (
       return;
     }
 
-    const userData = {
-      ...telegramUser,
-      id: String(telegramUser.id),
-    };
+    const userId = String(telegramUser.id);
+    const existingUser = await userRepository.findOneBy({ id: userId });
 
-    await userRepository.upsert(userData, ['id']);
+    if (existingUser) {
+      await userRepository.update(userId, {
+        username: telegramUser.username,
+        first_name: telegramUser.first_name,
+        last_name: telegramUser.last_name,
+        language_code: telegramUser.language_code,
+        photo_url: telegramUser.photo_url,
+        allows_write_to_pm: telegramUser.allows_write_to_pm,
+      });
+    } else {
+      await userRepository.insert({
+        id: userId,
+        username: telegramUser.username,
+        first_name: telegramUser.first_name,
+        last_name: telegramUser.last_name,
+        language_code: telegramUser.language_code,
+        photo_url: telegramUser.photo_url,
+        allows_write_to_pm: telegramUser.allows_write_to_pm,
+        ton_balance: 0.0,
+        total_market_amount: 0.0,
+      });
+    }
 
     const user = await userRepository.findOne({
-      where: { id: userData.id },
+      where: { id: userId },
       relations: ['referred_by', 'referred_users'],
     });
 
     if (!user) {
-      res.status(404).json({ error: 'User not found' });
+      res.status(404).json({ error: 'User not found after upsert' });
       return;
     }
 

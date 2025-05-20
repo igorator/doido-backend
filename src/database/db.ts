@@ -30,5 +30,5 @@ export const AppDataSource = new DataSource({
   entities: [Gift, User, Activity],
   logging: true,
   logger: new MinimalLogger(),
-  ssl: isProduction ? { rejectUnauthorized: false } : false,
+  ssl: isProduction ? true : { rejectUnauthorized: false },
 });

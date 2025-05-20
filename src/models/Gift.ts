@@ -1,5 +1,6 @@
 import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from './User';
+import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
 
 class Model {
   @Column('varchar', { length: 50 })
@@ -73,10 +74,20 @@ export class Gift {
   @Column(() => Backdrop, { prefix: 'backdrop' })
   backdrop: Backdrop;
 
-  @Column('decimal', { precision: 20, scale: 10, default: 0 })
+  @Column('decimal', {
+    precision: 20,
+    scale: 10,
+    default: 0,
+    transformer: DecimalTransformer,
+  })
   sell_price: number;
 
-  @Column('decimal', { precision: 20, scale: 10, default: 0 })
+  @Column('decimal', {
+    precision: 20,
+    scale: 10,
+    default: 0,
+    transformer: DecimalTransformer,
+  })
   sell_price_with_fee: number;
 
   @Column({

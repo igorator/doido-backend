@@ -1,3 +1,5 @@
+import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
+
 import {
   Entity,
   Column,
@@ -31,13 +33,28 @@ export class User {
   @Column('boolean', { default: false })
   allows_write_to_pm: boolean;
 
-  @Column('decimal', { precision: 20, scale: 10, default: 0 })
+  @Column('decimal', {
+    precision: 20,
+    scale: 10,
+    default: 0.0,
+    transformer: DecimalTransformer,
+  })
   ton_balance: number;
 
-  @Column('decimal', { precision: 20, scale: 10, default: 0 })
+  @Column('decimal', {
+    precision: 20,
+    scale: 10,
+    default: 0.0,
+    transformer: DecimalTransformer,
+  })
   total_market_amount: number;
 
-  @Column('decimal', { precision: 20, scale: 10, default: 0 })
+  @Column('decimal', {
+    precision: 20,
+    scale: 10,
+    default: 0.0,
+    transformer: DecimalTransformer,
+  })
   weekly_market_amount: number;
 
   @ManyToOne(() => User, (user) => user.referred_users, { nullable: true })

@@ -1,3 +1,4 @@
+import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -41,7 +42,12 @@ export class Activity {
   @ManyToOne(() => User, { nullable: false })
   buyer: User;
 
-  @Column('decimal', { precision: 20, scale: 10 })
+  @Column('decimal', {
+    precision: 20,
+    scale: 10,
+    default: 0.0,
+    transformer: DecimalTransformer,
+  })
   amount: number;
 
   @CreateDateColumn()
