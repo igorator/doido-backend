@@ -22,6 +22,7 @@ export const transferGift = async ({
       newOwnerId,
       transferStarsCount,
     );
+    console.log('✅ Подарок успешно передан:', result);
     return result;
   } catch (error) {
     console.error('❌ Ошибка при передаче подарка:', error);

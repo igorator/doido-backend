@@ -100,25 +100,26 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
       updated_balance: updatedBalance,
       external: Boolean(externalPurchase),
     });
+    console.log(externalPurchase);
 
     if (externalPurchase) {
-      await Promise.all(
-        boughtGifts.map(async (gift) => {
-          try {
-            await transferGift({
-              giftId: gift.id,
-              newOwnerId: telegramUser.id,
-            });
+      for (const gift of boughtGifts) {
+        try {
+          await transferGift({
+            giftId: gift.id,
+            newOwnerId: telegramUser.id,
+          });
 
-            await giftRepository.update(gift.id, {
-              status: GiftStatus.TRANSFERRED,
-              transferred_date: new Date(),
-            });
-          } catch (err) {
-            console.error(`❌ Failed to transfer gift ${gift.id}:`, err);
-          }
-        }),
-      );
+          await giftRepository.update(gift.id, {
+            status: GiftStatus.TRANSFERRED,
+            transferred_date: new Date(),
+          });
+
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+        } catch (err) {
+          console.error(`❌ Failed to transfer gift ${gift.id}:`, err);
+        }
+      }
     }
 
     await Promise.all(

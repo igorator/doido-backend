@@ -3,7 +3,7 @@ import { getStarsBalance } from './getStarsBalance';
 
 const STARS_DEPOSITER_ID = Number(process.env.TELEGRAM_STARS_DEPOSITER_ID);
 const MIN_STARS_THRESHOLD = Number(process.env.TELEGRAM_MIN_STARS_THRESHOLD);
-const CHECK_BALANCE_COOLDOWN_MS = 60_000;
+const CHECK_BALANCE_COOLDOWN_MS = 120_000;
 
 const lastCheckTimestamps = new Map<string, number>();
 
@@ -50,7 +50,7 @@ export const checkCurrentStarsBalance = async (
 
     await botSendMessage(
       STARS_DEPOSITER_ID,
-      `⚠️ Юрчик друууууг! На балансе бота всего <b>${currentAmount}</b> звёзд. Пожалуйста, бери рыжегооо.`,
+      `⚠️ Юрчик друууууг! На балансе бота всего <b>${currentAmount}</b> звёзд.⚠️`,
       'HTML',
     );
 
