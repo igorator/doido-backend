@@ -1,7 +1,6 @@
 import type { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { Like, In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
-import { GiftStatus } from '../../models/Gift';
 
 export const getGiftsByUserId = async (
   req: Request,

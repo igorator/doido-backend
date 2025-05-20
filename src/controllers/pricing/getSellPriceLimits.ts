@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { MAX_SELL_PRICE, MIN_SELL_PRICE } from '../../shared/config/pricing';
+import Decimal from 'decimal.js';
 
 export const getSellPriceLimits = (req: Request, res: Response): void => {
   res.json({

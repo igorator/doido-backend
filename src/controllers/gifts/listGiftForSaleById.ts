@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
 import { GiftStatus } from '../../models/Gift';
+import Decimal from 'decimal.js';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -39,8 +40,8 @@ export const listGiftForSaleById = async (
     }
 
     gift.status = GiftStatus.LISTED;
-    gift.sell_price = Number(price);
-    gift.sell_price_with_fee = Number(price_with_fee);
+    gift.sell_price = new Decimal(price);
+    gift.sell_price_with_fee = new Decimal(price_with_fee);
     gift.listed_date = new Date();
 
     const updatedGift = await giftRepository.save(gift);

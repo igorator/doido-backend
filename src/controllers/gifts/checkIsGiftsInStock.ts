@@ -2,6 +2,7 @@ import type { Request, Response } from 'express';
 import { In } from 'typeorm';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { GiftStatus } from '../../models/Gift';
+import Decimal from 'decimal.js';
 
 export const checkGiftsIsInStock = async (
   req: Request,
@@ -29,11 +30,11 @@ export const checkGiftsIsInStock = async (
     const priceMismatch: string[] = [];
 
     for (const { id, sell_price_with_fee } of gift_ids) {
-      const dbGift = dbGifts.find((g) => g.id === id);
+      const giftInDb = dbGifts.find((g) => g.id === id);
 
-      if (!dbGift || dbGift.status !== GiftStatus.LISTED) {
+      if (!giftInDb || giftInDb.status !== GiftStatus.LISTED) {
         unavailable.push(id);
-      } else if (dbGift.sell_price_with_fee !== sell_price_with_fee) {
+      } else if (!giftInDb.sell_price_with_fee.eq(sell_price_with_fee)) {
         priceMismatch.push(id);
       }
     }

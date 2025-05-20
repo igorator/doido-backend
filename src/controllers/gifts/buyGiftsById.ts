@@ -6,6 +6,7 @@ import { botSendMessage } from '../../services/messages/botSendMessage';
 import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
 import { Activity, ActivityItemType } from '../../models/Activity';
+import Decimal from 'decimal.js';
 
 export const buyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
@@ -35,7 +36,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
         const affectedUsers = new Map<string, typeof buyer>();
         const createdActivities: Activity[] = [];
-        let totalCost = 0;
+        let totalCost = new Decimal(0);
 
         for (const gift of gifts) {
           if (
@@ -50,9 +51,9 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPrice = gift.sell_price;
           const sellPriceWithFee = gift.sell_price_with_fee;
 
-          totalCost += sellPriceWithFee;
-          buyer.ton_balance -= sellPriceWithFee;
-          seller.ton_balance += sellPrice;
+          totalCost = totalCost.plus(sellPriceWithFee);
+          buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
+          seller.ton_balance = seller.ton_balance.plus(sellPrice);
 
           const activity = manager.create(Activity, {
             item_type: ActivityItemType.GIFT,
@@ -70,15 +71,15 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           gift.status = externalPurchase
             ? GiftStatus.SOLD
             : GiftStatus.UNLISTED;
-          gift.sell_price = 0;
-          gift.sell_price_with_fee = 0;
+          gift.sell_price = new Decimal(0);
+          gift.sell_price_with_fee = new Decimal(0);
           gift.listed_date = null;
           gift.transferred_date = null;
 
           affectedUsers.set(seller.id, seller);
         }
 
-        if (buyer.ton_balance < 0) {
+        if (buyer.ton_balance.lessThan(0)) {
           throw new Error('Insufficient balance');
         }
 

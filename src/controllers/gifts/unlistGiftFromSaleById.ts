@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { GiftStatus } from '../../models/Gift';
+import Decimal from 'decimal.js';
 
 export const unlistGiftFromSaleById = async (
   req: Request,
@@ -29,8 +30,8 @@ export const unlistGiftFromSaleById = async (
     }
 
     gift.status = GiftStatus.UNLISTED;
-    gift.sell_price = 0;
-    gift.sell_price_with_fee = 0;
+    gift.sell_price = new Decimal(0);
+    gift.sell_price_with_fee = new Decimal(0);
     gift.listed_date = null;
 
     const updatedGift = await giftRepository.save(gift);
