@@ -13,14 +13,7 @@ export const transferGift = async ({
 }) => {
   newOwnerId = Number(newOwnerId);
 
-  const balanceCheck = await checkCurrentStarsBalance(BUSINESS_CONNECTION_ID);
-
-  if (!balanceCheck.ok) {
-    console.warn(
-      `⛔️ Прерывание передачи подарка — недостаточно звёзд (${balanceCheck.currentAmount})`,
-    );
-    return;
-  }
+  await checkCurrentStarsBalance(BUSINESS_CONNECTION_ID);
 
   try {
     const result = await bot.api.transferGift(

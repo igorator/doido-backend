@@ -68,9 +68,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           createdActivities.push(activity);
 
           gift.owner = buyer;
-          gift.status = externalPurchase
-            ? GiftStatus.SOLD
-            : GiftStatus.UNLISTED;
+          gift.status = GiftStatus.UNLISTED;
           gift.sell_price = new Decimal(0);
           gift.sell_price_with_fee = new Decimal(0);
           gift.listed_date = null;
@@ -105,14 +103,21 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
     if (externalPurchase) {
       await Promise.all(
-        boughtGifts.map((gift) =>
-          transferGift({
-            giftId: gift.id,
-            newOwnerId: telegramUser.id,
-          }).catch((err) =>
-            console.error(`❌ Failed to transfer gift ${gift.id}:`, err),
-          ),
-        ),
+        boughtGifts.map(async (gift) => {
+          try {
+            await transferGift({
+              giftId: gift.id,
+              newOwnerId: telegramUser.id,
+            });
+
+            await giftRepository.update(gift.id, {
+              status: GiftStatus.TRANSFERRED,
+              transferred_date: new Date(),
+            });
+          } catch (err) {
+            console.error(`❌ Failed to transfer gift ${gift.id}:`, err);
+          }
+        }),
       );
     }
 
