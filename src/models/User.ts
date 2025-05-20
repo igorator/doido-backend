@@ -12,22 +12,22 @@ import { Gift } from './Gift';
 
 @Entity()
 export class User {
-  @PrimaryColumn('varchar', { length: 20 }) // Telegram ID
+  @PrimaryColumn('varchar', { length: 20 })
   id: string;
 
-  @Column('varchar', { length: 32 }) // Telegram username (максимум 32 символа)
+  @Column('varchar', { length: 32 })
   username: string;
 
-  @Column('varchar', { length: 64, nullable: true }) // first_name
+  @Column('varchar', { length: 64, nullable: true })
   first_name: string;
 
-  @Column('varchar', { length: 64, nullable: true }) // last_name
+  @Column('varchar', { length: 64, nullable: true }) e;
   last_name: string;
 
-  @Column('varchar', { length: 10, nullable: true }) // ISO-код языка (en, ru, uk)
+  @Column('varchar', { length: 10, nullable: true })
   language_code: string;
 
-  @Column('varchar', { length: 512, nullable: true }) // безопасный запас для URL
+  @Column('varchar', { length: 512, nullable: true })
   photo_url: string;
 
   @Column('boolean', { default: false })
