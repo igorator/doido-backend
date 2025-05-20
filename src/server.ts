@@ -3,12 +3,13 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { webhookCallback } from 'grammy';
-import { bot } from './bot/bot'; // ⬅️ подключение бота
+import { bot } from './bot/bot';
 
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
 import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
+import serverRouter from './routes/serverRoutes';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -26,6 +27,7 @@ app.use('/assets', express.static(assetsPath));
 
 app.use('/webhook', webhookCallback(bot, 'express'));
 
+app.use('/server', serverRouter);
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
