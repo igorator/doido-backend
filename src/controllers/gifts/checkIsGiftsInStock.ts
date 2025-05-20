@@ -27,7 +27,7 @@ export const checkGiftsIsInStock = async (
     });
 
     const unavailable: string[] = [];
-    const priceMismatch: string[] = [];
+    const priceMismatch: { id: string; actual_price: number }[] = [];
 
     for (const { id, sell_price_with_fee } of gift_ids) {
       const giftInDb = dbGifts.find((g) => g.id === id);
@@ -35,7 +35,10 @@ export const checkGiftsIsInStock = async (
       if (!giftInDb || giftInDb.status !== GiftStatus.LISTED) {
         unavailable.push(id);
       } else if (!giftInDb.sell_price_with_fee.eq(sell_price_with_fee)) {
-        priceMismatch.push(id);
+        priceMismatch.push({
+          id,
+          actual_price: giftInDb.sell_price_with_fee.toNumber(),
+        });
       }
     }
 
@@ -43,7 +46,7 @@ export const checkGiftsIsInStock = async (
       res.status(409).json({
         error: 'Some gifts are not available for purchase',
         unavailable,
-        price_mismatch: priceMismatch,
+        updated_prices: priceMismatch,
       });
       return;
     }
