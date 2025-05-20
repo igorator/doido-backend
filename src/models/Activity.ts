@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { User } from './User';
 import { Gift } from './Gift';
+import type Decimal from 'decimal.js';
 
 export enum ActivityItemType {
   GIFT = 'gift',
@@ -48,8 +49,20 @@ export class Activity {
     default: 0.0,
     transformer: DecimalTransformer,
   })
-  amount: number;
+  amount: Decimal;
 
   @CreateDateColumn()
   created_at: Date;
+
+  toJSON() {
+    const { amount, gift, seller, buyer, ...rest } = this;
+
+    return {
+      ...rest,
+      amount: amount?.toNumber?.() ?? 0,
+      gift: gift?.toJSON?.() ?? gift,
+      seller_id: seller?.id,
+      buyer_id: buyer?.id,
+    };
+  }
 }

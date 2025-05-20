@@ -1,6 +1,7 @@
 import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from './User';
 import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
+import type Decimal from 'decimal.js';
 
 class Model {
   @Column('varchar', { length: 50 })
@@ -80,7 +81,7 @@ export class Gift {
     default: 0,
     transformer: DecimalTransformer,
   })
-  sell_price: number;
+  sell_price: Decimal;
 
   @Column('decimal', {
     precision: 20,
@@ -88,7 +89,7 @@ export class Gift {
     default: 0,
     transformer: DecimalTransformer,
   })
-  sell_price_with_fee: number;
+  sell_price_with_fee: Decimal;
 
   @Column({
     type: 'enum',
@@ -106,4 +107,15 @@ export class Gift {
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
   owner: User;
+
+  toJSON() {
+    const { sell_price, sell_price_with_fee, owner, ...rest } = this;
+
+    return {
+      ...rest,
+      sell_price: sell_price?.toNumber?.() ?? 0,
+      sell_price_with_fee: sell_price_with_fee?.toNumber?.() ?? 0,
+      owner: owner?.toJSON?.() ?? owner,
+    };
+  }
 }
