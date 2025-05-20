@@ -21,7 +21,7 @@ export class User {
   @Column('varchar', { length: 64, nullable: true })
   first_name: string;
 
-  @Column('varchar', { length: 64, nullable: true }) e;
+  @Column('varchar', { length: 64, nullable: true })
   last_name: string;
 
   @Column('varchar', { length: 10, nullable: true })
