@@ -10,6 +10,7 @@ import giftRouter from './routes/giftRoutes';
 import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
+import helmet from 'helmet';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -21,6 +22,12 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 
 const assetsPath = path.resolve(__dirname, '../assets');
 
+app.use(
+  helmet({
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  }),
+);
 app.use(cors());
 app.use(express.json());
 app.use('/assets', express.static(assetsPath));

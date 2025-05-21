@@ -55,6 +55,16 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
 
+          seller.total_market_amount =
+            seller.total_market_amount.plus(sellPriceWithFee);
+          seller.weekly_market_amount =
+            seller.weekly_market_amount.plus(sellPriceWithFee);
+
+          buyer.total_market_amount =
+            buyer.total_market_amount.plus(sellPriceWithFee);
+          buyer.weekly_market_amount =
+            buyer.weekly_market_amount.plus(sellPriceWithFee);
+
           const activity = manager.create(Activity, {
             item_type: ActivityItemType.GIFT,
             item_id: gift.id,
@@ -96,7 +106,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      bought: boughtGifts.map((g) => g.id),
+      bought: boughtGifts.map((gift) => gift.id),
       updated_balance: updatedBalance,
       external: Boolean(externalPurchase),
     });

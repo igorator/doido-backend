@@ -77,7 +77,7 @@ export class Gift {
 
   @Column('decimal', {
     precision: 20,
-    scale: 10,
+    scale: 8,
     default: 0,
     transformer: DecimalTransformer,
   })
@@ -85,7 +85,7 @@ export class Gift {
 
   @Column('decimal', {
     precision: 20,
-    scale: 10,
+    scale: 8,
     default: 0,
     transformer: DecimalTransformer,
   })
@@ -113,8 +113,8 @@ export class Gift {
 
     return {
       ...rest,
-      sell_price: sell_price?.toNumber?.() ?? 0,
-      sell_price_with_fee: sell_price_with_fee?.toNumber?.() ?? 0,
+      sell_price: sell_price?.toNumber?.(),
+      sell_price_with_fee: sell_price_with_fee?.toNumber?.(),
       owner: owner?.toJSON?.() ?? owner,
     };
   }

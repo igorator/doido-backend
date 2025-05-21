@@ -14,9 +14,6 @@ export const updateUserReferralController = async (
   const userId = req.params.id;
   const { referred_by } = req.body;
 
-  console.log('[PATCH referral] Params userId:', userId);
-  console.log('[PATCH referral] Body referred_by:', referred_by);
-
   if (!userId || !referred_by) {
     res.status(400).json({ error: 'Missing userId or referred_by' });
     return;

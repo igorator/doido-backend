@@ -4,7 +4,6 @@ import { AppDataSource } from '../../../database/db';
 
 export const getUserGiftsActivity = async (req: Request, res: Response) => {
   const userId = String(req.params.user_id);
-  console.log('userId', userId);
   const skip = parseInt(req.query.skip as string) || 0;
   const take = parseInt(req.query.take as string) || 20;
 
@@ -20,8 +19,6 @@ export const getUserGiftsActivity = async (req: Request, res: Response) => {
       .skip(skip)
       .take(take)
       .getManyAndCount();
-
-    console.log('activities', activities);
 
     res.json({
       activities,

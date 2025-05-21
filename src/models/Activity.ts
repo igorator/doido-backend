@@ -45,7 +45,7 @@ export class Activity {
 
   @Column('decimal', {
     precision: 20,
-    scale: 10,
+    scale: 8,
     default: 0.0,
     transformer: DecimalTransformer,
   })

@@ -36,7 +36,7 @@ export class User {
 
   @Column('decimal', {
     precision: 20,
-    scale: 10,
+    scale: 8,
     default: 0.0,
     transformer: DecimalTransformer,
   })
@@ -44,7 +44,7 @@ export class User {
 
   @Column('decimal', {
     precision: 20,
-    scale: 10,
+    scale: 8,
     default: 0.0,
     transformer: DecimalTransformer,
   })
@@ -81,8 +81,10 @@ export class User {
     return {
       ...rest,
       ton_balance: ton_balance?.toNumber?.() ?? 0,
-      total_market_amount: total_market_amount?.toNumber?.() ?? 0,
-      weekly_market_amount: weekly_market_amount?.toNumber?.() ?? 0,
+      market_volume: {
+        total_market_amount: total_market_amount?.toNumber?.() ?? 0,
+        weekly_market_amount: weekly_market_amount?.toNumber?.() ?? 0,
+      },
       referrals: {
         referredBy: referred_by?.id ?? null,
         referralsCount: referred_users?.length ?? 0,
