@@ -101,6 +101,9 @@ export class Gift {
   @Column('date', { nullable: true })
   listed_date: Date | null;
 
+  @Column('integer', { default: 0, nullable: false })
+  free_listings_used: number;
+
   @Column('date', { nullable: true })
   transferred_date: Date | null;
 

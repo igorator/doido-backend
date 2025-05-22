@@ -22,6 +22,8 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 
 const assetsPath = path.resolve(__dirname, '../assets');
 
+app.use('/webhook', webhookCallback(bot, 'express'));
+
 app.use(
   helmet({
     crossOriginEmbedderPolicy: false,
@@ -31,8 +33,6 @@ app.use(
 app.use(cors());
 app.use(express.json());
 app.use('/assets', express.static(assetsPath));
-
-app.use('/webhook', webhookCallback(bot, 'express'));
 
 app.use('/server', serverRouter);
 app.use('/users', userRouter);

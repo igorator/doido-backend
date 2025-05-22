@@ -68,7 +68,7 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
         : sort === 'price-desc'
         ? { sell_price: 'desc' }
         : sort === 'latest'
-        ? { number: 'desc' }
+        ? { listed_date: 'desc' }
         : sort === 'id-asc'
         ? { number: 'asc' }
         : sort === 'id-desc'

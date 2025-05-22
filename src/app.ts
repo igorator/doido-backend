@@ -1,15 +1,14 @@
 import 'reflect-metadata';
 import { AppDataSource } from './database/db';
 import { startServer } from './server';
-import './bot/bot';
 
 async function bootstrap() {
   try {
     console.log('🔄 Initializing database connection...');
     await AppDataSource.initialize();
-
     console.log('📦 Database connected');
 
+    await import('./bot/bot');
     console.log('✅ Telegram bot loaded');
 
     startServer();

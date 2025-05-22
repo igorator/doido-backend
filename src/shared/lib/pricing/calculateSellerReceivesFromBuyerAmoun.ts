@@ -1,13 +1,7 @@
 import Decimal from 'decimal.js';
-import { DEFAULT_FEE } from '../../config/pricing';
 
-const FEE = new Decimal(DEFAULT_FEE);
+const FEE = new Decimal(process.env.DEFAULT_FEE);
 
-/**
- * Вычисляет, сколько получит продавец, если покупатель платит `amount` TON.
- * @param amount - Сумма от покупателя (Decimal)
- * @returns Decimal — сколько получит продавец
- */
 export function calculateSellerReceivesFromBuyerAmount(
   amount: Decimal,
 ): Decimal {

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
+import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
 import { GiftStatus } from '../../models/Gift';
 import Decimal from 'decimal.js';
@@ -12,8 +13,11 @@ export const listGiftForSaleById = async (
   const { price, price_with_fee } = req.body;
   const telegramUser = (req as any).telegramUser;
 
-  if (!price || isNaN(price)) {
-    res.status(400).json({ error: 'Invalid price' });
+  const GIFT_LISTING_FEE = new Decimal(process.env.GIFT_LISTING_FEE || '0.1');
+  const MAX_FREE_LISTINGS = Number(process.env.MAX_FREE_LISTINGS || 5);
+
+  if (!price || isNaN(price) || !price_with_fee || isNaN(price_with_fee)) {
+    res.status(400).json({ error: 'Invalid price or price_with_fee' });
     return;
   }
 
@@ -39,6 +43,21 @@ export const listGiftForSaleById = async (
       return;
     }
 
+    const owner = gift.owner;
+    let feeApplied = false;
+
+    if (gift.free_listings_used >= MAX_FREE_LISTINGS) {
+      if (owner.ton_balance.lessThan(GIFT_LISTING_FEE)) {
+        res.status(402).json({ error: 'Insufficient balance for listing fee' });
+        return;
+      }
+
+      owner.ton_balance = owner.ton_balance.minus(GIFT_LISTING_FEE);
+      await userRepository.save(owner);
+      feeApplied = true;
+    }
+
+    gift.free_listings_used += 1;
     gift.status = GiftStatus.LISTED;
     gift.sell_price = new Decimal(price);
     gift.sell_price_with_fee = new Decimal(price_with_fee);
@@ -54,21 +73,20 @@ export const listGiftForSaleById = async (
       sell_price: updatedGift.sell_price,
       sell_price_with_fee: updatedGift.sell_price_with_fee,
       listed_date: updatedGift.listed_date,
-      owner: updatedGift.owner
-        ? {
-            id: updatedGift.owner.id,
-            username: updatedGift.owner.username,
-          }
-        : null,
+      free_listings_used: updatedGift.free_listings_used,
+      owner: {
+        id: owner.id,
+        username: owner.username,
+      },
     });
 
     await botSendMessage(
-      updatedGift.owner.id,
-      `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b> 💰 for <code>${updatedGift.sell_price} TON</code>`,
+      owner.id,
+      `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b> 💰 for <code>${price} TON</code>`,
       'HTML',
     );
   } catch (error) {
-    console.error('❌ Ошибка при выставлении подарка на продажу:', error);
+    console.error('❌ Ошибка при листинге подарка:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
