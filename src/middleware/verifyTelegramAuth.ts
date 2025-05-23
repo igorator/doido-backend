@@ -37,9 +37,5 @@ export const verifyTelegramAuth: RequestHandler = (req, res, next) => {
 
   (req as any).telegramUser = user;
 
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('✅ Authenticated user:', user);
-  }
-
   next();
 };

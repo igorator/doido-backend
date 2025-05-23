@@ -1,6 +1,5 @@
 import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
 import type Decimal from 'decimal.js';
-
 import {
   Entity,
   Column,
@@ -65,29 +64,36 @@ export class User {
   @OneToMany(() => User, (user) => user.referred_by)
   referred_users?: User[];
 
+  @Column('decimal', {
+    precision: 20,
+    scale: 8,
+    default: 0.0,
+    transformer: DecimalTransformer,
+    nullable: false,
+  })
+  referred_profit: Decimal;
+
   @OneToMany(() => Gift, (gift) => gift.owner)
   gifts: Gift[];
 
   toJSON() {
-    const {
-      referred_by,
-      referred_users,
-      ton_balance,
-      total_market_amount,
-      weekly_market_amount,
-      ...rest
-    } = this;
-
     return {
-      ...rest,
-      ton_balance: ton_balance?.toNumber?.() ?? 0,
+      id: this.id,
+      username: this.username,
+      first_name: this.first_name,
+      last_name: this.last_name,
+      language_code: this.language_code,
+      photo_url: this.photo_url,
+      allows_write_to_pm: this.allows_write_to_pm,
+      ton_balance: this.ton_balance?.toNumber?.() ?? 0,
       market_volume: {
-        total_market_amount: total_market_amount?.toNumber?.() ?? 0,
-        weekly_market_amount: weekly_market_amount?.toNumber?.() ?? 0,
+        total_market_amount: this.total_market_amount?.toNumber?.() ?? 0,
+        weekly_market_amount: this.weekly_market_amount?.toNumber?.() ?? 0,
       },
       referrals: {
-        referredBy: referred_by?.id ?? null,
-        referralsCount: referred_users?.length ?? 0,
+        referralsProfit: this.referred_profit?.toNumber?.() ?? 0,
+        referredBy: this.referred_by?.id ?? null,
+        referralsCount: this.referred_users?.length ?? 0,
       },
     };
   }

@@ -3,7 +3,6 @@ import { DataSource } from 'typeorm';
 import { Gift } from '../models/Gift';
 import { User } from '../models/User';
 import { Activity } from '../models/Activity';
-import { MinimalLogger } from './logger/logger';
 
 dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
@@ -28,7 +27,6 @@ export const AppDataSource = new DataSource({
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   entities: [Gift, User, Activity],
-  logging: true,
-  logger: new MinimalLogger(),
   ssl: isProduction ? true : { rejectUnauthorized: false },
+  logging: false,
 });
