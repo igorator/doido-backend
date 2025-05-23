@@ -21,7 +21,6 @@ const app = express();
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 const assetsPath = path.resolve(__dirname, '../assets');
 
-// ✅ Правильный порядок: сначала JSON парсер
 app.use(express.json());
 
 app.use(
@@ -33,19 +32,16 @@ app.use(
 app.use(cors());
 app.use('/assets', express.static(assetsPath));
 
-// ✅ Webhook должен идти после express.json()
 app.use('/webhook', webhookCallback(bot, 'express'));
 
-// 🔧 Роуты API
 app.use('/server', serverRouter);
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
 
-// Тестовый маршрут
 app.get('/', (_req, res) => {
-  res.send('🎁 Express сервер работает!');
+  res.send('🎁 Работаем');
 });
 
 export function startServer() {
