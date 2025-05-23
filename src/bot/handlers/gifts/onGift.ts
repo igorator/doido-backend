@@ -19,45 +19,30 @@ export const onGiftRouter = (bot: Bot) => {
       return;
     }
 
-    console.log('📥 Получен подарок:', {
-      giftId,
-      giftName: gift.name,
-      senderId: ctx.from?.id,
-      chatId: ctx.chat?.id,
-      origin: giftPayload.origin,
-    });
+    const senderId = ctx.from?.id;
+    const userId = String(senderId);
+    const collectionName = gift.base_name;
+    const giftNumber = gift.number;
+
+    let logPrefix = `🎁 GIFT IN | id=${giftId} | collection="${collectionName}" | number=${giftNumber} | from=${userId}`;
 
     let connection;
     try {
       connection = await ctx.getBusinessConnection();
-      console.log('✅ Business connection получен:', {
-        botUserId: ctx.me.id,
-        connectionUserId: connection.user.id,
-      });
     } catch (err) {
-      console.error('❌ Не удалось получить business connection:', err);
+      console.error(`${logPrefix} | ❌ fail=getBusinessConnection: ${err}`);
       return;
     }
 
-    const senderId = ctx.from?.id;
-    const botUserId = ctx.me.id;
-
-    console.log('🔍 Сравнение ID:', {
-      senderId,
-      botUserId,
-      isFromBot: senderId === botUserId,
-    });
-
-    if (senderId === botUserId) {
-      console.log(`📤 Подарок ${giftId} отправлен ботом — пропуск сохранения.`);
+    if (senderId === ctx.me.id) {
+      console.log(`${logPrefix} | ⏩ skipped (sent by bot)`);
       return;
     }
 
-    const userId = String(senderId);
     const user = await userRepository.findOneBy({ id: userId });
 
     if (!user) {
-      console.warn(`❌ Пользователь ${userId} не найден в БД`);
+      console.warn(`${logPrefix} | ❌ fail=userNotFound`);
       await ctx.reply('⛔️ Ошибка: пользователь не зарегистрирован.');
       return;
     }
@@ -65,8 +50,8 @@ export const onGiftRouter = (bot: Bot) => {
     try {
       await saveGiftToDatabase({
         giftId: String(giftId),
-        collectionName: gift.base_name,
-        number: gift.number,
+        collectionName,
+        number: giftNumber,
         model: {
           name: gift.model.name,
           rarity: gift.model.rarity_per_mille,
@@ -88,9 +73,9 @@ export const onGiftRouter = (bot: Bot) => {
         owner: user,
       });
 
-      console.log(`🎁 Подарок ${gift.base_name} сохранён (gift_id=${giftId})`);
+      console.log(`${logPrefix} | ✅ saved`);
     } catch (err) {
-      console.error(`❌ Ошибка при сохранении подарка ${giftId}:`, err);
+      console.error(`${logPrefix} | ❌ fail=saveError: ${err}`);
     }
   });
 };

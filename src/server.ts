@@ -1,16 +1,16 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { webhookCallback } from 'grammy';
-import { bot } from './bot/bot';
 
+import { bot } from './bot/bot';
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
 import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
-import helmet from 'helmet';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -19,10 +19,10 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
-
 const assetsPath = path.resolve(__dirname, '../assets');
 
-app.use('/webhook', webhookCallback(bot, 'express'));
+// ✅ Правильный порядок: сначала JSON парсер
+app.use(express.json());
 
 app.use(
   helmet({
@@ -31,15 +31,19 @@ app.use(
   }),
 );
 app.use(cors());
-app.use(express.json());
 app.use('/assets', express.static(assetsPath));
 
+// ✅ Webhook должен идти после express.json()
+app.use('/webhook', webhookCallback(bot, 'express'));
+
+// 🔧 Роуты API
 app.use('/server', serverRouter);
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
 
+// Тестовый маршрут
 app.get('/', (_req, res) => {
   res.send('🎁 Express сервер работает!');
 });
