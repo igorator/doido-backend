@@ -1,0 +1,5 @@
+{
+  "func": "./src/WalletDeposit.fc",
+  "fift": "./src/WalletDeposit.fif",
+  "output": "./build/WalletDeposit.cell"
+}

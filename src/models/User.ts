@@ -85,7 +85,7 @@ export class User {
       language_code: this.language_code,
       photo_url: this.photo_url,
       allows_write_to_pm: this.allows_write_to_pm,
-      ton_balance: this.ton_balance?.toNumber?.() ?? 0,
+      market_ton_balance: this.ton_balance?.toNumber?.() ?? 0,
       market_volume: {
         total_market_amount: this.total_market_amount?.toNumber?.() ?? 0,
         weekly_market_amount: this.weekly_market_amount?.toNumber?.() ?? 0,

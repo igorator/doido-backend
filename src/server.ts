@@ -11,6 +11,7 @@ import giftRouter from './routes/giftRoutes';
 import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
+import tonRouter from './routes/tonRoutes';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -35,6 +36,7 @@ app.use('/assets', express.static(assetsPath));
 app.use('/webhook', webhookCallback(bot, 'express'));
 
 app.use('/server', serverRouter);
+app.use('/ton', tonRouter);
 app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);

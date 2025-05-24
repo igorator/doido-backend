@@ -1,24 +1,16 @@
 {
   "compilerOptions": {
     "target": "es2015",
-
     "outDir": "dist",
-
     "emitDecoratorMetadata": true,
-
     "experimentalDecorators": true,
-
     "moduleDetection": "force",
-
     "module": "Preserve",
-
     "resolveJsonModule": true,
-
     "allowJs": true,
-
     "esModuleInterop": true,
-
     "isolatedModules": true
   },
+  "include": ["src", "contracts"],
   "exclude": ["node_modules", "**/*.js"]
 }
