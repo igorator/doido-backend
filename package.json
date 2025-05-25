@@ -1,7 +1,7 @@
 {
   "name": "doido-backend",
   "version": "1.0.0",
-  "description": "Backend for DOIDO using Grammy, TypeORM, TypeScript and Tact",
+  "description": "Backend for DOIDO using Grammy, TypeORM, TypeScript and Func",
   "main": "src/app.js",
   "type": "module",
   "author": {
