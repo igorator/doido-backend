@@ -8,7 +8,7 @@ export async function depositTon(req: Request, res: Response) {
       return res.status(400).json({ message: 'Invalid request' });
     }
 
-    const to = process.env.TON_DEPOSIT_WALLET;
+    const to = process.env.TON_DEPOSIT_WALLET_ADDRESS;
     if (!to) {
       return res.status(500).json({ message: 'Deposit wallet not configured' });
     }

@@ -7,8 +7,9 @@ import Decimal from 'decimal.js';
 import { tonClient } from '../../ton/tonClient';
 import nacl from 'tweetnacl';
 
-const SECRET_KEY = process.env.WITHDRAW_SECRET_KEY!;
-const WITHDRAW_SUBWALLET_NUMBER = process.env.WITHDRAW_SUBWALLET_NUMBER || 2;
+const SECRET_KEY = process.env.TON_WALLET_SECRET_KEY!;
+const WITHDRAW_SUBWALLET_NUMBER =
+  process.env.TON_WITHDRAW_SUBWALLET_NUMBER || 2;
 
 export async function withdrawTon(req: Request, res: Response) {
   try {
@@ -63,7 +64,7 @@ export async function withdrawTon(req: Request, res: Response) {
         internal({
           to: recipient,
           value: amountNano,
-          bounce: false,
+          bounce: true,
         }),
       ],
     });

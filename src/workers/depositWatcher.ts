@@ -6,7 +6,7 @@ import { depositLogRepository } from '../database/repositories/depositLogReposit
 import Decimal from 'decimal.js';
 import { Buffer } from 'buffer';
 
-const DEPOSIT_WALLET = process.env.TON_DEPOSIT_WALLET!;
+const DEPOSIT_WALLET = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 
 export async function depositWatcher() {
   const address = Address.parse(DEPOSIT_WALLET);

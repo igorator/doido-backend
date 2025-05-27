@@ -6,5 +6,6 @@ if (!process.env.TONCENTER_API_ENDPOINT) {
 }
 
 export const tonClient = new TonClient({
-  endpoint: process.env.TONCENTER_API_ENDPOINT,
+  endpoint: process.env.TONCENTER_API_ENDPOINT!,
+  apiKey: process.env.TONCENTER_API_KEY,
 });
