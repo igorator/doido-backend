@@ -10,7 +10,7 @@ const router = Router();
 
 router.post('/deposit', verifyTelegramAuth, depositTon);
 router.post('/withdraw', verifyTelegramAuth, withdrawTon);
-router.get('/wallet-balance/:address', verifyTelegramAuth, getTonBalance);
+router.get('/wallet-balance/:address', getTonBalance);
 router.get('/deposit-withdraw-limits', getDepositWithdrawLimits);
 
 export default router;

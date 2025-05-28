@@ -7,11 +7,14 @@ export async function getTonBalance(req: Request, res: Response) {
 
   try {
     if (!Address.isFriendly(address)) {
-      return res.status(400).json({ error: 'Invalid TON address' });
+      res.status(400).json({ error: 'Invalid TON address' });
     }
 
     const parsed = Address.parse(address);
     const balance = await tonClient.getBalance(parsed);
+
+    console.log(parsed);
+    console.log(fromNano(balance));
 
     res.json({ balance: fromNano(balance) });
   } catch (err) {

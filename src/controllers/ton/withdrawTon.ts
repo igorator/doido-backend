@@ -16,14 +16,14 @@ export async function withdrawTon(req: Request, res: Response) {
     const { userId, amountTon, to } = req.body;
 
     if (!userId || !to || typeof amountTon !== 'number' || amountTon <= 0) {
-      return res.status(400).json({ message: 'Invalid withdraw request' });
+      res.status(400).json({ message: 'Invalid withdraw request' });
     }
 
     const user = await getUserById(userId);
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (!user) res.status(404).json({ message: 'User not found' });
 
     if (new Decimal(user.ton_balance).lt(amountTon)) {
-      return res.status(403).json({ message: 'Insufficient balance' });
+      res.status(403).json({ message: 'Insufficient balance' });
     }
 
     const amountNano = toNano(amountTon.toString());
@@ -49,9 +49,7 @@ export async function withdrawTon(req: Request, res: Response) {
 
     const isDeployed = await tonClient.isContractDeployed(wallet.address);
     if (!isDeployed) {
-      return res
-        .status(400)
-        .json({ message: 'Wallet contract is not deployed' });
+      res.status(400).json({ message: 'Wallet contract is not deployed' });
     }
 
     const seqno = await contract.getSeqno();
@@ -72,10 +70,8 @@ export async function withdrawTon(req: Request, res: Response) {
     await minusUserBalance(userId, new Decimal(amountTon));
 
     res.json({ success: true });
-    return;
   } catch (err) {
     console.error('❌ withdrawTon error:', err);
     res.status(500).json({ message: 'Internal error' });
-    return;
   }
 }
