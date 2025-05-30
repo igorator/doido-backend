@@ -32,7 +32,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           relations: ['owner'],
         });
 
-        // Общая стоимость
         let totalCost = new Decimal(0);
 
         for (const gift of gifts) {
@@ -62,7 +61,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
 
-          // Реферал: продавец
           const sellerRef = await manager.findOne(userRepository.target, {
             where: { id: seller.id },
             relations: ['referred_by'],
@@ -85,26 +83,26 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           }
 
           // Реферал: покупатель
-          const buyerRef = await manager.findOne(userRepository.target, {
-            where: { id: buyer.id },
-            relations: ['referred_by'],
-          });
+          // const buyerRef = await manager.findOne(userRepository.target, {
+          //   where: { id: buyer.id },
+          //   relations: ['referred_by'],
+          // });
 
-          if (buyerRef?.referred_by) {
-            const ref = buyerRef.referred_by;
-            await manager.increment(
-              userRepository.target,
-              { id: ref.id },
-              'ton_balance',
-              referralBonus.toNumber(),
-            );
-            await manager.increment(
-              userRepository.target,
-              { id: ref.id },
-              'referred_profit',
-              referralBonus.toNumber(),
-            );
-          }
+          // if (buyerRef?.referred_by) {
+          //   const ref = buyerRef.referred_by;
+          //   await manager.increment(
+          //     userRepository.target,
+          //     { id: ref.id },
+          //     'ton_balance',
+          //     referralBonus.toNumber(),
+          //   );
+          //   await manager.increment(
+          //     userRepository.target,
+          //     { id: ref.id },
+          //     'referred_profit',
+          //     referralBonus.toNumber(),
+          //   );
+          // }
 
           // Обновление пользователей
           buyer.total_market_amount =
@@ -151,7 +149,8 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           await manager.save(gift);
 
           // Лог
-          log(
+          // Лог про продавца
+          const sellerLog =
             `🛒🎁 ПОКУПКА ПОДАРКА: ${buyer.username} (${buyer.id}) купил ${
               gift.collection_name
             } #${gift.number} у ${seller.username} (${
@@ -159,16 +158,22 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             }) за \x1b[38;2;0;152;234m${sellPriceWithFee.toFixed(
               3,
             )} TON\x1b[0m` +
-              (sellerRef?.referred_by
-                ? ` | Реф. бонус продавца: ${sellerRef.referred_by.username} (${sellerRef.referred_by.id})`
-                : '') +
-              (buyerRef?.referred_by
-                ? ` | Реф. бонус покупателя: ${buyerRef.referred_by.username} (${buyerRef.referred_by.id})`
-                : '') +
-              ` | Сумма бонуса: \x1b[38;2;0;152;234m${referralBonus.toFixed(
-                3,
-              )} TON\x1b[0m`,
-          );
+            (sellerRef?.referred_by
+              ? ` | Реф. бонус продавца: ${sellerRef.referred_by.username} (${sellerRef.referred_by.id})`
+              : '');
+
+          // Лог про байера (можно закомментить для отключения)
+          // const buyerLog = buyerRef?.referred_by
+          //   ? ` | Реф. бонус покупателя: ${buyerRef.referred_by.username} (${buyerRef.referred_by.id})`
+          //   : '';
+
+          // Общая часть с бонусом
+          const bonusLog = ` | Сумма бонуса: \x1b[38;2;0;152;234m${referralBonus.toFixed(
+            3,
+          )} TON\x1b[0m`;
+
+          // Собираем итоговый лог (закомментить buyerLog, если не нужен)
+          log(sellerLog /* + buyerLog */ + bonusLog);
         }
 
         await manager.save(createdActivities);
