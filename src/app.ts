@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { AppDataSource } from './database/db';
 import { startServer } from './server';
+import { setupScheduledEvents } from './scheduled/setupScheduledEvents';
 
 async function bootstrap() {
   try {
@@ -12,6 +13,8 @@ async function bootstrap() {
     console.log('✅ Telegram bot loaded');
 
     startServer();
+
+    setupScheduledEvents();
   } catch (error) {
     if (error instanceof Error) {
       console.error('❌ Error during initialization:', error.message);

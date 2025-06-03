@@ -1,10 +1,11 @@
 import { Address, fromNano, Cell } from '@ton/core';
-import { tonClient } from '../ton/tonClient';
-import { getUserById } from '../services/user/getUserById';
-import { plusUserBalance } from '../services/user/updateUserBalance';
-import { depositLogRepository } from '../database/repositories/depositLogRepository';
+
 import Decimal from 'decimal.js';
 import { Buffer } from 'buffer';
+import { tonClient } from '../tonClient';
+import { getUserById } from '../../services/user/getUserById';
+import { plusUserBalance } from '../../services/user/updateUserBalance';
+import { depositLogRepository } from '../../database/repositories/ton/deposit/depositLogRepository';
 
 const DEPOSIT_WALLET = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 

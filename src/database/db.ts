@@ -3,6 +3,9 @@ import { DataSource } from 'typeorm';
 import { Gift } from '../models/Gift';
 import { User } from '../models/User';
 import { Activity } from '../models/Activity';
+import { WithdrawLog } from '../models/ton/withdraw/WithdrawLog';
+import { DepositLog } from '../models/ton/deposit/DepositLog';
+import { WithdrawBatch } from '../models/ton/withdraw/WithdrawBatch';
 
 dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
@@ -26,7 +29,7 @@ export const AppDataSource = new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [Gift, User, Activity],
+  entities: [Gift, User, Activity, WithdrawLog, DepositLog, WithdrawBatch],
   ssl: isProduction ? true : { rejectUnauthorized: false },
   logging: false,
 });
