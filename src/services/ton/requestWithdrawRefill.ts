@@ -9,8 +9,6 @@ const DEPOSIT_SECRET_KEY = Buffer.from(
   'hex',
 );
 
-console.log(DEPOSIT_SECRET_KEY);
-
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET!;
 const DEPOSIT_SUBWALLET_NUMBER = Number(
   process.env.TON_DEPOSIT_SUBWALLET_NUMBER || 0,
