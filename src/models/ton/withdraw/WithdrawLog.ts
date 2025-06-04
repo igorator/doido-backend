@@ -7,7 +7,12 @@ import {
 } from 'typeorm';
 import { WithdrawBatch } from './WithdrawBatch';
 
-export type WithdrawStatus = 'pending' | 'processing' | 'confirmed' | 'failed';
+export type WithdrawStatus =
+  | 'pending'
+  | 'processing'
+  | 'confirmed'
+  | 'failed'
+  | 'waiting_refill';
 
 @Entity()
 export class WithdrawLog {

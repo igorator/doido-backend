@@ -11,7 +11,7 @@ export class WithdrawBatch {
   createdAt: number;
 
   @Column({ type: 'varchar', default: 'pending' })
-  status: 'pending' | 'processing' | 'confirmed' | 'failed';
+  status: 'pending' | 'processing' | 'confirmed' | 'failed' | 'waiting_refill';
 
   @Column({ type: 'varchar', nullable: true })
   txHash?: string;
