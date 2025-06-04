@@ -7,7 +7,7 @@ import { getUserById } from '../../services/user/getUserById';
 import { plusUserBalance } from '../../services/user/updateUserBalance';
 import { depositLogRepository } from '../../database/repositories/ton/deposit/depositLogRepository';
 
-const DEPOSIT_WALLET = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
+const DEPOSIT_WALLET = process.env.TON_DEPOSIT_WALLET!;
 
 export async function depositWatcher() {
   const address = Address.parse(DEPOSIT_WALLET);
