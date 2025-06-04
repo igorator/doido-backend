@@ -21,15 +21,14 @@ export async function depositTon(req: Request, res: Response) {
         .json({ message: 'Amount less than min deposit limit' });
     }
 
-    // payload как base64
-    const payloadText = `deposit:${userId}:${Date.now()}`;
-    const payload = Buffer.from(payloadText).toString('base64');
+    // comment как обычный текст!
+    const comment = `deposit:${userId}:${Date.now()}`;
     const amountNano = Math.floor(amountTon * 1e9);
 
     res.json({
       to,
       amountNano: amountNano.toString(),
-      payload,
+      comment, // <-- правильно
     });
   } catch (err) {
     console.error('❌ depositTon error:', err);
