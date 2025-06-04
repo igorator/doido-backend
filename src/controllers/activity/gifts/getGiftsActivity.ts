@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import { ActivityItemType } from '../../../models/Activity';
+import { In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 import { AppDataSource } from '../../../database/db';
+import { ActivityItemType } from '../../../models/Activity';
 
 export const getGiftsActivity = async (req: Request, res: Response) => {
   try {
@@ -19,75 +20,87 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
 
     const skipNum = Number(skip);
     const takeNum = Number(take);
-    const minPriceNum = min_price ? Number(min_price) : undefined;
-    const maxPriceNum = max_price ? Number(max_price) : undefined;
-    const giftIdNum = gift_id ? Number(gift_id) : undefined;
 
-    const query = AppDataSource.getRepository('Activity')
-      .createQueryBuilder('activity')
-      .leftJoinAndSelect('activity.gift', 'gift')
-      .leftJoinAndSelect('activity.seller', 'seller')
-      .leftJoinAndSelect('activity.buyer', 'buyer')
-      .where('activity.item_type = :type', { type: ActivityItemType.GIFT });
+    // Приведение к массиву для всех фильтров
+    const collections = Array.isArray(collection)
+      ? collection
+      : collection
+      ? [collection]
+      : [];
+    const models = Array.isArray(model) ? model : model ? [model] : [];
+    const backdrops = Array.isArray(backdrop)
+      ? backdrop
+      : backdrop
+      ? [backdrop]
+      : [];
+    const patterns = Array.isArray(pattern)
+      ? pattern
+      : pattern
+      ? [pattern]
+      : [];
 
-    if (collection) {
-      const values = Array.isArray(collection) ? collection : [collection];
-      query.andWhere('gift.collection_name IN (:...collections)', {
-        collections: values,
-      });
-    }
-
-    if (model) {
-      const values = Array.isArray(model) ? model : [model];
-      query.andWhere('gift.model_name IN (:...models)', { models: values });
-    }
-
-    if (backdrop) {
-      const values = Array.isArray(backdrop) ? backdrop : [backdrop];
-      query.andWhere('gift.backdrop_name IN (:...backdrops)', {
-        backdrops: values,
-      });
-    }
-
-    if (pattern) {
-      const values = Array.isArray(pattern) ? pattern : [pattern];
-      query.andWhere('gift.pattern_name IN (:...patterns)', {
-        patterns: values,
-      });
-    }
-
-    if (!isNaN(giftIdNum)) {
-      query.andWhere('gift.number = :giftId', { giftId: giftIdNum });
-    }
-
-    if (minPriceNum != null && maxPriceNum != null) {
-      query.andWhere('activity.amount BETWEEN :min AND :max', {
-        min: minPriceNum,
-        max: maxPriceNum,
-      });
-    } else if (minPriceNum != null) {
-      query.andWhere('activity.amount >= :min', { min: minPriceNum });
-    } else if (maxPriceNum != null) {
-      query.andWhere('activity.amount <= :max', { max: maxPriceNum });
-    }
-
-    const sortMap: Record<string, [string, 'ASC' | 'DESC']> = {
-      latest: ['activity.created_at', 'DESC'],
-      'price-asc': ['activity.amount', 'ASC'],
-      'price-desc': ['activity.amount', 'DESC'],
-      'id-asc': ['gift.number', 'ASC'],
-      'id-desc': ['gift.number', 'DESC'],
+    const baseWhere: any = {
+      item_type: ActivityItemType.GIFT,
     };
 
-    const [orderField, orderDirection] = sortMap[
-      sort as keyof typeof sortMap
-    ] ?? ['activity.created_at', 'DESC'];
+    const whereList: any[] = collections.length
+      ? collections.map((col) => ({
+          ...baseWhere,
+          gift: {
+            ...(col && { collection_name: col }),
+            ...(models.length > 0 && { model_name: In(models) }),
+            ...(backdrops.length > 0 && { backdrop_name: In(backdrops) }),
+            ...(patterns.length > 0 && { pattern_name: In(patterns) }),
+            ...(gift_id && { number: Number(gift_id) }),
+          },
+        }))
+      : [
+          {
+            ...baseWhere,
+            gift: {
+              ...(models.length > 0 && { model_name: In(models) }),
+              ...(backdrops.length > 0 && { backdrop_name: In(backdrops) }),
+              ...(patterns.length > 0 && { pattern_name: In(patterns) }),
+              ...(gift_id && { number: Number(gift_id) }),
+            },
+          },
+        ];
 
-    query.orderBy(orderField, orderDirection);
-    query.skip(skipNum);
-    query.take(takeNum);
+    if (min_price && max_price) {
+      whereList.forEach((w) => {
+        w.amount = Between(Number(min_price), Number(max_price));
+      });
+    } else if (min_price) {
+      whereList.forEach((w) => {
+        w.amount = MoreThanOrEqual(Number(min_price));
+      });
+    } else if (max_price) {
+      whereList.forEach((w) => {
+        w.amount = LessThanOrEqual(Number(max_price));
+      });
+    }
 
-    const [activities, total] = await query.getManyAndCount();
+    const orderMap: Record<string, any> = {
+      latest: { created_at: 'DESC' },
+      'price-asc': { amount: 'ASC' },
+      'price-desc': { amount: 'DESC' },
+      'id-asc': { 'gift.number': 'ASC' },
+      'id-desc': { 'gift.number': 'DESC' },
+    };
+    const order = orderMap[sort as keyof typeof orderMap] ?? {
+      created_at: 'DESC',
+    };
+
+    // Основной запрос
+    const activityRepo = AppDataSource.getRepository('Activity');
+    const [activities, total] = await activityRepo.findAndCount({
+      where: whereList,
+      relations: ['gift', 'seller', 'buyer'],
+      order,
+      skip: skipNum,
+      take: takeNum,
+    });
+
     const hasMore = skipNum + takeNum < total;
 
     res.json({ activities, total, hasMore });
