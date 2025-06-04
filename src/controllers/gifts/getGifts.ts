@@ -1,33 +1,32 @@
 import { Request, Response } from 'express';
-import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
-import { giftRepository } from '../../database/repositories/giftRepository';
-import { GiftStatus } from '../../models/Gift';
-import Decimal from 'decimal.js';
+import { In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
+import { AppDataSource } from '../../database/db';
+import { ActivityItemType } from '../../models/Activity';
 
-export const getGifts = async (req: Request, res: Response): Promise<void> => {
+export const getGiftsActivity = async (req: Request, res: Response) => {
   try {
     const {
       collection,
       model,
       backdrop,
       pattern,
+      gift_id,
       min_price,
       max_price,
-      sort,
-      gift_id,
-      skip = 0,
-      take = 20,
+      skip = '0',
+      take = '10',
+      sort = 'latest',
     } = req.query;
 
     const skipNum = Number(skip);
     const takeNum = Number(take);
 
+    // Приведение к массиву для всех фильтров
     const collections = Array.isArray(collection)
       ? collection
       : collection
       ? [collection]
       : [];
-
     const models = Array.isArray(model) ? model : model ? [model] : [];
     const backdrops = Array.isArray(backdrop)
       ? backdrop
@@ -40,73 +39,75 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
       ? [pattern]
       : [];
 
-    const baseFilters: any = {
-      status: GiftStatus.LISTED,
+    const baseWhere: any = {
+      item_type: ActivityItemType.GIFT,
     };
 
-    if (gift_id) {
-      baseFilters.number = Number(gift_id);
-    }
-    if (min_price && max_price) {
-      baseFilters.sell_price = Between(
-        new Decimal(min_price.toString()),
-        new Decimal(max_price.toString()),
-      );
-    } else if (min_price) {
-      baseFilters.sell_price = MoreThanOrEqual(
-        new Decimal(min_price.toString()),
-      );
-    } else if (max_price) {
-      baseFilters.sell_price = LessThanOrEqual(
-        new Decimal(max_price.toString()),
-      );
-    }
-
-    const order: any =
-      sort === 'price-asc'
-        ? { sell_price: 'asc' }
-        : sort === 'price-desc'
-        ? { sell_price: 'desc' }
-        : sort === 'latest'
-        ? { listed_date: 'desc' }
-        : sort === 'id-asc'
-        ? { number: 'asc' }
-        : sort === 'id-desc'
-        ? { number: 'desc' }
-        : {};
-
-    const where = collections.length
+    const whereList: any[] = collections.length
       ? collections.map((col) => ({
-          ...baseFilters,
-          collection_name: Like(`%${col}%`),
-          ...(models.length > 0 && { model: { name: In(models) } }),
-          ...(backdrops.length > 0 && { backdrop: { name: In(backdrops) } }),
-          ...(patterns.length > 0 && { pattern: { name: In(patterns) } }),
+          ...baseWhere,
+          gift: {
+            ...(col && { collection_name: col }),
+            ...(models.length > 0 && { model_name: In(models) }),
+            ...(backdrops.length > 0 && { backdrop_name: In(backdrops) }),
+            ...(patterns.length > 0 && { pattern_name: In(patterns) }),
+            ...(gift_id && { number: Number(gift_id) }),
+          },
         }))
       : [
           {
-            ...baseFilters,
-            ...(models.length > 0 && { model: { name: In(models) } }),
-            ...(backdrops.length > 0 && { backdrop: { name: In(backdrops) } }),
-            ...(patterns.length > 0 && { pattern: { name: In(patterns) } }),
+            ...baseWhere,
+            gift: {
+              ...(models.length > 0 && { model_name: In(models) }),
+              ...(backdrops.length > 0 && { backdrop_name: In(backdrops) }),
+              ...(patterns.length > 0 && { pattern_name: In(patterns) }),
+              ...(gift_id && { number: Number(gift_id) }),
+            },
           },
         ];
 
-    const [gifts, total] = await giftRepository.findAndCount({
-      where,
+    if (min_price && max_price) {
+      whereList.forEach((w) => {
+        w.amount = Between(Number(min_price), Number(max_price));
+      });
+    } else if (min_price) {
+      whereList.forEach((w) => {
+        w.amount = MoreThanOrEqual(Number(min_price));
+      });
+    } else if (max_price) {
+      whereList.forEach((w) => {
+        w.amount = LessThanOrEqual(Number(max_price));
+      });
+    }
+
+    const orderMap: Record<string, any> = {
+      latest: { created_at: 'DESC' },
+      'price-asc': { amount: 'ASC' },
+      'price-desc': { amount: 'DESC' },
+      'id-asc': { 'gift.number': 'ASC' },
+      'id-desc': { 'gift.number': 'DESC' },
+    };
+    const order = orderMap[sort as keyof typeof orderMap] ?? {
+      created_at: 'DESC',
+    };
+
+    // Основной запрос
+    const activityRepo = AppDataSource.getRepository('Activity');
+    const [activities, total] = await activityRepo.findAndCount({
+      where: whereList,
+      relations: ['gift', 'seller', 'buyer'],
       order,
-      relations: ['owner'],
       skip: skipNum,
       take: takeNum,
     });
 
     const hasMore = skipNum + takeNum < total;
 
-    res.json({ gifts, total, hasMore });
+    res.json({ activities, total, hasMore });
   } catch (err) {
-    console.error('❌ Ошибка при получении подарков:', err);
+    console.error('❌ Ошибка при получении активности по подаркам:', err);
     res.status(500).json({
-      message: 'Ошибка при получении подарков',
+      message: 'Ошибка при получении активности',
       error: (err as Error).message,
     });
   }

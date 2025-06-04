@@ -5,7 +5,7 @@ import { requestWithdrawRefill } from '../../services/ton/requestWithdrawRefill'
 import { getTonBalanceService } from '../../services/ton/getTonBalanceService';
 const MAX_BATCH_SIZE = Number(process.env.TON_WITHDRAW_MAX_BATCH_SIZE) || 8;
 const WITHDRAW_WALLET = process.env.TON_WITHDRAW_WALLET!;
-const WITHDRAW_REFILL_AMOUNT = process.env.TON_WITHDRAW_REFILL_AMOUNT!; // строка TON, например '10'
+const WITHDRAW_REFILL_AMOUNT = process.env.TON_WITHDRAW_REFILL_AMOUNT! || 50;
 
 export const batchAndSendWithdrawals = async () => {
   try {
