@@ -8,7 +8,7 @@ const DEPOSIT_SECRET_KEY = Buffer.from(
   process.env.TON_DEPOSIT_SECRET_KEY!,
   'hex',
 );
-const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
+const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET!;
 const DEPOSIT_SUBWALLET_NUMBER = Number(
   process.env.TON_DEPOSIT_SUBWALLET_NUMBER || 0,
 );
