@@ -5,9 +5,12 @@ import axios from 'axios';
 const TONCENTER_API_ENDPOINT = process.env.TONCENTER_API_ENDPOINT!;
 const TONCENTER_API_KEY = process.env.TONCENTER_API_KEY!;
 const DEPOSIT_SECRET_KEY = Buffer.from(
-  process.env.TON_DEPOSIT_SECRET_KEY!,
+  process.env.TON_WALLET_SECRET_KEY!,
   'hex',
 );
+
+console.log(DEPOSIT_SECRET_KEY);
+
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET!;
 const DEPOSIT_SUBWALLET_NUMBER = Number(
   process.env.TON_DEPOSIT_SUBWALLET_NUMBER || 0,
