@@ -13,9 +13,6 @@ export async function getTonBalance(req: Request, res: Response) {
     const parsed = Address.parse(address);
     const balance = await tonClient.getBalance(parsed);
 
-    console.log(parsed);
-    console.log(fromNano(balance));
-
     res.json({ balance: fromNano(balance) });
   } catch (err) {
     console.error('TON balance error:', err);
