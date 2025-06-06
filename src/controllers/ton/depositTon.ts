@@ -1,35 +1,57 @@
 import { Request, Response } from 'express';
+import TonWeb from 'tonweb';
+import { v4 as uuidv4 } from 'uuid';
+
+import { DepositLog } from '../../models/ton/DepositLog';
+import { AppDataSource } from '../../database/db';
+
+const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET!;
+
+async function buildTextPayload(payloadId: string) {
+  const cell = new TonWeb.boc.Cell();
+  cell.bits.writeUint(0, 32); // text_comment opcode
+  cell.bits.writeString(payloadId); // uuid как служебный идентификатор
+  const boc = await cell.toBoc();
+  return Buffer.from(boc).toString('base64');
+}
 
 export async function depositTon(req: Request, res: Response) {
   try {
     const { userId, amountTon } = req.body;
-
-    const minAmount = Number(process.env.MIN_DEPOSIT_AMOUNT ?? '0');
-
-    if (!userId || typeof amountTon !== 'number' || amountTon <= 0) {
-      return res.status(400).json({ message: 'Invalid request' });
+    if (!userId || amountTon <= 0) {
+      return res.status(400).json({ message: 'userId and amountTon required' });
     }
 
-    const to = process.env.TON_DEPOSIT_WALLET;
-    if (!to) {
-      return res.status(500).json({ message: 'Deposit wallet not configured' });
-    }
+    const timestamp = Math.floor(Date.now() / 1000);
+    const amountNano = TonWeb.utils.toNano(amountTon).toString();
 
-    if (amountTon < minAmount) {
-      return res
-        .status(400)
-        .json({ message: 'Amount less than min deposit limit' });
-    }
+    // Генерируем уникальный ID для депозита, он же пойдет в payload
+    const payloadId = uuidv4();
 
-    // comment как обычный текст!
-    const comment = `deposit:${userId}:${Date.now()}`;
-    const amountNano = Math.floor(amountTon * 1e9);
-
-    res.json({
-      to,
-      amountNano: amountNano.toString(),
-      comment, // <-- правильно
+    // Логируем именно payloadId (UUID) — для трекинга
+    await AppDataSource.getRepository(DepositLog).insert({
+      userId,
+      payload: payloadId,
+      amountNano,
+      timestamp,
+      status: 'pending',
     });
+
+    // Формируем base64 payload для TonConnect
+    const payload = await buildTextPayload(payloadId);
+
+    const transaction = {
+      validUntil: timestamp + 600,
+      messages: [
+        {
+          address: DEPOSIT_WALLET_ADDRESS,
+          amount: amountNano,
+          payload,
+        },
+      ],
+    };
+
+    res.json({ transaction });
   } catch (err) {
     console.error('❌ depositTon error:', err);
     res.status(500).json({ message: 'Internal error' });

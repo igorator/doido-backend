@@ -28,7 +28,7 @@ export class WithdrawLog {
   @Column('decimal', { precision: 20, scale: 9 })
   amount: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', default: 'pending' })
   status: WithdrawStatus;
 
   @Column({ type: 'varchar', nullable: true })

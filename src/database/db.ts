@@ -3,9 +3,9 @@ import { DataSource } from 'typeorm';
 import { Gift } from '../models/Gift';
 import { User } from '../models/User';
 import { Activity } from '../models/Activity';
-import { WithdrawLog } from '../models/ton/withdraw/WithdrawLog';
-import { DepositLog } from '../models/ton/deposit/DepositLog';
-import { WithdrawBatch } from '../models/ton/withdraw/WithdrawBatch';
+import { DepositLog } from '../models/ton/DepositLog';
+import { WithdrawBatch } from '../models/ton/WithdrawBatch';
+import { WithdrawLog } from '../models/ton/WithdrawLog';
 
 dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
@@ -32,4 +32,5 @@ export const AppDataSource = new DataSource({
   entities: [Gift, User, Activity, WithdrawLog, DepositLog, WithdrawBatch],
   ssl: isProduction ? true : { rejectUnauthorized: false },
   logging: false,
+  synchronize: true,
 });

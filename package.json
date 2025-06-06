@@ -30,8 +30,10 @@
     "node-cron": "^4.0.6",
     "pg": "^8.14.1",
     "reflect-metadata": "^0.2.2",
+    "tonweb": "^0.0.66",
     "tsx": "^4.19.3",
-    "typeorm": "^0.3.22"
+    "typeorm": "^0.3.22",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
