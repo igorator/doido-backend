@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
-import { In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
+
+AppDataSource;
+
 import { AppDataSource } from '../../../database/db';
-import { ActivityItemType } from '../../../models/Activity';
+import { Activity, ActivityItemType } from '../../../models/Activity';
 
 export const getGiftsActivity = async (req: Request, res: Response) => {
   try {
@@ -38,80 +40,73 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
       ? [pattern]
       : [];
 
-    // Базовый фильтр
-    const baseFilters: any = {
-      item_type: ActivityItemType.GIFT,
-    };
+    const activityRepo = AppDataSource.getRepository(Activity);
+    const qb = activityRepo
+      .createQueryBuilder('activity')
+      .leftJoinAndSelect('activity.gift', 'gift')
+      .leftJoinAndSelect('activity.seller', 'seller')
+      .leftJoinAndSelect('activity.buyer', 'buyer')
+      .where('activity.item_type = :itemType', {
+        itemType: ActivityItemType.GIFT,
+      });
 
-    // Фильтры по подарку (вложенные)
-    const giftFilters: any = {};
-
+    // --- Фильтры по gift (коллекция, модель, backdrop, pattern) ---
     if (collections.length > 0) {
-      giftFilters.collection_name = In(collections);
+      qb.andWhere('gift.collection_name IN (:...collections)', { collections });
     }
     if (models.length > 0) {
-      giftFilters['model.name'] = In(models);
+      qb.andWhere('gift.model.name IN (:...models)', { models });
     }
     if (backdrops.length > 0) {
-      giftFilters['backdrop.name'] = In(backdrops);
+      qb.andWhere('gift.backdrop.name IN (:...backdrops)', { backdrops });
     }
     if (patterns.length > 0) {
-      giftFilters['pattern.name'] = In(patterns);
+      qb.andWhere('gift.pattern.name IN (:...patterns)', { patterns });
     }
     if (gift_id) {
-      giftFilters.number = Number(gift_id);
+      qb.andWhere('gift.number = :giftId', { giftId: Number(gift_id) });
     }
 
-    // Ценовой диапазон
+    // --- Ценовой диапазон ---
     if (min_price && max_price) {
-      baseFilters.amount = Between(Number(min_price), Number(max_price));
+      qb.andWhere('activity.amount BETWEEN :min AND :max', {
+        min: Number(min_price),
+        max: Number(max_price),
+      });
     } else if (min_price) {
-      baseFilters.amount = MoreThanOrEqual(Number(min_price));
+      qb.andWhere('activity.amount >= :min', { min: Number(min_price) });
     } else if (max_price) {
-      baseFilters.amount = LessThanOrEqual(Number(max_price));
+      qb.andWhere('activity.amount <= :max', { max: Number(max_price) });
     }
 
-    // Сортировка
-    const order: any =
-      sort === 'price-asc'
-        ? { amount: 'ASC' }
-        : sort === 'price-desc'
-        ? { amount: 'DESC' }
-        : sort === 'latest'
-        ? { created_at: 'DESC' }
-        : sort === 'id-asc'
-        ? { 'gift.number': 'ASC' }
-        : sort === 'id-desc'
-        ? { 'gift.number': 'DESC' }
-        : { created_at: 'DESC' };
+    // --- Сортировка ---
+    switch (sort) {
+      case 'price-asc':
+        qb.orderBy('activity.amount', 'ASC');
+        break;
+      case 'price-desc':
+        qb.orderBy('activity.amount', 'DESC');
+        break;
+      case 'latest':
+        qb.orderBy('activity.created_at', 'DESC');
+        break;
+      case 'id-asc':
+        qb.orderBy('gift.number', 'ASC');
+        break;
+      case 'id-desc':
+        qb.orderBy('gift.number', 'DESC');
+        break;
+      default:
+        qb.orderBy('activity.created_at', 'DESC');
+        break;
+    }
 
-    // where: массив — если фильтруем по коллекциям, иначе один объект
-    const where =
-      collections.length > 0
-        ? collections.map((col) => ({
-            ...baseFilters,
-            gift: {
-              ...giftFilters,
-              collection_name: col,
-            },
-          }))
-        : [
-            {
-              ...baseFilters,
-              gift: giftFilters,
-            },
-          ];
+    qb.skip(skipNum).take(takeNum);
 
-    const activityRepo = AppDataSource.getRepository('Activity');
-    const [activities, total] = await activityRepo.findAndCount({
-      where,
-      relations: ['gift', 'seller', 'buyer'],
-      order,
-      skip: skipNum,
-      take: takeNum,
-    });
+    const [activities, total] = await qb.getManyAndCount();
 
     const hasMore = skipNum + takeNum < total;
+
     res.json({ activities, total, hasMore });
   } catch (err) {
     console.error('❌ Ошибка при получении активности по подаркам:', err);
