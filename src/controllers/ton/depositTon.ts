@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { DepositLog } from '../../models/ton/DepositLog';
 import { AppDataSource } from '../../database/db';
 
-const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET!;
+const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 
 async function buildTextPayload(payloadId: string) {
   const cell = new TonWeb.boc.Cell();

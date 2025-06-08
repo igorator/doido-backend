@@ -6,7 +6,7 @@ import { plusUserBalance } from '../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 import { IsNull, Not } from 'typeorm';
 
-const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET!;
+const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 const DEPOSIT_WATCHER_INTERVAL_MS =
   Number(process.env.TON_DEPOSIT_WATCHER_INTERVAL_MS) || 10000;
 const tonClient = new TonClient({

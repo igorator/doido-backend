@@ -5,10 +5,11 @@ import { internal, toNano, WalletContractV5R1, SendMode } from '@ton/ton';
 import { tonClient } from '../ton/tonClient';
 import { keyPairFromSecretKey } from '@ton/crypto';
 
-const WITHDRAW_SECRET_KEY = process.env.TON_WALLET_SECRET_KEY!;
+const WITHDRAW_SECRET_KEY = process.env.TON_WITHDRAW_WALLET_SECRET_KEY!;
 const MAX_BATCH_SIZE = Number(process.env.TON_WITHDRAW_MAX_BATCH_SIZE) || 8;
 const WITHDRAW_INTERVAL_MS =
   Number(process.env.TON_WITHDRAW_INTERVAL_MS) || 10000;
+const TON_SUBWALLET_NUMBER = Number(process.env.TON_SUBWALLET_NUMBER);
 
 const withdrawLogRepository = AppDataSource.getRepository(WithdrawLog);
 const withdrawBatchRepository = AppDataSource.getRepository(WithdrawBatch);
@@ -16,13 +17,10 @@ const withdrawBatchRepository = AppDataSource.getRepository(WithdrawBatch);
 const secretKey = Buffer.from(WITHDRAW_SECRET_KEY, 'hex');
 const { publicKey } = keyPairFromSecretKey(secretKey);
 
-// Система защиты: если батч уже был отправлен — не отправлять снова
 const inFlightBatches = new Set<number>();
 
 async function batchAndSendWithdrawals() {
-  // Проверка на блокировку
   if (inFlightBatches.size) {
-    // Если есть батчи "в полёте", ждем их обработки
     console.log(
       '[TON Withdraw Watcher] Batch already processing, skip this tick.',
     );
@@ -30,8 +28,15 @@ async function batchAndSendWithdrawals() {
   }
 
   const wallet = WalletContractV5R1.create({
-    workchain: 0,
     publicKey,
+    walletId: {
+      networkGlobalId: -239,
+      context: {
+        walletVersion: 'v5r1',
+        workchain: 0,
+        subwalletNumber: TON_SUBWALLET_NUMBER,
+      },
+    },
   });
 
   const pending = await withdrawLogRepository.find({
@@ -42,7 +47,6 @@ async function batchAndSendWithdrawals() {
 
   if (!pending.length) return;
 
-  // Создаём батч
   const batch = new WithdrawBatch();
   batch.status = 'processing';
   batch.createdAt = Math.floor(Date.now() / 1000);
@@ -88,7 +92,7 @@ async function batchAndSendWithdrawals() {
 
   let transfer;
   try {
-    transfer = await wallet.createTransfer({
+    transfer = wallet.createTransfer({
       seqno,
       secretKey,
       messages,
@@ -129,7 +133,6 @@ async function batchAndSendWithdrawals() {
       `[TON Withdraw Watcher] Batch #${batch.id} confirmed, tx: ${batch.txHash}`,
     );
   } catch (e) {
-    // Если батч не отправился, всё возвращаем в 'failed' (safe state)
     batch.status = 'failed';
     batch.processedAt = Math.floor(Date.now() / 1000);
     await withdrawBatchRepository.save(batch);
