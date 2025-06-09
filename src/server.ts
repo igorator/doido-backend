@@ -48,7 +48,7 @@ app.get('/', (_req, res) => {
 
 export function startServer() {
   app.listen(PORT, async () => {
-    console.log(`🚀 Express server is running on http://localhost:${PORT}`);
+    console.log(`🚀 Express server is running on ${PORT}`);
 
     const externalUrl =
       process.env.RENDER_EXTERNAL_URL || process.env.WEBHOOK_URL;

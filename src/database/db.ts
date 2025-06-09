@@ -11,7 +11,7 @@ dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
 });
 
-const isProduction = process.env.NODE_ENV === 'production';
+//const isProduction = process.env.NODE_ENV === 'production';
 
 if (
   !process.env.POSTGRES_HOST ||
