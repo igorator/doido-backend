@@ -30,7 +30,22 @@ app.use(
     crossOriginResourcePolicy: { policy: 'cross-origin' },
   }),
 );
-app.use(cors());
+
+const allowedOrigins = [
+  'https://doido-marketplace.onrender.com',
+  'https://doido-market.com',
+  'https://www.doido-market.com',
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: 'GET,POST,PUT,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type,Authorization',
+  }),
+);
+
 app.use('/assets', express.static(assetsPath));
 
 app.use('/webhook', webhookCallback(bot, 'express'));
