@@ -33,8 +33,8 @@ app.use(
 
 const allowedOrigins = [
   'https://doido-marketplace.onrender.com',
-  'https://doido-market.com/',
-  'https://www.doido-market.com/',
+  'https://doido-market.com',
+  'https://www.doido-market.com',
 ];
 
 app.use(
