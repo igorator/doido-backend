@@ -22,21 +22,23 @@ const app = express();
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000;
 const assetsPath = path.resolve(__dirname, '../assets');
 
-app.use(express.json());
-
-app.use(
-  helmet({
-    crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: { policy: 'cross-origin' },
-  }),
-);
-
 const allowedOrigins = [
   'https://doido-marketplace.onrender.com',
   'https://doido-market.com',
   'https://www.doido-market.com',
 ];
 
+// Helmet - всегда первым после express.json()
+app.use(express.json());
+
+app.use(
+  helmet({
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: 'cross-origin' }, // важно для public статики
+  }),
+);
+
+// CORS middleware - до роутов и до всего, чтобы работал для всех запросов
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -51,7 +53,10 @@ app.use(
   }),
 );
 
-app.use('/assets', express.static(assetsPath));
+// Для статики тоже нужен CORS (иначе нет заголовка для шрифтов, json и т.п.)
+app.use('/assets', cors(), express.static(assetsPath));
+
+// Маршруты API
 app.use('/webhook', webhookCallback(bot, 'express'));
 app.use('/server', serverRouter);
 app.use('/ton', tonRouter);
@@ -60,6 +65,7 @@ app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
 
+// Главная страница
 app.get('/', (_req, res) => {
   res.send('🎁 Работаем');
 });
