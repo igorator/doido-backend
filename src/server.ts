@@ -24,14 +24,12 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      'https://doido-market.com',
-      'https://www.doido-market.com',
-      'https://doido-marketplace.onrender.com',
-    ],
+    origin: ['https://doido-market.com', 'https://www.doido-market.com', ,],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   }),
 );
 
@@ -45,7 +43,6 @@ app.use(
 app.use(express.json());
 
 app.use('/assets', express.static(assetsPath));
-
 app.use('/webhook', webhookCallback(bot, 'express'));
 app.use('/server', serverRouter);
 app.use('/ton', tonRouter);
