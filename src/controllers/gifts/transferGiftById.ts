@@ -49,6 +49,13 @@ export const transferGiftById = async (
     });
 
     gift.status = GiftStatus.TRANSFERRED;
+    gift.transferred_date = new Date();
+    gift.listed_date = null;
+    gift.owner.id = `227261761`;
+    gift.sell_price = new Decimal(0);
+    gift.sell_price_with_fee = new Decimal(0);
+    gift.free_listings_used = 0;
+    gift.status = GiftStatus.TRANSFERRED;
     await giftRepository.save(gift);
 
     console.log(

@@ -6,26 +6,28 @@ export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
     const giftPayload = ctx.businessMessage?.unique_gift;
 
-    //УБРАТЬ
-    console.log(ctx.businessMessage);
-
     if (!giftPayload) {
-      console.warn('⚠️ businessMessage есть, но нет unique_gift');
       return;
     }
 
-    const giftId = giftPayload.owned_gift_id;
+    const giftId = giftPayload.owned_gift_id || ctx.businessMessage.message_id;
     const gift = giftPayload.gift;
-
-    if (!giftId || !gift) {
-      console.warn('⚠️ Подарок не содержит giftId или gift');
-      return;
-    }
-
     const senderId = ctx.from?.id;
     const userId = String(senderId);
     const collectionName = gift.base_name;
     const giftNumber = gift.number;
+
+    if (!giftId || !gift || ctx.businessMessage.message_id) {
+      console.warn(
+        `⚠️ Подарок не был добавлен 
+        giftId: ${giftId} 
+        gift: ${gift}
+        sender id: ${senderId}
+        collection name: ${collectionName}
+        gift number: ${giftNumber}`,
+      );
+      return;
+    }
 
     let logPrefix = `🎁 GIFT IN | id=${giftId} | collection="${collectionName}" | number=${giftNumber} | from=${userId}`;
 
