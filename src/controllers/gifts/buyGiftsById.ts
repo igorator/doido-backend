@@ -7,6 +7,7 @@ import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
 import { Activity, ActivityItemType } from '../../models/Activity';
 import Decimal from 'decimal.js';
+import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate';
 
 const log = (...args: any[]) =>
   console.log(`[${new Date().toISOString()}]`, ...args);
@@ -130,6 +131,8 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             total_market_amount: seller.total_market_amount,
             weekly_market_amount: seller.weekly_market_amount,
           });
+
+          sendBalanceUpdate(seller.id, seller.ton_balance.toNumber());
 
           // Активность
           const activity = manager.create(Activity, {
