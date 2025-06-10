@@ -47,9 +47,7 @@ app.use(
 );
 
 app.use('/assets', express.static(assetsPath));
-
 app.use('/webhook', webhookCallback(bot, 'express'));
-
 app.use('/server', serverRouter);
 app.use('/ton', tonRouter);
 app.use('/users', userRouter);
@@ -66,7 +64,7 @@ export function startServer() {
     console.log(`🚀 Express server is running on ${PORT}`);
 
     const externalUrl =
-      process.env.RENDER_EXTERNAL_URL || process.env.WEBHOOK_URL;
+      process.env.BOT_WEBHOOK_URL || 'https://api.doido-market.com';
 
     if (!externalUrl) {
       console.warn(
