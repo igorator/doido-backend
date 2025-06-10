@@ -16,9 +16,14 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
   const { gift_ids, externalPurchase } = req.body;
   const REFERRAL_FEE = new Decimal(process.env.REFERRAL_FEE || '0');
 
-  if (!telegramUser?.id) return res.status(401).json({ error: 'Unauthorized' });
-  if (!Array.isArray(gift_ids) || gift_ids.length === 0)
-    return res.status(400).json({ error: 'No gift IDs provided' });
+  if (!telegramUser?.id) {
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
+  }
+  if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
+    res.status(400).json({ error: 'No gift IDs provided' });
+    return;
+  }
 
   try {
     const { boughtGifts, updatedBalance, activities } =

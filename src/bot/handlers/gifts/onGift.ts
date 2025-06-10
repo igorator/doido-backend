@@ -6,6 +6,9 @@ export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
     const giftPayload = ctx.businessMessage?.unique_gift;
 
+    //УБРАТЬ
+    console.log(ctx.businessMessage);
+
     if (!giftPayload) {
       console.warn('⚠️ businessMessage есть, но нет unique_gift');
       return;
