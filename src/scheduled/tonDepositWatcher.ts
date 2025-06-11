@@ -5,6 +5,7 @@ import { AppDataSource } from '../database/db';
 import { plusUserBalance } from '../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 import { IsNull, Not } from 'typeorm';
+import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
 
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 const DEPOSIT_WATCHER_INTERVAL_MS =
@@ -76,6 +77,9 @@ async function onTransaction(tx: any) {
       deposit.userId,
       new Decimal(fromNano(deposit.amountNano)),
     );
+
+    sendBalanceUpdate(deposit.userId);
+
     deposit.status = 'confirmed';
     deposit.utime = tx.now;
     deposit.lt = tx.lt ? tx.lt.toString() : undefined;
