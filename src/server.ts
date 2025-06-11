@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { webhookCallback } from 'grammy';
-import rateLimit from 'express-rate-limit';
+// import rateLimit from 'express-rate-limit';
 import { bot } from './bot/bot';
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
@@ -44,16 +44,16 @@ app.use(
   }),
 );
 
-const globalLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: 500,
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: '🚫 Too many requests, please try again later.',
-});
+// const globalLimiter = rateLimit({
+//   windowMs: 60 * 1000,
+//   max: 500,
+//   standardHeaders: true,
+//   legacyHeaders: false,
+//   message: '🚫 Too many requests, please try again later.',
+// });
+// app.use(globalLimiter);
 
 app.use(express.json());
-app.use(globalLimiter);
 
 app.use('/assets', express.static(assetsPath));
 app.use('/webhook', webhookCallback(bot, 'express'));
