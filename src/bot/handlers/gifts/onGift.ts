@@ -4,28 +4,20 @@ import { saveGiftToDatabase } from '../../../services/gifts/saveGiftToDatabase';
 
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
-    const giftPayload = ctx.businessMessage?.unique_gift;
+    const senderId = ctx.from?.id;
 
-    if (!giftPayload) {
-      return;
-    }
+    if (senderId === ctx.me.id) return;
+
+    const giftPayload = ctx.businessMessage?.unique_gift;
+    if (!giftPayload) return;
 
     const giftId = giftPayload.owned_gift_id || ctx.businessMessage.message_id;
     const gift = giftPayload.gift;
-    const senderId = ctx.from?.id;
     const userId = String(senderId);
     const collectionName = gift.base_name;
     const giftNumber = gift.number;
 
     if (!giftId || !giftPayload) {
-      console.warn(
-        `⚠️ Подарок не был добавлен 
-        giftId: ${giftId} 
-        gift: ${gift}
-        sender id: ${senderId}
-        collection name: ${collectionName}
-        gift number: ${giftNumber}`,
-      );
       return;
     }
 
@@ -36,11 +28,6 @@ export const onGiftRouter = (bot: Bot) => {
       connection = await ctx.getBusinessConnection();
     } catch (err) {
       console.error(`${logPrefix} | ❌ fail=getBusinessConnection: ${err}`);
-      return;
-    }
-
-    if (senderId === ctx.me.id) {
-      console.log(`${logPrefix} | ⏩ skipped (sent by bot)`);
       return;
     }
 
