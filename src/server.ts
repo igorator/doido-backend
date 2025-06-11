@@ -59,7 +59,7 @@ app.get('/', (_req, res) => {
 });
 
 export function startServer() {
-  const server = setupSockets(app); // заменили app.listen
+  const server = setupSockets(app);
 
   server.listen(PORT, async () => {
     console.log(`🚀 Express + Socket.IO server running on ${PORT}`);

@@ -17,7 +17,7 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
       max_price,
       skip = 0,
       take = 10,
-      sort = 'latest',
+      //sort = 'latest',
     } = req.query;
 
     const skipNum = Number(skip);
@@ -80,26 +80,26 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
     }
 
     // --- Сортировка ---
-    switch (sort) {
-      case 'price-asc':
-        qb.orderBy('activity.amount', 'ASC');
-        break;
-      case 'price-desc':
-        qb.orderBy('activity.amount', 'DESC');
-        break;
-      case 'latest':
-        qb.orderBy('activity.created_at', 'DESC');
-        break;
-      case 'id-asc':
-        qb.orderBy('gift.number', 'ASC');
-        break;
-      case 'id-desc':
-        qb.orderBy('gift.number', 'DESC');
-        break;
-      default:
-        qb.orderBy('activity.created_at', 'DESC');
-        break;
-    }
+    // switch (sort) {
+    //   case 'price-asc':
+    //     qb.orderBy('activity.amount', 'ASC');
+    //     break;
+    //   case 'price-desc':
+    //     qb.orderBy('activity.amount', 'DESC');
+    //     break;
+    //   case 'latest':
+    //     qb.orderBy('activity.created_at', 'DESC');
+    //     break;
+    //   case 'id-asc':
+    //     qb.orderBy('gift.number', 'ASC');
+    //     break;
+    //   case 'id-desc':
+    //     qb.orderBy('gift.number', 'DESC');
+    //     break;
+    //   default:
+    //     qb.orderBy('activity.created_at', 'DESC');
+    //     break;
+    // }
 
     qb.skip(skipNum).take(takeNum);
 
