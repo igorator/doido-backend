@@ -17,7 +17,7 @@ export const onGiftRouter = (bot: Bot) => {
     const collectionName = gift.base_name;
     const giftNumber = gift.number;
 
-    if (!giftId || !gift || ctx.businessMessage.message_id) {
+    if (!giftId || !giftPayload) {
       console.warn(
         `⚠️ Подарок не был добавлен 
         giftId: ${giftId} 
