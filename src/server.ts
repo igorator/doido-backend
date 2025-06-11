@@ -23,16 +23,6 @@ const assetsPath = path.resolve(__dirname, '../assets');
 
 const app = express();
 
-const globalLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: 100,
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: '🚫 Too many requests, please try again later.',
-});
-
-app.use(globalLimiter);
-
 app.use(
   cors({
     origin:
@@ -46,12 +36,23 @@ app.use(
     optionsSuccessStatus: 204,
   }),
 );
+
 app.use(
   helmet({
     crossOriginEmbedderPolicy: false,
     crossOriginResourcePolicy: { policy: 'cross-origin' },
   }),
 );
+
+const globalLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 200,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: '🚫 Too many requests, please try again later.',
+});
+
+app.use(globalLimiter);
 
 app.use(express.json());
 
