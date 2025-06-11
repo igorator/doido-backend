@@ -79,6 +79,8 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
       qb.andWhere('activity.amount <= :max', { max: Number(max_price) });
     }
 
+    qb.orderBy('activity.created_at', 'DESC');
+
     // --- Сортировка ---
     // switch (sort) {
     //   case 'price-asc':
