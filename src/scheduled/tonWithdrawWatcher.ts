@@ -36,15 +36,13 @@ const inFlightBatches = new Set<number>();
 
 async function refundUserBalanceIfNeeded(log: WithdrawLog) {
   try {
-    const updatedBalance = (
-      await plusUserBalance(log.userId, new Decimal(log.amount))
-    ).ton_balance;
+    await plusUserBalance(log.userId, new Decimal(log.amount));
   } catch (err) {
     console.error(
       `[TON Withdraw Watcher] Failed to refund userId=${log.userId}:`,
       err,
     );
-
+  } finally {
     sendBalanceUpdate(log.userId.toString());
   }
 }
@@ -176,20 +174,30 @@ async function batchAndSendWithdrawals() {
       console.log(
         '[TON Withdraw Watcher] Not enough balance for batch, need refill',
       );
-      await refillWithdrawWalletIfNeeded(
-        wallet.address.toString(),
-        totalBatchNano,
-      );
 
-      withdrawWalletBalance = await tonClient.getBalance(
-        Address.parse(wallet.address.toString()),
-      );
+      try {
+        await refillWithdrawWalletIfNeeded(
+          wallet.address.toString(),
+          totalBatchNano,
+        );
 
-      if (withdrawWalletBalance < totalBatchNano) {
+        withdrawWalletBalance = await tonClient.getBalance(
+          Address.parse(wallet.address.toString()),
+        );
+
+        if (withdrawWalletBalance < totalBatchNano) {
+          await markBatchAndLogsAsFailed(
+            batch,
+            pending,
+            'Insufficient funds after refill',
+          );
+          return;
+        }
+      } catch (err) {
         await markBatchAndLogsAsFailed(
           batch,
           pending,
-          'Insufficient funds after refill',
+          'Refill failed: ' + (err instanceof Error ? err.message : 'Unknown'),
         );
         return;
       }
