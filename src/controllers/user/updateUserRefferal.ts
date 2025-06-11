@@ -29,21 +29,18 @@ export const updateUserReferralController = async (
     const updatedUser = await updateUserReferral(userId, referred_by);
     res.status(200).json(updatedUser);
   } catch (err) {
-    console.error('❌ Referral update failed:', err);
+    console.warn('⚠️ Referral update failed:', err);
 
-    if (err instanceof SelfReferralError) {
-      res.status(409).json({ error: 'User cannot refer themselves' });
-      return;
-    }
-
-    if (err instanceof MutualReferralError) {
-      console.warn('⚠️ Skipping mutual referral');
+    if (
+      err instanceof SelfReferralError ||
+      err instanceof AlreadyReferredError
+    ) {
       res.status(200).json({ skipped: true });
       return;
     }
 
-    if (err instanceof AlreadyReferredError) {
-      //res.status(409).json({ error: 'User already has a referrer' });
+    if (err instanceof MutualReferralError) {
+      res.status(200).json({ skipped: true });
       return;
     }
 

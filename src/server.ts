@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { webhookCallback } from 'grammy';
-
+import rateLimit from 'express-rate-limit';
 import { bot } from './bot/bot';
 import userRouter from './routes/userRoutes';
 import giftRouter from './routes/giftRoutes';
@@ -22,6 +22,16 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 8080;
 const assetsPath = path.resolve(__dirname, '../assets');
 
 const app = express();
+
+const globalLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: '🚫 Too many requests, please try again later.',
+});
+
+app.use(globalLimiter);
 
 app.use(
   cors({
@@ -55,7 +65,7 @@ app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
 
 app.get('/', (_req, res) => {
-  res.send('🎁 Работаем');
+  res.send('🐣 HELLO 🐣');
 });
 
 export function startServer() {
