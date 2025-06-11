@@ -44,6 +44,24 @@ async function refundUserBalanceIfNeeded(log: WithdrawLog) {
   }
 }
 
+async function markBatchAndLogsAsFailed(
+  batch: WithdrawBatch,
+  logs: WithdrawLog[],
+  reason: string,
+) {
+  for (const log of logs) {
+    log.status = 'failed';
+    log.processedAt = Math.floor(Date.now() / 1000);
+    await withdrawLogRepository.save(log);
+    await refundUserBalanceIfNeeded(log);
+  }
+  batch.status = 'failed';
+  batch.processedAt = Math.floor(Date.now() / 1000);
+  await withdrawBatchRepository.save(batch);
+
+  console.error(`[TON Withdraw Watcher] Batch #${batch.id} failed: ${reason}`);
+}
+
 async function refillWithdrawWalletIfNeeded(
   targetAddress: string,
   requiredNano: bigint,
@@ -90,10 +108,8 @@ async function refillWithdrawWalletIfNeeded(
     `[TON Withdraw Watcher] Sent refill of ${WITHDRAW_REFILL_AMOUNT} TON to ${targetAddress}`,
   );
 
-  // Дожидаемся появления средств на withdraw-кошельке (жёсткая гарантия)
   let retries = 0;
   while (retries < 15) {
-    // max 75 сек
     const updatedBalance = await tonClient.getBalance(
       Address.parse(targetAddress),
     );
@@ -101,16 +117,13 @@ async function refillWithdrawWalletIfNeeded(
     await sleep(5000);
     retries++;
   }
+
+  if (retries === 15) {
+    throw new Error('[TON Withdraw Watcher] Refill balance wait timeout');
+  }
 }
 
 async function batchAndSendWithdrawals() {
-  if (inFlightBatches.size) {
-    console.log(
-      '[TON Withdraw Watcher] Batch already processing, skip this tick.',
-    );
-    return;
-  }
-
   const wallet = WalletContractV5R1.create({
     publicKey: withdrawPublicKey,
     walletId: {
@@ -139,117 +152,103 @@ async function batchAndSendWithdrawals() {
 
   inFlightBatches.add(batch.id);
 
-  for (const log of pending) {
-    log.batchId = batch.id;
-    log.status = 'processing';
-    await withdrawLogRepository.save(log);
-  }
-
-  // Сумма всех выплат
-  const totalBatchNano = pending
-    .map((l) => BigInt(toNano(l.amount).toString()))
-    .reduce((a, b) => a + b, BigInt(0));
-  // Баланс withdraw-кошелька
-  const withdrawWalletBalance = await tonClient.getBalance(
-    Address.parse(wallet.address.toString()),
-  );
-
-  if (withdrawWalletBalance < totalBatchNano) {
-    console.log(
-      '[TON Withdraw Watcher] Not enough balance for batch, need refill',
-    );
-    await refillWithdrawWalletIfNeeded(
-      wallet.address.toString(),
-      totalBatchNano,
-    );
-  }
-
-  const messages = pending.map((log) =>
-    internal({
-      to: log.to,
-      value: toNano(log.amount),
-      bounce: true,
-    }),
-  );
-
-  const provider = tonClient.provider(wallet.address);
-  let seqno: number;
   try {
-    seqno = await wallet.getSeqno(provider);
-  } catch (err) {
-    console.error(
-      '[TON Withdraw Watcher] Seqno read error, fail all logs:',
-      err,
+    for (const log of pending) {
+      log.batchId = batch.id;
+      log.status = 'processing';
+      await withdrawLogRepository.save(log);
+    }
+
+    const totalBatchNano = pending
+      .map((l) => BigInt(toNano(l.amount).toString()))
+      .reduce((a, b) => a + b, BigInt(0));
+
+    let withdrawWalletBalance = await tonClient.getBalance(
+      Address.parse(wallet.address.toString()),
     );
-    for (const log of pending) {
-      log.status = 'failed';
-      log.processedAt = Math.floor(Date.now() / 1000);
-      await withdrawLogRepository.save(log);
-      await refundUserBalanceIfNeeded(log);
-    }
-    batch.status = 'failed';
-    batch.processedAt = Math.floor(Date.now() / 1000);
-    await withdrawBatchRepository.save(batch);
-    inFlightBatches.delete(batch.id);
-    throw err;
-  }
 
-  let transfer;
-  try {
-    transfer = wallet.createTransfer({
-      seqno,
-      secretKey: withdrawSecretKey,
-      messages,
-      sendMode: SendMode.PAY_GAS_SEPARATELY | SendMode.IGNORE_ERRORS,
-    });
-  } catch (err) {
-    console.error(
-      '[TON Withdraw Watcher] Transfer build error, fail all logs:',
-      err,
+    if (withdrawWalletBalance < totalBatchNano) {
+      console.log(
+        '[TON Withdraw Watcher] Not enough balance for batch, need refill',
+      );
+      await refillWithdrawWalletIfNeeded(
+        wallet.address.toString(),
+        totalBatchNano,
+      );
+
+      withdrawWalletBalance = await tonClient.getBalance(
+        Address.parse(wallet.address.toString()),
+      );
+
+      if (withdrawWalletBalance < totalBatchNano) {
+        await markBatchAndLogsAsFailed(
+          batch,
+          pending,
+          'Insufficient funds after refill',
+        );
+        return;
+      }
+    }
+
+    const messages = pending.map((log) =>
+      internal({
+        to: log.to,
+        value: toNano(log.amount),
+        bounce: true,
+      }),
     );
-    for (const log of pending) {
-      log.status = 'failed';
-      log.processedAt = Math.floor(Date.now() / 1000);
-      await withdrawLogRepository.save(log);
-      await refundUserBalanceIfNeeded(log);
+
+    const provider = tonClient.provider(wallet.address);
+    let seqno: number;
+    try {
+      seqno = await wallet.getSeqno(provider);
+    } catch (err) {
+      await markBatchAndLogsAsFailed(batch, pending, 'Failed to get seqno');
+      return;
     }
-    batch.status = 'failed';
-    batch.processedAt = Math.floor(Date.now() / 1000);
-    await withdrawBatchRepository.save(batch);
-    inFlightBatches.delete(batch.id);
-    throw err;
-  }
 
-  try {
-    await tonClient.sendExternalMessage(wallet, transfer);
-
-    batch.status = 'confirmed';
-    batch.txHash = transfer.hash().toString('hex');
-    batch.processedAt = Math.floor(Date.now() / 1000);
-    await withdrawBatchRepository.save(batch);
-
-    for (const log of pending) {
-      log.status = 'confirmed';
-      log.txHash = transfer.hash().toString('hex');
-      log.processedAt = Math.floor(Date.now() / 1000);
-      await withdrawLogRepository.save(log);
+    let transfer;
+    try {
+      transfer = wallet.createTransfer({
+        seqno,
+        secretKey: withdrawSecretKey,
+        messages,
+        sendMode: SendMode.PAY_GAS_SEPARATELY | SendMode.IGNORE_ERRORS,
+      });
+    } catch (err) {
+      await markBatchAndLogsAsFailed(
+        batch,
+        pending,
+        'Failed to build transfer',
+      );
+      return;
     }
-    console.log(
-      `[TON Withdraw Watcher] Batch #${batch.id} confirmed, tx: ${batch.txHash}`,
-    );
-  } catch (e) {
-    batch.status = 'failed';
-    batch.processedAt = Math.floor(Date.now() / 1000);
-    await withdrawBatchRepository.save(batch);
 
-    for (const log of pending) {
-      log.status = 'failed';
-      log.processedAt = Math.floor(Date.now() / 1000);
-      await withdrawLogRepository.save(log);
-      await refundUserBalanceIfNeeded(log);
+    try {
+      await tonClient.sendExternalMessage(wallet, transfer);
+
+      batch.status = 'confirmed';
+      batch.txHash = transfer.hash().toString('hex');
+      batch.processedAt = Math.floor(Date.now() / 1000);
+      await withdrawBatchRepository.save(batch);
+
+      for (const log of pending) {
+        log.status = 'confirmed';
+        log.txHash = batch.txHash;
+        log.processedAt = batch.processedAt;
+        await withdrawLogRepository.save(log);
+      }
+
+      console.log(
+        `[TON Withdraw Watcher] Batch #${batch.id} confirmed, tx: ${batch.txHash}`,
+      );
+    } catch (err) {
+      await markBatchAndLogsAsFailed(
+        batch,
+        pending,
+        'Failed to send transaction',
+      );
     }
-    console.error(`[TON Withdraw Watcher] Batch #${batch.id} failed:`, e);
-    throw e;
   } finally {
     inFlightBatches.delete(batch.id);
   }
@@ -265,9 +264,13 @@ export function runTonWithdrawWatcher() {
     if (isProcessing) return;
     isProcessing = true;
     try {
-      await batchAndSendWithdrawals();
-    } catch (e) {
-      // already logged
+      if (inFlightBatches.size === 0) {
+        await batchAndSendWithdrawals();
+      } else {
+        console.log(
+          '[TON Withdraw Watcher] Batch already processing, skip this tick.',
+        );
+      }
     } finally {
       isProcessing = false;
     }
