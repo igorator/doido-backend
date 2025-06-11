@@ -46,15 +46,14 @@ app.use(
 
 const globalLimiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 200,
+  max: 500,
   standardHeaders: true,
   legacyHeaders: false,
   message: '🚫 Too many requests, please try again later.',
 });
 
-app.use(globalLimiter);
-
 app.use(express.json());
+app.use(globalLimiter);
 
 app.use('/assets', express.static(assetsPath));
 app.use('/webhook', webhookCallback(bot, 'express'));
