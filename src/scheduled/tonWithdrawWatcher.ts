@@ -7,6 +7,8 @@ import { keyPairFromSecretKey } from '@ton/crypto';
 import { plusUserBalance } from '../services/user/updateUserBalance';
 import { Address } from '@ton/core';
 import Decimal from 'decimal.js';
+import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
+import { getUserBalance } from '../services/user/getUserBalance';
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -35,12 +37,26 @@ const inFlightBatches = new Set<number>();
 
 async function refundUserBalanceIfNeeded(log: WithdrawLog) {
   try {
-    await plusUserBalance(log.userId, new Decimal(log.amount));
+    const updatedBalance = (
+      await plusUserBalance(log.userId, new Decimal(log.amount))
+    ).ton_balance;
+
+    sendBalanceUpdate(log.userId.toString(), Number(updatedBalance));
   } catch (err) {
     console.error(
       `[TON Withdraw Watcher] Failed to refund userId=${log.userId}:`,
       err,
     );
+
+    try {
+      const currentBalance = await getUserBalance(log.userId);
+      sendBalanceUpdate(log.userId.toString(), Number(currentBalance));
+    } catch (fetchErr) {
+      console.warn(
+        `[TON Withdraw Watcher] ⚠️ Failed to fetch balance after refund failure for userId=${log.userId}`,
+        fetchErr,
+      );
+    }
   }
 }
 
