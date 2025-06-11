@@ -43,7 +43,7 @@ export const updateUserReferralController = async (
     }
 
     if (err instanceof AlreadyReferredError) {
-      res.status(409).json({ error: 'User already has a referrer' });
+      //res.status(409).json({ error: 'User already has a referrer' });
       return;
     }
 
