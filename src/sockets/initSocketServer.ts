@@ -1,8 +1,11 @@
+import http from 'http';
 import { Server } from 'socket.io';
 
 let io: Server;
 
-export const initSocketServer = (server: any) => {
+export function setupSockets(app: Express.Application): http.Server {
+  const server = http.createServer(app);
+
   io = new Server(server, {
     cors: {
       origin: '*',
@@ -13,14 +16,14 @@ export const initSocketServer = (server: any) => {
     const userId = socket.handshake.query.userId;
     if (!userId) return socket.disconnect();
 
-    console.log(`🔌 Пользователь ${userId} подключился`);
+    //console.log(`🔌 Пользователь ${userId} подключился`);
     socket.join(`user_${userId}`);
   });
 
-  return io;
-};
+  return server;
+}
 
 export const getIO = () => {
-  if (!io) throw new Error('Socket.IO not initialized');
+  if (!io) throw new Error('Socket.IO не инициализирован');
   return io;
 };

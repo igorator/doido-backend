@@ -12,6 +12,7 @@ import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
+import { setupSockets } from './sockets/initSocketServer';
 
 console.log('🔔 Загрузка server.ts');
 
@@ -58,8 +59,10 @@ app.get('/', (_req, res) => {
 });
 
 export function startServer() {
-  app.listen(PORT, async () => {
-    console.log(`🚀 Express server is running on ${PORT}`);
+  const server = setupSockets(app); // заменили app.listen
+
+  server.listen(PORT, async () => {
+    console.log(`🚀 Express + Socket.IO server running on ${PORT}`);
 
     const externalUrl =
       process.env.BOT_WEBHOOK_URL || 'https://api.doido-market.com';
