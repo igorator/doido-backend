@@ -12,7 +12,7 @@ export const onStart = (bot: Bot) => {
           .row(
             InlineKeyboard.webApp(
               '🐣 Launch Doido',
-              'https://t.me/doido_marketplace_bot/startapp',
+              'https://t.me/doido_marketplace_bot?startapp',
             ),
           )
           .row(
