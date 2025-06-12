@@ -23,7 +23,10 @@ export const onStart = (bot: Bot) => {
           '👋 Welcome to **DOIDO Market**!\n\nBuy, sell and collect unique gifts powered by Telegram & TON.',
         parse_mode: 'Markdown',
         reply_markup: new InlineKeyboard()
-          .url('🐣 Launch Doido', 'https://t.me/doido_marketplace_bot/start')
+          .webApp(
+            '🐣 Launch Doido',
+            'https://t.me/doido_marketplace_bot/startapp',
+          )
           .url(
             '📢 Check latest news',
             process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
