@@ -116,7 +116,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             item_type: ActivityItemType.GIFT,
             item_id: gift.id,
 
-            // 🎁 Gift fields (всё плоско)
             gift_collection_name: gift.collection_name,
             gift_number: gift.number,
 
