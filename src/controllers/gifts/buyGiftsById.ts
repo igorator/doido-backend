@@ -113,7 +113,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             gift_backdrop_edge_color: gift.backdrop?.edge_color ?? null,
             gift_backdrop_symbol_color: gift.backdrop?.symbol_color ?? null,
             gift_backdrop_text_color: gift.backdrop?.text_color ?? null,
-
             seller,
             buyer,
             amount: gift.sell_price,
@@ -131,6 +130,9 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
           await manager.save(gift);
 
+          const oldRefBalance = sellerRef?.referred_by?.ton_balance;
+          const newRefBalance = oldRefBalance?.plus(bonusAmount);
+
           log(
             `🛒🎁 ПОКУПКА ПОДАРКА: ${buyer.username} (${buyer.id}) купил ${
               gift.collection_name
@@ -142,7 +144,11 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
               (sellerRef?.referred_by
                 ? ` | 💸 Бонус ${bonusAmount.toFixed(3)} TON → ${
                     sellerRef.referred_by.username
-                  } (${sellerRef.referred_by.id})`
+                  } (${
+                    sellerRef.referred_by.id
+                  }) [баланс: ${oldRefBalance?.toFixed(
+                    3,
+                  )} → ${newRefBalance?.toFixed(3)}]`
                 : ` | 💸 Бонус не начислен (нет реферала у продавца)`),
           );
         }
