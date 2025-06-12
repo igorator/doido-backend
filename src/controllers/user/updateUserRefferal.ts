@@ -25,44 +25,30 @@ export const updateUserReferral = async (
     return;
   }
 
-  const user = await userRepository.findOne({
-    where: { id: userId },
-    relations: ['referred_by'],
-  });
-
+  // Находим только ID реферала (без лишних relations)
   const referrer = await userRepository.findOne({
     where: { id: referred_by },
     relations: ['referred_by'],
   });
 
-  if (!user || !referrer) {
+  if (!referrer) {
     console.log(
-      `[${new Date().toISOString()}] ❌ Не найден пользователь или реферер`,
+      `[${new Date().toISOString()}] ❌ Реферер не найден (${referred_by})`,
     );
-    res.status(404).json({ error: 'User or referrer not found' });
+    res.status(404).json({ error: 'Referrer not found' });
     return;
   }
 
-  if (user.referred_by) {
+  // Запрещаем взаимную рефералку
+  if (referrer.referred_by?.id === userId) {
     console.log(
-      `[${new Date().toISOString()}] ⚠️ У пользователя уже есть реферер (${
-        user.referred_by.id
-      })`,
-    );
-    res.status(200).json({ skipped: true });
-    return;
-  }
-
-  if (referrer.referred_by?.id === user.id) {
-    console.log(
-      `[${new Date().toISOString()}] 🔄 Взаимная рефералка (${user.id} ↔ ${
-        referrer.id
-      }) — отклонено`,
+      `[${new Date().toISOString()}] 🔄 Взаимная рефералка (${userId} ↔ ${referred_by}) — отклонено`,
     );
     res.status(200).json({ skipped: true });
     return;
   }
 
+  // Пробуем обновить, если у пользователя еще нет реферала
   const result = await userRepository
     .createQueryBuilder()
     .update()
@@ -72,13 +58,27 @@ export const updateUserReferral = async (
     .execute();
 
   if (result.affected === 0) {
+    const user = await userRepository.findOne({
+      where: { id: userId },
+      relations: ['referred_by'],
+    });
+
+    if (!user) {
+      console.log(`[${new Date().toISOString()}] 🚫 Пользователь не найден`);
+      res.status(500).json({ error: 'User not found' });
+      return;
+    }
+
     console.log(
-      `[${new Date().toISOString()}] ⚠️ Рефералка не обновлена — возможно, пользователь уже имеет реферера`,
+      `[${new Date().toISOString()}] ⚠️ У пользователя уже есть реферер (${
+        user.referred_by?.id
+      })`,
     );
     res.status(200).json({ skipped: true });
     return;
   }
 
+  // Возвращаем полные данные пользователя
   const fullUser = await userRepository.findOne({
     where: { id: userId },
     relations: ['referred_by', 'referred_users'],
