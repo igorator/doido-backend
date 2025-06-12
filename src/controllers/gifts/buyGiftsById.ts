@@ -63,6 +63,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
           const referralBonus = commission.mul(REFERRAL_FEE);
+          const bonusAmount = Number(referralBonus.toFixed(8));
 
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
@@ -78,13 +79,13 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
               userRepository.target,
               { id: ref.id },
               'ton_balance',
-              referralBonus.toNumber(),
+              bonusAmount,
             );
             await manager.increment(
               userRepository.target,
               { id: ref.id },
               'referred_profit',
-              referralBonus.toNumber(),
+              bonusAmount,
             );
           }
 
