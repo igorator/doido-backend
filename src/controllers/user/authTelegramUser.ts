@@ -29,7 +29,7 @@ export const authTelegramUser = async (
     } else {
       await userRepository.insert({
         id: userId,
-        username: telegramUser.username,
+        username: telegramUser.username || 'hidden',
         first_name: telegramUser.first_name,
         last_name: telegramUser.last_name,
         language_code: telegramUser.language_code,

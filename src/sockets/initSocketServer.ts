@@ -16,7 +16,6 @@ export function setupSockets(app: Express.Application): http.Server {
     const userId = socket.handshake.query.userId;
     if (!userId) return socket.disconnect();
 
-    //console.log(`🔌 Пользователь ${userId} подключился`);
     socket.join(`user_${userId}`);
   });
 

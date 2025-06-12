@@ -4,7 +4,7 @@ import { startServer } from './server';
 import { setupScheduledEvents } from './scheduled/setupScheduledEvents';
 
 const MAX_ATTEMPTS = 10;
-const DELAY_MS = 3000; // 3 секунды
+const DELAY_MS = 3000;
 
 async function connectWithRetry() {
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
@@ -54,7 +54,7 @@ async function bootstrap() {
     } else {
       console.error('❌ Unknown error:', error);
     }
-    process.exit(1); // чтобы контейнер упал и перезапустился автоматически (для продакшена)
+    process.exit(1);
   }
 }
 
