@@ -18,12 +18,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
   const REFERRAL_FEE = new Decimal(process.env.REFERRAL_FEE || '0');
 
   if (!telegramUser?.id) {
-    res.status(401).json({ error: 'Unauthorized' });
-    return;
+    return res.status(401).json({ error: 'Unauthorized' });
   }
   if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
-    res.status(400).json({ error: 'No gift IDs provided' });
-    return;
+    return res.status(400).json({ error: 'No gift IDs provided' });
   }
 
   try {
@@ -63,7 +61,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
           const referralBonus = commission.mul(REFERRAL_FEE);
-          const bonusAmount = Number(referralBonus.toFixed(8));
+          const bonusAmount = referralBonus.toDecimalPlaces(8);
 
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
@@ -75,18 +73,13 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
           if (sellerRef?.referred_by) {
             const ref = sellerRef.referred_by;
-            await manager.increment(
-              userRepository.target,
-              { id: ref.id },
-              'ton_balance',
+
+            ref.ton_balance = new Decimal(ref.ton_balance).plus(bonusAmount);
+            ref.referred_profit = new Decimal(ref.referred_profit).plus(
               bonusAmount,
             );
-            await manager.increment(
-              userRepository.target,
-              { id: ref.id },
-              'referred_profit',
-              bonusAmount,
-            );
+
+            await manager.save(ref);
           }
 
           buyer.total_market_amount =
@@ -98,35 +91,22 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           seller.weekly_market_amount =
             seller.weekly_market_amount.plus(sellPriceWithFee);
 
-          await manager.update(userRepository.target, buyer.id, {
-            ton_balance: buyer.ton_balance,
-            total_market_amount: buyer.total_market_amount,
-            weekly_market_amount: buyer.weekly_market_amount,
-          });
-
-          await manager.update(userRepository.target, seller.id, {
-            ton_balance: seller.ton_balance,
-            total_market_amount: seller.total_market_amount,
-            weekly_market_amount: seller.weekly_market_amount,
-          });
+          await manager.save(buyer);
+          await manager.save(seller);
 
           sendBalanceUpdate(seller.id, seller.ton_balance.toNumber());
 
           const activity = manager.create(Activity, {
             item_type: ActivityItemType.GIFT,
             item_id: gift.id,
-
             gift_collection_name: gift.collection_name,
             gift_number: gift.number,
-
             gift_model_name: gift.model?.name ?? null,
             gift_model_rarity: gift.model?.rarity ?? null,
             gift_model_emoji: gift.model?.emoji ?? null,
-
             gift_pattern_name: gift.pattern?.name ?? null,
             gift_pattern_rarity: gift.pattern?.rarity ?? null,
             gift_pattern_emoji: gift.pattern?.emoji ?? null,
-
             gift_backdrop_name: gift.backdrop?.name ?? null,
             gift_backdrop_rarity: gift.backdrop?.rarity ?? null,
             gift_backdrop_center_color: gift.backdrop?.center_color ?? null,
@@ -148,9 +128,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           gift.listed_date = null;
           gift.transferred_date = null;
           gift.free_listings_used = 0;
+
           await manager.save(gift);
 
-          const logMsg =
+          log(
             `🛒🎁 ПОКУПКА ПОДАРКА: ${buyer.username} (${buyer.id}) купил ${
               gift.collection_name
             } #${gift.number} у ${seller.username} (${
@@ -158,13 +139,12 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             }) за \x1b[38;2;0;152;234m${sellPriceWithFee.toFixed(
               3,
             )} TON\x1b[0m` +
-            (sellerRef?.referred_by
-              ? ` | 💸 Бонус ${referralBonus.toFixed(3)} TON → ${
-                  sellerRef.referred_by.username
-                } (${sellerRef.referred_by.id})`
-              : ` | 💸 Бонус не начислен (нет реферала у продавца)`);
-
-          log(logMsg);
+              (sellerRef?.referred_by
+                ? ` | 💸 Бонус ${bonusAmount.toFixed(3)} TON → ${
+                    sellerRef.referred_by.username
+                  } (${sellerRef.referred_by.id})`
+                : ` | 💸 Бонус не начислен (нет реферала у продавца)`),
+          );
         }
 
         await manager.save(createdActivities);
