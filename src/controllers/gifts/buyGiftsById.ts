@@ -115,11 +115,35 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const activity = manager.create(Activity, {
             item_type: ActivityItemType.GIFT,
             item_id: gift.id,
-            gift,
+
+            // 🎁 Gift fields (плоско)
+            gift_collection_name: gift.collection_name,
+            gift_number: gift.number,
+
+            gift_model_name: gift.model?.name ?? null,
+            gift_model_rarity: gift.model?.rarity ?? null,
+            gift_model_emoji: gift.model?.emoji ?? null,
+
+            gift_pattern_name: gift.pattern?.name ?? null,
+            gift_pattern_rarity: gift.pattern?.rarity ?? null,
+            gift_pattern_emoji: gift.pattern?.emoji ?? null,
+
+            gift_backdrop_name: gift.backdrop?.name ?? null,
+            gift_backdrop_rarity: gift.backdrop?.rarity ?? null,
+            gift_backdrop_center_color: gift.backdrop?.center_color ?? null,
+            gift_backdrop_edge_color: gift.backdrop?.edge_color ?? null,
+            gift_backdrop_symbol_color: gift.backdrop?.symbol_color ?? null,
+            gift_backdrop_text_color: gift.backdrop?.text_color ?? null,
+
+            // 👤 Users
             seller,
             buyer,
-            amount: sellPrice,
-            created_at: new Date().toISOString(),
+
+            // 💰
+            amount: gift.sell_price,
+
+            // 🕒
+            created_at: new Date(),
           });
           createdActivities.push(activity);
 
@@ -187,7 +211,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
       activities.map((activity) =>
         botSendMessage(
           activity.seller.id,
-          `🎉 Ваш подарок <b>${activity.gift.collection_name} #${activity.gift.number}</b> был продан за <code>${activity.amount} TON</code>`,
+          `🎉 Ваш подарок <b>${activity.gift_collection_name} #${activity.gift_number}</b> был продан за <code>${activity.amount} TON</code>`,
           'HTML',
         ),
       ),

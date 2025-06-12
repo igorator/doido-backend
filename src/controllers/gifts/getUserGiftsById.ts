@@ -22,7 +22,6 @@ export const getGiftsByUserId = async (
       max_price,
       sort,
       gift_id,
-      status,
       skip = 0,
       take = 20,
     } = req.query;
@@ -49,7 +48,7 @@ export const getGiftsByUserId = async (
 
     const where: any = {
       owner: { id: String(telegramUser.id) },
-      ...(status && { status }),
+      status: In(['listed', 'unlisted']),
       ...(gift_id && { number: Number(gift_id) }),
       ...(collections.length && {
         collection_name: In(collections),

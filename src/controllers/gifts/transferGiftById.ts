@@ -1,9 +1,7 @@
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
-import { transferGift } from '../../services/gifts/transferGift';
-import { GiftStatus } from '../../models/Gift';
-import { minusUserBalance } from '../../services/user/updateUserBalance'; // предполагаемая функция
+import { minusUserBalance } from '../../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 
 export const transferGiftById = async (
@@ -31,8 +29,8 @@ export const transferGiftById = async (
     }
 
     const owner = await userRepository.findOneBy({ id: gift.owner.id });
-    if (!owner || !owner.id) {
-      res.status(400).json({ error: 'Chat ID for owner not found' });
+    if (!owner) {
+      res.status(400).json({ error: 'Owner not found' });
       return;
     }
 
@@ -43,28 +41,13 @@ export const transferGiftById = async (
 
     await minusUserBalance(owner.id, transferFee);
 
-    await transferGift({
-      giftId: gift.id,
-      newOwnerId: owner.id,
-    });
+    await giftRepository.delete(gift.id);
 
-    gift.status = GiftStatus.TRANSFERRED;
-    gift.transferred_date = new Date();
-    gift.listed_date = null;
-    gift.owner.id = `227261761`;
-    gift.sell_price = new Decimal(0);
-    gift.sell_price_with_fee = new Decimal(0);
-    gift.free_listings_used = 0;
-    gift.status = GiftStatus.TRANSFERRED;
-    await giftRepository.save(gift);
-
-    console.log(
-      `✅ Подарок ${gift.id} помечен как TRANSFERRED, списано 0.1 TON`,
-    );
+    console.log(`🗑 Подарок ${gift.id} удалён. Списано ${transferFee} TON`);
 
     res.json({ success: true });
   } catch (err) {
-    console.error('❌ Error during transferGift:', err);
+    console.error('❌ Error during gift deletion:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
