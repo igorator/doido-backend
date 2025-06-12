@@ -85,6 +85,17 @@ export const listGiftForSaleById = async (
       `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b> 💰 for <code>${price} TON</code>`,
       'HTML',
     );
+
+    console.log(
+      `[${new Date().toISOString()}] 📤 ${owner.username} (${
+        owner.id
+      }) выставил ${updatedGift.collection_name} #${
+        updatedGift.number
+      } за ${updatedGift.sell_price_with_fee.toFixed(3)} TON` +
+        (feeApplied
+          ? ` | 💸 Списано ${GIFT_LISTING_FEE.toFixed(2)} TON за листинг`
+          : ' | 🎁 Бесплатный листинг'),
+    );
   } catch (error) {
     console.error('❌ Ошибка при листинге подарка:', error);
     res.status(500).json({ error: 'Internal server error' });

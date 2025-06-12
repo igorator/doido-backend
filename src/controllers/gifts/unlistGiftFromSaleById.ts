@@ -51,6 +51,12 @@ export const unlistGiftFromSaleById = async (
           }
         : null,
     });
+
+    console.log(
+      `[${new Date().toISOString()}] 📴 ${gift.owner.username} (${
+        gift.owner.id
+      }) снял с продажи ${gift.collection_name} #${gift.number}`,
+    );
   } catch (error) {
     console.error('❌ Ошибка при снятии подарка с продажи:', error);
     res.status(500).json({ error: 'Internal server error' });
