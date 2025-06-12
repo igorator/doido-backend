@@ -19,26 +19,21 @@ export const updateUserReferral = async (
     return;
   }
 
-  console.log(
-    `[${new Date().toISOString()}] 📩 userId=${userId} пытается указать реферером ${referred_by}`,
-  );
-
   if (userId === referred_by) {
     console.log(`[${new Date().toISOString()}] ⛔️ Самореферал — отклонено`);
     res.status(200).json({ skipped: true });
     return;
   }
 
-  const [user, referrer] = await Promise.all([
-    userRepository.findOne({
-      where: { id: userId },
-      relations: ['referred_by'],
-    }),
-    userRepository.findOne({
-      where: { id: referred_by },
-      relations: ['referred_by'],
-    }),
-  ]);
+  const user = await userRepository.findOne({
+    where: { id: userId },
+    relations: ['referred_by'],
+  });
+
+  const referrer = await userRepository.findOne({
+    where: { id: referred_by },
+    relations: ['referred_by'],
+  });
 
   if (!user || !referrer) {
     console.log(
@@ -68,8 +63,21 @@ export const updateUserReferral = async (
     return;
   }
 
-  user.referred_by = referrer;
-  await userRepository.save(user);
+  const result = await userRepository
+    .createQueryBuilder()
+    .update()
+    .set({ referred_by: referred_by })
+    .where('id = :userId', { userId })
+    .andWhere('referred_by IS NULL')
+    .execute();
+
+  if (result.affected === 0) {
+    console.log(
+      `[${new Date().toISOString()}] ⚠️ Рефералка не обновлена — возможно, пользователь уже имеет реферера`,
+    );
+    res.status(200).json({ skipped: true });
+    return;
+  }
 
   const fullUser = await userRepository.findOne({
     where: { id: userId },
@@ -78,7 +86,7 @@ export const updateUserReferral = async (
 
   if (!fullUser) {
     console.log(
-      `[${new Date().toISOString()}] 🚫 Пользователь не найден после сохранения`,
+      `[${new Date().toISOString()}] 🚫 Пользователь не найден после обновления`,
     );
     res.status(500).json({ error: 'User not found after referral update' });
     return;
