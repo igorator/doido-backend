@@ -23,8 +23,11 @@ export const onStart = (bot: Bot) => {
     );
 
     const keyboard = new InlineKeyboard()
-      .url('🛍 Launch Marketplace', 'https://t.me/doido_marketplace_bot/start')
-      .url('📢 Join our channel', 'https://t.me/doido_marketplace');
+      .url('🐣 Launch Doido', 'https://t.me/doido_marketplace_bot/start')
+      .url(
+        '📢 Check latest news',
+        process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
+      );
 
     await ctx.replyWithPhoto(helloDuck, {
       caption:
