@@ -88,29 +88,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             );
           }
 
-          // Реферал: покупатель
-          // const buyerRef = await manager.findOne(userRepository.target, {
-          //   where: { id: buyer.id },
-          //   relations: ['referred_by'],
-          // });
-
-          // if (buyerRef?.referred_by) {
-          //   const ref = buyerRef.referred_by;
-          //   await manager.increment(
-          //     userRepository.target,
-          //     { id: ref.id },
-          //     'ton_balance',
-          //     referralBonus.toNumber(),
-          //   );
-          //   await manager.increment(
-          //     userRepository.target,
-          //     { id: ref.id },
-          //     'referred_profit',
-          //     referralBonus.toNumber(),
-          //   );
-          // }
-
-          // Обновление пользователей
           buyer.total_market_amount =
             buyer.total_market_amount.plus(sellPriceWithFee);
           buyer.weekly_market_amount =
@@ -134,7 +111,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
           sendBalanceUpdate(seller.id, seller.ton_balance.toNumber());
 
-          // Активность
           const activity = manager.create(Activity, {
             item_type: ActivityItemType.GIFT,
             item_id: gift.id,
@@ -146,7 +122,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           });
           createdActivities.push(activity);
 
-          // Обновление подарка
           gift.owner = buyer;
           gift.status = GiftStatus.UNLISTED;
           gift.sell_price = new Decimal(0);
@@ -156,9 +131,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           gift.free_listings_used = 0;
           await manager.save(gift);
 
-          // Лог
-          // Лог про продавца
-          const sellerLog =
+          const logMsg =
             `🛒🎁 ПОКУПКА ПОДАРКА: ${buyer.username} (${buyer.id}) купил ${
               gift.collection_name
             } #${gift.number} у ${seller.username} (${
@@ -167,21 +140,12 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
               3,
             )} TON\x1b[0m` +
             (sellerRef?.referred_by
-              ? ` | Реф. бонус продавца: ${sellerRef.referred_by.username} (${sellerRef.referred_by.id})`
-              : '');
+              ? ` | 💸 Бонус ${referralBonus.toFixed(3)} TON → ${
+                  sellerRef.referred_by.username
+                } (${sellerRef.referred_by.id})`
+              : ` | 💸 Бонус не начислен (нет реферала у продавца)`);
 
-          // Лог про байера (можно закомментить для отключения)
-          // const buyerLog = buyerRef?.referred_by
-          //   ? ` | Реф. бонус покупателя: ${buyerRef.referred_by.username} (${buyerRef.referred_by.id})`
-          //   : '';
-
-          // Общая часть с бонусом
-          const bonusLog = ` | Сумма бонуса: \x1b[38;2;0;152;234m${referralBonus.toFixed(
-            3,
-          )} TON\x1b[0m`;
-
-          // Собираем итоговый лог (закомментить buyerLog, если не нужен)
-          log(sellerLog /* + buyerLog */ + bonusLog);
+          log(logMsg);
         }
 
         await manager.save(createdActivities);
