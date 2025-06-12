@@ -47,18 +47,30 @@ export const getGiftsByUserId = async (
       ? [pattern]
       : [];
 
-    const baseFilters: any = {
+    const where: any = {
       owner: { id: String(telegramUser.id) },
       ...(status && { status }),
       ...(gift_id && { number: Number(gift_id) }),
+      ...(collections.length && {
+        collection_name: In(collections),
+      }),
+      ...(models.length && {
+        model: { name: In(models) },
+      }),
+      ...(backdrops.length && {
+        backdrop: { name: In(backdrops) },
+      }),
+      ...(patterns.length && {
+        pattern: { name: In(patterns) },
+      }),
     };
 
     if (min_price && max_price) {
-      baseFilters.sell_price = Between(Number(min_price), Number(max_price));
+      where.sell_price = Between(Number(min_price), Number(max_price));
     } else if (min_price) {
-      baseFilters.sell_price = MoreThanOrEqual(Number(min_price));
+      where.sell_price = MoreThanOrEqual(Number(min_price));
     } else if (max_price) {
-      baseFilters.sell_price = LessThanOrEqual(Number(max_price));
+      where.sell_price = LessThanOrEqual(Number(max_price));
     }
 
     const order: Record<string, 'asc' | 'desc'> =
@@ -73,23 +85,6 @@ export const getGiftsByUserId = async (
         : sort === 'id-desc'
         ? { number: 'desc' }
         : {};
-
-    const where = collections.length
-      ? collections.map((col) => ({
-          ...baseFilters,
-          collection_name: Like(`%${col}%`),
-          ...(models.length && { model: { name: In(models) } }),
-          ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
-          ...(patterns.length && { pattern: { name: In(patterns) } }),
-        }))
-      : [
-          {
-            ...baseFilters,
-            ...(models.length && { model: { name: In(models) } }),
-            ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
-            ...(patterns.length && { pattern: { name: In(patterns) } }),
-          },
-        ];
 
     const [gifts, total] = await giftRepository.findAndCount({
       where,
