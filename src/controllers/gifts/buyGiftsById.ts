@@ -116,7 +116,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             item_type: ActivityItemType.GIFT,
             item_id: gift.id,
 
-            // 🎁 Gift fields (плоско)
+            // 🎁 Gift fields (всё плоско)
             gift_collection_name: gift.collection_name,
             gift_number: gift.number,
 
@@ -135,14 +135,9 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             gift_backdrop_symbol_color: gift.backdrop?.symbol_color ?? null,
             gift_backdrop_text_color: gift.backdrop?.text_color ?? null,
 
-            // 👤 Users
             seller,
             buyer,
-
-            // 💰
             amount: gift.sell_price,
-
-            // 🕒
             created_at: new Date(),
           });
           createdActivities.push(activity);
