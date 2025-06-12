@@ -1,6 +1,4 @@
-import { readFileSync } from 'fs';
-import path from 'path';
-import { Bot, Context, InlineKeyboard, InputFile } from 'grammy';
+import { Bot, Context, InlineKeyboard } from 'grammy';
 
 export const onStart = (bot: Bot) => {
   bot.command('start', async (ctx: Context) => {
@@ -18,22 +16,19 @@ export const onStart = (bot: Bot) => {
       //   }
     }
 
-    const helloDuck = new InputFile(
-      readFileSync(path.join(__dirname, '../../../assets/images/hello.webp')),
+    await ctx.replyWithPhoto(
+      'https://api.doido-market.com/assets/images/hello.webp',
+      {
+        caption:
+          '👋 Welcome to **DOIDO Market**!\n\nBuy, sell and collect unique gifts powered by Telegram & TON.',
+        parse_mode: 'Markdown',
+        reply_markup: new InlineKeyboard()
+          .url('🐣 Launch Doido', 'https://t.me/doido_marketplace_bot/start')
+          .url(
+            '📢 Check latest news',
+            process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
+          ),
+      },
     );
-
-    const keyboard = new InlineKeyboard()
-      .url('🐣 Launch Doido', 'https://t.me/doido_marketplace_bot/start')
-      .url(
-        '📢 Check latest news',
-        process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
-      );
-
-    await ctx.replyWithPhoto(helloDuck, {
-      caption:
-        '👋 Welcome to **DOIDO Market**!\n\nBuy, sell and collect unique gifts powered by Telegram & TON.',
-      parse_mode: 'Markdown',
-      reply_markup: keyboard,
-    });
   });
 };
