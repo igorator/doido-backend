@@ -7,139 +7,166 @@ import Decimal from 'decimal.js';
 import { IsNull, Not } from 'typeorm';
 import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
 
-const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
-const DEPOSIT_WATCHER_INTERVAL_MS =
+const TON_DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
+const WATCHER_INTERVAL_MS =
   Number(process.env.TON_DEPOSIT_WATCHER_INTERVAL_MS) || 10000;
+
 const tonClient = new TonClient({
   endpoint: process.env.TONCENTER_API_ENDPOINT!,
   apiKey: process.env.TONCENTER_API_KEY,
 });
 
-// Переводит nanoTON в человекочитаемый TON
-function fromNano(nano: bigint | string | number): string {
-  const n = BigInt(nano).toString();
-  if (n.length <= 9) return '0.' + n.padStart(9, '0');
-  const left = n.slice(0, n.length - 9);
-  const right = n.slice(-9);
-  return `${left}.${right}`.replace(/\.?0+$/, '');
+function formatNanoToTon(nanoValue: bigint | string | number): string {
+  const nano = BigInt(nanoValue).toString();
+  if (nano.length <= 9) return '0.' + nano.padStart(9, '0');
+  const whole = nano.slice(0, nano.length - 9);
+  const fraction = nano.slice(-9);
+  return `${whole}.${fraction}`.replace(/\.0+$/, '');
 }
 
-// Достаёт payload (uuid) из TON Cell
-function extractPayload(tx: any): string | null {
-  if (tx.inMessage?.body && tx.inMessage.body.bits.length > 0) {
+function extractPayloadFromMessage(transaction: any): string | null {
+  const messageBody = transaction.inMessage?.body;
+
+  if (messageBody instanceof Cell) {
     try {
-      const cell = tx.inMessage.body as Cell;
-      const bytes = cell.beginParse().loadBuffer(cell.bits.length / 8);
-      // Первые 4 байта — это opcode, дальше uuid
-      const uuidBytes = bytes.subarray(4);
+      const parsedCell = messageBody
+        .beginParse()
+        .loadBuffer(messageBody.bits.length / 8);
+      const uuidBytes = parsedCell.subarray(4);
       const uuid = Buffer.from(uuidBytes)
         .toString('utf-8')
         .replace(/\0/g, '')
         .trim();
       if (uuid) return uuid;
-    } catch {}
+    } catch (error) {
+      console.warn('[Deposit] ⚠️ Ошибка при разборе Cell payload:', error);
+    }
   }
+
+  const maybeText = messageBody?.text || messageBody?.toString?.();
+  if (maybeText && typeof maybeText === 'string' && maybeText.length > 10) {
+    return maybeText.trim();
+  }
+
   return null;
 }
 
-// Обработка одной транзакции
-async function onTransaction(tx: any) {
-  const txId = tx.lt ? tx.lt.toString() : 'unknown';
-  const value = tx.inMessage?.info?.value?.coins ?? 0n;
-  const timestamp = tx.now ? new Date(tx.now * 1000).toISOString() : 'нет now';
+async function handleIncomingTransaction(transaction: any) {
+  const message = transaction.inMessage;
+  const transactionId = transaction.lt?.toString() ?? 'unknown';
+  const amountReceivedNano = transaction.inMessage?.info?.value?.coins ?? 0n;
+  const receivedAt = transaction.now
+    ? new Date(transaction.now * 1000).toISOString()
+    : 'нет now';
 
-  let from = '???';
-  try {
-    const info = tx.inMessage?.info?.source?.info;
-    if (info && typeof info.src === 'string') {
-      from = info.src;
-    }
-  } catch (e) {
-    from = '???';
-  }
+  const senderAddress =
+    message?.info?.type === 'internal' && message.info.src instanceof Address
+      ? message.info.src.toString()
+      : '???';
 
-  // Только входящие внутренние транзакции без outMessages
-  if (!tx.inMessage || tx.outMessagesCount > 0) return;
+  if (!message || transaction.outMessagesCount > 0) return;
 
-  const payload = extractPayload(tx);
+  const payload = extractPayloadFromMessage(transaction);
   if (!payload) return;
 
-  const repo = AppDataSource.getRepository(DepositLog);
-  // Ищем только pending депозиты
-  const deposit = await repo.findOne({ where: { payload, status: 'pending' } });
-  if (!deposit) return;
+  const depositRepository = AppDataSource.getRepository(DepositLog);
+  const depositRecord = await depositRepository.findOne({ where: { payload } });
 
-  // Сумма должна точно совпадать
-  if (BigInt(deposit.amountNano) !== value) return;
+  if (!depositRecord) return;
+
+  if (depositRecord.status !== 'pending') return;
+
+  if (BigInt(depositRecord.amountNano) !== amountReceivedNano) {
+    depositRecord.status = 'failed';
+    await depositRepository.save(depositRecord);
+    console.warn(
+      `[Deposit] ❌ Сумма не совпадает. Payload: "${payload}", ожидалось: ${formatNanoToTon(
+        depositRecord.amountNano,
+      )}, пришло: ${formatNanoToTon(amountReceivedNano)}. User: ${
+        depositRecord.userId
+      }`,
+    );
+    return;
+  }
 
   try {
     await plusUserBalance(
-      deposit.userId,
-      new Decimal(fromNano(deposit.amountNano)),
+      depositRecord.userId,
+      new Decimal(formatNanoToTon(depositRecord.amountNano)),
     );
+    sendBalanceUpdate(depositRecord.userId);
 
-    sendBalanceUpdate(deposit.userId);
-
-    deposit.status = 'confirmed';
-    deposit.utime = tx.now;
-    deposit.lt = tx.lt ? tx.lt.toString() : undefined;
-    await repo.save(deposit);
+    depositRecord.status = 'confirmed';
+    depositRecord.utime = transaction.now;
+    depositRecord.lt = transaction.lt?.toString() ?? null;
+    await depositRepository.save(depositRecord);
 
     console.log(
-      `[Deposit] ✅ [${txId}] Депозит на ${fromNano(
-        value,
-      )} TON от ${from} с payload "${payload}" подтверждён и зачислен на баланс! User: ${
-        deposit.userId
-      }, At: ${timestamp}`,
+      `[Deposit] ✅ [${transactionId}] ${formatNanoToTon(
+        amountReceivedNano,
+      )} TON от ${senderAddress}, payload "${payload}" подтверждён. User: ${
+        depositRecord.userId
+      }, At: ${receivedAt}`,
     );
-  } catch (err) {
-    deposit.status = 'failed';
-    await repo.save(deposit);
-
-    console.log(
-      `[Deposit] ❌ [${txId}] Не удалось зачислить депозит. User: ${
-        deposit.userId
-      }, Wallet: ${from}, Payload: "${payload}", Amount: ${fromNano(
-        value,
-      )}, At: ${timestamp}. Ошибка: ${err}`,
+  } catch (error) {
+    depositRecord.status = 'failed';
+    await depositRepository.save(depositRecord);
+    console.error(
+      `[Deposit] ❌ Ошибка при зачислении. Payload: "${payload}", User: ${
+        depositRecord.userId
+      }, Amount: ${formatNanoToTon(
+        amountReceivedNano,
+      )}, At: ${receivedAt}. Ошибка:`,
+      error,
     );
   }
 }
 
 export async function runDepositWatcher() {
-  const walletAddress = Address.parse(DEPOSIT_WALLET_ADDRESS);
+  const walletAddress = Address.parse(TON_DEPOSIT_WALLET_ADDRESS);
+  const depositRepository = AppDataSource.getRepository(DepositLog);
 
-  let lastMinLt: string | undefined = undefined;
-  const repo = AppDataSource.getRepository(DepositLog);
-  const last = await repo.findOne({
+  let lastSeenLogicalTime: string | undefined;
+
+  const lastConfirmed = await depositRepository.findOne({
     where: { status: 'confirmed', lt: Not(IsNull()) },
-    order: { lt: 'ASC' },
+    order: { lt: 'DESC' },
   });
-  if (last?.lt) lastMinLt = last.lt.toString();
+  if (lastConfirmed?.lt) lastSeenLogicalTime = lastConfirmed.lt.toString();
 
-  let tickCount = 0;
-
-  async function tick() {
-    tickCount++;
+  async function checkNewTransactions() {
     const now = new Date().toISOString();
-    console.log(`[TON Deposit Watcher] Working at ${now}`);
+    const pendingCount = await depositRepository.count({
+      where: { status: 'pending' },
+    });
+    console.log(
+      `[TON Deposit Watcher] Working at ${now} | pending deposits: ${pendingCount}`,
+    );
 
     try {
-      const txs = await tonClient.getTransactions(walletAddress, { limit: 20 });
+      const recentTransactions = await tonClient.getTransactions(
+        walletAddress,
+        {
+          limit: 20,
+          lt: lastSeenLogicalTime,
+          archival: true,
+        },
+      );
 
-      if (!txs.length) return;
+      if (!recentTransactions.length) return;
 
-      for (const tx of txs) {
-        await onTransaction(tx);
+      for (const transaction of [...recentTransactions].reverse()) {
+        await handleIncomingTransaction(transaction);
+        lastSeenLogicalTime = transaction.lt.toString();
       }
-    } catch (e) {
-      console.error('[Deposit] Ошибка в watcher:', e);
+    } catch (error) {
+      console.error('[Deposit] ❌ Ошибка в watcher:', error);
     }
   }
 
-  setInterval(tick, DEPOSIT_WATCHER_INTERVAL_MS);
+  setInterval(checkNewTransactions, WATCHER_INTERVAL_MS);
   console.log(
-    `[Deposit] 🚀 Watcher депозитов TON запущен на адресе: ${DEPOSIT_WALLET_ADDRESS}, lastMinLt=${lastMinLt}`,
+    `[Deposit] 🚀 Watcher депозитов TON запущен. Адрес кошелька: ${TON_DEPOSIT_WALLET_ADDRESS}`,
   );
-  await tick();
+  await checkNewTransactions();
 }

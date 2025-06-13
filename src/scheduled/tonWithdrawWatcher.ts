@@ -268,22 +268,55 @@ async function batchAndSendWithdrawals() {
 }
 
 export function runTonWithdrawWatcher() {
-  console.log('[TON Withdraw Watcher] Started');
+  const wallet = WalletContractV5R1.create({
+    publicKey: withdrawPublicKey,
+    walletId: {
+      networkGlobalId: -239,
+      context: {
+        walletVersion: 'v5r1',
+        workchain: 0,
+        subwalletNumber: TON_SUBWALLET_NUMBER,
+      },
+    },
+  });
+
+  const walletAddress = wallet.address.toString();
+
+  console.log(
+    `[TON Withdraw Watcher] 🚀 Запущен. Адрес кошелька: ${walletAddress} | Batch size: ${MAX_BATCH_SIZE} | Интервал: ${WITHDRAW_INTERVAL_MS}мс`,
+  );
+
   let isProcessing = false;
 
   const tick = async () => {
     const now = new Date().toISOString();
-    console.log(`[TON Withdraw Watcher] Working at ${now}`);
-    if (isProcessing) return;
+
+    const pendingWithdrawCount = await withdrawLogRepository.count({
+      where: { status: 'pending', batchId: null },
+    });
+
+    console.log(
+      `[TON Withdraw Watcher] Working at ${now} | pending withdraws: ${pendingWithdrawCount}`,
+    );
+
+    if (isProcessing) {
+      console.log(
+        '[TON Withdraw Watcher] ⚠️ Пропуск тика: уже обрабатывается.',
+      );
+      return;
+    }
+
     isProcessing = true;
     try {
       if (inFlightBatches.size === 0) {
         await batchAndSendWithdrawals();
       } else {
         console.log(
-          '[TON Withdraw Watcher] Batch already processing, skip this tick.',
+          `[TON Withdraw Watcher] ℹ️ Batch в процессе (${inFlightBatches.size}), ожидание следующего тика.`,
         );
       }
+    } catch (err) {
+      console.error('[TON Withdraw Watcher] ❌ Ошибка в тикере:', err);
     } finally {
       isProcessing = false;
     }
