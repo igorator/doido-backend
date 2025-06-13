@@ -8,20 +8,23 @@ export const onStart = (bot: Bot) => {
         caption:
           '👋 Welcome to **DOIDO Market**!\n\nBuy, sell and collect unique gifts powered by Telegram & TON.',
         parse_mode: 'Markdown',
-        reply_markup: new InlineKeyboard()
-          .row(
-            InlineKeyboard.webApp(
-              '🐣 Launch Doido',
-              'https://t.me/doido_marketplace_bot/gifts',
-            ),
-          )
-          .row(
-            InlineKeyboard.url(
-              '📢 Check latest news',
-              process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
-            ),
-          ),
       },
     );
+
+    await ctx.reply('👇 Tap below to launch app:', {
+      reply_markup: new InlineKeyboard()
+        .row(
+          InlineKeyboard.url(
+            '🐣 Launch Doido',
+            'https://t.me/doido_marketplace_bot?startapp=gifts',
+          ),
+        )
+        .row(
+          InlineKeyboard.url(
+            '📢 Check latest news',
+            process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
+          ),
+        ),
+    });
   });
 };

@@ -7,6 +7,7 @@ import { verifyTelegramAuth, verifyGiftOwnerMatch } from '../middleware';
 import { transferGiftById } from '../controllers/gifts/transferGiftById';
 import { checkGiftsIsInStock } from '../controllers/gifts/checkIsGiftsInStock';
 import { buyGiftsByIds } from '../controllers/gifts/buyGiftsById';
+import { editGiftPriceById } from '../controllers/gifts/editGiftPriceById';
 
 const router = Router();
 
@@ -21,6 +22,13 @@ router.patch(
   verifyTelegramAuth,
   verifyGiftOwnerMatch,
   listGiftForSaleById,
+);
+
+router.patch(
+  ':gift_id/edit-price',
+  verifyTelegramAuth,
+  verifyGiftOwnerMatch,
+  editGiftPriceById,
 );
 
 router.patch(
