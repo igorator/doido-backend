@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
-import { Like, In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
+import { In, Between, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 
 export const getGiftsByUserId = async (
   req: Request,
@@ -48,20 +48,11 @@ export const getGiftsByUserId = async (
 
     const where: any = {
       owner: { id: String(telegramUser.id) },
-      status: In(['listed', 'unlisted']),
       ...(gift_id && { number: Number(gift_id) }),
-      ...(collections.length && {
-        collection_name: In(collections),
-      }),
-      ...(models.length && {
-        model: { name: In(models) },
-      }),
-      ...(backdrops.length && {
-        backdrop: { name: In(backdrops) },
-      }),
-      ...(patterns.length && {
-        pattern: { name: In(patterns) },
-      }),
+      ...(collections.length && { collection_name: In(collections) }),
+      ...(models.length && { model: { name: In(models) } }),
+      ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
+      ...(patterns.length && { pattern: { name: In(patterns) } }),
     };
 
     if (min_price && max_price) {
@@ -88,20 +79,14 @@ export const getGiftsByUserId = async (
     const [gifts, total] = await giftRepository.findAndCount({
       where,
       order,
-      relations: ['owner'],
       skip: skipNum,
       take: takeNum,
     });
 
-    const sanitized = gifts.map((gift) => ({
-      ...gift,
-      owner: gift.owner ? { id: gift.owner.id } : null,
-    }));
-
     const hasMore = skipNum + takeNum < total;
 
     res.json({
-      gifts: sanitized,
+      gifts,
       total,
       hasMore,
     });
