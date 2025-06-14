@@ -3,6 +3,7 @@ import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { minusUserBalance } from '../../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
+import { transferGift } from '../../services/gifts/transferGift';
 
 export const transferGiftById = async (
   req: Request,
@@ -40,6 +41,11 @@ export const transferGiftById = async (
     }
 
     await minusUserBalance(owner.id, transferFee);
+
+    await transferGift({
+      giftId: gift.id,
+      newOwnerId: telegramUser.id,
+    });
 
     await giftRepository.delete(gift.id);
 

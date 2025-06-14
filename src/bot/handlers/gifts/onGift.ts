@@ -2,10 +2,12 @@ import { Bot, Context } from 'grammy';
 import { userRepository } from '../../../database/repositories/userRepository';
 import { saveGiftToDatabase } from '../../../services/gifts/saveGiftToDatabase';
 
+const BUSINESS_CONNECTION_ID = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
+
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
+    console.log(ctx);
     const senderId = ctx.from?.id;
-
     if (senderId === ctx.me.id) return;
 
     const giftPayload = ctx.businessMessage?.unique_gift;
@@ -17,11 +19,9 @@ export const onGiftRouter = (bot: Bot) => {
     const collectionName = gift.base_name;
     const giftNumber = gift.number;
 
-    if (!giftId || !giftPayload) {
-      return;
-    }
+    if (!giftId || !giftPayload) return;
 
-    let logPrefix = `🎁 GIFT IN | id=${giftId} | collection="${collectionName}" | number=${giftNumber} | from=${userId}`;
+    const logPrefix = `🎁 GIFT IN | id=${giftId} | collection="${collectionName}" | number=${giftNumber} | from=${userId}`;
 
     let connection;
     try {
@@ -31,11 +31,17 @@ export const onGiftRouter = (bot: Bot) => {
       return;
     }
 
-    const user = await userRepository.findOneBy({ id: userId });
+    if (connection.id !== BUSINESS_CONNECTION_ID) {
+      console.warn(
+        `${logPrefix} | ❌ unexpected connection_id=${connection.id}`,
+      );
 
+      return;
+    }
+
+    const user = await userRepository.findOneBy({ id: userId });
     if (!user) {
       console.warn(`${logPrefix} | ❌ fail=userNotFound`);
-      await ctx.reply('⛔️ Ошибка: пользователь не зарегистрирован.');
       return;
     }
 
@@ -65,9 +71,10 @@ export const onGiftRouter = (bot: Bot) => {
         owner: user,
       });
 
-      console.log(`${logPrefix} | ✅ saved`);
+      console.log(`${logPrefix} | ✅ saved | connection_id=${connection.id}`);
     } catch (err) {
       console.error(`${logPrefix} | ❌ fail=saveError: ${err}`);
+      await ctx.reply('⛔️ Ошибка при сохранении подарка.');
     }
   });
 };
