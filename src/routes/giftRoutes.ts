@@ -8,6 +8,7 @@ import { transferGiftById } from '../controllers/gifts/transferGiftById';
 import { checkGiftsIsInStock } from '../controllers/gifts/checkIsGiftsInStock';
 import { buyGiftsByIds } from '../controllers/gifts/buyGiftsById';
 import { editGiftPriceById } from '../controllers/gifts/editGiftPriceById';
+import { getGiftById } from '../controllers/gifts/getGiftById';
 
 const router = Router();
 
@@ -16,6 +17,8 @@ router.get('/', getGifts);
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
 
 router.post('/buy', verifyTelegramAuth, buyGiftsByIds);
+
+router.get('/:gift_id', getGiftById);
 
 router.patch(
   '/:gift_id/list',
