@@ -9,6 +9,7 @@ export const onGiftRouter = (bot: Bot) => {
     console.log(ctx);
     const senderId = ctx.from?.id;
     if (senderId === ctx.me.id) return;
+    if (ctx.businessMessage?.from?.id === ctx.me.id) return;
 
     const giftPayload = ctx.businessMessage?.unique_gift;
     if (!giftPayload) return;
