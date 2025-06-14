@@ -12,7 +12,6 @@ export const botSendMessage = async (
     await bot.api.sendMessage(chatId, message, {
       parse_mode: parseMode,
     });
-    console.log(`📩 Сообщение отправлено в чат ${chatId}`);
   } catch (error) {
     console.error(`❌ Ошибка при отправке сообщения в чат ${chatId}:`, error);
   }
