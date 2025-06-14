@@ -12,6 +12,9 @@ import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
 import { setupSockets } from './sockets/initSocketServer';
+import rateLimit from 'express-rate-limit';
+
+// ...
 
 console.log('🔔 Загрузка server.ts');
 
@@ -19,6 +22,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || process.env.SERVER_PORT || 8080;
 const assetsPath = path.resolve(__dirname, '../assets');
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 минут
+  max: 1000, // 100 запросов за окно на 1 IP
+  standardHeaders: true, // возвращать RateLimit-* заголовки
+  legacyHeaders: false, // отключить X-RateLimit-* заголовки (современный вариант)
+  skip: (req) => req.method === 'OPTIONS', // не лимитировать preflight запросы
+});
 
 const app = express();
 
@@ -42,6 +53,8 @@ app.use(
     crossOriginResourcePolicy: { policy: 'cross-origin' },
   }),
 );
+
+app.use(limiter);
 
 app.use(express.json());
 
