@@ -12,8 +12,7 @@ import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
 import { setupSockets } from './sockets/initSocketServer';
-// import rateLimit from 'express-rate-limit';
-import statusMonitor from 'express-status-monitor';
+import { slowDown } from 'express-slow-down';
 console.log('🔔 Загрузка server.ts');
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,17 +20,13 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || process.env.SERVER_PORT || 8080;
 const assetsPath = path.resolve(__dirname, '../assets');
 
-// const limiter = rateLimit({
-//   windowMs: 15 * 60 * 1000,
-//   max: 1000,
-//   standardHeaders: true,
-//   legacyHeaders: false,
-//   skip: (req) => req.method === 'OPTIONS',
-// });
+const speedLimiter = slowDown({
+  windowMs: 15 * 60 * 1000,
+  delayAfter: 1500,
+  delayMs: 300,
+});
 
 const app = express();
-
-app.use(statusMonitor());
 
 app.use(
   cors({
@@ -54,9 +49,9 @@ app.use(
   }),
 );
 
-// app.use(limiter);
-
 app.use(express.json());
+
+app.use(speedLimiter);
 
 app.use('/assets', express.static(assetsPath));
 app.use('/webhook', webhookCallback(bot, 'express'));
