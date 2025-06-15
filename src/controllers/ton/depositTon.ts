@@ -1,34 +1,38 @@
 import { Request, Response } from 'express';
-import TonWeb from 'tonweb';
 import { v4 as uuidv4 } from 'uuid';
+import { beginCell } from '@ton/core';
+import { toNano } from '@ton/core';
 
 import { DepositLog } from '../../models/ton/DepositLog';
 import { AppDataSource } from '../../database/db';
 
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 
-async function buildTextPayload(payloadId: string) {
-  const cell = new TonWeb.boc.Cell();
-  cell.bits.writeUint(0, 32); // text_comment opcode
-  cell.bits.writeString(payloadId); // uuid как служебный идентификатор
-  const boc = await cell.toBoc();
+async function buildTextPayload(payloadId: string): Promise<string> {
+  const cell = beginCell()
+    .storeUint(0, 32) // text_comment opcode
+    .storeStringTail(payloadId) // uuid как служебный идентификатор
+    .endCell();
+  const boc = cell.toBoc();
   return Buffer.from(boc).toString('base64');
 }
 
 export async function depositTon(req: Request, res: Response) {
   try {
     const { userId, amountTon } = req.body;
-    if (!userId || amountTon <= 0) {
-      return res.status(400).json({ message: 'userId and amountTon required' });
+    if (!userId || !amountTon || Number(amountTon) <= 0) {
+      return res
+        .status(400)
+        .json({ message: 'userId and valid amountTon required' });
     }
 
     const timestamp = Math.floor(Date.now() / 1000);
-    const amountNano = TonWeb.utils.toNano(amountTon).toString();
+    const amountNano = toNano(amountTon).toString();
 
-    // Генерируем уникальный ID для депозита, он же пойдет в payload
+    // Генерируем уникальный ID для депозита
     const payloadId = uuidv4();
 
-    // Логируем именно payloadId (UUID) — для трекинга
+    // Логируем депозит
     await AppDataSource.getRepository(DepositLog).insert({
       userId,
       payload: payloadId,
@@ -37,7 +41,7 @@ export async function depositTon(req: Request, res: Response) {
       status: 'pending',
     });
 
-    // Формируем base64 payload для TonConnect
+    // Формируем base64 payload
     const payload = await buildTextPayload(payloadId);
 
     const transaction = {
