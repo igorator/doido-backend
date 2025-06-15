@@ -49,7 +49,14 @@ export const transferGiftById = async (
 
     await giftRepository.delete(gift.id);
 
-    console.log(`🗑 Подарок ${gift.id} удалён. Списано ${transferFee} TON`);
+    const timestamp = new Date().toISOString();
+    console.log(
+      `🛒🎁 [${timestamp}] ПЕРЕДАЧА ПОДАРКА: ${owner.username || owner.id} (${
+        owner.id
+      }) передал ${gift.collection_name} #${gift.number} → ${
+        telegramUser.username || telegramUser.id
+      } (${telegramUser.id}) | Списано: ${transferFee.toFixed(3)} TON`,
+    );
 
     res.json({ success: true });
   } catch (err) {

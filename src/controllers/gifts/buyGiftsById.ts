@@ -163,9 +163,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
               gift.collection_name
             } #${gift.number} у ${seller.username} (${
               seller.id
-            }) за             }) за \x1b[38;2;0;152;234m${sellPriceWithFee.toFixed(
-              3,
-            )} TON            }) за \x1b[38;2;0;152;234m${sellPriceWithFee.toFixed(
+            }) за \x1b[38;2;0;152;234m${sellPriceWithFee.toFixed(
               3,
             )} TON\x1b[0m${refLog}`,
           );
