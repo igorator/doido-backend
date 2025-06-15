@@ -210,7 +210,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
       activities.map((activity) =>
         botSendMessage(
           activity.seller.id,
-          `🎉 Ваш подарок <b>${activity.gift_collection_name} #${activity.gift_number}</b> был продан за <code>${activity.amount} TON</code>`,
+          `🎉 Your gift <b>${activity.gift_collection_name} #${activity.gift_number}</b> was sold for <code>${activity.amount} TON</code>`,
           'HTML',
         ),
       ),

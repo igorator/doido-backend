@@ -82,10 +82,11 @@ export const listGiftForSaleById = async (
 
     await botSendMessage(
       owner.id,
-      `🛒 You listed <b>${updatedGift.collection_name} #${updatedGift.number}</b> 💰 for <code>${price} TON</code>`,
+      `🛒 You listed <b>${updatedGift.collection_name} #${
+        updatedGift.number
+      }</b> 💰 for <code>${updatedGift.sell_price.toFixed(3)} TON</code>`,
       'HTML',
     );
-
     console.log(
       `[${new Date().toISOString()}] 📤 ${owner.username} (${
         owner.id

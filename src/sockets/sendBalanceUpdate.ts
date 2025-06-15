@@ -1,6 +1,6 @@
 import { getIO } from './initSocketServer';
 
-export const sendBalanceUpdate = (userId: string, balance?: number) => {
+export const sendBalanceUpdate = (userId: string) => {
   const io = getIO();
-  io.to(`user_${userId}`).emit('balance_updated', { balance });
+  io.to(`user_${userId}`).emit('balance_updated');
 };
