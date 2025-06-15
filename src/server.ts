@@ -13,7 +13,7 @@ import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
 import { setupSockets } from './sockets/initSocketServer';
 // import rateLimit from 'express-rate-limit';
-
+import statusMonitor from 'express-status-monitor';
 console.log('🔔 Загрузка server.ts');
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +30,8 @@ const assetsPath = path.resolve(__dirname, '../assets');
 // });
 
 const app = express();
+
+app.use(statusMonitor());
 
 app.use(
   cors({

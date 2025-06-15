@@ -6,7 +6,6 @@ const BUSINESS_CONNECTION_ID = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
 
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
-    console.log(ctx);
     const senderId = ctx.from?.id;
     if (senderId === ctx.me.id) return;
     if (ctx.businessMessage?.from?.id === ctx.me.id) return;

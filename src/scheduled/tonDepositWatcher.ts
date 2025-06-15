@@ -9,7 +9,7 @@ import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
 
 const TON_DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 const WATCHER_INTERVAL_MS =
-  Number(process.env.TON_DEPOSIT_WATCHER_INTERVAL_MS) || 10000;
+  Number(process.env.TON_DEPOSIT_WATCHER_INTERVAL_MS) || 15000;
 
 const tonClient = new TonClient({
   endpoint: process.env.TONCENTER_API_ENDPOINT!,
@@ -73,7 +73,6 @@ async function handleIncomingTransaction(transaction: any) {
   const depositRecord = await depositRepository.findOne({ where: { payload } });
 
   if (!depositRecord) return;
-
   if (depositRecord.status !== 'pending') return;
 
   if (BigInt(depositRecord.amountNano) !== amountReceivedNano) {
@@ -127,6 +126,7 @@ export async function runDepositWatcher() {
   const depositRepository = AppDataSource.getRepository(DepositLog);
 
   let lastSeenLogicalTime: string | undefined;
+  let isProcessing = false;
 
   const lastConfirmed = await depositRepository.findOne({
     where: { status: 'confirmed', lt: Not(IsNull()) },
@@ -135,15 +135,22 @@ export async function runDepositWatcher() {
   if (lastConfirmed?.lt) lastSeenLogicalTime = lastConfirmed.lt.toString();
 
   async function checkNewTransactions() {
-    const now = new Date().toISOString();
-    const pendingCount = await depositRepository.count({
-      where: { status: 'pending' },
-    });
-    console.log(
-      `[TON Deposit Watcher] Working at ${now} | pending deposits: ${pendingCount}`,
-    );
+    if (isProcessing) {
+      console.warn('[Deposit] ⚠️ Пропуск тика: уже обрабатывается.');
+      return;
+    }
 
+    isProcessing = true;
+
+    const now = new Date().toISOString();
     try {
+      const pendingCount = await depositRepository.count({
+        where: { status: 'pending' },
+      });
+      console.log(
+        `[TON Deposit Watcher] Working at ${now} | pending deposits: ${pendingCount}`,
+      );
+
       const recentTransactions = await tonClient.getTransactions(
         walletAddress,
         {
@@ -161,6 +168,8 @@ export async function runDepositWatcher() {
       }
     } catch (error) {
       console.error('[Deposit] ❌ Ошибка в watcher:', error);
+    } finally {
+      isProcessing = false;
     }
   }
 
