@@ -21,11 +21,11 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 8080;
 const assetsPath = path.resolve(__dirname, '../assets');
 
 const speedLimiter = slowDown({
-  windowMs: 15 * 60 * 1000,
-  delayAfter: 5000,
+  windowMs: 10 * 60 * 1000,
+  delayAfter: 10000,
   delayMs: (used, req) => {
     const delayAfter = req.slowDown.limit;
-    return (used - delayAfter) * 100;
+    return (used - delayAfter) * 50;
   },
 });
 const app = express();
