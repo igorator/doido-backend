@@ -23,9 +23,11 @@ const assetsPath = path.resolve(__dirname, '../assets');
 const speedLimiter = slowDown({
   windowMs: 15 * 60 * 1000,
   delayAfter: 1500,
-  delayMs: 300,
+  delayMs: (used, req) => {
+    const delayAfter = req.slowDown.limit;
+    return (used - delayAfter) * 100;
+  },
 });
-
 const app = express();
 
 app.use(
