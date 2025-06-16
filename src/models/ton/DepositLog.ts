@@ -26,7 +26,9 @@ export class DepositLog {
   @Column({ type: 'bigint', nullable: true })
   utime: number | null;
 
-  // ↓↓↓ Обязательно! Logical time (уникальный для транзакции)
   @Column({ type: 'varchar', length: 32, nullable: true })
   lt: string | null;
+
+  @Column({ type: 'bigint', nullable: true })
+  expiresAt: number | null;
 }

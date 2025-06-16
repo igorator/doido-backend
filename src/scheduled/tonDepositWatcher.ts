@@ -4,7 +4,7 @@ import { DepositLog } from '../models/ton/DepositLog';
 import { AppDataSource } from '../database/db';
 import { plusUserBalance } from '../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
-import { IsNull, Not } from 'typeorm';
+import { IsNull, Not, LessThan } from 'typeorm';
 import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
 
 const TON_DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
@@ -143,13 +143,30 @@ export async function runDepositWatcher() {
 
     isProcessing = true;
 
-    const now = new Date().toISOString();
     try {
+      const nowSec = Math.floor(Date.now() / 1000);
+
+      // Автофейл просроченных депозитов
+      const expiredDeposits = await depositRepository.find({
+        where: {
+          status: 'pending',
+          expiresAt: LessThan(nowSec),
+        },
+      });
+
+      for (const deposit of expiredDeposits) {
+        deposit.status = 'failed';
+        await depositRepository.save(deposit);
+        console.warn(
+          `[Deposit] ⚠️ Депозит истёк. Payload: "${deposit.payload}", User: ${deposit.userId}, expiresAt: ${deposit.expiresAt}`,
+        );
+      }
+
       const pendingCount = await depositRepository.count({
         where: { status: 'pending' },
       });
       console.log(
-        `[TON Deposit Watcher] Working at ${now} | pending deposits: ${pendingCount}`,
+        `[TON Deposit Watcher] Working | pending deposits: ${pendingCount}`,
       );
 
       let recentTransactions;
