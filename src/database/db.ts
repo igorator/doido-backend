@@ -32,5 +32,4 @@ export const AppDataSource = new DataSource({
   entities: [Gift, User, Activity, WithdrawLog, DepositLog, WithdrawBatch],
   ssl: { rejectUnauthorized: false },
   logging: false,
-  synchronize: true,
 });
