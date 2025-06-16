@@ -110,13 +110,14 @@ async function handleIncomingTransaction(transaction: any) {
   } catch (error) {
     depositRecord.status = 'failed';
     await depositRepository.save(depositRecord);
-    console.error(
-      `[Deposit] ❌ Ошибка при зачислении. Payload: "${payload}", User: ${
+    console.warn(
+      `[Deposit] ⚠️ Ошибка при зачислении. Payload: "${payload}", User: ${
         depositRecord.userId
       }, Amount: ${formatNanoToTon(
         amountReceivedNano,
-      )}, At: ${receivedAt}. Ошибка:`,
-      error,
+      )}, At: ${receivedAt}. Error: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
     );
   }
 }
@@ -151,14 +152,21 @@ export async function runDepositWatcher() {
         `[TON Deposit Watcher] Working at ${now} | pending deposits: ${pendingCount}`,
       );
 
-      const recentTransactions = await tonClient.getTransactions(
-        walletAddress,
-        {
+      let recentTransactions;
+      try {
+        recentTransactions = await tonClient.getTransactions(walletAddress, {
           limit: 20,
           lt: lastSeenLogicalTime,
           archival: true,
-        },
-      );
+        });
+      } catch (err) {
+        console.warn(
+          `[Deposit] ⚠️ Ошибка при получении транзакций: ${
+            err instanceof Error ? err.message : String(err)
+          }`,
+        );
+        return;
+      }
 
       if (!recentTransactions.length) return;
 
@@ -167,7 +175,11 @@ export async function runDepositWatcher() {
         lastSeenLogicalTime = transaction.lt.toString();
       }
     } catch (error) {
-      console.error('[Deposit] ❌ Ошибка в watcher:', error);
+      console.warn(
+        `[Deposit] ⚠️ Ошибка в тикере: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
     } finally {
       isProcessing = false;
     }
