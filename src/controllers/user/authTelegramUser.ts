@@ -27,6 +27,12 @@ export const authTelegramUser = async (
         allows_write_to_pm: telegramUser.allows_write_to_pm,
       });
     } else {
+      console.log(
+        `[NEW USER] id: ${userId} username: ${
+          telegramUser.username || 'hidden'
+        }`,
+      );
+
       await userRepository.insert({
         id: userId,
         username: telegramUser.username || 'hidden',
