@@ -28,7 +28,7 @@ export const authTelegramUser = async (
       });
     } else {
       console.log(
-        `[NEW USER] id: ${userId} username: ${
+        `👤 [NEW USER] id: ${userId} | username: ${
           telegramUser.username || 'hidden'
         }`,
       );
