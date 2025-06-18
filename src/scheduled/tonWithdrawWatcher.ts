@@ -221,11 +221,17 @@ async function batchAndSendWithdrawals() {
     batch.processedAt = Math.floor(Date.now() / 1000);
     await withdrawBatchRepository.save(batch);
 
+    const isoTimestamp = new Date(batch.processedAt * 1000).toISOString();
+
     for (const log of pending) {
       log.status = 'confirmed';
       log.txHash = batch.txHash;
       log.processedAt = batch.processedAt;
       await withdrawLogRepository.save(log);
+
+      console.log(
+        `[TON Withdraw Watcher] ✅ Confirmed transfer: userId=${log.userId}, to=${log.to}, amount=${log.amount} TON, at=${isoTimestamp}`,
+      );
     }
 
     console.log(
