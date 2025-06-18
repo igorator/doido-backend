@@ -7,6 +7,7 @@ import {
   OneToMany,
   ManyToOne,
   JoinColumn,
+  CreateDateColumn,
 } from 'typeorm';
 import { Gift } from './Gift';
 
@@ -76,6 +77,9 @@ export class User {
   @OneToMany(() => Gift, (gift) => gift.owner)
   gifts: Gift[];
 
+  @CreateDateColumn({ type: 'timestamp with time zone' })
+  created_at: Date;
+
   toJSON() {
     return {
       id: this.id,
@@ -95,6 +99,7 @@ export class User {
         referredBy: this.referred_by?.id ?? null,
         referralsCount: this.referred_users?.length ?? 0,
       },
+      created_at: this.created_at,
     };
   }
 }
