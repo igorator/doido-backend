@@ -39,7 +39,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
         });
 
         if (gifts.length !== gift_ids.length) {
-          throw new Error('Некоторые подарки не найдены');
+          throw new Error('Some of gifts not found or invalid');
         }
 
         let totalCost = new Decimal(0);
@@ -57,7 +57,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
         }
 
         if (buyer.ton_balance.lessThan(totalCost)) {
-          throw new Error('Недостаточно баланса для покупки всех подарков');
+          throw new Error('Insufficient balance to buy gifts');
         }
 
         const createdActivities: Activity[] = [];
