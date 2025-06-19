@@ -13,7 +13,7 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
       pattern,
       min_price,
       max_price,
-      sort,
+      sort = 'latest',
       gift_id,
       skip = 0,
       take = 20,

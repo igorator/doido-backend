@@ -20,7 +20,7 @@ export const getGiftsByUserId = async (
       pattern,
       min_price,
       max_price,
-      sort,
+      sort = 'latest',
       gift_id,
       skip = 0,
       take = 20,
