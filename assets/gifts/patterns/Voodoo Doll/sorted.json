@@ -1,0 +1,692 @@
+[
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Piggy Bank",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Thief",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Cursor",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Oxen of Fire",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Venetian Mask",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Lily",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Lovely Kiss",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Fish",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Coffee Bean",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Car",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Eggplant",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Watermelon",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mafdet",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bug",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Shell",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Diamond",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Love Lock",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Unicorn",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Ouroboros",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Piñata",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Carrot",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Inguz Rune",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Clubs",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Twin Peaks",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Tulip",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Coin Purse",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Sumerian Bird",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Heart",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Firebird",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Drug",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mountain Lion",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Genie Lamp",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Hermit Shell",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Glasses",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Sea Jelly",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Tribal Shield",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Shield",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Alkonost",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Polar Bear",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Vortex",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Totem Bear",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Ice Pop",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Maple Leaf",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Corn",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Sun Lion",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Coin",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Rook",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Melon",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Cat Mask",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bunny Ears",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Plume",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mannaz Rune",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Fleur-de-lis",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Gold",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Turtle",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Pineapple",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Cicada",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Trophy",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Lion Head",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Planet",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Moose Head",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Dolphin",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Shark Knife",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mushroom",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bell Pepper",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Lemon",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Axe",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Phoenix",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Red Deer",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mayan Moth",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Jellyfish",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Cupcake",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Handset",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Anchor",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Alarm",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Apple",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Clover",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bow Tie",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Grape",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Inca Sun",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Scissors",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mask",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Star Crown",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Flower Cross",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Avocado",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Coconut",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Guitar",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Sun Mountain",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Hammerhead",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Wasp",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Rocket",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bottle",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Gem",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Scarab",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Mountain Goat",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Cheese",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bubbles",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Pegasus",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Dessert",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Koala",
+    "rarityPermille": 2
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Gravestone",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Moon",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Crow",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Autumn Leaves",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Lollipop",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Candle",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Happy Smile",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Treats",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Witch’s Hat",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Voodoo Doll",
+    "rarityPermille": 16
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Skull",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Cauldron",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Crystal Ball",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Severed Hand",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Coffin",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Ghost",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Fish Skeleton",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Half Moon",
+    "rarityPermille": 20
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Spider Web",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Bloody Axe",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Illuminati",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Black Widow",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Baphomet",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Sauron",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Human Scull",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Evil Pumpkin",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Eyeball",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Nice Ghost",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Night Bats",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Potion",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Spooky Cat",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Scarecrow",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Blood Drop",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Magic Wand",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Jaws",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Flying Witch",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Grim Reaper",
+    "rarityPermille": 24
+  },
+  {
+    "_": "starGiftAttributePattern",
+    "name": "Poison Drop",
+    "rarityPermille": 24
+  }
+]

@@ -1,3272 +1,1964 @@
 [
   {
-    "name": "Academic Cap",
-    "png": "patterns/Snake Box/png/Academic Cap.png",
-    "tgs": "patterns/Snake Box/Academic Cap.tgs"
+    "name": "Academic Cap"
   },
   {
-    "name": "Ace Of Hearts",
-    "png": "patterns/Toy Bear/png/Ace Of Hearts.png",
-    "tgs": "patterns/Toy Bear/Ace Of Hearts.tgs"
+    "name": "Ace Of Hearts"
   },
   {
-    "name": "Acorn",
-    "png": "patterns/Witch Hat/png/Acorn.png",
-    "tgs": "patterns/Witch Hat/Acorn.tgs"
+    "name": "Acorn"
   },
   {
-    "name": "Alarm",
-    "png": "patterns/Witch Hat/png/Alarm.png",
-    "tgs": "patterns/Witch Hat/Alarm.tgs"
+    "name": "Alarm"
   },
   {
-    "name": "Alert Serpent",
-    "png": "patterns/Xmas Stocking/png/Alert Serpent.png",
-    "tgs": "patterns/Xmas Stocking/Alert Serpent.tgs"
+    "name": "Alert Serpent"
   },
   {
-    "name": "Alkonost",
-    "png": "patterns/Voodoo Doll/png/Alkonost.png",
-    "tgs": "patterns/Voodoo Doll/Alkonost.tgs"
+    "name": "Alkonost"
   },
   {
-    "name": "All-Seeing Eye",
-    "png": "patterns/Toy Bear/png/All-Seeing Eye.png",
-    "tgs": "patterns/Toy Bear/All-Seeing Eye.tgs"
+    "name": "All-Seeing Eye"
   },
   {
-    "name": "Amour Scoops",
-    "png": "patterns/Trapped Heart/png/Amour Scoops.png",
-    "tgs": "patterns/Trapped Heart/Amour Scoops.tgs"
+    "name": "Amour Scoops"
   },
   {
-    "name": "Anchor",
-    "png": "patterns/Xmas Stocking/png/Anchor.png",
-    "tgs": "patterns/Xmas Stocking/Anchor.tgs"
+    "name": "Anchor"
   },
   {
-    "name": "Ancient Urn",
-    "png": "patterns/Star Notepad/png/Ancient Urn.png",
-    "tgs": "patterns/Star Notepad/Ancient Urn.tgs"
+    "name": "Ancient Urn"
   },
   {
-    "name": "Angel",
-    "png": "patterns/Toy Bear/png/Angel.png",
-    "tgs": "patterns/Toy Bear/Angel.tgs"
+    "name": "Angel"
   },
   {
-    "name": "Angelic Heart",
-    "png": "patterns/Toy Bear/png/Angelic Heart.png",
-    "tgs": "patterns/Toy Bear/Angelic Heart.tgs"
+    "name": "Angelic Heart"
   },
   {
-    "name": "Anthurium",
-    "png": "patterns/Neko Helmet/png/Anthurium.png",
-    "tgs": "patterns/Neko Helmet/Anthurium.tgs"
+    "name": "Anthurium"
   },
   {
-    "name": "Anubis",
-    "png": "patterns/Xmas Stocking/png/Anubis.png",
-    "tgs": "patterns/Xmas Stocking/Anubis.tgs"
+    "name": "Anubis"
   },
   {
-    "name": "Apple",
-    "png": "patterns/Winter Wreath/png/Apple.png",
-    "tgs": "patterns/Winter Wreath/Apple.tgs"
+    "name": "Apple"
   },
   {
-    "name": "Arabian Horse",
-    "png": "patterns/Witch Hat/png/Arabian Horse.png",
-    "tgs": "patterns/Witch Hat/Arabian Horse.tgs"
+    "name": "Arabian Horse"
   },
   {
-    "name": "Arcane Mirror",
-    "png": "patterns/Xmas Stocking/png/Arcane Mirror.png",
-    "tgs": "patterns/Xmas Stocking/Arcane Mirror.tgs"
+    "name": "Arcane Mirror"
   },
   {
-    "name": "Astronaut",
-    "png": "patterns/Winter Wreath/png/Astronaut.png",
-    "tgs": "patterns/Winter Wreath/Astronaut.tgs"
+    "name": "Astronaut"
   },
   {
-    "name": "Aubergine",
-    "png": "patterns/Trapped Heart/png/Aubergine.png",
-    "tgs": "patterns/Trapped Heart/Aubergine.tgs"
+    "name": "Aubergine"
   },
   {
-    "name": "Autumn Leaves",
-    "png": "patterns/Witch Hat/png/Autumn Leaves.png",
-    "tgs": "patterns/Witch Hat/Autumn Leaves.tgs"
+    "name": "Autumn Leaves"
   },
   {
-    "name": "Avocado",
-    "png": "patterns/Voodoo Doll/png/Avocado.png",
-    "tgs": "patterns/Voodoo Doll/Avocado.tgs"
+    "name": "Avocado"
   },
   {
-    "name": "Axe",
-    "png": "patterns/Xmas Stocking/png/Axe.png",
-    "tgs": "patterns/Xmas Stocking/Axe.tgs"
+    "name": "Axe"
   },
   {
-    "name": "Aztec Falcon",
-    "png": "patterns/Xmas Stocking/png/Aztec Falcon.png",
-    "tgs": "patterns/Xmas Stocking/Aztec Falcon.tgs"
+    "name": "Aztec Falcon"
   },
   {
-    "name": "Aztec Totem",
-    "png": "patterns/Top Hat/png/Aztec Totem.png",
-    "tgs": "patterns/Top Hat/Aztec Totem.tgs"
+    "name": "Aztec Totem"
   },
   {
-    "name": "Baby Bottle",
-    "png": "patterns/Xmas Stocking/png/Baby Bottle.png",
-    "tgs": "patterns/Xmas Stocking/Baby Bottle.tgs"
+    "name": "Baby Bottle"
   },
   {
-    "name": "Ball",
-    "png": "patterns/Vintage Cigar/png/Ball.png",
-    "tgs": "patterns/Vintage Cigar/Ball.tgs"
+    "name": "Ball"
   },
   {
-    "name": "Balloon",
-    "png": "patterns/Toy Bear/png/Balloon.png",
-    "tgs": "patterns/Toy Bear/Balloon.tgs"
+    "name": "Balloon"
   },
   {
-    "name": "Bamboo",
-    "png": "patterns/Top Hat/png/Bamboo.png",
-    "tgs": "patterns/Top Hat/Bamboo.tgs"
+    "name": "Bamboo"
   },
   {
-    "name": "Banana",
-    "png": "patterns/Xmas Stocking/png/Banana.png",
-    "tgs": "patterns/Xmas Stocking/Banana.tgs"
+    "name": "Banana"
   },
   {
-    "name": "Bandage",
-    "png": "patterns/Witch Hat/png/Bandage.png",
-    "tgs": "patterns/Witch Hat/Bandage.tgs"
+    "name": "Bandage"
   },
   {
-    "name": "Bandana",
-    "png": "patterns/Xmas Stocking/png/Bandana.png",
-    "tgs": "patterns/Xmas Stocking/Bandana.tgs"
+    "name": "Bandana"
   },
   {
-    "name": "Banner",
-    "png": "patterns/Sakura Flower/png/Banner.png",
-    "tgs": "patterns/Sakura Flower/Banner.tgs"
+    "name": "Banner"
   },
   {
-    "name": "Baphomet",
-    "png": "patterns/Witch Hat/png/Baphomet.png",
-    "tgs": "patterns/Witch Hat/Baphomet.tgs"
+    "name": "Baphomet"
   },
   {
-    "name": "Bascinet",
-    "png": "patterns/Top Hat/png/Bascinet.png",
-    "tgs": "patterns/Top Hat/Bascinet.tgs"
+    "name": "Bascinet"
   },
   {
-    "name": "Baseball Cap",
-    "png": "patterns/Top Hat/png/Baseball Cap.png",
-    "tgs": "patterns/Top Hat/Baseball Cap.tgs"
+    "name": "Baseball Cap"
   },
   {
-    "name": "Basketball",
-    "png": "patterns/Winter Wreath/png/Basketball.png",
-    "tgs": "patterns/Winter Wreath/Basketball.tgs"
+    "name": "Basketball"
   },
   {
-    "name": "Bastet",
-    "png": "patterns/Witch Hat/png/Bastet.png",
-    "tgs": "patterns/Witch Hat/Bastet.tgs"
+    "name": "Bastet"
   },
   {
-    "name": "Battle Axe",
-    "png": "patterns/Tama Gadget/png/Battle Axe.png",
-    "tgs": "patterns/Tama Gadget/Battle Axe.tgs"
+    "name": "Battle Axe"
   },
   {
-    "name": "Beanie",
-    "png": "patterns/Top Hat/png/Beanie.png",
-    "tgs": "patterns/Top Hat/Beanie.tgs"
+    "name": "Beanie"
   },
   {
-    "name": "Bearskin",
-    "png": "patterns/Tama Gadget/png/Bearskin.png",
-    "tgs": "patterns/Tama Gadget/Bearskin.tgs"
+    "name": "Bearskin"
   },
   {
-    "name": "Bee",
-    "png": "patterns/Xmas Stocking/png/Bee.png",
-    "tgs": "patterns/Xmas Stocking/Bee.tgs"
+    "name": "Bee"
   },
   {
-    "name": "Beer",
-    "png": "patterns/Winter Wreath/png/Beer.png",
-    "tgs": "patterns/Winter Wreath/Beer.tgs"
+    "name": "Beer"
   },
   {
-    "name": "Beetle",
-    "png": "patterns/Vintage Cigar/png/Beetle.png",
-    "tgs": "patterns/Vintage Cigar/Beetle.tgs"
+    "name": "Beetle"
   },
   {
-    "name": "Bell Pepper",
-    "png": "patterns/Xmas Stocking/png/Bell Pepper.png",
-    "tgs": "patterns/Xmas Stocking/Bell Pepper.tgs"
+    "name": "Bell Pepper"
   },
   {
-    "name": "Belladonna",
-    "png": "patterns/Neko Helmet/png/Belladonna.png",
-    "tgs": "patterns/Neko Helmet/Belladonna.tgs"
+    "name": "Belladonna"
   },
   {
-    "name": "Bellflower",
-    "png": "patterns/Neko Helmet/png/Bellflower.png",
-    "tgs": "patterns/Restless Jar/Bellflower.tgs"
+    "name": "Bellflower"
   },
   {
-    "name": "Beret",
-    "png": "patterns/Tama Gadget/png/Beret.png",
-    "tgs": "patterns/Tama Gadget/Beret.tgs"
+    "name": "Beret"
   },
   {
-    "name": "Bicorne",
-    "png": "patterns/Xmas Stocking/png/Bicorne.png",
-    "tgs": "patterns/Xmas Stocking/Bicorne.tgs"
+    "name": "Bicorne"
   },
   {
-    "name": "Bike Helmet",
-    "png": "patterns/Xmas Stocking/png/Bike Helmet.png",
-    "tgs": "patterns/Xmas Stocking/Bike Helmet.tgs"
+    "name": "Bike Helmet"
   },
   {
-    "name": "Birthday Cake",
-    "png": "patterns/Witch Hat/png/Birthday Cake.png",
-    "tgs": "patterns/Witch Hat/Birthday Cake.tgs"
+    "name": "Birthday Cake"
   },
   {
-    "name": "Bishop",
-    "png": "patterns/Winter Wreath/png/Bishop.png",
-    "tgs": "patterns/Winter Wreath/Bishop.tgs"
+    "name": "Bishop"
   },
   {
-    "name": "Black Cat",
-    "png": "patterns/Toy Bear/png/Black Cat.png",
-    "tgs": "patterns/Toy Bear/Black Cat.tgs"
+    "name": "Black Cat"
   },
   {
-    "name": "Black Widow",
-    "png": "patterns/Witch Hat/png/Black Widow.png",
-    "tgs": "patterns/Witch Hat/Black Widow.tgs"
+    "name": "Black Widow"
   },
   {
-    "name": "Blood Drop",
-    "png": "patterns/Xmas Stocking/png/Blood Drop.png",
-    "tgs": "patterns/Xmas Stocking/Blood Drop.tgs"
+    "name": "Blood Drop"
   },
   {
-    "name": "Bloody Axe",
-    "png": "patterns/Witch Hat/png/Bloody Axe.png",
-    "tgs": "patterns/Witch Hat/Bloody Axe.tgs"
+    "name": "Bloody Axe"
   },
   {
-    "name": "Blooms",
-    "png": "patterns/Neko Helmet/png/Blooms.png",
-    "tgs": "patterns/Neko Helmet/Blooms.tgs"
+    "name": "Blooms"
   },
   {
-    "name": "Blossom",
-    "png": "patterns/Trapped Heart/png/Blossom.png",
-    "tgs": "patterns/Trapped Heart/Blossom.tgs"
+    "name": "Blossom"
   },
   {
-    "name": "Boat",
-    "png": "patterns/Xmas Stocking/png/Boat.png",
-    "tgs": "patterns/Xmas Stocking/Boat.tgs"
+    "name": "Boat"
   },
   {
-    "name": "Bobble Hat",
-    "png": "patterns/Top Hat/png/Bobble Hat.png",
-    "tgs": "patterns/Top Hat/Bobble Hat.tgs"
+    "name": "Bobble Hat"
   },
   {
-    "name": "Bobby Helmet",
-    "png": "patterns/Winter Wreath/png/Bobby Helmet.png",
-    "tgs": "patterns/Winter Wreath/Bobby Helmet.tgs"
+    "name": "Bobby Helmet"
   },
   {
-    "name": "Bone",
-    "png": "patterns/Xmas Stocking/png/Bone.png",
-    "tgs": "patterns/Xmas Stocking/Bone.tgs"
+    "name": "Bone"
   },
   {
-    "name": "Bonsai",
-    "png": "patterns/Toy Bear/png/Bonsai.png",
-    "tgs": "patterns/Toy Bear/Bonsai.tgs"
+    "name": "Bonsai"
   },
   {
-    "name": "Book",
-    "png": "patterns/Witch Hat/png/Book.png",
-    "tgs": "patterns/Witch Hat/Book.tgs"
+    "name": "Book"
   },
   {
-    "name": "Bottle",
-    "png": "patterns/Voodoo Doll/png/Bottle.png",
-    "tgs": "patterns/Voodoo Doll/Bottle.tgs"
+    "name": "Bottle"
   },
   {
-    "name": "Bottlenose",
-    "png": "patterns/Witch Hat/png/Bottlenose.png",
-    "tgs": "patterns/Witch Hat/Bottlenose.tgs"
+    "name": "Bottlenose"
   },
   {
-    "name": "Bougainvillea",
-    "png": "patterns/Neko Helmet/png/Bougainvillea.png",
-    "tgs": "patterns/Restless Jar/Bougainvillea.tgs"
+    "name": "Bougainvillea"
   },
   {
-    "name": "Bouquet",
-    "png": "patterns/Toy Bear/png/Bouquet.png",
-    "tgs": "patterns/Toy Bear/Bouquet.tgs"
+    "name": "Bouquet"
   },
   {
-    "name": "Bow Tie",
-    "png": "patterns/Voodoo Doll/png/Bow Tie.png",
-    "tgs": "patterns/Voodoo Doll/Bow Tie.tgs"
+    "name": "Bow Tie"
   },
   {
-    "name": "Bowler Hat",
-    "png": "patterns/Xmas Stocking/png/Bowler Hat.png",
-    "tgs": "patterns/Xmas Stocking/Bowler Hat.tgs"
+    "name": "Bowler Hat"
   },
   {
-    "name": "Bowtie",
-    "png": "patterns/Xmas Stocking/png/Bowtie.png",
-    "tgs": "patterns/Xmas Stocking/Bowtie.tgs"
+    "name": "Bowtie"
   },
   {
-    "name": "Brain",
-    "png": "patterns/Xmas Stocking/png/Brain.png",
-    "tgs": "patterns/Xmas Stocking/Brain.tgs"
+    "name": "Brain"
   },
   {
-    "name": "Bread",
-    "png": "patterns/Xmas Stocking/png/Bread.png",
-    "tgs": "patterns/Xmas Stocking/Bread.tgs"
+    "name": "Bread"
   },
   {
-    "name": "Breeze",
-    "png": "patterns/Xmas Stocking/png/Breeze.png",
-    "tgs": "patterns/Xmas Stocking/Breeze.tgs"
+    "name": "Breeze"
   },
   {
-    "name": "Broken Heart",
-    "png": "patterns/Trapped Heart/png/Broken Heart.png",
-    "tgs": "patterns/Trapped Heart/Broken Heart.tgs"
+    "name": "Broken Heart"
   },
   {
-    "name": "Bubble Tea",
-    "png": "patterns/Vintage Cigar/png/Bubble Tea.png",
-    "tgs": "patterns/Vintage Cigar/Bubble Tea.tgs"
+    "name": "Bubble Tea"
   },
   {
-    "name": "Bubbles",
-    "png": "patterns/Xmas Stocking/png/Bubbles.png",
-    "tgs": "patterns/Xmas Stocking/Bubbles.tgs"
+    "name": "Bubbles"
   },
   {
-    "name": "Bucket Hat",
-    "png": "patterns/Tama Gadget/png/Bucket Hat.png",
-    "tgs": "patterns/Tama Gadget/Bucket Hat.tgs"
+    "name": "Bucket Hat"
   },
   {
-    "name": "Bug",
-    "png": "patterns/Witch Hat/png/Bug.png",
-    "tgs": "patterns/Witch Hat/Bug.tgs"
+    "name": "Bug"
   },
   {
-    "name": "Bull of Heaven",
-    "png": "patterns/Vintage Cigar/png/Bull of Heaven.png",
-    "tgs": "patterns/Vintage Cigar/Bull of Heaven.tgs"
+    "name": "Bull of Heaven"
   },
   {
-    "name": "Bunny",
-    "png": "patterns/Witch Hat/png/Bunny.png",
-    "tgs": "patterns/Witch Hat/Bunny.tgs"
+    "name": "Bunny"
   },
   {
-    "name": "Bunny Ears",
-    "png": "patterns/Witch Hat/png/Bunny Ears.png",
-    "tgs": "patterns/Witch Hat/Bunny Ears.tgs"
+    "name": "Bunny Ears"
   },
   {
-    "name": "Burger",
-    "png": "patterns/Vintage Cigar/png/Burger.png",
-    "tgs": "patterns/Vintage Cigar/Burger.tgs"
+    "name": "Burger"
   },
   {
-    "name": "Butterfly",
-    "png": "patterns/Trapped Heart/png/Butterfly.png",
-    "tgs": "patterns/Trapped Heart/Butterfly.tgs"
+    "name": "Butterfly"
   },
   {
-    "name": "Cactus",
-    "png": "patterns/Vintage Cigar/png/Cactus.png",
-    "tgs": "patterns/Vintage Cigar/Cactus.tgs"
+    "name": "Cactus"
   },
   {
-    "name": "Cactus Bloom",
-    "png": "patterns/Neko Helmet/png/Cactus Bloom.png",
-    "tgs": "patterns/Neko Helmet/Cactus Bloom.tgs"
+    "name": "Cactus Bloom"
   },
   {
-    "name": "Cake",
-    "png": "patterns/Toy Bear/png/Cake.png",
-    "tgs": "patterns/Toy Bear/Cake.tgs"
+    "name": "Cake"
   },
   {
-    "name": "Calendula",
-    "png": "patterns/Neko Helmet/png/Calendula.png",
-    "tgs": "patterns/Restless Jar/Calendula.tgs"
+    "name": "Calendula"
   },
   {
-    "name": "Calla Lily",
-    "png": "patterns/Neko Helmet/png/Calla Lily.png",
-    "tgs": "patterns/Restless Jar/Calla Lily.tgs"
+    "name": "Calla Lily"
   },
   {
-    "name": "Calm Wolf",
-    "png": "patterns/Xmas Stocking/png/Calm Wolf.png",
-    "tgs": "patterns/Xmas Stocking/Calm Wolf.tgs"
+    "name": "Calm Wolf"
   },
   {
-    "name": "Candle",
-    "png": "patterns/Xmas Stocking/png/Candle.png",
-    "tgs": "patterns/Xmas Stocking/Candle.tgs"
+    "name": "Candle"
   },
   {
-    "name": "Candy",
-    "png": "patterns/Xmas Stocking/png/Candy.png",
-    "tgs": "patterns/Xmas Stocking/Candy.tgs"
+    "name": "Candy"
   },
   {
-    "name": "Cap",
-    "png": "patterns/Xmas Stocking/png/Cap.png",
-    "tgs": "patterns/Xmas Stocking/Cap.tgs"
+    "name": "Cap"
   },
   {
-    "name": "Car",
-    "png": "patterns/Voodoo Doll/png/Car.png",
-    "tgs": "patterns/Voodoo Doll/Car.tgs"
+    "name": "Car"
   },
   {
-    "name": "Carambola",
-    "png": "patterns/Trapped Heart/png/Carambola.png",
-    "tgs": "patterns/Trapped Heart/Carambola.tgs"
+    "name": "Carambola"
   },
   {
-    "name": "Carnation",
-    "png": "patterns/Neko Helmet/png/Carnation.png",
-    "tgs": "patterns/Neko Helmet/Carnation.tgs"
+    "name": "Carnation"
   },
   {
-    "name": "Carrot",
-    "png": "patterns/Voodoo Doll/png/Carrot.png",
-    "tgs": "patterns/Voodoo Doll/Carrot.tgs"
+    "name": "Carrot"
   },
   {
-    "name": "Cash",
-    "png": "patterns/Vintage Cigar/png/Cash.png",
-    "tgs": "patterns/Vintage Cigar/Cash.tgs"
+    "name": "Cash"
   },
   {
-    "name": "Casket",
-    "png": "patterns/Electric Skull/png/Casket.png",
-    "tgs": "patterns/Electric Skull/Casket.tgs"
+    "name": "Casket"
   },
   {
-    "name": "Cat Mask",
-    "png": "patterns/Witch Hat/png/Cat Mask.png",
-    "tgs": "patterns/Witch Hat/Cat Mask.tgs"
+    "name": "Cat Mask"
   },
   {
-    "name": "Cauldron",
-    "png": "patterns/Witch Hat/png/Cauldron.png",
-    "tgs": "patterns/Witch Hat/Cauldron.tgs"
+    "name": "Cauldron"
   },
   {
-    "name": "Cavalier Hat",
-    "png": "patterns/Xmas Stocking/png/Cavalier Hat.png",
-    "tgs": "patterns/Xmas Stocking/Cavalier Hat.tgs"
+    "name": "Cavalier Hat"
   },
   {
-    "name": "Celtic Cross",
-    "png": "patterns/Vintage Cigar/png/Celtic Cross.png",
-    "tgs": "patterns/Vintage Cigar/Celtic Cross.tgs"
+    "name": "Celtic Cross"
   },
   {
-    "name": "Celtic Wolf",
-    "png": "patterns/Vintage Cigar/png/Celtic Wolf.png",
-    "tgs": "patterns/Vintage Cigar/Celtic Wolf.tgs"
+    "name": "Celtic Wolf"
   },
   {
-    "name": "Champagne",
-    "png": "patterns/Xmas Stocking/png/Champagne.png",
-    "tgs": "patterns/Xmas Stocking/Champagne.tgs"
+    "name": "Champagne"
   },
   {
-    "name": "Cheese",
-    "png": "patterns/Voodoo Doll/png/Cheese.png",
-    "tgs": "patterns/Voodoo Doll/Cheese.tgs"
+    "name": "Cheese"
   },
   {
-    "name": "Chef Hat",
-    "png": "patterns/Winter Wreath/png/Chef Hat.png",
-    "tgs": "patterns/Winter Wreath/Chef Hat.tgs"
+    "name": "Chef Hat"
   },
   {
-    "name": "Cherry",
-    "png": "patterns/Witch Hat/png/Cherry.png",
-    "tgs": "patterns/Witch Hat/Cherry.tgs"
+    "name": "Cherry"
   },
   {
-    "name": "Chest",
-    "png": "patterns/Xmas Stocking/png/Chest.png",
-    "tgs": "patterns/Xmas Stocking/Chest.tgs"
+    "name": "Chest"
   },
   {
-    "name": "Chick",
-    "png": "patterns/Tama Gadget/png/Chick.png",
-    "tgs": "patterns/Tama Gadget/Chick.tgs"
+    "name": "Chick"
   },
   {
-    "name": "Chili",
-    "png": "patterns/Xmas Stocking/png/Chili.png",
-    "tgs": "patterns/Xmas Stocking/Chili.tgs"
+    "name": "Chili"
   },
   {
-    "name": "Chili Pepper",
-    "png": "patterns/Winter Wreath/png/Chili Pepper.png",
-    "tgs": "patterns/Winter Wreath/Chili Pepper.tgs"
+    "name": "Chili Pepper"
   },
   {
-    "name": "Chocolate",
-    "png": "patterns/Trapped Heart/png/Chocolate.png",
-    "tgs": "patterns/Trapped Heart/Chocolate.tgs"
+    "name": "Chocolate"
   },
   {
-    "name": "Christmas Tree",
-    "png": "patterns/Xmas Stocking/png/Christmas Tree.png",
-    "tgs": "patterns/Xmas Stocking/Christmas Tree.tgs"
+    "name": "Christmas Tree"
   },
   {
-    "name": "Chrysanthe",
-    "png": "patterns/Neko Helmet/png/Chrysanthe.png",
-    "tgs": "patterns/Neko Helmet/Chrysanthe.tgs"
+    "name": "Chrysanthe"
   },
   {
-    "name": "Cicada",
-    "png": "patterns/Voodoo Doll/png/Cicada.png",
-    "tgs": "patterns/Voodoo Doll/Cicada.tgs"
+    "name": "Cicada"
   },
   {
-    "name": "Clematis",
-    "png": "patterns/Neko Helmet/png/Clematis.png",
-    "tgs": "patterns/Neko Helmet/Clematis.tgs"
+    "name": "Clematis"
   },
   {
-    "name": "Clover",
-    "png": "patterns/Witch Hat/png/Clover.png",
-    "tgs": "patterns/Witch Hat/Clover.tgs"
+    "name": "Clover"
   },
   {
-    "name": "Clubs",
-    "png": "patterns/Winter Wreath/png/Clubs.png",
-    "tgs": "patterns/Winter Wreath/Clubs.tgs"
+    "name": "Clubs"
   },
   {
-    "name": "Coat of Arms",
-    "png": "patterns/Witch Hat/png/Coat of Arms.png",
-    "tgs": "patterns/Witch Hat/Coat of Arms.tgs"
+    "name": "Coat of Arms"
   },
   {
-    "name": "Cobra",
-    "png": "patterns/Xmas Stocking/png/Cobra.png",
-    "tgs": "patterns/Xmas Stocking/Cobra.tgs"
+    "name": "Cobra"
   },
   {
-    "name": "Cocktail",
-    "png": "patterns/Xmas Stocking/png/Cocktail.png",
-    "tgs": "patterns/Xmas Stocking/Cocktail.tgs"
+    "name": "Cocktail"
   },
   {
-    "name": "Coconut",
-    "png": "patterns/Winter Wreath/png/Coconut.png",
-    "tgs": "patterns/Winter Wreath/Coconut.tgs"
+    "name": "Coconut"
   },
   {
-    "name": "Coffee Bean",
-    "png": "patterns/Witch Hat/png/Coffee Bean.png",
-    "tgs": "patterns/Witch Hat/Coffee Bean.tgs"
+    "name": "Coffee Bean"
   },
   {
-    "name": "Coffin",
-    "png": "patterns/Witch Hat/png/Coffin.png",
-    "tgs": "patterns/Witch Hat/Coffin.tgs"
+    "name": "Coffin"
   },
   {
-    "name": "Coin",
-    "png": "patterns/Xmas Stocking/png/Coin.png",
-    "tgs": "patterns/Xmas Stocking/Coin.tgs"
+    "name": "Coin"
   },
   {
-    "name": "Coin Purse",
-    "png": "patterns/Xmas Stocking/png/Coin Purse.png",
-    "tgs": "patterns/Xmas Stocking/Coin Purse.tgs"
+    "name": "Coin Purse"
   },
   {
-    "name": "Conch",
-    "png": "patterns/Witch Hat/png/Conch.png",
-    "tgs": "patterns/Witch Hat/Conch.tgs"
+    "name": "Conch"
   },
   {
-    "name": "Cone",
-    "png": "patterns/Witch Hat/png/Cone.png",
-    "tgs": "patterns/Witch Hat/Cone.tgs"
+    "name": "Cone"
   },
   {
-    "name": "Conical Hat",
-    "png": "patterns/Winter Wreath/png/Conical Hat.png",
-    "tgs": "patterns/Winter Wreath/Conical Hat.tgs"
+    "name": "Conical Hat"
   },
   {
-    "name": "Cookie",
-    "png": "patterns/Xmas Stocking/png/Cookie.png",
-    "tgs": "patterns/Xmas Stocking/Cookie.tgs"
+    "name": "Cookie"
   },
   {
-    "name": "Coonskin Cap",
-    "png": "patterns/Snow Globe/png/Coonskin Cap.png",
-    "tgs": "patterns/Snow Globe/Coonskin Cap.tgs"
+    "name": "Coonskin Cap"
   },
   {
-    "name": "Corn",
-    "png": "patterns/Witch Hat/png/Corn.png",
-    "tgs": "patterns/Witch Hat/Corn.tgs"
+    "name": "Corn"
   },
   {
-    "name": "Cow Skull",
-    "png": "patterns/Xmas Stocking/png/Cow Skull.png",
-    "tgs": "patterns/Xmas Stocking/Cow Skull.tgs"
+    "name": "Cow Skull"
   },
   {
-    "name": "Cowboy Hat",
-    "png": "patterns/Top Hat/png/Cowboy Hat.png",
-    "tgs": "patterns/Top Hat/Cowboy Hat.tgs"
+    "name": "Cowboy Hat"
   },
   {
-    "name": "Crab",
-    "png": "patterns/Xmas Stocking/png/Crab.png",
-    "tgs": "patterns/Xmas Stocking/Crab.tgs"
+    "name": "Crab"
   },
   {
-    "name": "Creepy Eye",
-    "png": "patterns/Electric Skull/png/Creepy Eye.png",
-    "tgs": "patterns/Electric Skull/Creepy Eye.tgs"
+    "name": "Creepy Eye"
   },
   {
-    "name": "Crescent",
-    "png": "patterns/Toy Bear/png/Crescent.png",
-    "tgs": "patterns/Toy Bear/Crescent.tgs"
+    "name": "Crescent"
   },
   {
-    "name": "Cricket Helmet",
-    "png": "patterns/Tama Gadget/png/Cricket Helmet.png",
-    "tgs": "patterns/Tama Gadget/Cricket Helmet.tgs"
+    "name": "Cricket Helmet"
   },
   {
-    "name": "Croissant",
-    "png": "patterns/Witch Hat/png/Croissant.png",
-    "tgs": "patterns/Witch Hat/Croissant.tgs"
+    "name": "Croissant"
   },
   {
-    "name": "Crow",
-    "png": "patterns/Witch Hat/png/Crow.png",
-    "tgs": "patterns/Witch Hat/Crow.tgs"
+    "name": "Crow"
   },
   {
-    "name": "Crown",
-    "png": "patterns/Witch Hat/png/Crown.png",
-    "tgs": "patterns/Witch Hat/Crown.tgs"
+    "name": "Crown"
   },
   {
-    "name": "Crusader",
-    "png": "patterns/Vintage Cigar/png/Crusader.png",
-    "tgs": "patterns/Vintage Cigar/Crusader.tgs"
+    "name": "Crusader"
   },
   {
-    "name": "Crusader Cross",
-    "png": "patterns/Top Hat/png/Crusader Cross.png",
-    "tgs": "patterns/Top Hat/Crusader Cross.tgs"
+    "name": "Crusader Cross"
   },
   {
-    "name": "Crystal",
-    "png": "patterns/Top Hat/png/Crystal.png",
-    "tgs": "patterns/Top Hat/Crystal.tgs"
+    "name": "Crystal"
   },
   {
-    "name": "Crystal Ball",
-    "png": "patterns/Xmas Stocking/png/Crystal Ball.png",
-    "tgs": "patterns/Xmas Stocking/Crystal Ball.tgs"
+    "name": "Crystal Ball"
   },
   {
-    "name": "Cunning Fox",
-    "png": "patterns/Trapped Heart/png/Cunning Fox.png",
-    "tgs": "patterns/Trapped Heart/Cunning Fox.tgs"
+    "name": "Cunning Fox"
   },
   {
-    "name": "Cupcake",
-    "png": "patterns/Xmas Stocking/png/Cupcake.png",
-    "tgs": "patterns/Xmas Stocking/Cupcake.tgs"
+    "name": "Cupcake"
   },
   {
-    "name": "Cupid",
-    "png": "patterns/Trapped Heart/png/Cupid.png",
-    "tgs": "patterns/Trapped Heart/Cupid.tgs"
+    "name": "Cupid"
   },
   {
-    "name": "Cupid Archer",
-    "png": "patterns/Toy Bear/png/Cupid Archer.png",
-    "tgs": "patterns/Toy Bear/Cupid Archer.tgs"
+    "name": "Cupid Archer"
   },
   {
-    "name": "Cupid's Arrow",
-    "png": "patterns/Trapped Heart/png/Cupid's Arrow.png",
-    "tgs": "patterns/Trapped Heart/Cupid's Arrow.tgs"
+    "name": "Cupid's Arrow"
   },
   {
-    "name": "Cupid's Bow",
-    "png": "patterns/Love Potion/png/Cupid's Bow.png",
-    "tgs": "patterns/Restless Jar/Cupid's Bow.tgs"
+    "name": "Cupid's Bow"
   },
   {
-    "name": "Cursor",
-    "png": "patterns/Xmas Stocking/png/Cursor.png",
-    "tgs": "patterns/Xmas Stocking/Cursor.tgs"
+    "name": "Cursor"
   },
   {
-    "name": "Cute Bear",
-    "png": "patterns/Trapped Heart/png/Cute Bear.png",
-    "tgs": "patterns/Trapped Heart/Cute Bear.tgs"
+    "name": "Cute Bear"
   },
   {
-    "name": "Cute Paw",
-    "png": "patterns/Toy Bear/png/Cute Paw.png",
-    "tgs": "patterns/Toy Bear/Cute Paw.tgs"
+    "name": "Cute Paw"
   },
   {
-    "name": "Cyclamen",
-    "png": "patterns/Neko Helmet/png/Cyclamen.png",
-    "tgs": "patterns/Neko Helmet/Cyclamen.tgs"
+    "name": "Cyclamen"
   },
   {
-    "name": "Daffodil",
-    "png": "patterns/Neko Helmet/png/Daffodil.png",
-    "tgs": "patterns/Neko Helmet/Daffodil.tgs"
+    "name": "Daffodil"
   },
   {
-    "name": "Dagger",
-    "png": "patterns/Xmas Stocking/png/Dagger.png",
-    "tgs": "patterns/Xmas Stocking/Dagger.tgs"
+    "name": "Dagger"
   },
   {
-    "name": "Daisy",
-    "png": "patterns/Neko Helmet/png/Daisy.png",
-    "tgs": "patterns/Neko Helmet/Daisy.tgs"
+    "name": "Daisy"
   },
   {
-    "name": "Dandelion",
-    "png": "patterns/Neko Helmet/png/Dandelion.png",
-    "tgs": "patterns/Neko Helmet/Dandelion.tgs"
+    "name": "Dandelion"
   },
   {
-    "name": "Date Pin",
-    "png": "patterns/Toy Bear/png/Date Pin.png",
-    "tgs": "patterns/Toy Bear/Date Pin.tgs"
+    "name": "Date Pin"
   },
   {
-    "name": "Deerstalker",
-    "png": "patterns/Winter Wreath/png/Deerstalker.png",
-    "tgs": "patterns/Winter Wreath/Deerstalker.tgs"
+    "name": "Deerstalker"
   },
   {
-    "name": "Dessert",
-    "png": "patterns/Xmas Stocking/png/Dessert.png",
-    "tgs": "patterns/Xmas Stocking/Dessert.tgs"
+    "name": "Dessert"
   },
   {
-    "name": "Diamond",
-    "png": "patterns/Xmas Stocking/png/Diamond.png",
-    "tgs": "patterns/Xmas Stocking/Diamond.tgs"
+    "name": "Diamond"
   },
   {
-    "name": "Diamonds",
-    "png": "patterns/Xmas Stocking/png/Diamonds.png",
-    "tgs": "patterns/Xmas Stocking/Diamonds.tgs"
+    "name": "Diamonds"
   },
   {
-    "name": "Dice",
-    "png": "patterns/Vintage Cigar/png/Dice.png",
-    "tgs": "patterns/Vintage Cigar/Dice.tgs"
+    "name": "Dice"
   },
   {
-    "name": "Divine Falcon",
-    "png": "patterns/Top Hat/png/Divine Falcon.png",
-    "tgs": "patterns/Top Hat/Divine Falcon.tgs"
+    "name": "Divine Falcon"
   },
   {
-    "name": "Doberman",
-    "png": "patterns/Witch Hat/png/Doberman.png",
-    "tgs": "patterns/Witch Hat/Doberman.tgs"
+    "name": "Doberman"
   },
   {
-    "name": "Doctor Hat",
-    "png": "patterns/Xmas Stocking/png/Doctor Hat.png",
-    "tgs": "patterns/Xmas Stocking/Doctor Hat.tgs"
+    "name": "Doctor Hat"
   },
   {
-    "name": "Doghouse",
-    "png": "patterns/Xmas Stocking/png/Doghouse.png",
-    "tgs": "patterns/Xmas Stocking/Doghouse.tgs"
+    "name": "Doghouse"
   },
   {
-    "name": "Dolphin",
-    "png": "patterns/Xmas Stocking/png/Dolphin.png",
-    "tgs": "patterns/Xmas Stocking/Dolphin.tgs"
+    "name": "Dolphin"
   },
   {
-    "name": "Donut",
-    "png": "patterns/Tama Gadget/png/Donut.png",
-    "tgs": "patterns/Tama Gadget/Donut.tgs"
+    "name": "Donut"
   },
   {
-    "name": "Double Axe",
-    "png": "patterns/Toy Bear/png/Double Axe.png",
-    "tgs": "patterns/Toy Bear/Double Axe.tgs"
+    "name": "Double Axe"
   },
   {
-    "name": "Double Bed",
-    "png": "patterns/Trapped Heart/png/Double Bed.png",
-    "tgs": "patterns/Trapped Heart/Double Bed.tgs"
+    "name": "Double Bed"
   },
   {
-    "name": "Dragonfly",
-    "png": "patterns/Xmas Stocking/png/Dragonfly.png",
-    "tgs": "patterns/Xmas Stocking/Dragonfly.tgs"
+    "name": "Dragonfly"
   },
   {
-    "name": "Drug",
-    "png": "patterns/Witch Hat/png/Drug.png",
-    "tgs": "patterns/Witch Hat/Drug.tgs"
+    "name": "Drug"
   },
   {
-    "name": "Duck Face",
-    "png": "patterns/Top Hat/png/Duck Face.png",
-    "tgs": "patterns/Top Hat/Duck Face.tgs"
+    "name": "Duck Face"
   },
   {
-    "name": "Eagle",
-    "png": "patterns/Xmas Stocking/png/Eagle.png",
-    "tgs": "patterns/Xmas Stocking/Eagle.tgs"
+    "name": "Eagle"
   },
   {
-    "name": "Earflap Hat",
-    "png": "patterns/Winter Wreath/png/Earflap Hat.png",
-    "tgs": "patterns/Winter Wreath/Earflap Hat.tgs"
+    "name": "Earflap Hat"
   },
   {
-    "name": "Earth",
-    "png": "patterns/Toy Bear/png/Earth.png",
-    "tgs": "patterns/Toy Bear/Earth.tgs"
+    "name": "Earth"
   },
   {
-    "name": "Easter Bunny",
-    "png": "patterns/Xmas Stocking/png/Easter Bunny.png",
-    "tgs": "patterns/Xmas Stocking/Easter Bunny.tgs"
+    "name": "Easter Bunny"
   },
   {
-    "name": "Easter Egg",
-    "png": "patterns/Light Sword/png/Easter Egg.png",
-    "tgs": "patterns/Light Sword/Easter Egg.tgs"
+    "name": "Easter Egg"
   },
   {
-    "name": "Egg",
-    "png": "patterns/Xmas Stocking/png/Egg.png",
-    "tgs": "patterns/Xmas Stocking/Egg.tgs"
+    "name": "Egg"
   },
   {
-    "name": "Egg Basket",
-    "png": "patterns/Light Sword/png/Egg Basket.png",
-    "tgs": "patterns/Nail Bracelet/Egg Basket.tgs"
+    "name": "Egg Basket"
   },
   {
-    "name": "Eggplant",
-    "png": "patterns/Xmas Stocking/png/Eggplant.png",
-    "tgs": "patterns/Xmas Stocking/Eggplant.tgs"
+    "name": "Eggplant"
   },
   {
-    "name": "Eikthyrnir",
-    "png": "patterns/Xmas Stocking/png/Eikthyrnir.png",
-    "tgs": "patterns/Xmas Stocking/Eikthyrnir.tgs"
+    "name": "Eikthyrnir"
   },
   {
-    "name": "Elephant",
-    "png": "patterns/Witch Hat/png/Elephant.png",
-    "tgs": "patterns/Witch Hat/Elephant.tgs"
+    "name": "Elephant"
   },
   {
-    "name": "Elf Hat",
-    "png": "patterns/Xmas Stocking/png/Elf Hat.png",
-    "tgs": "patterns/Xmas Stocking/Elf Hat.tgs"
+    "name": "Elf Hat"
   },
   {
-    "name": "Evil Dragon",
-    "png": "patterns/Top Hat/png/Evil Dragon.png",
-    "tgs": "patterns/Top Hat/Evil Dragon.tgs"
+    "name": "Evil Dragon"
   },
   {
-    "name": "Evil Pumpkin",
-    "png": "patterns/Witch Hat/png/Evil Pumpkin.png",
-    "tgs": "patterns/Witch Hat/Evil Pumpkin.tgs"
+    "name": "Evil Pumpkin"
   },
   {
-    "name": "Eye of Horus",
-    "png": "patterns/Top Hat/png/Eye of Horus.png",
-    "tgs": "patterns/Top Hat/Eye of Horus.tgs"
+    "name": "Eye of Horus"
   },
   {
-    "name": "Eyeball",
-    "png": "patterns/Witch Hat/png/Eyeball.png",
-    "tgs": "patterns/Witch Hat/Eyeball.tgs"
+    "name": "Eyeball"
   },
   {
-    "name": "Feather",
-    "png": "patterns/Xmas Stocking/png/Feather.png",
-    "tgs": "patterns/Xmas Stocking/Feather.tgs"
+    "name": "Feather"
   },
   {
-    "name": "February 14",
-    "png": "patterns/Toy Bear/png/February 14.png",
-    "tgs": "patterns/Toy Bear/February 14.tgs"
+    "name": "February 14"
   },
   {
-    "name": "Fedora",
-    "png": "patterns/Xmas Stocking/png/Fedora.png",
-    "tgs": "patterns/Xmas Stocking/Fedora.tgs"
+    "name": "Fedora"
   },
   {
-    "name": "Fehu Rune",
-    "png": "patterns/Vintage Cigar/png/Fehu Rune.png",
-    "tgs": "patterns/Vintage Cigar/Fehu Rune.tgs"
+    "name": "Fehu Rune"
   },
   {
-    "name": "Fenrir",
-    "png": "patterns/Witch Hat/png/Fenrir.png",
-    "tgs": "patterns/Witch Hat/Fenrir.tgs"
+    "name": "Fenrir"
   },
   {
-    "name": "Festive Wreath",
-    "png": "patterns/Xmas Stocking/png/Festive Wreath.png",
-    "tgs": "patterns/Xmas Stocking/Festive Wreath.tgs"
+    "name": "Festive Wreath"
   },
   {
-    "name": "Fez",
-    "png": "patterns/Top Hat/png/Fez.png",
-    "tgs": "patterns/Top Hat/Fez.tgs"
+    "name": "Fez"
   },
   {
-    "name": "Fire",
-    "png": "patterns/Witch Hat/png/Fire.png",
-    "tgs": "patterns/Witch Hat/Fire.tgs"
+    "name": "Fire"
   },
   {
-    "name": "Firebird",
-    "png": "patterns/Voodoo Doll/png/Firebird.png",
-    "tgs": "patterns/Voodoo Doll/Firebird.tgs"
+    "name": "Firebird"
   },
   {
-    "name": "Fireman Hat",
-    "png": "patterns/Tama Gadget/png/Fireman Hat.png",
-    "tgs": "patterns/Tama Gadget/Fireman Hat.tgs"
+    "name": "Fireman Hat"
   },
   {
-    "name": "Fireworks",
-    "png": "patterns/Xmas Stocking/png/Fireworks.png",
-    "tgs": "patterns/Xmas Stocking/Fireworks.tgs"
+    "name": "Fireworks"
   },
   {
-    "name": "Fish",
-    "png": "patterns/Voodoo Doll/png/Fish.png",
-    "tgs": "patterns/Voodoo Doll/Fish.tgs"
+    "name": "Fish"
   },
   {
-    "name": "Fish Skeleton",
-    "png": "patterns/Witch Hat/png/Fish Skeleton.png",
-    "tgs": "patterns/Witch Hat/Fish Skeleton.tgs"
+    "name": "Fish Skeleton"
   },
   {
-    "name": "Fishing Hook",
-    "png": "patterns/Xmas Stocking/png/Fishing Hook.png",
-    "tgs": "patterns/Xmas Stocking/Fishing Hook.tgs"
+    "name": "Fishing Hook"
   },
   {
-    "name": "Flag",
-    "png": "patterns/Toy Bear/png/Flag.png",
-    "tgs": "patterns/Toy Bear/Flag.tgs"
+    "name": "Flag"
   },
   {
-    "name": "Flaming Heart",
-    "png": "patterns/Toy Bear/png/Flaming Heart.png",
-    "tgs": "patterns/Toy Bear/Flaming Heart.tgs"
+    "name": "Flaming Heart"
   },
   {
-    "name": "Flamingo",
-    "png": "patterns/Xmas Stocking/png/Flamingo.png",
-    "tgs": "patterns/Xmas Stocking/Flamingo.tgs"
+    "name": "Flamingo"
   },
   {
-    "name": "Flashlight",
-    "png": "patterns/Witch Hat/png/Flashlight.png",
-    "tgs": "patterns/Witch Hat/Flashlight.tgs"
+    "name": "Flashlight"
   },
   {
-    "name": "Flat Cap",
-    "png": "patterns/Sleigh Bell/png/Flat Cap.png",
-    "tgs": "patterns/Sleigh Bell/Flat Cap.tgs"
+    "name": "Flat Cap"
   },
   {
-    "name": "Fleur-de-lis",
-    "png": "patterns/Voodoo Doll/png/Fleur-de-lis.png",
-    "tgs": "patterns/Voodoo Doll/Fleur-de-lis.tgs"
+    "name": "Fleur-de-lis"
   },
   {
-    "name": "Flipper",
-    "png": "patterns/Xmas Stocking/png/Flipper.png",
-    "tgs": "patterns/Xmas Stocking/Flipper.tgs"
+    "name": "Flipper"
   },
   {
-    "name": "Flirty Message",
-    "png": "patterns/Trapped Heart/png/Flirty Message.png",
-    "tgs": "patterns/Trapped Heart/Flirty Message.tgs"
+    "name": "Flirty Message"
   },
   {
-    "name": "Flower",
-    "png": "patterns/Witch Hat/png/Flower.png",
-    "tgs": "patterns/Witch Hat/Flower.tgs"
+    "name": "Flower"
   },
   {
-    "name": "Flower Cross",
-    "png": "patterns/Winter Wreath/png/Flower Cross.png",
-    "tgs": "patterns/Winter Wreath/Flower Cross.tgs"
+    "name": "Flower Cross"
   },
   {
-    "name": "Flower Sun",
-    "png": "patterns/Xmas Stocking/png/Flower Sun.png",
-    "tgs": "patterns/Xmas Stocking/Flower Sun.tgs"
+    "name": "Flower Sun"
   },
   {
-    "name": "Flower Tulip",
-    "png": "patterns/Xmas Stocking/png/Flower Tulip.png",
-    "tgs": "patterns/Xmas Stocking/Flower Tulip.tgs"
+    "name": "Flower Tulip"
   },
   {
-    "name": "Fluffy Wolf",
-    "png": "patterns/Trapped Heart/png/Fluffy Wolf.png",
-    "tgs": "patterns/Trapped Heart/Fluffy Wolf.tgs"
+    "name": "Fluffy Wolf"
   },
   {
-    "name": "Flying Dragon",
-    "png": "patterns/Top Hat/png/Flying Dragon.png",
-    "tgs": "patterns/Top Hat/Flying Dragon.tgs"
+    "name": "Flying Dragon"
   },
   {
-    "name": "Flying Heart",
-    "png": "patterns/Trapped Heart/png/Flying Heart.png",
-    "tgs": "patterns/Trapped Heart/Flying Heart.tgs"
+    "name": "Flying Heart"
   },
   {
-    "name": "Flying Witch",
-    "png": "patterns/Witch Hat/png/Flying Witch.png",
-    "tgs": "patterns/Witch Hat/Flying Witch.tgs"
+    "name": "Flying Witch"
   },
   {
-    "name": "Flytrap",
-    "png": "patterns/Neko Helmet/png/Flytrap.png",
-    "tgs": "patterns/Neko Helmet/Flytrap.tgs"
+    "name": "Flytrap"
   },
   {
-    "name": "French Fries",
-    "png": "patterns/Xmas Stocking/png/French Fries.png",
-    "tgs": "patterns/Xmas Stocking/French Fries.tgs"
+    "name": "French Fries"
   },
   {
-    "name": "Fried Egg",
-    "png": "patterns/Top Hat/png/Fried Egg.png",
-    "tgs": "patterns/Top Hat/Fried Egg.tgs"
+    "name": "Fried Egg"
   },
   {
-    "name": "Fuchsia",
-    "png": "patterns/Neko Helmet/png/Fuchsia.png",
-    "tgs": "patterns/Restless Jar/Fuchsia.tgs"
+    "name": "Fuchsia"
   },
   {
-    "name": "Full Moon",
-    "png": "patterns/Xmas Stocking/png/Full Moon.png",
-    "tgs": "patterns/Xmas Stocking/Full Moon.tgs"
+    "name": "Full Moon"
   },
   {
-    "name": "Galaxy",
-    "png": "patterns/Toy Bear/png/Galaxy.png",
-    "tgs": "patterns/Toy Bear/Galaxy.tgs"
+    "name": "Galaxy"
   },
   {
-    "name": "Gamepad",
-    "png": "patterns/Witch Hat/png/Gamepad.png",
-    "tgs": "patterns/Witch Hat/Gamepad.tgs"
+    "name": "Gamepad"
   },
   {
-    "name": "Garden Pot",
-    "png": "patterns/Witch Hat/png/Garden Pot.png",
-    "tgs": "patterns/Witch Hat/Garden Pot.tgs"
+    "name": "Garden Pot"
   },
   {
-    "name": "Gear",
-    "png": "patterns/Xmas Stocking/png/Gear.png",
-    "tgs": "patterns/Xmas Stocking/Gear.tgs"
+    "name": "Gear"
   },
   {
-    "name": "Geisha Fan",
-    "png": "patterns/Toy Bear/png/Geisha Fan.png",
-    "tgs": "patterns/Toy Bear/Geisha Fan.tgs"
+    "name": "Geisha Fan"
   },
   {
-    "name": "Gem",
-    "png": "patterns/Xmas Stocking/png/Gem.png",
-    "tgs": "patterns/Xmas Stocking/Gem.tgs"
+    "name": "Gem"
   },
   {
-    "name": "Genie Lamp",
-    "png": "patterns/Witch Hat/png/Genie Lamp.png",
-    "tgs": "patterns/Witch Hat/Genie Lamp.tgs"
+    "name": "Genie Lamp"
   },
   {
-    "name": "Gentian",
-    "png": "patterns/Neko Helmet/png/Gentian.png",
-    "tgs": "patterns/Restless Jar/Gentian.tgs"
+    "name": "Gentian"
   },
   {
-    "name": "Ghost",
-    "png": "patterns/Witch Hat/png/Ghost.png",
-    "tgs": "patterns/Witch Hat/Ghost.tgs"
+    "name": "Ghost"
   },
   {
-    "name": "Gift",
-    "png": "patterns/Toy Bear/png/Gift.png",
-    "tgs": "patterns/Toy Bear/Gift.tgs"
+    "name": "Gift"
   },
   {
-    "name": "Gift Box",
-    "png": "patterns/Xmas Stocking/png/Gift Box.png",
-    "tgs": "patterns/Xmas Stocking/Gift Box.tgs"
+    "name": "Gift Box"
   },
   {
-    "name": "Gingerbread",
-    "png": "patterns/Xmas Stocking/png/Gingerbread.png",
-    "tgs": "patterns/Xmas Stocking/Gingerbread.tgs"
+    "name": "Gingerbread"
   },
   {
-    "name": "Glasses",
-    "png": "patterns/Xmas Stocking/png/Glasses.png",
-    "tgs": "patterns/Xmas Stocking/Glasses.tgs"
+    "name": "Glasses"
   },
   {
-    "name": "Gold",
-    "png": "patterns/Xmas Stocking/png/Gold.png",
-    "tgs": "patterns/Xmas Stocking/Gold.tgs"
+    "name": "Gold"
   },
   {
-    "name": "Golden Scarab",
-    "png": "patterns/Vintage Cigar/png/Golden Scarab.png",
-    "tgs": "patterns/Vintage Cigar/Golden Scarab.tgs"
+    "name": "Golden Scarab"
   },
   {
-    "name": "Grape",
-    "png": "patterns/Xmas Stocking/png/Grape.png",
-    "tgs": "patterns/Xmas Stocking/Grape.tgs"
+    "name": "Grape"
   },
   {
-    "name": "Gravestone",
-    "png": "patterns/Witch Hat/png/Gravestone.png",
-    "tgs": "patterns/Witch Hat/Gravestone.tgs"
+    "name": "Gravestone"
   },
   {
-    "name": "Greek Helmet",
-    "png": "patterns/Winter Wreath/png/Greek Helmet.png",
-    "tgs": "patterns/Winter Wreath/Greek Helmet.tgs"
+    "name": "Greek Helmet"
   },
   {
-    "name": "Greek Sun",
-    "png": "patterns/Top Hat/png/Greek Sun.png",
-    "tgs": "patterns/Top Hat/Greek Sun.tgs"
+    "name": "Greek Sun"
   },
   {
-    "name": "Grenade",
-    "png": "patterns/Witch Hat/png/Grenade.png",
-    "tgs": "patterns/Witch Hat/Grenade.tgs"
+    "name": "Grenade"
   },
   {
-    "name": "Griffon",
-    "png": "patterns/Toy Bear/png/Griffon.png",
-    "tgs": "patterns/Toy Bear/Griffon.tgs"
+    "name": "Griffon"
   },
   {
-    "name": "Grim Reaper",
-    "png": "patterns/Witch Hat/png/Grim Reaper.png",
-    "tgs": "patterns/Witch Hat/Grim Reaper.tgs"
+    "name": "Grim Reaper"
   },
   {
-    "name": "Gua Pi Mao",
-    "png": "patterns/Xmas Stocking/png/Gua Pi Mao.png",
-    "tgs": "patterns/Xmas Stocking/Gua Pi Mao.tgs"
+    "name": "Gua Pi Mao"
   },
   {
-    "name": "Guitar",
-    "png": "patterns/Witch Hat/png/Guitar.png",
-    "tgs": "patterns/Witch Hat/Guitar.tgs"
+    "name": "Guitar"
   },
   {
-    "name": "Half Moon",
-    "png": "patterns/Witch Hat/png/Half Moon.png",
-    "tgs": "patterns/Witch Hat/Half Moon.tgs"
+    "name": "Half Moon"
   },
   {
-    "name": "Hamburger",
-    "png": "patterns/Witch Hat/png/Hamburger.png",
-    "tgs": "patterns/Witch Hat/Hamburger.tgs"
+    "name": "Hamburger"
   },
   {
-    "name": "Hammerhead",
-    "png": "patterns/Xmas Stocking/png/Hammerhead.png",
-    "tgs": "patterns/Xmas Stocking/Hammerhead.tgs"
+    "name": "Hammerhead"
   },
   {
-    "name": "Hand of God",
-    "png": "patterns/Vintage Cigar/png/Hand of God.png",
-    "tgs": "patterns/Vintage Cigar/Hand of God.tgs"
+    "name": "Hand of God"
   },
   {
-    "name": "Handcuffs",
-    "png": "patterns/Toy Bear/png/Handcuffs.png",
-    "tgs": "patterns/Toy Bear/Handcuffs.tgs"
+    "name": "Handcuffs"
   },
   {
-    "name": "Handset",
-    "png": "patterns/Xmas Stocking/png/Handset.png",
-    "tgs": "patterns/Xmas Stocking/Handset.tgs"
+    "name": "Handset"
   },
   {
-    "name": "Happy Smile",
-    "png": "patterns/Witch Hat/png/Happy Smile.png",
-    "tgs": "patterns/Witch Hat/Happy Smile.tgs"
+    "name": "Happy Smile"
   },
   {
-    "name": "Hard Hat",
-    "png": "patterns/Tama Gadget/png/Hard Hat.png",
-    "tgs": "patterns/Tama Gadget/Hard Hat.tgs"
+    "name": "Hard Hat"
   },
   {
-    "name": "Haunted House",
-    "png": "patterns/Electric Skull/png/Haunted House.png",
-    "tgs": "patterns/Electric Skull/Haunted House.tgs"
+    "name": "Haunted House"
   },
   {
-    "name": "Hazelnut",
-    "png": "patterns/Snake Box/png/Hazelnut.png",
-    "tgs": "patterns/Snake Box/Hazelnut.tgs"
+    "name": "Hazelnut"
   },
   {
-    "name": "Headband",
-    "png": "patterns/Toy Bear/png/Headband.png",
-    "tgs": "patterns/Toy Bear/Headband.tgs"
+    "name": "Headband"
   },
   {
-    "name": "Heart",
-    "png": "patterns/Witch Hat/png/Heart.png",
-    "tgs": "patterns/Witch Hat/Heart.tgs"
+    "name": "Heart"
   },
   {
-    "name": "Heart Balloon",
-    "png": "patterns/Trapped Heart/png/Heart Balloon.png",
-    "tgs": "patterns/Trapped Heart/Heart Balloon.tgs"
+    "name": "Heart Balloon"
   },
   {
-    "name": "Heart Box",
-    "png": "patterns/Toy Bear/png/Heart Box.png",
-    "tgs": "patterns/Toy Bear/Heart Box.tgs"
+    "name": "Heart Box"
   },
   {
-    "name": "Heart Donut",
-    "png": "patterns/Toy Bear/png/Heart Donut.png",
-    "tgs": "patterns/Toy Bear/Heart Donut.tgs"
+    "name": "Heart Donut"
   },
   {
-    "name": "Heart Glasses",
-    "png": "patterns/Toy Bear/png/Heart Glasses.png",
-    "tgs": "patterns/Toy Bear/Heart Glasses.tgs"
+    "name": "Heart Glasses"
   },
   {
-    "name": "Heart Lock",
-    "png": "patterns/Toy Bear/png/Heart Lock.png",
-    "tgs": "patterns/Toy Bear/Heart Lock.tgs"
+    "name": "Heart Lock"
   },
   {
-    "name": "Heart Ring",
-    "png": "patterns/Toy Bear/png/Heart Ring.png",
-    "tgs": "patterns/Toy Bear/Heart Ring.tgs"
+    "name": "Heart Ring"
   },
   {
-    "name": "Heart Shades",
-    "png": "patterns/Trapped Heart/png/Heart Shades.png",
-    "tgs": "patterns/Trapped Heart/Heart Shades.tgs"
+    "name": "Heart Shades"
   },
   {
-    "name": "Heartbeat",
-    "png": "patterns/Trapped Heart/png/Heartbeat.png",
-    "tgs": "patterns/Trapped Heart/Heartbeat.tgs"
+    "name": "Heartbeat"
   },
   {
-    "name": "Hearts",
-    "png": "patterns/Toy Bear/png/Hearts.png",
-    "tgs": "patterns/Toy Bear/Hearts.tgs"
+    "name": "Hearts"
   },
   {
-    "name": "Heater Shield",
-    "png": "patterns/Top Hat/png/Heater Shield.png",
-    "tgs": "patterns/Top Hat/Heater Shield.tgs"
+    "name": "Heater Shield"
   },
   {
-    "name": "Hedgehog",
-    "png": "patterns/Witch Hat/png/Hedgehog.png",
-    "tgs": "patterns/Witch Hat/Hedgehog.tgs"
+    "name": "Hedgehog"
   },
   {
-    "name": "Heraldic Lily",
-    "png": "patterns/Xmas Stocking/png/Heraldic Lily.png",
-    "tgs": "patterns/Xmas Stocking/Heraldic Lily.tgs"
+    "name": "Heraldic Lily"
   },
   {
-    "name": "Hermit Shell",
-    "png": "patterns/Xmas Stocking/png/Hermit Shell.png",
-    "tgs": "patterns/Xmas Stocking/Hermit Shell.tgs"
+    "name": "Hermit Shell"
   },
   {
-    "name": "Hersir",
-    "png": "patterns/Top Hat/png/Hersir.png",
-    "tgs": "patterns/Top Hat/Hersir.tgs"
+    "name": "Hersir"
   },
   {
-    "name": "Hex Pot",
-    "png": "patterns/Electric Skull/png/Hex Pot.png",
-    "tgs": "patterns/Electric Skull/Hex Pot.tgs"
+    "name": "Hex Pot"
   },
   {
-    "name": "Hibiscus",
-    "png": "patterns/Neko Helmet/png/Hibiscus.png",
-    "tgs": "patterns/Restless Jar/Hibiscus.tgs"
+    "name": "Hibiscus"
   },
   {
-    "name": "High Hat",
-    "png": "patterns/Xmas Stocking/png/High Hat.png",
-    "tgs": "patterns/Xmas Stocking/High Hat.tgs"
+    "name": "High Hat"
   },
   {
-    "name": "High Heels",
-    "png": "patterns/Xmas Stocking/png/High Heels.png",
-    "tgs": "patterns/Xmas Stocking/High Heels.tgs"
+    "name": "High Heels"
   },
   {
-    "name": "Hippo",
-    "png": "patterns/Xmas Stocking/png/Hippo.png",
-    "tgs": "patterns/Xmas Stocking/Hippo.tgs"
+    "name": "Hippo"
   },
   {
-    "name": "Holy Grail",
-    "png": "patterns/Toy Bear/png/Holy Grail.png",
-    "tgs": "patterns/Toy Bear/Holy Grail.tgs"
+    "name": "Holy Grail"
   },
   {
-    "name": "Horn",
-    "png": "patterns/Tama Gadget/png/Horn.png",
-    "tgs": "patterns/Tama Gadget/Horn.tgs"
+    "name": "Horn"
   },
   {
-    "name": "Horned Helm",
-    "png": "patterns/Record Player/png/Horned Helm.png",
-    "tgs": "patterns/Record Player/Horned Helm.tgs"
+    "name": "Horned Helm"
   },
   {
-    "name": "Horseshoe",
-    "png": "patterns/Xmas Stocking/png/Horseshoe.png",
-    "tgs": "patterns/Xmas Stocking/Horseshoe.tgs"
+    "name": "Horseshoe"
   },
   {
-    "name": "Hot Drink",
-    "png": "patterns/Xmas Stocking/png/Hot Drink.png",
-    "tgs": "patterns/Xmas Stocking/Hot Drink.tgs"
+    "name": "Hot Drink"
   },
   {
-    "name": "Hot Matcha",
-    "png": "patterns/Toy Bear/png/Hot Matcha.png",
-    "tgs": "patterns/Toy Bear/Hot Matcha.tgs"
+    "name": "Hot Matcha"
   },
   {
-    "name": "Hourglass",
-    "png": "patterns/Snake Box/png/Hourglass.png",
-    "tgs": "patterns/Snake Box/Hourglass.tgs"
+    "name": "Hourglass"
   },
   {
-    "name": "Human Scull",
-    "png": "patterns/Witch Hat/png/Human Scull.png",
-    "tgs": "patterns/Witch Hat/Human Scull.tgs"
+    "name": "Human Scull"
   },
   {
-    "name": "Ice Cream",
-    "png": "patterns/Xmas Stocking/png/Ice Cream.png",
-    "tgs": "patterns/Xmas Stocking/Ice Cream.tgs"
+    "name": "Ice Cream"
   },
   {
-    "name": "Ice Pop",
-    "png": "patterns/Xmas Stocking/png/Ice Pop.png",
-    "tgs": "patterns/Xmas Stocking/Ice Pop.tgs"
+    "name": "Ice Pop"
   },
   {
-    "name": "Ice Skates",
-    "png": "patterns/Xmas Stocking/png/Ice Skates.png",
-    "tgs": "patterns/Xmas Stocking/Ice Skates.tgs"
+    "name": "Ice Skates"
   },
   {
-    "name": "Illuminati",
-    "png": "patterns/Witch Hat/png/Illuminati.png",
-    "tgs": "patterns/Witch Hat/Illuminati.tgs"
+    "name": "Illuminati"
   },
   {
-    "name": "Imperial Lion",
-    "png": "patterns/Toy Bear/png/Imperial Lion.png",
-    "tgs": "patterns/Toy Bear/Imperial Lion.tgs"
+    "name": "Imperial Lion"
   },
   {
-    "name": "Inca Sun",
-    "png": "patterns/Witch Hat/png/Inca Sun.png",
-    "tgs": "patterns/Witch Hat/Inca Sun.tgs"
+    "name": "Inca Sun"
   },
   {
-    "name": "Inguz Rune",
-    "png": "patterns/Voodoo Doll/png/Inguz Rune.png",
-    "tgs": "patterns/Voodoo Doll/Inguz Rune.tgs"
+    "name": "Inguz Rune"
   },
   {
-    "name": "Ink Pen",
-    "png": "patterns/Vintage Cigar/png/Ink Pen.png",
-    "tgs": "patterns/Vintage Cigar/Ink Pen.tgs"
+    "name": "Ink Pen"
   },
   {
-    "name": "Iris",
-    "png": "patterns/Neko Helmet/png/Iris.png",
-    "tgs": "patterns/Neko Helmet/Iris.tgs"
+    "name": "Iris"
   },
   {
-    "name": "Iron Helmet",
-    "png": "patterns/Snake Box/png/Iron Helmet.png",
-    "tgs": "patterns/Snake Box/Iron Helmet.tgs"
+    "name": "Iron Helmet"
   },
   {
-    "name": "Jack-O-Lantern",
-    "png": "patterns/Electric Skull/png/Jack-O-Lantern.png",
-    "tgs": "patterns/Electric Skull/Jack-O-Lantern.tgs"
+    "name": "Jack-O-Lantern"
   },
   {
-    "name": "Jasmin",
-    "png": "patterns/Neko Helmet/png/Jasmin.png",
-    "tgs": "patterns/Restless Jar/Jasmin.tgs"
+    "name": "Jasmin"
   },
   {
-    "name": "Jaws",
-    "png": "patterns/Witch Hat/png/Jaws.png",
-    "tgs": "patterns/Witch Hat/Jaws.tgs"
+    "name": "Jaws"
   },
   {
-    "name": "Jellyfish",
-    "png": "patterns/Xmas Stocking/png/Jellyfish.png",
-    "tgs": "patterns/Xmas Stocking/Jellyfish.tgs"
+    "name": "Jellyfish"
   },
   {
-    "name": "Jester Hat",
-    "png": "patterns/Top Hat/png/Jester Hat.png",
-    "tgs": "patterns/Top Hat/Jester Hat.tgs"
+    "name": "Jester Hat"
   },
   {
-    "name": "Jewel",
-    "png": "patterns/Toy Bear/png/Jewel.png",
-    "tgs": "patterns/Toy Bear/Jewel.tgs"
+    "name": "Jewel"
   },
   {
-    "name": "Jingle Bell",
-    "png": "patterns/Xmas Stocking/png/Jingle Bell.png",
-    "tgs": "patterns/Xmas Stocking/Jingle Bell.tgs"
+    "name": "Jingle Bell"
   },
   {
-    "name": "Jolly Roger",
-    "png": "patterns/Xmas Stocking/png/Jolly Roger.png",
-    "tgs": "patterns/Xmas Stocking/Jolly Roger.tgs"
+    "name": "Jolly Roger"
   },
   {
-    "name": "Jumbo Pencil",
-    "png": "patterns/Xmas Stocking/png/Jumbo Pencil.png",
-    "tgs": "patterns/Xmas Stocking/Jumbo Pencil.tgs"
+    "name": "Jumbo Pencil"
   },
   {
-    "name": "Kashket",
-    "png": "patterns/Light Sword/png/Kashket.png",
-    "tgs": "patterns/Nail Bracelet/Kashket.tgs"
+    "name": "Kashket"
   },
   {
-    "name": "Keffiyeh",
-    "png": "patterns/Snow Globe/png/Keffiyeh.png",
-    "tgs": "patterns/Snow Globe/Keffiyeh.tgs"
+    "name": "Keffiyeh"
   },
   {
-    "name": "Key",
-    "png": "patterns/Xmas Stocking/png/Key.png",
-    "tgs": "patterns/Xmas Stocking/Key.tgs"
+    "name": "Key"
   },
   {
-    "name": "Khinkali",
-    "png": "patterns/Xmas Stocking/png/Khinkali.png",
-    "tgs": "patterns/Xmas Stocking/Khinkali.tgs"
+    "name": "Khinkali"
   },
   {
-    "name": "Kite",
-    "png": "patterns/Vintage Cigar/png/Kite.png",
-    "tgs": "patterns/Vintage Cigar/Kite.tgs"
+    "name": "Kite"
   },
   {
-    "name": "Kitsune",
-    "png": "patterns/Witch Hat/png/Kitsune.png",
-    "tgs": "patterns/Witch Hat/Kitsune.tgs"
+    "name": "Kitsune"
   },
   {
-    "name": "Kitsune Mask",
-    "png": "patterns/Toy Bear/png/Kitsune Mask.png",
-    "tgs": "patterns/Toy Bear/Kitsune Mask.tgs"
+    "name": "Kitsune Mask"
   },
   {
-    "name": "Kitty Cat",
-    "png": "patterns/Trapped Heart/png/Kitty Cat.png",
-    "tgs": "patterns/Trapped Heart/Kitty Cat.tgs"
+    "name": "Kitty Cat"
   },
   {
-    "name": "Knight",
-    "png": "patterns/Vintage Cigar/png/Knight.png",
-    "tgs": "patterns/Vintage Cigar/Knight.tgs"
+    "name": "Knight"
   },
   {
-    "name": "Koala",
-    "png": "patterns/Voodoo Doll/png/Koala.png",
-    "tgs": "patterns/Voodoo Doll/Koala.tgs"
+    "name": "Koala"
   },
   {
-    "name": "Kudu Totem",
-    "png": "patterns/Top Hat/png/Kudu Totem.png",
-    "tgs": "patterns/Top Hat/Kudu Totem.tgs"
+    "name": "Kudu Totem"
   },
   {
-    "name": "La Corona",
-    "png": "patterns/Xmas Stocking/png/La Corona.png",
-    "tgs": "patterns/Xmas Stocking/La Corona.tgs"
+    "name": "La Corona"
   },
   {
-    "name": "Ladybug",
-    "png": "patterns/Witch Hat/png/Ladybug.png",
-    "tgs": "patterns/Witch Hat/Ladybug.tgs"
+    "name": "Ladybug"
   },
   {
-    "name": "Lavender",
-    "png": "patterns/Neko Helmet/png/Lavender.png",
-    "tgs": "patterns/Restless Jar/Lavender.tgs"
+    "name": "Lavender"
   },
   {
-    "name": "Leaf",
-    "png": "patterns/Winter Wreath/png/Leaf.png",
-    "tgs": "patterns/Winter Wreath/Leaf.tgs"
+    "name": "Leaf"
   },
   {
-    "name": "Legionary",
-    "png": "patterns/Top Hat/png/Legionary.png",
-    "tgs": "patterns/Top Hat/Legionary.tgs"
+    "name": "Legionary"
   },
   {
-    "name": "Lemon",
-    "png": "patterns/Voodoo Doll/png/Lemon.png",
-    "tgs": "patterns/Voodoo Doll/Lemon.tgs"
+    "name": "Lemon"
   },
   {
-    "name": "Lemon Slice",
-    "png": "patterns/Witch Hat/png/Lemon Slice.png",
-    "tgs": "patterns/Witch Hat/Lemon Slice.tgs"
+    "name": "Lemon Slice"
   },
   {
-    "name": "Leprechaun",
-    "png": "patterns/Xmas Stocking/png/Leprechaun.png",
-    "tgs": "patterns/Xmas Stocking/Leprechaun.tgs"
+    "name": "Leprechaun"
   },
   {
-    "name": "Light Bulb",
-    "png": "patterns/Witch Hat/png/Light Bulb.png",
-    "tgs": "patterns/Witch Hat/Light Bulb.tgs"
+    "name": "Light Bulb"
   },
   {
-    "name": "Lightning",
-    "png": "patterns/Xmas Stocking/png/Lightning.png",
-    "tgs": "patterns/Xmas Stocking/Lightning.tgs"
+    "name": "Lightning"
   },
   {
-    "name": "Like",
-    "png": "patterns/Xmas Stocking/png/Like.png",
-    "tgs": "patterns/Xmas Stocking/Like.tgs"
+    "name": "Like"
   },
   {
-    "name": "Like Button",
-    "png": "patterns/Toy Bear/png/Like Button.png",
-    "tgs": "patterns/Toy Bear/Like Button.tgs"
+    "name": "Like Button"
   },
   {
-    "name": "Lily",
-    "png": "patterns/Winter Wreath/png/Lily.png",
-    "tgs": "patterns/Winter Wreath/Lily.tgs"
+    "name": "Lily"
   },
   {
-    "name": "Lily Bloom",
-    "png": "patterns/Neko Helmet/png/Lily Bloom.png",
-    "tgs": "patterns/Restless Jar/Lily Bloom.tgs"
+    "name": "Lily Bloom"
   },
   {
-    "name": "Lingerie",
-    "png": "patterns/Trapped Heart/png/Lingerie.png",
-    "tgs": "patterns/Trapped Heart/Lingerie.tgs"
+    "name": "Lingerie"
   },
   {
-    "name": "Lion Head",
-    "png": "patterns/Xmas Stocking/png/Lion Head.png",
-    "tgs": "patterns/Xmas Stocking/Lion Head.tgs"
+    "name": "Lion Head"
   },
   {
-    "name": "Lion King",
-    "png": "patterns/Witch Hat/png/Lion King.png",
-    "tgs": "patterns/Witch Hat/Lion King.tgs"
+    "name": "Lion King"
   },
   {
-    "name": "Lion of Babylon",
-    "png": "patterns/Top Hat/png/Lion of Babylon.png",
-    "tgs": "patterns/Top Hat/Lion of Babylon.tgs"
+    "name": "Lion of Babylon"
   },
   {
-    "name": "Lips",
-    "png": "patterns/Trapped Heart/png/Lips.png",
-    "tgs": "patterns/Trapped Heart/Lips.tgs"
+    "name": "Lips"
   },
   {
-    "name": "Little Cupid",
-    "png": "patterns/Toy Bear/png/Little Cupid.png",
-    "tgs": "patterns/Toy Bear/Little Cupid.tgs"
+    "name": "Little Cupid"
   },
   {
-    "name": "Lollipop",
-    "png": "patterns/Witch Hat/png/Lollipop.png",
-    "tgs": "patterns/Witch Hat/Lollipop.tgs"
+    "name": "Lollipop"
   },
   {
-    "name": "Lotus",
-    "png": "patterns/Neko Helmet/png/Lotus.png",
-    "tgs": "patterns/Neko Helmet/Lotus.tgs"
+    "name": "Lotus"
   },
   {
-    "name": "Lotus Flower",
-    "png": "patterns/Winter Wreath/png/Lotus Flower.png",
-    "tgs": "patterns/Winter Wreath/Lotus Flower.tgs"
+    "name": "Lotus Flower"
   },
   {
-    "name": "Love",
-    "png": "patterns/Toy Bear/png/Love.png",
-    "tgs": "patterns/Toy Bear/Love.tgs"
+    "name": "Love"
   },
   {
-    "name": "Love Bell",
-    "png": "patterns/Toy Bear/png/Love Bell.png",
-    "tgs": "patterns/Toy Bear/Love Bell.tgs"
+    "name": "Love Bell"
   },
   {
-    "name": "Love Berry",
-    "png": "patterns/Toy Bear/png/Love Berry.png",
-    "tgs": "patterns/Toy Bear/Love Berry.tgs"
+    "name": "Love Berry"
   },
   {
-    "name": "Love Bulb",
-    "png": "patterns/Toy Bear/png/Love Bulb.png",
-    "tgs": "patterns/Toy Bear/Love Bulb.tgs"
+    "name": "Love Bulb"
   },
   {
-    "name": "Love Candy",
-    "png": "patterns/Toy Bear/png/Love Candy.png",
-    "tgs": "patterns/Toy Bear/Love Candy.tgs"
+    "name": "Love Candy"
   },
   {
-    "name": "Love Cherry",
-    "png": "patterns/Toy Bear/png/Love Cherry.png",
-    "tgs": "patterns/Toy Bear/Love Cherry.tgs"
+    "name": "Love Cherry"
   },
   {
-    "name": "Love Daisy",
-    "png": "patterns/Toy Bear/png/Love Daisy.png",
-    "tgs": "patterns/Toy Bear/Love Daisy.tgs"
+    "name": "Love Daisy"
   },
   {
-    "name": "Love Dove",
-    "png": "patterns/Trapped Heart/png/Love Dove.png",
-    "tgs": "patterns/Trapped Heart/Love Dove.tgs"
+    "name": "Love Dove"
   },
   {
-    "name": "Love Letter",
-    "png": "patterns/Winter Wreath/png/Love Letter.png",
-    "tgs": "patterns/Winter Wreath/Love Letter.tgs"
+    "name": "Love Letter"
   },
   {
-    "name": "Love Lock",
-    "png": "patterns/Voodoo Doll/png/Love Lock.png",
-    "tgs": "patterns/Voodoo Doll/Love Lock.tgs"
+    "name": "Love Lock"
   },
   {
-    "name": "Love Mug",
-    "png": "patterns/Toy Bear/png/Love Mug.png",
-    "tgs": "patterns/Toy Bear/Love Mug.tgs"
+    "name": "Love Mug"
   },
   {
-    "name": "Love Potion",
-    "png": "patterns/Toy Bear/png/Love Potion.png",
-    "tgs": "patterns/Toy Bear/Love Potion.tgs"
+    "name": "Love Potion"
   },
   {
-    "name": "Love Puzzle",
-    "png": "patterns/Toy Bear/png/Love Puzzle.png",
-    "tgs": "patterns/Toy Bear/Love Puzzle.tgs"
+    "name": "Love Puzzle"
   },
   {
-    "name": "Love Scene",
-    "png": "patterns/Toy Bear/png/Love Scene.png",
-    "tgs": "patterns/Toy Bear/Love Scene.tgs"
+    "name": "Love Scene"
   },
   {
-    "name": "Loveberry",
-    "png": "patterns/Trapped Heart/png/Loveberry.png",
-    "tgs": "patterns/Trapped Heart/Loveberry.tgs"
+    "name": "Loveberry"
   },
   {
-    "name": "Lovebirds",
-    "png": "patterns/Trapped Heart/png/Lovebirds.png",
-    "tgs": "patterns/Trapped Heart/Lovebirds.tgs"
+    "name": "Lovebirds"
   },
   {
-    "name": "Lovely Bra",
-    "png": "patterns/Trapped Heart/png/Lovely Bra.png",
-    "tgs": "patterns/Trapped Heart/Lovely Bra.tgs"
+    "name": "Lovely Bra"
   },
   {
-    "name": "Lovely Key",
-    "png": "patterns/Trapped Heart/png/Lovely Key.png",
-    "tgs": "patterns/Trapped Heart/Lovely Key.tgs"
+    "name": "Lovely Key"
   },
   {
-    "name": "Lovely Kiss",
-    "png": "patterns/Voodoo Doll/png/Lovely Kiss.png",
-    "tgs": "patterns/Voodoo Doll/Lovely Kiss.tgs"
+    "name": "Lovely Kiss"
   },
   {
-    "name": "Lovely Rain",
-    "png": "patterns/Trapped Heart/png/Lovely Rain.png",
-    "tgs": "patterns/Trapped Heart/Lovely Rain.tgs"
+    "name": "Lovely Rain"
   },
   {
-    "name": "Lovely Rose",
-    "png": "patterns/Trapped Heart/png/Lovely Rose.png",
-    "tgs": "patterns/Trapped Heart/Lovely Rose.tgs"
+    "name": "Lovely Rose"
   },
   {
-    "name": "Lovestruck",
-    "png": "patterns/Toy Bear/png/Lovestruck.png",
-    "tgs": "patterns/Toy Bear/Lovestruck.tgs"
+    "name": "Lovestruck"
   },
   {
-    "name": "Loving Heart",
-    "png": "patterns/Trapped Heart/png/Loving Heart.png",
-    "tgs": "patterns/Trapped Heart/Loving Heart.tgs"
+    "name": "Loving Heart"
   },
   {
-    "name": "Mafdet",
-    "png": "patterns/Xmas Stocking/png/Mafdet.png",
-    "tgs": "patterns/Xmas Stocking/Mafdet.tgs"
+    "name": "Mafdet"
   },
   {
-    "name": "Magic Elixir",
-    "png": "patterns/Electric Skull/png/Magic Elixir.png",
-    "tgs": "patterns/Electric Skull/Magic Elixir.tgs"
+    "name": "Magic Elixir"
   },
   {
-    "name": "Magic Hat",
-    "png": "patterns/Top Hat/png/Magic Hat.png",
-    "tgs": "patterns/Top Hat/Magic Hat.tgs"
+    "name": "Magic Hat"
   },
   {
-    "name": "Magic Vial",
-    "png": "patterns/Xmas Stocking/png/Magic Vial.png",
-    "tgs": "patterns/Xmas Stocking/Magic Vial.tgs"
+    "name": "Magic Vial"
   },
   {
-    "name": "Magic Wand",
-    "png": "patterns/Xmas Stocking/png/Magic Wand.png",
-    "tgs": "patterns/Xmas Stocking/Magic Wand.tgs"
+    "name": "Magic Wand"
   },
   {
-    "name": "Mailbox",
-    "png": "patterns/Toy Bear/png/Mailbox.png",
-    "tgs": "patterns/Toy Bear/Mailbox.tgs"
+    "name": "Mailbox"
   },
   {
-    "name": "Mannaz Rune",
-    "png": "patterns/Voodoo Doll/png/Mannaz Rune.png",
-    "tgs": "patterns/Voodoo Doll/Mannaz Rune.tgs"
+    "name": "Mannaz Rune"
   },
   {
-    "name": "Manta Ray",
-    "png": "patterns/Trapped Heart/png/Manta Ray.png",
-    "tgs": "patterns/Trapped Heart/Manta Ray.tgs"
+    "name": "Manta Ray"
   },
   {
-    "name": "Maple",
-    "png": "patterns/Witch Hat/png/Maple.png",
-    "tgs": "patterns/Witch Hat/Maple.tgs"
+    "name": "Maple"
   },
   {
-    "name": "Maple Leaf",
-    "png": "patterns/Witch Hat/png/Maple Leaf.png",
-    "tgs": "patterns/Witch Hat/Maple Leaf.tgs"
+    "name": "Maple Leaf"
   },
   {
-    "name": "Mars & Venus",
-    "png": "patterns/Toy Bear/png/Mars & Venus.png",
-    "tgs": "patterns/Toy Bear/Mars & Venus.tgs"
+    "name": "Mars & Venus"
   },
   {
-    "name": "Mask",
-    "png": "patterns/Xmas Stocking/png/Mask.png",
-    "tgs": "patterns/Xmas Stocking/Mask.tgs"
+    "name": "Mask"
   },
   {
-    "name": "May Bells",
-    "png": "patterns/Neko Helmet/png/May Bells.png",
-    "tgs": "patterns/Neko Helmet/May Bells.tgs"
+    "name": "May Bells"
   },
   {
-    "name": "Mayan Moth",
-    "png": "patterns/Xmas Stocking/png/Mayan Moth.png",
-    "tgs": "patterns/Xmas Stocking/Mayan Moth.tgs"
+    "name": "Mayan Moth"
   },
   {
-    "name": "Meat Leg",
-    "png": "patterns/Xmas Stocking/png/Meat Leg.png",
-    "tgs": "patterns/Xmas Stocking/Meat Leg.tgs"
+    "name": "Meat Leg"
   },
   {
-    "name": "Melon",
-    "png": "patterns/Witch Hat/png/Melon.png",
-    "tgs": "patterns/Witch Hat/Melon.tgs"
+    "name": "Melon"
   },
   {
-    "name": "Mining Helmet",
-    "png": "patterns/Top Hat/png/Mining Helmet.png",
-    "tgs": "patterns/Top Hat/Mining Helmet.tgs"
+    "name": "Mining Helmet"
   },
   {
-    "name": "Mistletoe",
-    "png": "patterns/Xmas Stocking/png/Mistletoe.png",
-    "tgs": "patterns/Xmas Stocking/Mistletoe.tgs"
+    "name": "Mistletoe"
   },
   {
-    "name": "Mittens",
-    "png": "patterns/Xmas Stocking/png/Mittens.png",
-    "tgs": "patterns/Xmas Stocking/Mittens.tgs"
+    "name": "Mittens"
   },
   {
-    "name": "Moai Head",
-    "png": "patterns/Xmas Stocking/png/Moai Head.png",
-    "tgs": "patterns/Xmas Stocking/Moai Head.tgs"
+    "name": "Moai Head"
   },
   {
-    "name": "Monarch",
-    "png": "patterns/Winter Wreath/png/Monarch.png",
-    "tgs": "patterns/Winter Wreath/Monarch.tgs"
+    "name": "Monarch"
   },
   {
-    "name": "Money Bag",
-    "png": "patterns/Winter Wreath/png/Money Bag.png",
-    "tgs": "patterns/Winter Wreath/Money Bag.tgs"
+    "name": "Money Bag"
   },
   {
-    "name": "Monstera",
-    "png": "patterns/Witch Hat/png/Monstera.png",
-    "tgs": "patterns/Witch Hat/Monstera.tgs"
+    "name": "Monstera"
   },
   {
-    "name": "Moon",
-    "png": "patterns/Witch Hat/png/Moon.png",
-    "tgs": "patterns/Witch Hat/Moon.tgs"
+    "name": "Moon"
   },
   {
-    "name": "Moon Cross",
-    "png": "patterns/Winter Wreath/png/Moon Cross.png",
-    "tgs": "patterns/Winter Wreath/Moon Cross.tgs"
+    "name": "Moon Cross"
   },
   {
-    "name": "Moon Eagle",
-    "png": "patterns/Witch Hat/png/Moon Eagle.png",
-    "tgs": "patterns/Witch Hat/Moon Eagle.tgs"
+    "name": "Moon Eagle"
   },
   {
-    "name": "Moon Face",
-    "png": "patterns/Top Hat/png/Moon Face.png",
-    "tgs": "patterns/Top Hat/Moon Face.tgs"
+    "name": "Moon Face"
   },
   {
-    "name": "Moose Head",
-    "png": "patterns/Xmas Stocking/png/Moose Head.png",
-    "tgs": "patterns/Xmas Stocking/Moose Head.tgs"
+    "name": "Moose Head"
   },
   {
-    "name": "Morgenstern",
-    "png": "patterns/Top Hat/png/Morgenstern.png",
-    "tgs": "patterns/Top Hat/Morgenstern.tgs"
+    "name": "Morgenstern"
   },
   {
-    "name": "Mortar",
-    "png": "patterns/Electric Skull/png/Mortar.png",
-    "tgs": "patterns/Electric Skull/Mortar.tgs"
+    "name": "Mortar"
   },
   {
-    "name": "Moto Helmet",
-    "png": "patterns/Xmas Stocking/png/Moto Helmet.png",
-    "tgs": "patterns/Xmas Stocking/Moto Helmet.tgs"
+    "name": "Moto Helmet"
   },
   {
-    "name": "Mountain Goat",
-    "png": "patterns/Xmas Stocking/png/Mountain Goat.png",
-    "tgs": "patterns/Xmas Stocking/Mountain Goat.tgs"
+    "name": "Mountain Goat"
   },
   {
-    "name": "Mountain Lion",
-    "png": "patterns/Voodoo Doll/png/Mountain Lion.png",
-    "tgs": "patterns/Voodoo Doll/Mountain Lion.tgs"
+    "name": "Mountain Lion"
   },
   {
-    "name": "Muffin",
-    "png": "patterns/Toy Bear/png/Muffin.png",
-    "tgs": "patterns/Toy Bear/Muffin.tgs"
+    "name": "Muffin"
   },
   {
-    "name": "Mushroom",
-    "png": "patterns/Voodoo Doll/png/Mushroom.png",
-    "tgs": "patterns/Voodoo Doll/Mushroom.tgs"
+    "name": "Mushroom"
   },
   {
-    "name": "Musical Note",
-    "png": "patterns/Witch Hat/png/Musical Note.png",
-    "tgs": "patterns/Witch Hat/Musical Note.tgs"
+    "name": "Musical Note"
   },
   {
-    "name": "Mustache",
-    "png": "patterns/Xmas Stocking/png/Mustache.png",
-    "tgs": "patterns/Xmas Stocking/Mustache.tgs"
+    "name": "Mustache"
   },
   {
-    "name": "Mustang",
-    "png": "patterns/Xmas Stocking/png/Mustang.png",
-    "tgs": "patterns/Xmas Stocking/Mustang.tgs"
+    "name": "Mustang"
   },
   {
-    "name": "Napkins",
-    "png": "patterns/Trapped Heart/png/Napkins.png",
-    "tgs": "patterns/Trapped Heart/Napkins.tgs"
+    "name": "Napkins"
   },
   {
-    "name": "Narcissus",
-    "png": "patterns/Xmas Stocking/png/Narcissus.png",
-    "tgs": "patterns/Xmas Stocking/Narcissus.tgs"
+    "name": "Narcissus"
   },
   {
-    "name": "Neko Mask",
-    "png": "patterns/Toy Bear/png/Neko Mask.png",
-    "tgs": "patterns/Toy Bear/Neko Mask.tgs"
+    "name": "Neko Mask"
   },
   {
-    "name": "Nemean Lion",
-    "png": "patterns/Top Hat/png/Nemean Lion.png",
-    "tgs": "patterns/Top Hat/Nemean Lion.tgs"
+    "name": "Nemean Lion"
   },
   {
-    "name": "Nemes",
-    "png": "patterns/Top Hat/png/Nemes.png",
-    "tgs": "patterns/Top Hat/Nemes.tgs"
+    "name": "Nemes"
   },
   {
-    "name": "Neptune",
-    "png": "patterns/Xmas Stocking/png/Neptune.png",
-    "tgs": "patterns/Xmas Stocking/Neptune.tgs"
+    "name": "Neptune"
   },
   {
-    "name": "New Year's Eve",
-    "png": "patterns/Xmas Stocking/png/New Year's Eve.png",
-    "tgs": "patterns/Xmas Stocking/New Year's Eve.tgs"
+    "name": "New Year's Eve"
   },
   {
-    "name": "Nice Ghost",
-    "png": "patterns/Witch Hat/png/Nice Ghost.png",
-    "tgs": "patterns/Witch Hat/Nice Ghost.tgs"
+    "name": "Nice Ghost"
   },
   {
-    "name": "Night Bats",
-    "png": "patterns/Witch Hat/png/Night Bats.png",
-    "tgs": "patterns/Witch Hat/Night Bats.tgs"
+    "name": "Night Bats"
   },
   {
-    "name": "Nigiri",
-    "png": "patterns/Toy Bear/png/Nigiri.png",
-    "tgs": "patterns/Xmas Stocking/Nigiri.tgs"
+    "name": "Nigiri"
   },
   {
-    "name": "Nordic Wolf",
-    "png": "patterns/Xmas Stocking/png/Nordic Wolf.png",
-    "tgs": "patterns/Xmas Stocking/Nordic Wolf.tgs"
+    "name": "Nordic Wolf"
   },
   {
-    "name": "Novus Ordo",
-    "png": "patterns/Xmas Stocking/png/Novus Ordo.png",
-    "tgs": "patterns/Xmas Stocking/Novus Ordo.tgs"
+    "name": "Novus Ordo"
   },
   {
-    "name": "Oak Leaf",
-    "png": "patterns/Vintage Cigar/png/Oak Leaf.png",
-    "tgs": "patterns/Vintage Cigar/Oak Leaf.tgs"
+    "name": "Oak Leaf"
   },
   {
-    "name": "Obon Lantern",
-    "png": "patterns/Xmas Stocking/png/Obon Lantern.png",
-    "tgs": "patterns/Xmas Stocking/Obon Lantern.tgs"
+    "name": "Obon Lantern"
   },
   {
-    "name": "Octopus",
-    "png": "patterns/Xmas Stocking/png/Octopus.png",
-    "tgs": "patterns/Xmas Stocking/Octopus.tgs"
+    "name": "Octopus"
   },
   {
-    "name": "Oculus",
-    "png": "patterns/Winter Wreath/png/Oculus.png",
-    "tgs": "patterns/Winter Wreath/Oculus.tgs"
+    "name": "Oculus"
   },
   {
-    "name": "Okami Wolf",
-    "png": "patterns/Xmas Stocking/png/Okami Wolf.png",
-    "tgs": "patterns/Xmas Stocking/Okami Wolf.tgs"
+    "name": "Okami Wolf"
   },
   {
-    "name": "Old Candle",
-    "png": "patterns/Xmas Stocking/png/Old Candle.png",
-    "tgs": "patterns/Xmas Stocking/Old Candle.tgs"
+    "name": "Old Candle"
   },
   {
-    "name": "Old Scull",
-    "png": "patterns/Electric Skull/png/Old Scull.png",
-    "tgs": "patterns/Electric Skull/Old Scull.tgs"
+    "name": "Old Scull"
   },
   {
-    "name": "Omusubi",
-    "png": "patterns/Xmas Stocking/png/Omusubi.png",
-    "tgs": "patterns/Xmas Stocking/Omusubi.tgs"
+    "name": "Omusubi"
   },
   {
-    "name": "Onigiri",
-    "png": "patterns/Top Hat/png/Onigiri.png",
-    "tgs": "patterns/Top Hat/Onigiri.tgs"
+    "name": "Onigiri"
   },
   {
-    "name": "Orchid",
-    "png": "patterns/Neko Helmet/png/Orchid.png",
-    "tgs": "patterns/Restless Jar/Orchid.tgs"
+    "name": "Orchid"
   },
   {
-    "name": "Origami",
-    "png": "patterns/Toy Bear/png/Origami.png",
-    "tgs": "patterns/Toy Bear/Origami.tgs"
+    "name": "Origami"
   },
   {
-    "name": "Ornament",
-    "png": "patterns/Xmas Stocking/png/Ornament.png",
-    "tgs": "patterns/Xmas Stocking/Ornament.tgs"
+    "name": "Ornament"
   },
   {
-    "name": "Ouroboros",
-    "png": "patterns/Voodoo Doll/png/Ouroboros.png",
-    "tgs": "patterns/Voodoo Doll/Ouroboros.tgs"
+    "name": "Ouroboros"
   },
   {
-    "name": "Owl",
-    "png": "patterns/Vintage Cigar/png/Owl.png",
-    "tgs": "patterns/Vintage Cigar/Owl.tgs"
+    "name": "Owl"
   },
   {
-    "name": "Oxen of Fire",
-    "png": "patterns/Xmas Stocking/png/Oxen of Fire.png",
-    "tgs": "patterns/Xmas Stocking/Oxen of Fire.tgs"
+    "name": "Oxen of Fire"
   },
   {
-    "name": "Padlock",
-    "png": "patterns/Trapped Heart/png/Padlock.png",
-    "tgs": "patterns/Trapped Heart/Padlock.tgs"
+    "name": "Padlock"
   },
   {
-    "name": "Palette",
-    "png": "patterns/Xmas Stocking/png/Palette.png",
-    "tgs": "patterns/Xmas Stocking/Palette.tgs"
+    "name": "Palette"
   },
   {
-    "name": "Pansy",
-    "png": "patterns/Neko Helmet/png/Pansy.png",
-    "tgs": "patterns/Restless Jar/Pansy.tgs"
+    "name": "Pansy"
   },
   {
-    "name": "Panty",
-    "png": "patterns/Toy Bear/png/Panty.png",
-    "tgs": "patterns/Toy Bear/Panty.tgs"
+    "name": "Panty"
   },
   {
-    "name": "Paper Crane",
-    "png": "patterns/Toy Bear/png/Paper Crane.png",
-    "tgs": "patterns/Toy Bear/Paper Crane.tgs"
+    "name": "Paper Crane"
   },
   {
-    "name": "Paper Lantern",
-    "png": "patterns/Toy Bear/png/Paper Lantern.png",
-    "tgs": "patterns/Toy Bear/Paper Lantern.tgs"
+    "name": "Paper Lantern"
   },
   {
-    "name": "Party Hat",
-    "png": "patterns/Tama Gadget/png/Party Hat.png",
-    "tgs": "patterns/Tama Gadget/Party Hat.tgs"
+    "name": "Party Hat"
   },
   {
-    "name": "Party Popper",
-    "png": "patterns/Toy Bear/png/Party Popper.png",
-    "tgs": "patterns/Toy Bear/Party Popper.tgs"
+    "name": "Party Popper"
   },
   {
-    "name": "Paschal Lamb",
-    "png": "patterns/Xmas Stocking/png/Paschal Lamb.png",
-    "tgs": "patterns/Xmas Stocking/Paschal Lamb.tgs"
+    "name": "Paschal Lamb"
   },
   {
-    "name": "Passion Latte",
-    "png": "patterns/Trapped Heart/png/Passion Latte.png",
-    "tgs": "patterns/Trapped Heart/Passion Latte.tgs"
+    "name": "Passion Latte"
   },
   {
-    "name": "Patched Heart",
-    "png": "patterns/Trapped Heart/png/Patched Heart.png",
-    "tgs": "patterns/Trapped Heart/Patched Heart.tgs"
+    "name": "Patched Heart"
   },
   {
-    "name": "Paw",
-    "png": "patterns/Witch Hat/png/Paw.png",
-    "tgs": "patterns/Witch Hat/Paw.tgs"
+    "name": "Paw"
   },
   {
-    "name": "Paw Print",
-    "png": "patterns/Toy Bear/png/Paw Print.png",
-    "tgs": "patterns/Toy Bear/Paw Print.tgs"
+    "name": "Paw Print"
   },
   {
-    "name": "Pawn",
-    "png": "patterns/Vintage Cigar/png/Pawn.png",
-    "tgs": "patterns/Vintage Cigar/Pawn.tgs"
+    "name": "Pawn"
   },
   {
-    "name": "PC Mouse",
-    "png": "patterns/Xmas Stocking/png/PC Mouse.png",
-    "tgs": "patterns/Xmas Stocking/PC Mouse.tgs"
+    "name": "PC Mouse"
   },
   {
-    "name": "Peace Dove",
-    "png": "patterns/Snake Box/png/Peace Dove.png",
-    "tgs": "patterns/Snake Box/Peace Dove.tgs"
+    "name": "Peace Dove"
   },
   {
-    "name": "Peaked Cap",
-    "png": "patterns/Winter Wreath/png/Peaked Cap.png",
-    "tgs": "patterns/Winter Wreath/Peaked Cap.tgs"
+    "name": "Peaked Cap"
   },
   {
-    "name": "Pear",
-    "png": "patterns/Winter Wreath/png/Pear.png",
-    "tgs": "patterns/Winter Wreath/Pear.tgs"
+    "name": "Pear"
   },
   {
-    "name": "Pearl",
-    "png": "patterns/Xmas Stocking/png/Pearl.png",
-    "tgs": "patterns/Xmas Stocking/Pearl.tgs"
+    "name": "Pearl"
   },
   {
-    "name": "Pegasus",
-    "png": "patterns/Voodoo Doll/png/Pegasus.png",
-    "tgs": "patterns/Voodoo Doll/Pegasus.tgs"
+    "name": "Pegasus"
   },
   {
-    "name": "Pencil",
-    "png": "patterns/Vintage Cigar/png/Pencil.png",
-    "tgs": "patterns/Vintage Cigar/Pencil.tgs"
+    "name": "Pencil"
   },
   {
-    "name": "Petunia",
-    "png": "patterns/Neko Helmet/png/Petunia.png",
-    "tgs": "patterns/Neko Helmet/Petunia.tgs"
+    "name": "Petunia"
   },
   {
-    "name": "Phoenix",
-    "png": "patterns/Winter Wreath/png/Phoenix.png",
-    "tgs": "patterns/Winter Wreath/Phoenix.tgs"
+    "name": "Phoenix"
   },
   {
-    "name": "Pickaxe",
-    "png": "patterns/Xmas Stocking/png/Pickaxe.png",
-    "tgs": "patterns/Xmas Stocking/Pickaxe.tgs"
+    "name": "Pickaxe"
   },
   {
-    "name": "Pierced Heart",
-    "png": "patterns/Toy Bear/png/Pierced Heart.png",
-    "tgs": "patterns/Toy Bear/Pierced Heart.tgs"
+    "name": "Pierced Heart"
   },
   {
-    "name": "Pigeon",
-    "png": "patterns/Toy Bear/png/Pigeon.png",
-    "tgs": "patterns/Toy Bear/Pigeon.tgs"
+    "name": "Pigeon"
   },
   {
-    "name": "Piggy Bank",
-    "png": "patterns/Xmas Stocking/png/Piggy Bank.png",
-    "tgs": "patterns/Xmas Stocking/Piggy Bank.tgs"
+    "name": "Piggy Bank"
   },
   {
-    "name": "Pilot Hat",
-    "png": "patterns/Sakura Flower/png/Pilot Hat.png",
-    "tgs": "patterns/Sakura Flower/Pilot Hat.tgs"
+    "name": "Pilot Hat"
   },
   {
-    "name": "Pineapple",
-    "png": "patterns/Witch Hat/png/Pineapple.png",
-    "tgs": "patterns/Witch Hat/Pineapple.tgs"
+    "name": "Pineapple"
   },
   {
-    "name": "Piranha",
-    "png": "patterns/Xmas Stocking/png/Piranha.png",
-    "tgs": "patterns/Xmas Stocking/Piranha.tgs"
+    "name": "Piranha"
   },
   {
-    "name": "Pirate Hat",
-    "png": "patterns/Xmas Stocking/png/Pirate Hat.png",
-    "tgs": "patterns/Xmas Stocking/Pirate Hat.tgs"
+    "name": "Pirate Hat"
   },
   {
-    "name": "Pirate Scull",
-    "png": "patterns/Toy Bear/png/Pirate Scull.png",
-    "tgs": "patterns/Toy Bear/Pirate Scull.tgs"
+    "name": "Pirate Scull"
   },
   {
-    "name": "Pith Helmet",
-    "png": "patterns/Tama Gadget/png/Pith Helmet.png",
-    "tgs": "patterns/Tama Gadget/Pith Helmet.tgs"
+    "name": "Pith Helmet"
   },
   {
-    "name": "Pixel Heart",
-    "png": "patterns/Toy Bear/png/Pixel Heart.png",
-    "tgs": "patterns/Toy Bear/Pixel Heart.tgs"
+    "name": "Pixel Heart"
   },
   {
-    "name": "Pizza Slice",
-    "png": "patterns/Winter Wreath/png/Pizza Slice.png",
-    "tgs": "patterns/Winter Wreath/Pizza Slice.tgs"
+    "name": "Pizza Slice"
   },
   {
-    "name": "Planet",
-    "png": "patterns/Xmas Stocking/png/Planet.png",
-    "tgs": "patterns/Xmas Stocking/Planet.tgs"
+    "name": "Planet"
   },
   {
-    "name": "Plum",
-    "png": "patterns/Vintage Cigar/png/Plum.png",
-    "tgs": "patterns/Vintage Cigar/Plum.tgs"
+    "name": "Plum"
   },
   {
-    "name": "Plume",
-    "png": "patterns/Xmas Stocking/png/Plume.png",
-    "tgs": "patterns/Xmas Stocking/Plume.tgs"
+    "name": "Plume"
   },
   {
-    "name": "Plume Shako",
-    "png": "patterns/Tama Gadget/png/Plume Shako.png",
-    "tgs": "patterns/Tama Gadget/Plume Shako.tgs"
+    "name": "Plume Shako"
   },
   {
-    "name": "Plumeria",
-    "png": "patterns/Neko Helmet/png/Plumeria.png",
-    "tgs": "patterns/Restless Jar/Plumeria.tgs"
+    "name": "Plumeria"
   },
   {
-    "name": "Poison Drop",
-    "png": "patterns/Witch Hat/png/Poison Drop.png",
-    "tgs": "patterns/Witch Hat/Poison Drop.tgs"
+    "name": "Poison Drop"
   },
   {
-    "name": "Polar Bear",
-    "png": "patterns/Xmas Stocking/png/Polar Bear.png",
-    "tgs": "patterns/Xmas Stocking/Polar Bear.tgs"
+    "name": "Polar Bear"
   },
   {
-    "name": "Police Badge",
-    "png": "patterns/Witch Hat/png/Police Badge.png",
-    "tgs": "patterns/Witch Hat/Police Badge.tgs"
+    "name": "Police Badge"
   },
   {
-    "name": "Police Hat",
-    "png": "patterns/Xmas Stocking/png/Police Hat.png",
-    "tgs": "patterns/Xmas Stocking/Police Hat.tgs"
+    "name": "Police Hat"
   },
   {
-    "name": "Pomegranate",
-    "png": "patterns/Vintage Cigar/png/Pomegranate.png",
-    "tgs": "patterns/Vintage Cigar/Pomegranate.tgs"
+    "name": "Pomegranate"
   },
   {
-    "name": "Poppy",
-    "png": "patterns/Neko Helmet/png/Poppy.png",
-    "tgs": "patterns/Neko Helmet/Poppy.tgs"
+    "name": "Poppy"
   },
   {
-    "name": "Porrige",
-    "png": "patterns/Xmas Stocking/png/Porrige.png",
-    "tgs": "patterns/Xmas Stocking/Porrige.tgs"
+    "name": "Porrige"
   },
   {
-    "name": "Potion",
-    "png": "patterns/Xmas Stocking/png/Potion.png",
-    "tgs": "patterns/Xmas Stocking/Potion.tgs"
+    "name": "Potion"
   },
   {
-    "name": "Press Hat",
-    "png": "patterns/Xmas Stocking/png/Press Hat.png",
-    "tgs": "patterns/Xmas Stocking/Press Hat.tgs"
+    "name": "Press Hat"
   },
   {
-    "name": "Propeller Cap",
-    "png": "patterns/Xmas Stocking/png/Propeller Cap.png",
-    "tgs": "patterns/Xmas Stocking/Propeller Cap.tgs"
+    "name": "Propeller Cap"
   },
   {
-    "name": "Puffball",
-    "png": "patterns/Neko Helmet/png/Puffball.png",
-    "tgs": "patterns/Restless Jar/Puffball.tgs"
+    "name": "Puffball"
   },
   {
-    "name": "Pumpkin Coach",
-    "png": "patterns/Toy Bear/png/Pumpkin Coach.png",
-    "tgs": "patterns/Toy Bear/Pumpkin Coach.tgs"
+    "name": "Pumpkin Coach"
   },
   {
-    "name": "Pussy Willow",
-    "png": "patterns/Neko Helmet/png/Pussy Willow.png",
-    "tgs": "patterns/Neko Helmet/Pussy Willow.tgs"
+    "name": "Pussy Willow"
   },
   {
-    "name": "Puzzle",
-    "png": "patterns/Xmas Stocking/png/Puzzle.png",
-    "tgs": "patterns/Xmas Stocking/Puzzle.tgs"
+    "name": "Puzzle"
   },
   {
-    "name": "Pyramid",
-    "png": "patterns/Witch Hat/png/Pyramid.png",
-    "tgs": "patterns/Witch Hat/Pyramid.tgs"
+    "name": "Pyramid"
   },
   {
-    "name": "Rabbit",
-    "png": "patterns/Trapped Heart/png/Rabbit.png",
-    "tgs": "patterns/Trapped Heart/Rabbit.tgs"
+    "name": "Rabbit"
   },
   {
-    "name": "Rabbit Mask",
-    "png": "patterns/Toy Bear/png/Rabbit Mask.png",
-    "tgs": "patterns/Toy Bear/Rabbit Mask.tgs"
+    "name": "Rabbit Mask"
   },
   {
-    "name": "Radar",
-    "png": "patterns/Top Hat/png/Radar.png",
-    "tgs": "patterns/Top Hat/Radar.tgs"
+    "name": "Radar"
   },
   {
-    "name": "Rain Drop",
-    "png": "patterns/Witch Hat/png/Rain Drop.png",
-    "tgs": "patterns/Witch Hat/Rain Drop.tgs"
+    "name": "Rain Drop"
   },
   {
-    "name": "Rainbow",
-    "png": "patterns/Toy Bear/png/Rainbow.png",
-    "tgs": "patterns/Toy Bear/Rainbow.tgs"
+    "name": "Rainbow"
   },
   {
-    "name": "Ram of Amun",
-    "png": "patterns/Vintage Cigar/png/Ram of Amun.png",
-    "tgs": "patterns/Vintage Cigar/Ram of Amun.tgs"
+    "name": "Ram of Amun"
   },
   {
-    "name": "Ramen",
-    "png": "patterns/Toy Bear/png/Ramen.png",
-    "tgs": "patterns/Toy Bear/Ramen.tgs"
+    "name": "Ramen"
   },
   {
-    "name": "Red Deer",
-    "png": "patterns/Witch Hat/png/Red Deer.png",
-    "tgs": "patterns/Witch Hat/Red Deer.tgs"
+    "name": "Red Deer"
   },
   {
-    "name": "Rhino Warrior",
-    "png": "patterns/Vintage Cigar/png/Rhino Warrior.png",
-    "tgs": "patterns/Vintage Cigar/Rhino Warrior.tgs"
+    "name": "Rhino Warrior"
   },
   {
-    "name": "Ribeye Steak",
-    "png": "patterns/Top Hat/png/Ribeye Steak.png",
-    "tgs": "patterns/Top Hat/Ribeye Steak.tgs"
+    "name": "Ribeye Steak"
   },
   {
-    "name": "Ring",
-    "png": "patterns/Xmas Stocking/png/Ring.png",
-    "tgs": "patterns/Xmas Stocking/Ring.tgs"
+    "name": "Ring"
   },
   {
-    "name": "Robin Hood",
-    "png": "patterns/Xmas Stocking/png/Robin Hood.png",
-    "tgs": "patterns/Xmas Stocking/Robin Hood.tgs"
+    "name": "Robin Hood"
   },
   {
-    "name": "Rocket",
-    "png": "patterns/Voodoo Doll/png/Rocket.png",
-    "tgs": "patterns/Voodoo Doll/Rocket.tgs"
+    "name": "Rocket"
   },
   {
-    "name": "Romantic Cake",
-    "png": "patterns/Trapped Heart/png/Romantic Cake.png",
-    "tgs": "patterns/Trapped Heart/Romantic Cake.tgs"
+    "name": "Romantic Cake"
   },
   {
-    "name": "Rook",
-    "png": "patterns/Xmas Stocking/png/Rook.png",
-    "tgs": "patterns/Xmas Stocking/Rook.tgs"
+    "name": "Rook"
   },
   {
-    "name": "Rooster",
-    "png": "patterns/Xmas Stocking/png/Rooster.png",
-    "tgs": "patterns/Xmas Stocking/Rooster.tgs"
+    "name": "Rooster"
   },
   {
-    "name": "Rose",
-    "png": "patterns/Xmas Stocking/png/Rose.png",
-    "tgs": "patterns/Xmas Stocking/Rose.tgs"
+    "name": "Rose"
   },
   {
-    "name": "Rose Blossom",
-    "png": "patterns/Toy Bear/png/Rose Blossom.png",
-    "tgs": "patterns/Toy Bear/Rose Blossom.tgs"
+    "name": "Rose Blossom"
   },
   {
-    "name": "Rose Bud",
-    "png": "patterns/Neko Helmet/png/Rose Bud.png",
-    "tgs": "patterns/Neko Helmet/Rose Bud.tgs"
+    "name": "Rose Bud"
   },
   {
-    "name": "Royal Crown",
-    "png": "patterns/Vintage Cigar/png/Royal Crown.png",
-    "tgs": "patterns/Vintage Cigar/Royal Crown.tgs"
+    "name": "Royal Crown"
   },
   {
-    "name": "Royal Turban",
-    "png": "patterns/Xmas Stocking/png/Royal Turban.png",
-    "tgs": "patterns/Xmas Stocking/Royal Turban.tgs"
+    "name": "Royal Turban"
   },
   {
-    "name": "Rudolph",
-    "png": "patterns/Xmas Stocking/png/Rudolph.png",
-    "tgs": "patterns/Xmas Stocking/Rudolph.tgs"
+    "name": "Rudolph"
   },
   {
-    "name": "Sailor Hat",
-    "png": "patterns/Xmas Stocking/png/Sailor Hat.png",
-    "tgs": "patterns/Xmas Stocking/Sailor Hat.tgs"
+    "name": "Sailor Hat"
   },
   {
-    "name": "Sakura",
-    "png": "patterns/Xmas Stocking/png/Sakura.png",
-    "tgs": "patterns/Xmas Stocking/Sakura.tgs"
+    "name": "Sakura"
   },
   {
-    "name": "Sakura Flower",
-    "png": "patterns/Xmas Stocking/png/Sakura Flower.png",
-    "tgs": "patterns/Xmas Stocking/Sakura Flower.tgs"
+    "name": "Sakura Flower"
   },
   {
-    "name": "Santa Hat",
-    "png": "patterns/Xmas Stocking/png/Santa Hat.png",
-    "tgs": "patterns/Xmas Stocking/Santa Hat.tgs"
+    "name": "Santa Hat"
   },
   {
-    "name": "Sauron",
-    "png": "patterns/Xmas Stocking/png/Sauron.png",
-    "tgs": "patterns/Xmas Stocking/Sauron.tgs"
+    "name": "Sauron"
   },
   {
-    "name": "Scarab",
-    "png": "patterns/Xmas Stocking/png/Scarab.png",
-    "tgs": "patterns/Xmas Stocking/Scarab.tgs"
+    "name": "Scarab"
   },
   {
-    "name": "Scarecrow",
-    "png": "patterns/Witch Hat/png/Scarecrow.png",
-    "tgs": "patterns/Witch Hat/Scarecrow.tgs"
+    "name": "Scarecrow"
   },
   {
-    "name": "Scissors",
-    "png": "patterns/Witch Hat/png/Scissors.png",
-    "tgs": "patterns/Witch Hat/Scissors.tgs"
+    "name": "Scissors"
   },
   {
-    "name": "Scorpion",
-    "png": "patterns/Xmas Stocking/png/Scorpion.png",
-    "tgs": "patterns/Xmas Stocking/Scorpion.tgs"
+    "name": "Scorpion"
   },
   {
-    "name": "Sea Dragon",
-    "png": "patterns/Top Hat/png/Sea Dragon.png",
-    "tgs": "patterns/Top Hat/Sea Dragon.tgs"
+    "name": "Sea Dragon"
   },
   {
-    "name": "Sea Horse",
-    "png": "patterns/Winter Wreath/png/Sea Horse.png",
-    "tgs": "patterns/Winter Wreath/Sea Horse.tgs"
+    "name": "Sea Horse"
   },
   {
-    "name": "Sea Jelly",
-    "png": "patterns/Xmas Stocking/png/Sea Jelly.png",
-    "tgs": "patterns/Xmas Stocking/Sea Jelly.tgs"
+    "name": "Sea Jelly"
   },
   {
-    "name": "Seahorse",
-    "png": "patterns/Witch Hat/png/Seahorse.png",
-    "tgs": "patterns/Witch Hat/Seahorse.tgs"
+    "name": "Seahorse"
   },
   {
-    "name": "Serpent",
-    "png": "patterns/Top Hat/png/Serpent.png",
-    "tgs": "patterns/Top Hat/Serpent.tgs"
+    "name": "Serpent"
   },
   {
-    "name": "Severed Hand",
-    "png": "patterns/Witch Hat/png/Severed Hand.png",
-    "tgs": "patterns/Witch Hat/Severed Hand.tgs"
+    "name": "Severed Hand"
   },
   {
-    "name": "Shako",
-    "png": "patterns/Winter Wreath/png/Shako.png",
-    "tgs": "patterns/Winter Wreath/Shako.tgs"
+    "name": "Shako"
   },
   {
-    "name": "Shark Knife",
-    "png": "patterns/Witch Hat/png/Shark Knife.png",
-    "tgs": "patterns/Witch Hat/Shark Knife.tgs"
+    "name": "Shark Knife"
   },
   {
-    "name": "Sharp Sword",
-    "png": "patterns/Xmas Stocking/png/Sharp Sword.png",
-    "tgs": "patterns/Xmas Stocking/Sharp Sword.tgs"
+    "name": "Sharp Sword"
   },
   {
-    "name": "Shell",
-    "png": "patterns/Witch Hat/png/Shell.png",
-    "tgs": "patterns/Witch Hat/Shell.tgs"
+    "name": "Shell"
   },
   {
-    "name": "Shield",
-    "png": "patterns/Witch Hat/png/Shield.png",
-    "tgs": "patterns/Witch Hat/Shield.tgs"
+    "name": "Shield"
   },
   {
-    "name": "Shinto Shrine",
-    "png": "patterns/Winter Wreath/png/Shinto Shrine.png",
-    "tgs": "patterns/Winter Wreath/Shinto Shrine.tgs"
+    "name": "Shinto Shrine"
   },
   {
-    "name": "Shiny Heart",
-    "png": "patterns/Trapped Heart/png/Shiny Heart.png",
-    "tgs": "patterns/Trapped Heart/Shiny Heart.tgs"
+    "name": "Shiny Heart"
   },
   {
-    "name": "Shooting Star",
-    "png": "patterns/Xmas Stocking/png/Shooting Star.png",
-    "tgs": "patterns/Xmas Stocking/Shooting Star.tgs"
+    "name": "Shooting Star"
   },
   {
-    "name": "Shortsword",
-    "png": "patterns/Toy Bear/png/Shortsword.png",
-    "tgs": "patterns/Toy Bear/Shortsword.tgs"
+    "name": "Shortsword"
   },
   {
-    "name": "Shuriken",
-    "png": "patterns/Top Hat/png/Shuriken.png",
-    "tgs": "patterns/Top Hat/Shuriken.tgs"
+    "name": "Shuriken"
   },
   {
-    "name": "Silver Ibis",
-    "png": "patterns/Top Hat/png/Silver Ibis.png",
-    "tgs": "patterns/Top Hat/Silver Ibis.tgs"
+    "name": "Silver Ibis"
   },
   {
-    "name": "Skull",
-    "png": "patterns/Xmas Stocking/png/Skull.png",
-    "tgs": "patterns/Xmas Stocking/Skull.tgs"
+    "name": "Skull"
   },
   {
-    "name": "Sleepy Unicorn",
-    "png": "patterns/Star Notepad/png/Sleepy Unicorn.png",
-    "tgs": "patterns/Star Notepad/Sleepy Unicorn.tgs"
+    "name": "Sleepy Unicorn"
   },
   {
-    "name": "Smartphone",
-    "png": "patterns/Winter Wreath/png/Smartphone.png",
-    "tgs": "patterns/Winter Wreath/Smartphone.tgs"
+    "name": "Smartphone"
   },
   {
-    "name": "Snail",
-    "png": "patterns/Xmas Stocking/png/Snail.png",
-    "tgs": "patterns/Xmas Stocking/Snail.tgs"
+    "name": "Snail"
   },
   {
-    "name": "Snow Angel",
-    "png": "patterns/Xmas Stocking/png/Snow Angel.png",
-    "tgs": "patterns/Xmas Stocking/Snow Angel.tgs"
+    "name": "Snow Angel"
   },
   {
-    "name": "Snowdrop",
-    "png": "patterns/Neko Helmet/png/Snowdrop.png",
-    "tgs": "patterns/Restless Jar/Snowdrop.tgs"
+    "name": "Snowdrop"
   },
   {
-    "name": "Snowflake",
-    "png": "patterns/Xmas Stocking/png/Snowflake.png",
-    "tgs": "patterns/Xmas Stocking/Snowflake.tgs"
+    "name": "Snowflake"
   },
   {
-    "name": "Snowman",
-    "png": "patterns/Xmas Stocking/png/Snowman.png",
-    "tgs": "patterns/Xmas Stocking/Snowman.tgs"
+    "name": "Snowman"
   },
   {
-    "name": "Sombrero",
-    "png": "patterns/Xmas Stocking/png/Sombrero.png",
-    "tgs": "patterns/Xmas Stocking/Sombrero.tgs"
+    "name": "Sombrero"
   },
   {
-    "name": "Spades",
-    "png": "patterns/Xmas Stocking/png/Spades.png",
-    "tgs": "patterns/Xmas Stocking/Spades.tgs"
+    "name": "Spades"
   },
   {
-    "name": "Spanner",
-    "png": "patterns/Vintage Cigar/png/Spanner.png",
-    "tgs": "patterns/Vintage Cigar/Spanner.tgs"
+    "name": "Spanner"
   },
   {
-    "name": "Sparks",
-    "png": "patterns/Xmas Stocking/png/Sparks.png",
-    "tgs": "patterns/Xmas Stocking/Sparks.tgs"
+    "name": "Sparks"
   },
   {
-    "name": "Spellbook",
-    "png": "patterns/Xmas Stocking/png/Spellbook.png",
-    "tgs": "patterns/Xmas Stocking/Spellbook.tgs"
+    "name": "Spellbook"
   },
   {
-    "name": "Spicy Chilli",
-    "png": "patterns/Toy Bear/png/Spicy Chilli.png",
-    "tgs": "patterns/Toy Bear/Spicy Chilli.tgs"
+    "name": "Spicy Chilli"
   },
   {
-    "name": "Spider",
-    "png": "patterns/Winter Wreath/png/Spider.png",
-    "tgs": "patterns/Winter Wreath/Spider.tgs"
+    "name": "Spider"
   },
   {
-    "name": "Spider Lily",
-    "png": "patterns/Neko Helmet/png/Spider Lily.png",
-    "tgs": "patterns/Neko Helmet/Spider Lily.tgs"
+    "name": "Spider Lily"
   },
   {
-    "name": "Spider Web",
-    "png": "patterns/Witch Hat/png/Spider Web.png",
-    "tgs": "patterns/Witch Hat/Spider Web.tgs"
+    "name": "Spider Web"
   },
   {
-    "name": "Spirit Impala",
-    "png": "patterns/Xmas Stocking/png/Spirit Impala.png",
-    "tgs": "patterns/Xmas Stocking/Spirit Impala.tgs"
+    "name": "Spirit Impala"
   },
   {
-    "name": "Spooky Cat",
-    "png": "patterns/Witch Hat/png/Spooky Cat.png",
-    "tgs": "patterns/Witch Hat/Spooky Cat.tgs"
+    "name": "Spooky Cat"
   },
   {
-    "name": "Spring Chick",
-    "png": "patterns/Xmas Stocking/png/Spring Chick.png",
-    "tgs": "patterns/Xmas Stocking/Spring Chick.tgs"
+    "name": "Spring Chick"
   },
   {
-    "name": "Sprout",
-    "png": "patterns/Xmas Stocking/png/Sprout.png",
-    "tgs": "patterns/Xmas Stocking/Sprout.tgs"
+    "name": "Sprout"
   },
   {
-    "name": "Star",
-    "png": "patterns/Xmas Stocking/png/Star.png",
-    "tgs": "patterns/Xmas Stocking/Star.tgs"
+    "name": "Star"
   },
   {
-    "name": "Star Crown",
-    "png": "patterns/Witch Hat/png/Star Crown.png",
-    "tgs": "patterns/Witch Hat/Star Crown.tgs"
+    "name": "Star Crown"
   },
   {
-    "name": "Starflower",
-    "png": "patterns/Neko Helmet/png/Starflower.png",
-    "tgs": "patterns/Neko Helmet/Starflower.tgs"
+    "name": "Starflower"
   },
   {
-    "name": "Steampunk Hat",
-    "png": "patterns/Tama Gadget/png/Steampunk Hat.png",
-    "tgs": "patterns/Tama Gadget/Steampunk Hat.tgs"
+    "name": "Steampunk Hat"
   },
   {
-    "name": "Stilettos",
-    "png": "patterns/Trapped Heart/png/Stilettos.png",
-    "tgs": "patterns/Trapped Heart/Stilettos.tgs"
+    "name": "Stilettos"
   },
   {
-    "name": "Stocking",
-    "png": "patterns/Xmas Stocking/png/Stocking.png",
-    "tgs": "patterns/Xmas Stocking/Stocking.tgs"
+    "name": "Stocking"
   },
   {
-    "name": "Straw Hat",
-    "png": "patterns/Tama Gadget/png/Straw Hat.png",
-    "tgs": "patterns/Tama Gadget/Straw Hat.tgs"
+    "name": "Straw Hat"
   },
   {
-    "name": "Strawberry",
-    "png": "patterns/Xmas Stocking/png/Strawberry.png",
-    "tgs": "patterns/Xmas Stocking/Strawberry.tgs"
+    "name": "Strawberry"
   },
   {
-    "name": "Strelitzia",
-    "png": "patterns/Neko Helmet/png/Strelitzia.png",
-    "tgs": "patterns/Restless Jar/Strelitzia.tgs"
+    "name": "Strelitzia"
   },
   {
-    "name": "Succubus",
-    "png": "patterns/Toy Bear/png/Succubus.png",
-    "tgs": "patterns/Toy Bear/Succubus.tgs"
+    "name": "Succubus"
   },
   {
-    "name": "Sumerian Bird",
-    "png": "patterns/Xmas Stocking/png/Sumerian Bird.png",
-    "tgs": "patterns/Xmas Stocking/Sumerian Bird.tgs"
+    "name": "Sumerian Bird"
   },
   {
-    "name": "Sun",
-    "png": "patterns/Witch Hat/png/Sun.png",
-    "tgs": "patterns/Witch Hat/Sun.tgs"
+    "name": "Sun"
   },
   {
-    "name": "Sun Lion",
-    "png": "patterns/Xmas Stocking/png/Sun Lion.png",
-    "tgs": "patterns/Xmas Stocking/Sun Lion.tgs"
+    "name": "Sun Lion"
   },
   {
-    "name": "Sun Mountain",
-    "png": "patterns/Witch Hat/png/Sun Mountain.png",
-    "tgs": "patterns/Witch Hat/Sun Mountain.tgs"
+    "name": "Sun Mountain"
   },
   {
-    "name": "Sunbloom",
-    "png": "patterns/Neko Helmet/png/Sunbloom.png",
-    "tgs": "patterns/Neko Helmet/Sunbloom.tgs"
+    "name": "Sunbloom"
   },
   {
-    "name": "Sunflower",
-    "png": "patterns/Witch Hat/png/Sunflower.png",
-    "tgs": "patterns/Witch Hat/Sunflower.tgs"
+    "name": "Sunflower"
   },
   {
-    "name": "Sushi Rolls",
-    "png": "patterns/Tama Gadget/png/Sushi Rolls.png",
-    "tgs": "patterns/Tama Gadget/Sushi Rolls.tgs"
+    "name": "Sushi Rolls"
   },
   {
-    "name": "Sweets Box",
-    "png": "patterns/Trapped Heart/png/Sweets Box.png",
-    "tgs": "patterns/Trapped Heart/Sweets Box.tgs"
+    "name": "Sweets Box"
   },
   {
-    "name": "Sword",
-    "png": "patterns/Xmas Stocking/png/Sword.png",
-    "tgs": "patterns/Xmas Stocking/Sword.tgs"
+    "name": "Sword"
   },
   {
-    "name": "Sword Fight",
-    "png": "patterns/Tama Gadget/png/Sword Fight.png",
-    "tgs": "patterns/Tama Gadget/Sword Fight.tgs"
+    "name": "Sword Fight"
   },
   {
-    "name": "Takoyaki",
-    "png": "patterns/Xmas Stocking/png/Takoyaki.png",
-    "tgs": "patterns/Xmas Stocking/Takoyaki.tgs"
+    "name": "Takoyaki"
   },
   {
-    "name": "Tamagotchi",
-    "png": "patterns/Xmas Stocking/png/Tamagotchi.png",
-    "tgs": "patterns/Xmas Stocking/Tamagotchi.tgs"
+    "name": "Tamagotchi"
   },
   {
-    "name": "Tarot Cards",
-    "png": "patterns/Electric Skull/png/Tarot Cards.png",
-    "tgs": "patterns/Electric Skull/Tarot Cards.tgs"
+    "name": "Tarot Cards"
   },
   {
-    "name": "Teddy Bear",
-    "png": "patterns/Toy Bear/png/Teddy Bear.png",
-    "tgs": "patterns/Toy Bear/Teddy Bear.tgs"
+    "name": "Teddy Bear"
   },
   {
-    "name": "Telescope",
-    "png": "patterns/Xmas Stocking/png/Telescope.png",
-    "tgs": "patterns/Xmas Stocking/Telescope.tgs"
+    "name": "Telescope"
   },
   {
-    "name": "Tetsubin",
-    "png": "patterns/Winter Wreath/png/Tetsubin.png",
-    "tgs": "patterns/Winter Wreath/Tetsubin.tgs"
+    "name": "Tetsubin"
   },
   {
-    "name": "The Eye",
-    "png": "patterns/Vintage Cigar/png/The Eye.png",
-    "tgs": "patterns/Vintage Cigar/The Eye.tgs"
+    "name": "The Eye"
   },
   {
-    "name": "Thief",
-    "png": "patterns/Xmas Stocking/png/Thief.png",
-    "tgs": "patterns/Xmas Stocking/Thief.tgs"
+    "name": "Thief"
   },
   {
-    "name": "Thor Hammer",
-    "png": "patterns/Xmas Stocking/png/Thor Hammer.png",
-    "tgs": "patterns/Xmas Stocking/Thor Hammer.tgs"
+    "name": "Thor Hammer"
   },
   {
-    "name": "Thunderbird",
-    "png": "patterns/Xmas Stocking/png/Thunderbird.png",
-    "tgs": "patterns/Xmas Stocking/Thunderbird.tgs"
+    "name": "Thunderbird"
   },
   {
-    "name": "Tic-Tac-Toe",
-    "png": "patterns/Toy Bear/png/Tic-Tac-Toe.png",
-    "tgs": "patterns/Toy Bear/Tic-Tac-Toe.tgs"
+    "name": "Tic-Tac-Toe"
   },
   {
-    "name": "Tie",
-    "png": "patterns/Vintage Cigar/png/Tie.png",
-    "tgs": "patterns/Vintage Cigar/Tie.tgs"
+    "name": "Tie"
   },
   {
-    "name": "Tiki Mask",
-    "png": "patterns/Toy Bear/png/Tiki Mask.png",
-    "tgs": "patterns/Toy Bear/Tiki Mask.tgs"
+    "name": "Tiki Mask"
   },
   {
-    "name": "Toilet",
-    "png": "patterns/Vintage Cigar/png/Toilet.png",
-    "tgs": "patterns/Vintage Cigar/Toilet.tgs"
+    "name": "Toilet"
   },
   {
-    "name": "Toilet Paper",
-    "png": "patterns/Witch Hat/png/Toilet Paper.png",
-    "tgs": "patterns/Witch Hat/Toilet Paper.tgs"
+    "name": "Toilet Paper"
   },
   {
-    "name": "Tombstone",
-    "png": "patterns/Electric Skull/png/Tombstone.png",
-    "tgs": "patterns/Electric Skull/Tombstone.tgs"
+    "name": "Tombstone"
   },
   {
-    "name": "Tongue",
-    "png": "patterns/Toy Bear/png/Tongue.png",
-    "tgs": "patterns/Toy Bear/Tongue.tgs"
+    "name": "Tongue"
   },
   {
-    "name": "Tooth",
-    "png": "patterns/Winter Wreath/png/Tooth.png",
-    "tgs": "patterns/Winter Wreath/Tooth.tgs"
+    "name": "Tooth"
   },
   {
-    "name": "Top Hat",
-    "png": "patterns/Witch Hat/png/Top Hat.png",
-    "tgs": "patterns/Witch Hat/Top Hat.tgs"
+    "name": "Top Hat"
   },
   {
-    "name": "Totem Bear",
-    "png": "patterns/Xmas Stocking/png/Totem Bear.png",
-    "tgs": "patterns/Xmas Stocking/Totem Bear.tgs"
+    "name": "Totem Bear"
   },
   {
-    "name": "Toy Bucket",
-    "png": "patterns/Trapped Heart/png/Toy Bucket.png",
-    "tgs": "patterns/Trapped Heart/Toy Bucket.tgs"
+    "name": "Toy Bucket"
   },
   {
-    "name": "Treats",
-    "png": "patterns/Witch Hat/png/Treats.png",
-    "tgs": "patterns/Witch Hat/Treats.tgs"
+    "name": "Treats"
   },
   {
-    "name": "Tree of Life",
-    "png": "patterns/Witch Hat/png/Tree of Life.png",
-    "tgs": "patterns/Witch Hat/Tree of Life.tgs"
+    "name": "Tree of Life"
   },
   {
-    "name": "Tribal Shield",
-    "png": "patterns/Xmas Stocking/png/Tribal Shield.png",
-    "tgs": "patterns/Xmas Stocking/Tribal Shield.tgs"
+    "name": "Tribal Shield"
   },
   {
-    "name": "Trickster Fox",
-    "png": "patterns/Toy Bear/png/Trickster Fox.png",
-    "tgs": "patterns/Toy Bear/Trickster Fox.tgs"
+    "name": "Trickster Fox"
   },
   {
-    "name": "Tricorne",
-    "png": "patterns/Tama Gadget/png/Tricorne.png",
-    "tgs": "patterns/Tama Gadget/Tricorne.tgs"
+    "name": "Tricorne"
   },
   {
-    "name": "Trinity Knot",
-    "png": "patterns/Top Hat/png/Trinity Knot.png",
-    "tgs": "patterns/Top Hat/Trinity Knot.tgs"
+    "name": "Trinity Knot"
   },
   {
-    "name": "Trophy",
-    "png": "patterns/Xmas Stocking/png/Trophy.png",
-    "tgs": "patterns/Xmas Stocking/Trophy.tgs"
+    "name": "Trophy"
   },
   {
-    "name": "Tsunami",
-    "png": "patterns/Xmas Stocking/png/Tsunami.png",
-    "tgs": "patterns/Xmas Stocking/Tsunami.tgs"
+    "name": "Tsunami"
   },
   {
-    "name": "Tulip",
-    "png": "patterns/Winter Wreath/png/Tulip.png",
-    "tgs": "patterns/Winter Wreath/Tulip.tgs"
+    "name": "Tulip"
   },
   {
-    "name": "Tulip Bloom",
-    "png": "patterns/Neko Helmet/png/Tulip Bloom.png",
-    "tgs": "patterns/Restless Jar/Tulip Bloom.tgs"
+    "name": "Tulip Bloom"
   },
   {
-    "name": "Turban",
-    "png": "patterns/Winter Wreath/png/Turban.png",
-    "tgs": "patterns/Winter Wreath/Turban.tgs"
+    "name": "Turban"
   },
   {
-    "name": "Turkey",
-    "png": "patterns/Xmas Stocking/png/Turkey.png",
-    "tgs": "patterns/Xmas Stocking/Turkey.tgs"
+    "name": "Turkey"
   },
   {
-    "name": "Turtle",
-    "png": "patterns/Winter Wreath/png/Turtle.png",
-    "tgs": "patterns/Winter Wreath/Turtle.tgs"
+    "name": "Turtle"
   },
   {
-    "name": "Twin Koi",
-    "png": "patterns/Toy Bear/png/Twin Koi.png",
-    "tgs": "patterns/Toy Bear/Twin Koi.tgs"
+    "name": "Twin Koi"
   },
   {
-    "name": "Twin Peaks",
-    "png": "patterns/Xmas Stocking/png/Twin Peaks.png",
-    "tgs": "patterns/Xmas Stocking/Twin Peaks.tgs"
+    "name": "Twin Peaks"
   },
   {
-    "name": "Two Hearts",
-    "png": "patterns/Toy Bear/png/Two Hearts.png",
-    "tgs": "patterns/Toy Bear/Two Hearts.tgs"
+    "name": "Two Hearts"
   },
   {
-    "name": "Two Katanas",
-    "png": "patterns/Winter Wreath/png/Two Katanas.png",
-    "tgs": "patterns/Winter Wreath/Two Katanas.tgs"
+    "name": "Two Katanas"
   },
   {
-    "name": "UFO",
-    "png": "patterns/Xmas Stocking/png/UFO.png",
-    "tgs": "patterns/Xmas Stocking/UFO.tgs"
+    "name": "UFO"
   },
   {
-    "name": "Unicorn",
-    "png": "patterns/Voodoo Doll/png/Unicorn.png",
-    "tgs": "patterns/Voodoo Doll/Unicorn.tgs"
+    "name": "Unicorn"
   },
   {
-    "name": "Unicorn Head",
-    "png": "patterns/Vintage Cigar/png/Unicorn Head.png",
-    "tgs": "patterns/Vintage Cigar/Unicorn Head.tgs"
+    "name": "Unicorn Head"
   },
   {
-    "name": "Ushanka",
-    "png": "patterns/Sleigh Bell/png/Ushanka.png",
-    "tgs": "patterns/Sleigh Bell/Ushanka.tgs"
+    "name": "Ushanka"
   },
   {
-    "name": "Valentine",
-    "png": "patterns/Toy Bear/png/Valentine.png",
-    "tgs": "patterns/Toy Bear/Valentine.tgs"
+    "name": "Valentine"
   },
   {
-    "name": "Valkyrie",
-    "png": "patterns/Toy Bear/png/Valkyrie.png",
-    "tgs": "patterns/Toy Bear/Valkyrie.tgs"
+    "name": "Valkyrie"
   },
   {
-    "name": "Vampire Bat",
-    "png": "patterns/Electric Skull/png/Vampire Bat.png",
-    "tgs": "patterns/Electric Skull/Vampire Bat.tgs"
+    "name": "Vampire Bat"
   },
   {
-    "name": "Venetian Mask",
-    "png": "patterns/Winter Wreath/png/Venetian Mask.png",
-    "tgs": "patterns/Winter Wreath/Venetian Mask.tgs"
+    "name": "Venetian Mask"
   },
   {
-    "name": "Viking",
-    "png": "patterns/Winter Wreath/png/Viking.png",
-    "tgs": "patterns/Winter Wreath/Viking.tgs"
+    "name": "Viking"
   },
   {
-    "name": "Viking Shield",
-    "png": "patterns/Toy Bear/png/Viking Shield.png",
-    "tgs": "patterns/Toy Bear/Viking Shield.tgs"
+    "name": "Viking Shield"
   },
   {
-    "name": "Violet",
-    "png": "patterns/Neko Helmet/png/Violet.png",
-    "tgs": "patterns/Restless Jar/Violet.tgs"
+    "name": "Violet"
   },
   {
-    "name": "Viper",
-    "png": "patterns/Top Hat/png/Viper.png",
-    "tgs": "patterns/Top Hat/Viper.tgs"
+    "name": "Viper"
   },
   {
-    "name": "Visor",
-    "png": "patterns/Xmas Stocking/png/Visor.png",
-    "tgs": "patterns/Xmas Stocking/Visor.tgs"
+    "name": "Visor"
   },
   {
-    "name": "Voodoo",
-    "png": "patterns/Electric Skull/png/Voodoo.png",
-    "tgs": "patterns/Electric Skull/Voodoo.tgs"
+    "name": "Voodoo"
   },
   {
-    "name": "Voodoo Doll",
-    "png": "patterns/Witch Hat/png/Voodoo Doll.png",
-    "tgs": "patterns/Witch Hat/Voodoo Doll.tgs"
+    "name": "Voodoo Doll"
   },
   {
-    "name": "Vortex",
-    "png": "patterns/Xmas Stocking/png/Vortex.png",
-    "tgs": "patterns/Xmas Stocking/Vortex.tgs"
+    "name": "Vortex"
   },
   {
-    "name": "Wagasa",
-    "png": "patterns/Xmas Stocking/png/Wagasa.png",
-    "tgs": "patterns/Xmas Stocking/Wagasa.tgs"
+    "name": "Wagasa"
   },
   {
-    "name": "War Bonnet",
-    "png": "patterns/Xmas Stocking/png/War Bonnet.png",
-    "tgs": "patterns/Xmas Stocking/War Bonnet.tgs"
+    "name": "War Bonnet"
   },
   {
-    "name": "War Tiger",
-    "png": "patterns/Xmas Stocking/png/War Tiger.png",
-    "tgs": "patterns/Xmas Stocking/War Tiger.tgs"
+    "name": "War Tiger"
   },
   {
-    "name": "Warhorse",
-    "png": "patterns/Toy Bear/png/Warhorse.png",
-    "tgs": "patterns/Toy Bear/Warhorse.tgs"
+    "name": "Warhorse"
   },
   {
-    "name": "Wasp",
-    "png": "patterns/Xmas Stocking/png/Wasp.png",
-    "tgs": "patterns/Xmas Stocking/Wasp.tgs"
+    "name": "Wasp"
   },
   {
-    "name": "Watching Sun",
-    "png": "patterns/Top Hat/png/Watching Sun.png",
-    "tgs": "patterns/Top Hat/Watching Sun.tgs"
+    "name": "Watching Sun"
   },
   {
-    "name": "Water Drops",
-    "png": "patterns/Trapped Heart/png/Water Drops.png",
-    "tgs": "patterns/Trapped Heart/Water Drops.tgs"
+    "name": "Water Drops"
   },
   {
-    "name": "Watermelon",
-    "png": "patterns/Xmas Stocking/png/Watermelon.png",
-    "tgs": "patterns/Xmas Stocking/Watermelon.tgs"
+    "name": "Watermelon"
   },
   {
-    "name": "Wepwawet",
-    "png": "patterns/Xmas Stocking/png/Wepwawet.png",
-    "tgs": "patterns/Xmas Stocking/Wepwawet.tgs"
+    "name": "Wepwawet"
   },
   {
-    "name": "White Deer",
-    "png": "patterns/Xmas Stocking/png/White Deer.png",
-    "tgs": "patterns/Xmas Stocking/White Deer.tgs"
+    "name": "White Deer"
   },
   {
-    "name": "Wine Toast",
-    "png": "patterns/Toy Bear/png/Wine Toast.png",
-    "tgs": "patterns/Toy Bear/Wine Toast.tgs"
+    "name": "Wine Toast"
   },
   {
-    "name": "Winged Helm",
-    "png": "patterns/Toy Bear/png/Winged Helm.png",
-    "tgs": "patterns/Toy Bear/Winged Helm.tgs"
+    "name": "Winged Helm"
   },
   {
-    "name": "Winged Helmet",
-    "png": "patterns/Tama Gadget/png/Winged Helmet.png",
-    "tgs": "patterns/Tama Gadget/Winged Helmet.tgs"
+    "name": "Winged Helmet"
   },
   {
-    "name": "Winter Hat",
-    "png": "patterns/Snake Box/png/Winter Hat.png",
-    "tgs": "patterns/Snake Box/Winter Hat.tgs"
+    "name": "Winter Hat"
   },
   {
-    "name": "Winter House",
-    "png": "patterns/Xmas Stocking/png/Winter House.png",
-    "tgs": "patterns/Xmas Stocking/Winter House.tgs"
+    "name": "Winter House"
   },
   {
-    "name": "Wise Raven",
-    "png": "patterns/Toy Bear/png/Wise Raven.png",
-    "tgs": "patterns/Toy Bear/Wise Raven.tgs"
+    "name": "Wise Raven"
   },
   {
-    "name": "Witch Hat",
-    "png": "patterns/Electric Skull/png/Witch Hat.png",
-    "tgs": "patterns/Electric Skull/Witch Hat.tgs"
+    "name": "Witch Hat"
   },
   {
-    "name": "Witch's Hat",
-    "png": "patterns/Witch Hat/png/Witch's Hat.png",
-    "tgs": "patterns/Witch Hat/Witch's Hat.tgs"
+    "name": "Witch's Hat"
   },
   {
-    "name": "Wizard Hat",
-    "png": "patterns/Top Hat/png/Wizard Hat.png",
-    "tgs": "patterns/Top Hat/Wizard Hat.tgs"
+    "name": "Wizard Hat"
   },
   {
-    "name": "Wolf Rage",
-    "png": "patterns/Witch Hat/png/Wolf Rage.png",
-    "tgs": "patterns/Witch Hat/Wolf Rage.tgs"
+    "name": "Wolf Rage"
   },
   {
-    "name": "Wontons",
-    "png": "patterns/Tama Gadget/png/Wontons.png",
-    "tgs": "patterns/Tama Gadget/Wontons.tgs"
+    "name": "Wontons"
   },
   {
-    "name": "Worker Ant",
-    "png": "patterns/Toy Bear/png/Worker Ant.png",
-    "tgs": "patterns/Toy Bear/Worker Ant.tgs"
+    "name": "Worker Ant"
   },
   {
-    "name": "Wreath",
-    "png": "patterns/Xmas Stocking/png/Wreath.png",
-    "tgs": "patterns/Xmas Stocking/Wreath.tgs"
+    "name": "Wreath"
   },
   {
-    "name": "Yin-Yang",
-    "png": "patterns/Top Hat/png/Yin-Yang.png",
-    "tgs": "patterns/Top Hat/Yin-Yang.tgs"
+    "name": "Yin-Yang"
   },
   {
-    "name": "Yogi Shaman",
-    "png": "patterns/Xmas Stocking/png/Yogi Shaman.png",
-    "tgs": "patterns/Xmas Stocking/Yogi Shaman.tgs"
+    "name": "Yogi Shaman"
   },
   {
-    "name": "Zombie Hand",
-    "png": "patterns/Electric Skull/png/Zombie Hand.png",
-    "tgs": "patterns/Electric Skull/Zombie Hand.tgs"
+    "name": "Zombie Hand"
   }
 ]
