@@ -9,15 +9,21 @@ import { checkGiftsIsInStock } from '../controllers/gifts/checkIsGiftsInStock';
 import { buyGiftsByIds } from '../controllers/gifts/buyGiftsById';
 import { editGiftPriceById } from '../controllers/gifts/editGiftPriceById';
 import { getGiftById } from '../controllers/gifts/getGiftById';
+import { getGiftsCollections } from '../controllers/assets/gifts/getGiftsCollections';
+import { getGiftsBackdrops } from '../controllers/assets/gifts/getGiftsBackdrops';
+import { getGiftsPatterns } from '../controllers/assets/gifts/getGiftsPatterns';
+import { getGiftsModelsByCollections } from '../controllers/assets/gifts/getGiftsModelsByCollections';
 
 const router = Router();
 
+router.get('/collections', getGiftsCollections);
+router.get('/backdrops', getGiftsBackdrops);
+router.get('/patterns', getGiftsPatterns);
+router.get('/models', getGiftsModelsByCollections);
+
 router.get('/', getGifts);
-
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
-
 router.post('/buy', verifyTelegramAuth, buyGiftsByIds);
-
 router.get('/:gift_id', getGiftById);
 
 router.patch(
@@ -26,28 +32,24 @@ router.patch(
   verifyGiftOwnerMatch,
   listGiftForSaleById,
 );
-
 router.patch(
-  ':gift_id/edit-price',
+  '/:gift_id/edit-price',
   verifyTelegramAuth,
   verifyGiftOwnerMatch,
   editGiftPriceById,
 );
-
 router.patch(
   '/:gift_id/unlist',
   verifyTelegramAuth,
   verifyGiftOwnerMatch,
   unlistGiftFromSaleById,
 );
-
 router.get(
   '/:gift_id/transfer',
   verifyTelegramAuth,
   verifyGiftOwnerMatch,
   transferGiftById,
 );
-
 router.post('/is-in-stock', checkGiftsIsInStock);
 
 export default router;
