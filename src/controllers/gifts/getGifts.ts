@@ -26,7 +26,6 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
       : collection
       ? [collection]
       : [];
-
     const models = Array.isArray(model) ? model : model ? [model] : [];
     const backdrops = Array.isArray(backdrop)
       ? backdrop
@@ -41,19 +40,33 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
 
     const baseFilters: any = {
       status: GiftStatus.LISTED,
+      ...(gift_id && { number: Number(gift_id) }),
     };
 
-    if (gift_id) {
-      baseFilters.number = Number(gift_id);
+    if (min_price && max_price) {
+      baseFilters.sell_price_with_fee = Between(min_price, max_price);
+    } else if (min_price) {
+      baseFilters.sell_price_with_fee = MoreThanOrEqual(min_price);
+    } else if (max_price) {
+      baseFilters.sell_price_with_fee = LessThanOrEqual(max_price);
     }
 
-    if (min_price && max_price) {
-      baseFilters.sell_price = Between(min_price, max_price);
-    } else if (min_price) {
-      baseFilters.sell_price = MoreThanOrEqual(min_price);
-    } else if (max_price) {
-      baseFilters.sell_price = LessThanOrEqual(max_price);
-    }
+    const where = collections.length
+      ? collections.map((col) => ({
+          ...baseFilters,
+          collection_name: Like(`%${col}%`),
+          ...(models.length && { model: { name: In(models) } }),
+          ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
+          ...(patterns.length && { pattern: { name: In(patterns) } }),
+        }))
+      : [
+          {
+            ...baseFilters,
+            ...(models.length && { model: { name: In(models) } }),
+            ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
+            ...(patterns.length && { pattern: { name: In(patterns) } }),
+          },
+        ];
 
     const order: any =
       sort === 'price-asc'
@@ -67,23 +80,6 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
         : sort === 'id-desc'
         ? { number: 'desc' }
         : {};
-
-    const where = collections.length
-      ? collections.map((col) => ({
-          ...baseFilters,
-          collection_name: Like(`%${col}%`),
-          ...(models.length > 0 && { model: { name: In(models) } }),
-          ...(backdrops.length > 0 && { backdrop: { name: In(backdrops) } }),
-          ...(patterns.length > 0 && { pattern: { name: In(patterns) } }),
-        }))
-      : [
-          {
-            ...baseFilters,
-            ...(models.length > 0 && { model: { name: In(models) } }),
-            ...(backdrops.length > 0 && { backdrop: { name: In(backdrops) } }),
-            ...(patterns.length > 0 && { pattern: { name: In(patterns) } }),
-          },
-        ];
 
     const [gifts, total] = await giftRepository.findAndCount({
       where,
