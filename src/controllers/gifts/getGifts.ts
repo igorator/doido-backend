@@ -47,18 +47,19 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
     if (gift_id) {
       baseFilters.number = Number(gift_id);
     }
+
     if (min_price && max_price) {
       baseFilters.sell_price = Between(
-        new Decimal(min_price.toString()),
-        new Decimal(max_price.toString()),
+        new Decimal(min_price.toString()).toString(),
+        new Decimal(max_price.toString()).toString(),
       );
     } else if (min_price) {
       baseFilters.sell_price = MoreThanOrEqual(
-        new Decimal(min_price.toString()),
+        new Decimal(min_price.toString()).toString(),
       );
     } else if (max_price) {
       baseFilters.sell_price = LessThanOrEqual(
-        new Decimal(max_price.toString()),
+        new Decimal(max_price.toString()).toString(),
       );
     }
 

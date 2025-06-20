@@ -56,11 +56,11 @@ export const getGiftsByUserId = async (
     };
 
     if (min_price && max_price) {
-      where.sell_price = Between(Number(min_price), Number(max_price));
+      where.sell_price = Between(min_price.toString(), max_price.toString());
     } else if (min_price) {
-      where.sell_price = MoreThanOrEqual(Number(min_price));
+      where.sell_price = MoreThanOrEqual(min_price.toString());
     } else if (max_price) {
-      where.sell_price = LessThanOrEqual(Number(max_price));
+      where.sell_price = LessThanOrEqual(max_price.toString());
     }
 
     const order: Record<string, 'asc' | 'desc'> =
