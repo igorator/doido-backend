@@ -50,19 +50,14 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
 
     if (min_price && max_price) {
       baseFilters.sell_price = Between(
-        new Decimal(min_price.toString()).toString(),
-        new Decimal(max_price.toString()).toString(),
+        min_price.toString(),
+        max_price.toString(),
       );
     } else if (min_price) {
-      baseFilters.sell_price = MoreThanOrEqual(
-        new Decimal(min_price.toString()).toString(),
-      );
+      baseFilters.sell_price = MoreThanOrEqual(min_price.toString());
     } else if (max_price) {
-      baseFilters.sell_price = LessThanOrEqual(
-        new Decimal(max_price.toString()).toString(),
-      );
+      baseFilters.sell_price = LessThanOrEqual(max_price.toString());
     }
-
     const order: any =
       sort === 'price-asc'
         ? { sell_price: 'asc' }
