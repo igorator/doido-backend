@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { GiftStatus } from '../../models/Gift';
-import Decimal from 'decimal.js';
 
 export const getGifts = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -49,15 +48,13 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
     }
 
     if (min_price && max_price) {
-      baseFilters.sell_price = Between(
-        min_price.toString(),
-        max_price.toString(),
-      );
+      baseFilters.sell_price = Between(min_price, max_price);
     } else if (min_price) {
-      baseFilters.sell_price = MoreThanOrEqual(min_price.toString());
+      baseFilters.sell_price = MoreThanOrEqual(min_price);
     } else if (max_price) {
-      baseFilters.sell_price = LessThanOrEqual(max_price.toString());
+      baseFilters.sell_price = LessThanOrEqual(max_price);
     }
+
     const order: any =
       sort === 'price-asc'
         ? { sell_price: 'asc' }
