@@ -2,7 +2,6 @@ import type { Request, Response } from 'express';
 import { In } from 'typeorm';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { GiftStatus } from '../../models/Gift';
-import Decimal from 'decimal.js';
 
 export const checkGiftsIsInStock = async (
   req: Request,

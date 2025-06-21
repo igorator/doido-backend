@@ -192,13 +192,13 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
       for (const gift of boughtGifts) {
         try {
           await transferGift({ giftId: gift.id, newOwnerId: telegramUser.id });
-          await giftRepository.update(gift.id, {
-            status: GiftStatus.TRANSFERRED,
-            transferred_date: new Date(),
-          });
+
+          await giftRepository.delete(gift.id);
+
           console.log(
-            `📦 Подарок ${gift.collection_name} #${gift.number} передан пользователю ${telegramUser.id}`,
+            `📦 Подарок ${gift.collection_name} #${gift.number} передан и удалён (id ${gift.id}) пользователю ${telegramUser.id}`,
           );
+
           await new Promise((r) => setTimeout(r, 1000));
         } catch (err) {
           console.error(`❌ Ошибка передачи подарка ${gift.id}:`, err);

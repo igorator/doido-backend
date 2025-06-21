@@ -48,8 +48,6 @@ class Backdrop {
 export enum GiftStatus {
   UNLISTED = 'unlisted',
   LISTED = 'listed',
-  SOLD = 'sold',
-  TRANSFERRED = 'transferred',
 }
 
 @Entity()
