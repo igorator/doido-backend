@@ -1,4 +1,12 @@
-import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { User } from './User';
 import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
 import type Decimal from 'decimal.js';
@@ -108,6 +116,12 @@ export class Gift {
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
   owner: User;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  created_at: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updated_at: Date;
 
   toJSON() {
     const { sell_price, sell_price_with_fee, owner, ...rest } = this;

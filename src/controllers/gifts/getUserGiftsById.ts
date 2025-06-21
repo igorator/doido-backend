@@ -82,7 +82,7 @@ export const getGiftsByUserId = async (
         : sort === 'price-desc'
         ? { sell_price: 'desc' }
         : sort === 'latest'
-        ? { listed_date: 'desc' }
+        ? { updated_at: 'desc' }
         : sort === 'id-asc'
         ? { number: 'asc' }
         : sort === 'id-desc'
