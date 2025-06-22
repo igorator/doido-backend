@@ -110,9 +110,6 @@ export class Gift {
   @Column('integer', { default: 0, nullable: false })
   free_listings_used: number;
 
-  @Column('date', { nullable: true })
-  transferred_date: Date | null;
-
   @ManyToOne(() => User, { eager: true })
   @JoinColumn({ name: 'user_id' })
   owner: User;
