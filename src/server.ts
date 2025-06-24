@@ -11,8 +11,8 @@ import pricingRouter from './routes/pricingRoutes';
 import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
+import leaderboardRouter from './routes/leaderboardRoutes';
 import { setupSockets } from './sockets/initSocketServer';
-import { slowDown } from 'express-slow-down';
 console.log('🔔 Загрузка server.ts');
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,14 +20,6 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || process.env.SERVER_PORT || 8080;
 const assetsPath = path.resolve(__dirname, '../assets');
 
-const speedLimiter = slowDown({
-  windowMs: 10 * 60 * 1000,
-  delayAfter: 10000,
-  delayMs: (used, req) => {
-    const delayAfter = req.slowDown.limit;
-    return (used - delayAfter) * 50;
-  },
-});
 const app = express();
 
 app.use(
@@ -53,8 +45,6 @@ app.use(
 
 app.use(express.json());
 
-app.use(speedLimiter);
-
 app.use('/assets', express.static(assetsPath));
 app.use('/webhook', webhookCallback(bot, 'express'));
 app.use('/server', serverRouter);
@@ -63,6 +53,7 @@ app.use('/users', userRouter);
 app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
+app.use('/leaderboard', leaderboardRouter);
 
 app.get('/', (_req, res) => {
   res.send('🐣 HELLO 🐣');

@@ -34,6 +34,9 @@ export class User {
   @Column('boolean', { default: false })
   allows_write_to_pm: boolean;
 
+  @Column('boolean', { default: false })
+  is_admin: boolean;
+
   @Column('decimal', {
     precision: 20,
     scale: 8,

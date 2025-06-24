@@ -4,6 +4,7 @@ import { userRepository } from '../../database/repositories/userRepository';
 import { minusUserBalance } from '../../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 import { transferGift } from '../../services/gifts/transferGift';
+import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate'; // 💡 Импортируй свой сокет-метод
 
 export const transferGiftById = async (
   req: Request,
@@ -41,6 +42,8 @@ export const transferGiftById = async (
     }
 
     await minusUserBalance(owner.id, transferFee);
+
+    sendBalanceUpdate(owner.id);
 
     await transferGift({
       giftId: gift.id,

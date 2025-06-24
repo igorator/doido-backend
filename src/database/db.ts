@@ -6,6 +6,8 @@ import { Activity } from '../models/Activity';
 import { DepositLog } from '../models/ton/DepositLog';
 import { WithdrawBatch } from '../models/ton/WithdrawBatch';
 import { WithdrawLog } from '../models/ton/WithdrawLog';
+import { LeaderboardEntry } from '../models/leaderboard/Leaderboard';
+import { LeaderboardTier } from '../models/leaderboard/LeaderboardTier';
 
 dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
@@ -29,7 +31,16 @@ export const AppDataSource = new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [Gift, User, Activity, WithdrawLog, DepositLog, WithdrawBatch],
+  entities: [
+    Gift,
+    User,
+    Activity,
+    WithdrawLog,
+    DepositLog,
+    WithdrawBatch,
+    LeaderboardEntry,
+    LeaderboardTier,
+  ],
   ssl: { rejectUnauthorized: false },
   logging: false,
 });

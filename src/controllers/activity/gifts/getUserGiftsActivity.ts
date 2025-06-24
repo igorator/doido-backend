@@ -10,16 +10,28 @@ export const getUserGiftsActivity = async (req: Request, res: Response) => {
   try {
     const activityRepo = AppDataSource.getRepository(Activity);
 
-    const [activities, total] = await activityRepo
+    // Сначала просто считаем total без JOIN
+    const total = await activityRepo
+      .createQueryBuilder('activity')
+      .where('activity.item_type = :type', { type: ActivityItemType.GIFT })
+      .andWhere('(activity.buyerId = :userId OR activity.sellerId = :userId)', {
+        userId,
+      })
+      .getCount();
+
+    // Потом достаём данные
+    const activities = await activityRepo
       .createQueryBuilder('activity')
       .leftJoinAndSelect('activity.buyer', 'buyer')
       .leftJoinAndSelect('activity.seller', 'seller')
       .where('activity.item_type = :type', { type: ActivityItemType.GIFT })
-      .andWhere('(buyer.id = :userId OR seller.id = :userId)', { userId })
+      .andWhere('(activity.buyerId = :userId OR activity.sellerId = :userId)', {
+        userId,
+      })
       .orderBy('activity.created_at', 'DESC')
       .skip(skip)
       .take(take)
-      .getManyAndCount();
+      .getMany();
 
     res.json({
       activities,

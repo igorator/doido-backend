@@ -1,9 +1,11 @@
+import { runLeaderboardRefresher } from './leaderboardRefresher';
 import { resetWeeklyMarketVolume } from './resetWeeklyMarketVolume';
 import { runDepositWatcher } from './tonDepositWatcher';
 import { runTonWithdrawWatcher } from './tonWithdrawWatcher';
 
 export const setupScheduledEvents = () => {
   resetWeeklyMarketVolume();
+  runLeaderboardRefresher();
 
   if (process.env.NODE_ENV !== 'development') {
     runDepositWatcher();
