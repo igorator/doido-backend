@@ -1,15 +1,11 @@
 import { Request, Response } from 'express';
 import { AppDataSource } from '../../database/db';
 import { LeaderboardEntry } from '../../models/leaderboard/Leaderboard';
-import { LeaderboardTier } from '../../models/leaderboard/LeaderboardTier';
-import { User } from '../../models/User';
 
 export const getWeeklyLeaderboard = async (req: Request, res: Response) => {
   const { user_id } = req.query;
 
   const repo = AppDataSource.getRepository(LeaderboardEntry);
-  const userRepo = AppDataSource.getRepository(User);
-  const tierRepo = AppDataSource.getRepository(LeaderboardTier);
 
   const topEntries = await repo
     .createQueryBuilder('entry')
@@ -54,46 +50,16 @@ export const getWeeklyLeaderboard = async (req: Request, res: Response) => {
         },
       };
     } else {
-      const userData = await userRepo.findOne({
-        where: { id: user_id },
-      });
-
-      if (userData) {
-        // ищем тир по объему
-        const tier = await tierRepo
-          .createQueryBuilder('tier')
-          .where('tier.type = :type', { type: 'weekly' })
-          .andWhere('tier.min_volume <= :volume', {
-            volume: userData.weekly_market_amount.toString(),
-          })
-          .andWhere('(tier.max_volume > :volume OR tier.max_volume IS NULL)', {
-            volume: userData.weekly_market_amount.toString(),
-          })
-          .orderBy('tier.min_volume', 'DESC')
-          .getOne();
-
-        my = {
-          rank: 0,
-          range: tier?.label || '500+',
-          volume: userData.weekly_market_amount.toString(),
-          user: {
-            id: userData.id,
-            first_name: userData.first_name || null,
-            photo_url: userData.photo_url || null,
-          },
-        };
-      } else {
-        my = {
-          rank: 0,
-          range: '500+',
-          volume: '0',
-          user: {
-            id: user_id,
-            first_name: null,
-            photo_url: null,
-          },
-        };
-      }
+      my = {
+        rank: 0,
+        range: '-',
+        volume: '0',
+        user: {
+          id: user_id,
+          first_name: null,
+          photo_url: null,
+        },
+      };
     }
   }
 
