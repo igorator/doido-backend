@@ -5,6 +5,7 @@ import { minusUserBalance } from '../../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 import { transferGift } from '../../services/gifts/transferGift';
 import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate'; // 💡 Импортируй свой сокет-метод
+import { GIFT_TRANSFER_FEE } from '../../shared/constants';
 
 export const transferGiftById = async (
   req: Request,
@@ -12,7 +13,7 @@ export const transferGiftById = async (
 ): Promise<void> => {
   const { gift_id } = req.params;
   const telegramUser = (req as any).telegramUser;
-  const transferFee = new Decimal(process.env.GIFT_TRANSFER_FEE);
+  const transferFee = new Decimal(GIFT_TRANSFER_FEE);
 
   try {
     const gift = await giftRepository.findOne({

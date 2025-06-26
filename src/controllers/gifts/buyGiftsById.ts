@@ -8,6 +8,7 @@ import { GiftStatus } from '../../models/Gift';
 import { Activity, ActivityItemType } from '../../models/Activity';
 import Decimal from 'decimal.js';
 import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate';
+import { REFERRAL_PERCENT_FEE } from '../../shared/constants';
 
 const log = (...args: any[]) =>
   console.log(`[${new Date().toISOString()}]`, ...args);
@@ -15,7 +16,7 @@ const log = (...args: any[]) =>
 export const buyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
   const { gift_ids, externalPurchase } = req.body;
-  const REFERRAL_FEE = new Decimal(process.env.REFERRAL_FEE || '0');
+  const referralFee = new Decimal(REFERRAL_PERCENT_FEE);
 
   if (!telegramUser?.id) {
     res.status(401).json({ error: 'Unauthorized' });
@@ -72,7 +73,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPrice = gift.sell_price;
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
-          const bonusAmount = commission.mul(REFERRAL_FEE).toDecimalPlaces(8);
+          const bonusAmount = commission.mul(referralFee).toDecimalPlaces(8);
 
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
@@ -153,7 +154,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           gift.sell_price = new Decimal(0);
           gift.sell_price_with_fee = new Decimal(0);
           gift.listed_date = null;
-          gift.transferred_date = null;
           gift.free_listings_used = 0;
 
           await manager.save(gift);

@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
-import { calculateBuyerPaysFromSellerAmount } from '../../shared/lib/pricing';
 import Decimal from 'decimal.js';
+import { MARKET_PERCENT_FEE } from '../../shared/constants';
+
+const FEE = new Decimal(MARKET_PERCENT_FEE);
+
+function calculateBuyerPaysFromSellerAmount(amount: Decimal): Decimal {
+  return amount.mul(FEE.add(1)).toDecimalPlaces(3, Decimal.ROUND_HALF_UP);
+}
 
 export const getBuyerPaysBySellerPrice = (
   req: Request,
@@ -16,7 +22,7 @@ export const getBuyerPaysBySellerPrice = (
     }
 
     const buyerPays = calculateBuyerPaysFromSellerAmount(amount);
-    res.json({ buyerPays: buyerPays });
+    res.json({ buyerPays });
   } catch {
     res.status(400).json({ error: 'Invalid amount' });
   }

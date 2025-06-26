@@ -2,10 +2,6 @@ import cron from 'node-cron';
 import { User } from '../models/User';
 import { AppDataSource } from '../database/db';
 
-/**
- * Сброс weekly_market_amount для всех пользователей.
- * @param cronExpr — cron-выражение (по умолчанию "0 0 * * 1" — каждый понедельник в 00:00)
- */
 export const resetWeeklyMarketVolume = (
   cronExpr = process.env.RESET_WEEKLY_MARKET_CRON || '0 0 * * 1',
 ) => {

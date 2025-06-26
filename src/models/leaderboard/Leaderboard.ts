@@ -28,7 +28,7 @@ export class LeaderboardEntry {
   rank: number;
 
   @Column('varchar', { length: 20 })
-  range: '1-100' | '101-200' | '201-500' | '500+';
+  range: '-' | '1-100' | '101-200' | '201-500' | '500+';
 
   @Column('decimal', { precision: 20, scale: 8 })
   volume: string;

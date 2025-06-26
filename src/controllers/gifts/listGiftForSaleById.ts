@@ -4,6 +4,10 @@ import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
 import { GiftStatus } from '../../models/Gift';
 import Decimal from 'decimal.js';
+import {
+  GIFT_LISTING_PERCENT_FEE,
+  MAX_FREE_GIFTS_LISTINGS,
+} from '../../shared/constants';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -13,8 +17,8 @@ export const listGiftForSaleById = async (
   const { price, price_with_fee } = req.body;
   const telegramUser = (req as any).telegramUser;
 
-  const GIFT_LISTING_FEE = new Decimal(process.env.GIFT_LISTING_FEE || '0.1');
-  const MAX_FREE_LISTINGS = Number(process.env.MAX_FREE_LISTINGS || 5);
+  const GIFT_LISTING_FEE = new Decimal(GIFT_LISTING_PERCENT_FEE);
+  const MAX_FREE_LISTINGS = MAX_FREE_GIFTS_LISTINGS;
 
   if (!price || isNaN(price) || !price_with_fee || isNaN(price_with_fee)) {
     res.status(400).json({ error: 'Invalid price or price_with_fee' });

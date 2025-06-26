@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
-import { calculateSellerReceivesFromBuyerAmount } from '../../shared/lib/pricing';
 import Decimal from 'decimal.js';
+import { MARKET_PERCENT_FEE } from '../../shared/constants';
+
+const FEE = new Decimal(MARKET_PERCENT_FEE);
+
+function calculateSellerReceivesFromBuyerAmount(amount: Decimal): Decimal {
+  return amount.div(FEE.add(1)).toDecimalPlaces(3, Decimal.ROUND_HALF_UP);
+}
 
 export const getSellerReceivesByBuyerPrice = (
   req: Request,

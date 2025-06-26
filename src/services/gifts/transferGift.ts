@@ -1,5 +1,5 @@
 import { bot } from '../../bot/bot';
-import { transferStarsCount } from '../../shared/constants';
+import { TRANSFER_STARS_COUNT } from '../../shared/constants';
 import { checkCurrentStarsBalance } from '../stars/checkCurrentStarsBalance';
 
 const BUSINESS_CONNECTION_ID = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
@@ -20,7 +20,7 @@ export const transferGift = async ({
       BUSINESS_CONNECTION_ID,
       giftId,
       newOwnerId,
-      transferStarsCount,
+      TRANSFER_STARS_COUNT,
     );
     console.log('✅ Подарок успешно передан:', result);
     return result;
