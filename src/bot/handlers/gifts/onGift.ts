@@ -18,10 +18,11 @@ export const onGiftRouter = (bot: Bot) => {
     const userId = String(senderId);
     const collectionName = gift.base_name;
     const giftNumber = gift.number;
+    const username = ctx.from?.username ? `@${ctx.from.username}` : 'unknown';
 
     if (!giftId || !giftPayload) return;
 
-    const logPrefix = `🎁 GIFT IN | id=${giftId} | collection="${collectionName}" | number=${giftNumber} | from=${userId}`;
+    const logPrefix = `🎁 GIFT IN | id=${giftId} | collection="${collectionName}" | number=${giftNumber} | from=${userId} (${username})`;
 
     let connection;
     try {
