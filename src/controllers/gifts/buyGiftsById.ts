@@ -8,7 +8,10 @@ import { GiftStatus } from '../../models/Gift';
 import { Activity, ActivityItemType } from '../../models/Activity';
 import Decimal from 'decimal.js';
 import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate';
-import { REFERRAL_PERCENT_FEE } from '../../shared/constants';
+import {
+  INFLUENCER_REFERRAL_PERCENT_FEE,
+  REFERRAL_PERCENT_FEE,
+} from '../../shared/constants';
 
 const log = (...args: any[]) =>
   console.log(`[${new Date().toISOString()}]`, ...args);
@@ -16,7 +19,6 @@ const log = (...args: any[]) =>
 export const buyGiftsByIds = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
   const { gift_ids, externalPurchase } = req.body;
-  const referralFee = new Decimal(REFERRAL_PERCENT_FEE);
 
   if (!telegramUser?.id) {
     res.status(401).json({ error: 'Unauthorized' });
@@ -45,26 +47,18 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
         let totalCost = new Decimal(0);
         let sellerId: string | null = null;
-
-        for (const gift of gifts) {
-          if (
-            gift.status !== GiftStatus.LISTED ||
-            !gift.owner ||
-            gift.owner.id === buyer.id
-          ) {
-            throw new Error(`Invalid gift ID: ${gift?.id}`);
-          }
-          totalCost = totalCost.plus(gift.sell_price_with_fee);
-        }
-
-        if (buyer.ton_balance.lessThan(totalCost)) {
-          throw new Error('Insufficient balance to buy gifts');
-        }
-
         const createdActivities: Activity[] = [];
 
         for (const gift of gifts) {
           const seller = gift.owner;
+
+          if (
+            gift.status !== GiftStatus.LISTED ||
+            !seller ||
+            seller.id === buyer.id
+          ) {
+            throw new Error(`Invalid gift ID: ${gift?.id}`);
+          }
 
           if (sellerId === null) {
             sellerId = seller.id;
@@ -73,8 +67,8 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPrice = gift.sell_price;
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
-          const bonusAmount = commission.mul(referralFee).toDecimalPlaces(8);
 
+          totalCost = totalCost.plus(sellPriceWithFee);
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
 
@@ -87,6 +81,11 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
           if (sellerRef?.referred_by) {
             const ref = sellerRef.referred_by;
+            const feePercent = ref.is_influencer
+              ? new Decimal(INFLUENCER_REFERRAL_PERCENT_FEE)
+              : new Decimal(REFERRAL_PERCENT_FEE);
+
+            const bonusAmount = commission.mul(feePercent).toDecimalPlaces(8);
             const oldRefBalance = new Decimal(ref.ton_balance);
             const oldRefProfit = new Decimal(ref.referred_profit);
 
@@ -96,6 +95,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             } else {
               ref.ton_balance = oldRefBalance.plus(bonusAmount);
               ref.referred_profit = oldRefProfit.plus(bonusAmount);
+              ref.total_market_amount =
+                ref.total_market_amount.plus(bonusAmount);
+              ref.weekly_market_amount =
+                ref.weekly_market_amount.plus(bonusAmount);
               await manager.save(ref);
             }
 
@@ -104,7 +107,8 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             const newRefProfit =
               ref.id === buyer.id ? buyer.referred_profit : ref.referred_profit;
 
-            refLog = ` | 💸 Бонус ${bonusAmount.toFixed(3)} TON → ${
+            const type = ref.is_influencer ? 'инфлюенсеру' : 'рефералу';
+            refLog = ` | 💸 Бонус ${bonusAmount.toFixed(3)} TON → ${type} ${
               ref.username
             } (${ref.id}) [баланс: ${oldRefBalance.toFixed(
               3,
@@ -147,6 +151,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             amount: gift.sell_price,
             created_at: new Date(),
           });
+
           createdActivities.push(activity);
 
           gift.owner = buyer;
@@ -159,7 +164,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           await manager.save(gift);
 
           log(
-            `🛒🎁 ПОКУПКА ПОДАРКА: ${buyer.username} (${buyer.id}) купил ${
+            `🛒🏱 ПОКУПКА ПОДАРКА: ${buyer.username} (${buyer.id}) купил ${
               gift.collection_name
             } #${gift.number} у ${seller.username} (${
               seller.id
@@ -192,7 +197,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
       for (const gift of boughtGifts) {
         try {
           await transferGift({ giftId: gift.id, newOwnerId: telegramUser.id });
-
           await giftRepository.delete(gift.id);
 
           console.log(
@@ -217,7 +221,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
     );
   } catch (err: any) {
     console.error(
-      `🚫 НЕУДАЧНАЯ ПОКУПКА: ${telegramUser?.username} (${telegramUser?.id}) — ${err.message}`,
+      `🛑 НЕУДАЧНАЯ ПОКУПКА: ${telegramUser?.username} (${telegramUser?.id}) — ${err.message}`,
     );
     res.status(400).json({ error: err.message || 'Failed to buy gifts' });
   }

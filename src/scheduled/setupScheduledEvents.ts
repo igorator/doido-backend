@@ -4,10 +4,9 @@ import { runDepositWatcher } from './tonDepositWatcher';
 import { runTonWithdrawWatcher } from './tonWithdrawWatcher';
 
 export const setupScheduledEvents = () => {
-  resetWeeklyMarketVolume();
-  runLeaderboardRefresher();
-
   if (process.env.NODE_ENV !== 'development') {
+    resetWeeklyMarketVolume();
+    runLeaderboardRefresher();
     runDepositWatcher();
     runTonWithdrawWatcher();
     console.log('📅 Scheduled Events (watchers) started');

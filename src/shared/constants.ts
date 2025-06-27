@@ -1,5 +1,8 @@
 export const MARKET_PERCENT_FEE = Number(process.env.DEFAULT_FEE || 0.01);
 export const REFERRAL_PERCENT_FEE = Number(process.env.REFERRAL_FEE || 0.2);
+export const INFLUENCER_REFERRAL_PERCENT_FEE = Number(
+  process.env.INFLUENCER_REFERRAL_PERCENT_FEE || 0.01,
+);
 export const GIFT_LISTING_PERCENT_FEE = Number(
   process.env.GIFT_LISTING_FEE || 0.1,
 );

@@ -37,6 +37,9 @@ export class User {
   @Column('boolean', { default: false })
   is_admin: boolean;
 
+  @Column('boolean', { default: false })
+  is_influencer: boolean;
+
   @Column('decimal', {
     precision: 20,
     scale: 8,
