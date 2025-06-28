@@ -7,8 +7,10 @@ const BUSINESS_CONNECTION_ID = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {
     const senderId = ctx.from?.id;
-    if (senderId === ctx.me.id) return;
-    if (ctx.businessMessage?.from?.id === ctx.me.id) return;
+    const botId = ctx.me.id;
+
+    if (senderId === botId) return;
+    if (ctx.businessMessage?.from?.id === botId) return;
 
     const giftPayload = ctx.businessMessage?.unique_gift;
     if (!giftPayload) return;
@@ -36,12 +38,19 @@ export const onGiftRouter = (bot: Bot) => {
       console.warn(
         `${logPrefix} | ❌ unexpected connection_id=${connection.id}`,
       );
-
       return;
     }
 
     const user = await userRepository.findOneBy({ id: userId });
+
     if (!user) {
+      if (userId === String(botId)) {
+        console.warn(
+          `${logPrefix} | 🔁 Skipped: duplicate delivery event from bot`,
+        );
+        return;
+      }
+
       console.warn(`${logPrefix} | ❌ fail=userNotFound`);
       return;
     }

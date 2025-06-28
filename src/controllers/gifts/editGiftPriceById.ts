@@ -22,6 +22,7 @@ export const editGiftPriceById = async (
     !price_with_fee ||
     isNaN(Number(price_with_fee))
   ) {
+    console.warn('🚫 Invalid input:', { price, price_with_fee });
     res.status(400).json({ error: 'Invalid price or price_with_fee' });
     return;
   }
@@ -43,13 +44,24 @@ export const editGiftPriceById = async (
     }
 
     if (!gift.owner || gift.owner.id !== String(telegramUser.id)) {
-      console.warn('❌ User tried to edit a gift that does not belong to them');
       res.status(403).json({ error: 'Forbidden: not your gift' });
       return;
     }
 
     if (gift.status !== GiftStatus.LISTED) {
       res.status(400).json({ error: 'Gift is not listed for sale' });
+      return;
+    }
+
+    const now = Date.now();
+    const lastUpdated = new Date(gift.updated_at ?? gift.created_at).getTime();
+    const secondsSinceUpdate = (now - lastUpdated) / 1000;
+
+    if (secondsSinceUpdate < 60) {
+      const waitSeconds = Math.ceil(60 - secondsSinceUpdate);
+      res.status(429).json({
+        error: `Wait ${waitSeconds} seconds before editing price again`,
+      });
       return;
     }
 
@@ -65,12 +77,13 @@ export const editGiftPriceById = async (
       status: updatedGift.status,
       sell_price: updatedGift.sell_price,
       sell_price_with_fee: updatedGift.sell_price_with_fee,
-      listed_date: updatedGift.listed_date,
     });
 
     await botSendMessage(
       gift.owner.id,
-      `✏️ You updated price of <b>${updatedGift.collection_name} #${updatedGift.number}</b> 💰 to <code>${price} TON</code>`,
+      `✏️ You updated price of <b>${updatedGift.collection_name} #${
+        updatedGift.number
+      }</b> 💰 to <code>${Number(price).toFixed(3)} TON</code>`,
       'HTML',
     );
 
