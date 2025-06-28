@@ -24,6 +24,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
     res.status(401).json({ error: 'Unauthorized' });
     return;
   }
+
   if (!Array.isArray(gift_ids) || gift_ids.length === 0) {
     res.status(400).json({ error: 'No gift IDs provided' });
     return;
@@ -45,7 +46,26 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           throw new Error('Some of gifts not found or invalid');
         }
 
-        let totalCost = new Decimal(0);
+        const totalCost = gifts.reduce(
+          (sum, gift) => sum.plus(gift.sell_price_with_fee),
+          new Decimal(0),
+        );
+
+        //////////////////////////////////////// ОЧЕНЬ ВАЖНЫЙ КОД
+        if (
+          !totalCost.isFinite() ||
+          totalCost.isZero() ||
+          totalCost.isNegative() ||
+          buyer.ton_balance.lessThan(totalCost)
+        ) {
+          throw new Error(
+            `Insufficient balance. Need ${totalCost.toFixed(
+              3,
+            )} TON, available ${buyer.ton_balance.toFixed(3)} TON`,
+          );
+        }
+        ////////////////////////////////////////
+
         let sellerId: string | null = null;
         const createdActivities: Activity[] = [];
 
@@ -68,7 +88,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
 
-          totalCost = totalCost.plus(sellPriceWithFee);
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
 
