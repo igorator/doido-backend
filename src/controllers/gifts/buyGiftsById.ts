@@ -6,6 +6,7 @@ import { botSendMessage } from '../../services/messages/botSendMessage';
 import { transferGift } from '../../services/gifts/transferGift';
 import { GiftStatus } from '../../models/Gift';
 import { Activity, ActivityItemType } from '../../models/Activity';
+import { MarketInfo } from '../../models/MarketInfo';
 import Decimal from 'decimal.js';
 import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate';
 import {
@@ -50,7 +51,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           (sum, gift) => sum.plus(gift.sell_price_with_fee),
           new Decimal(0),
         );
-
         //////////////////////////////////////// ОЧЕНЬ ВАЖНЫЙ КОД
         if (
           !totalCost.isFinite() ||
@@ -62,9 +62,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           throw new Error(`Insufficient balance.`);
         }
         ////////////////////////////////////////
-
         let sellerId: string | null = null;
         const createdActivities: Activity[] = [];
+        let totalCommission = new Decimal(0);
+        let referralBonuses = new Decimal(0);
 
         for (const gift of gifts) {
           const seller = gift.owner;
@@ -84,6 +85,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           const sellPrice = gift.sell_price;
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
+          totalCommission = totalCommission.plus(commission);
 
           buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
@@ -102,6 +104,8 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
               : new Decimal(REFERRAL_PERCENT_FEE);
 
             const bonusAmount = commission.mul(feePercent).toDecimalPlaces(8);
+            referralBonuses = referralBonuses.plus(bonusAmount);
+
             const oldRefBalance = new Decimal(ref.ton_balance);
             const oldRefProfit = new Decimal(ref.referred_profit);
 
@@ -191,6 +195,14 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
         }
 
         await manager.save(createdActivities);
+
+        const marketInfoRepo = manager.getRepository(MarketInfo);
+        const marketInfo = await marketInfoRepo.findOneBy({ id: 1 });
+        if (!marketInfo) throw new Error('Market info record not found');
+
+        const netProfit = totalCommission.minus(referralBonuses);
+        marketInfo.profit = marketInfo.profit.plus(netProfit);
+        await marketInfoRepo.save(marketInfo);
 
         if (sellerId) sendBalanceUpdate(sellerId);
         sendBalanceUpdate(buyer.id);

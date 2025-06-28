@@ -9,6 +9,7 @@ import { WithdrawLog } from '../models/ton/WithdrawLog';
 import { LeaderboardEntry } from '../models/leaderboard/Leaderboard';
 import { LeaderboardTier } from '../models/leaderboard/LeaderboardTier';
 import { AppSettings } from '../models/AppSettings';
+import { MarketInfo } from '../models/MarketInfo';
 
 dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
@@ -40,6 +41,7 @@ export const AppDataSource = new DataSource({
     LeaderboardEntry,
     LeaderboardTier,
     AppSettings,
+    MarketInfo,
   ],
   ssl: { rejectUnauthorized: false },
   logging: false,
