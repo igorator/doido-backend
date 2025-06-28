@@ -59,11 +59,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           buyer.ton_balance.isNegative() ||
           buyer.ton_balance.lessThan(totalCost)
         ) {
-          throw new Error(
-            `Insufficient balance. Need ${totalCost.toFixed(
-              3,
-            )} TON, available ${buyer.ton_balance.toFixed(3)} TON`,
-          );
+          throw new Error(`Insufficient balance.`);
         }
         ////////////////////////////////////////
 
