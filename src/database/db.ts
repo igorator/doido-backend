@@ -8,12 +8,11 @@ import { WithdrawBatch } from '../models/ton/WithdrawBatch';
 import { WithdrawLog } from '../models/ton/WithdrawLog';
 import { LeaderboardEntry } from '../models/leaderboard/Leaderboard';
 import { LeaderboardTier } from '../models/leaderboard/LeaderboardTier';
+import { AppSettings } from '../models/AppSettings';
 
 dotenv.config({
   path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
 });
-
-//const isProduction = process.env.NODE_ENV === 'production';
 
 if (
   !process.env.POSTGRES_HOST ||
@@ -40,6 +39,7 @@ export const AppDataSource = new DataSource({
     WithdrawBatch,
     LeaderboardEntry,
     LeaderboardTier,
+    AppSettings,
   ],
   ssl: { rejectUnauthorized: false },
   logging: false,
