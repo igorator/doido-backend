@@ -81,10 +81,10 @@ export class Activity {
   gift_backdrop_text_color?: string;
 
   // 🧑‍🤝‍🧑 Users
-  @ManyToOne(() => User, { nullable: false })
+  @ManyToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
   seller: User;
 
-  @ManyToOne(() => User, { nullable: false })
+  @ManyToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
   buyer: User;
 
   // 💰 Amount
