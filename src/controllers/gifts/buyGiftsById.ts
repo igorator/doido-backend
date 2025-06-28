@@ -56,6 +56,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           !totalCost.isFinite() ||
           totalCost.isZero() ||
           totalCost.isNegative() ||
+          buyer.ton_balance.isNegative() ||
           buyer.ton_balance.lessThan(totalCost)
         ) {
           throw new Error(
