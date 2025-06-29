@@ -12,14 +12,19 @@ export async function withdrawTon(req: Request, res: Response) {
     const { userId, amountTon, to } = req.body;
 
     if (!userId || !to || typeof amountTon !== 'number' || amountTon <= 0) {
-      return res.status(400).json({ message: 'Invalid withdraw request' });
+      res.status(400).json({ message: 'Invalid withdraw request' });
+      return;
     }
 
     const user = await getUserById(userId);
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
 
     if (new Decimal(user.ton_balance).lt(amountTon)) {
-      return res.status(403).json({ message: 'Insufficient balance' });
+      res.status(403).json({ message: 'Insufficient balance' });
+      return;
     }
 
     await minusUserBalance(userId, new Decimal(amountTon));

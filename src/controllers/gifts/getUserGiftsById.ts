@@ -22,24 +22,22 @@ export const getGiftsByUserId = async (
       max_price,
       sort = 'latest',
       gift_id,
-      skip = 0,
-      take = 20,
     } = req.query;
-
-    const skipNum = Number(skip);
-    const takeNum = Number(take);
 
     const collections = Array.isArray(collection)
       ? collection
       : collection
       ? [collection]
       : [];
+
     const models = Array.isArray(model) ? model : model ? [model] : [];
+
     const backdrops = Array.isArray(backdrop)
       ? backdrop
       : backdrop
       ? [backdrop]
       : [];
+
     const patterns = Array.isArray(pattern)
       ? pattern
       : pattern
@@ -59,22 +57,25 @@ export const getGiftsByUserId = async (
       baseFilters.sell_price = LessThanOrEqual(max_price);
     }
 
-    const where = collections.length
-      ? collections.map((col) => ({
-          ...baseFilters,
-          collection_name: Like(`%${col}%`),
-          ...(models.length && { model: { name: In(models) } }),
-          ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
-          ...(patterns.length && { pattern: { name: In(patterns) } }),
-        }))
-      : [
-          {
+    const buildWhereClause = (status: 'listed' | 'unlisted') =>
+      collections.length
+        ? collections.map((col) => ({
             ...baseFilters,
+            status,
+            collection_name: Like(`%${col}%`),
             ...(models.length && { model: { name: In(models) } }),
             ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
             ...(patterns.length && { pattern: { name: In(patterns) } }),
-          },
-        ];
+          }))
+        : [
+            {
+              ...baseFilters,
+              status,
+              ...(models.length && { model: { name: In(models) } }),
+              ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
+              ...(patterns.length && { pattern: { name: In(patterns) } }),
+            },
+          ];
 
     const order: any =
       sort === 'price-asc'
@@ -89,16 +90,12 @@ export const getGiftsByUserId = async (
         ? { number: 'desc' }
         : {};
 
-    const [gifts, total] = await giftRepository.findAndCount({
-      where,
-      order,
-      skip: skipNum,
-      take: takeNum,
-    });
+    const [listedGifts, unlistedGifts] = await Promise.all([
+      giftRepository.find({ where: buildWhereClause('listed'), order }),
+      giftRepository.find({ where: buildWhereClause('unlisted'), order }),
+    ]);
 
-    const hasMore = skipNum + takeNum < total;
-
-    res.json({ gifts, total, hasMore });
+    res.json({ listedGifts, unlistedGifts });
   } catch (err) {
     console.error('❌ Error fetching user gifts:', err);
     res.status(500).json({

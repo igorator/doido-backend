@@ -22,9 +22,8 @@ export async function depositTon(req: Request, res: Response) {
     const { userId, amountTon } = req.body;
 
     if (!userId || !amountTon || Number(amountTon) <= 0) {
-      return res
-        .status(400)
-        .json({ message: 'userId and valid amountTon required' });
+      res.status(400).json({ message: 'userId and valid amountTon required' });
+      return;
     }
 
     const timestamp = Math.floor(Date.now() / 1000);
