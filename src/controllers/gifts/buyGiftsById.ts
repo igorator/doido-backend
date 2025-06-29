@@ -51,7 +51,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           (sum, gift) => sum.plus(gift.sell_price_with_fee),
           new Decimal(0),
         );
-        //////////////////////////////////////// ОЧЕНЬ ВАЖНЫЙ КОД
+        /////////////////////    ОЧЕНЬ ВАЖНЫЙ КОД, НЕ УДАЛЯТЬ КОММЕНТ ////////////////////////////////////////
         if (
           !totalCost.isFinite() ||
           totalCost.isZero() ||
@@ -202,7 +202,16 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
         const netProfit = totalCommission.minus(referralBonuses);
         marketInfo.profit = marketInfo.profit.plus(netProfit);
+
         await marketInfoRepo.save(marketInfo);
+
+        log(
+          `🏦 PROFIT LOG | Marketplace profit: ${netProfit.toFixed(
+            6,
+          )} TON | Total commission: ${totalCommission.toFixed(
+            6,
+          )} TON | Referral bonuses: ${referralBonuses.toFixed(6)} TON`,
+        );
 
         if (sellerId) sendBalanceUpdate(sellerId);
         sendBalanceUpdate(buyer.id);
