@@ -8,6 +8,7 @@ import {
   GIFT_LISTING_PERCENT_FEE,
   MAX_FREE_GIFTS_LISTINGS,
 } from '../../shared/constants';
+import { incrementMarketProfit } from '../../services/market/incrementMarketProfit';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -58,6 +59,9 @@ export const listGiftForSaleById = async (
 
       owner.ton_balance = owner.ton_balance.minus(GIFT_LISTING_FEE);
       await userRepository.save(owner);
+
+      await incrementMarketProfit('gift_listing', GIFT_LISTING_FEE); // ✅ записываем профит
+
       feeApplied = true;
     }
 
@@ -91,6 +95,7 @@ export const listGiftForSaleById = async (
       }</b> 💰 for <code>${updatedGift.sell_price.toFixed(3)} TON</code>`,
       'HTML',
     );
+
     console.log(
       `[${new Date().toISOString()}] 📤 ${owner.username} (${
         owner.id

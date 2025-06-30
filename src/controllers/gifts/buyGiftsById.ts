@@ -168,7 +168,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             gift_backdrop_text_color: gift.backdrop?.text_color ?? null,
             seller,
             buyer,
-            amount: gift.sell_price,
+            amount: gift.sell_price_with_fee,
             created_at: new Date(),
           });
 

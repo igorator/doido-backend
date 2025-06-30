@@ -4,8 +4,9 @@ import { userRepository } from '../../database/repositories/userRepository';
 import { minusUserBalance } from '../../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 import { transferGift } from '../../services/gifts/transferGift';
-import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate'; // 💡 Импортируй свой сокет-метод
+import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate';
 import { GIFT_TRANSFER_FEE } from '../../shared/constants';
+import { incrementMarketProfit } from '../../services/market/incrementMarketProfit';
 
 export const transferGiftById = async (
   req: Request,
@@ -43,8 +44,9 @@ export const transferGiftById = async (
     }
 
     await minusUserBalance(owner.id, transferFee);
-
     sendBalanceUpdate(owner.id);
+
+    await incrementMarketProfit('gift_transfer', transferFee); // 👈 учёт в прибыли
 
     await transferGift({
       giftId: gift.id,
@@ -64,7 +66,7 @@ export const transferGiftById = async (
 
     res.json({ success: true });
   } catch (err) {
-    console.error('❌ Error during gift deletion:', err);
+    console.error('❌ Error during gift transfer:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
