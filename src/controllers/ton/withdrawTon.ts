@@ -9,14 +9,22 @@ const withdrawLogRepository = AppDataSource.getRepository(WithdrawLog);
 
 export async function withdrawTon(req: Request, res: Response) {
   try {
-    const { userId, amountTon, to } = req.body;
+    const { amountTon, to } = req.body;
+    const telegramUser = (req as any).telegramUser;
 
-    if (!userId || !to || typeof amountTon !== 'number' || amountTon <= 0) {
+    if (
+      !telegramUser?.id ||
+      !to ||
+      typeof amountTon !== 'number' ||
+      amountTon <= 0
+    ) {
       res.status(400).json({ message: 'Invalid withdraw request' });
       return;
     }
 
+    const userId = String(telegramUser.id);
     const user = await getUserById(userId);
+
     if (!user) {
       res.status(404).json({ message: 'User not found' });
       return;

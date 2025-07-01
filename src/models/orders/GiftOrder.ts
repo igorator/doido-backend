@@ -6,12 +6,11 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-export const GIFT_ORDER_STATUSES = [
-  'active',
-  'completed',
-  'cancelled',
-] as const;
-export type GiftOrderStatus = (typeof GIFT_ORDER_STATUSES)[number];
+export enum GiftOrderStatus {
+  ACTIVE = 'active',
+  COMPLETED = 'completed',
+  CANCELLED = 'cancelled',
+}
 
 @Entity()
 export class GiftOrder {
@@ -45,7 +44,11 @@ export class GiftOrder {
   @Column('decimal', { precision: 20, scale: 8, default: 0 })
   balanceLocked: string;
 
-  @Column('varchar', { length: 32, default: 'active' })
+  @Column({
+    type: 'enum',
+    enum: GiftOrderStatus,
+    default: GiftOrderStatus.ACTIVE,
+  })
   status: GiftOrderStatus;
 
   @CreateDateColumn()

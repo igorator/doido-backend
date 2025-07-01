@@ -6,11 +6,11 @@ import { DepositLog } from '../../models/ton/DepositLog';
 import { AppDataSource } from '../../database/db';
 
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
-const EXPIRATION_SECONDS = 300; // 10 минут
+const EXPIRATION_SECONDS = 300;
 
 async function buildTextPayload(payloadId: string): Promise<string> {
   const cell = beginCell()
-    .storeUint(0, 32) // text_comment opcode
+    .storeUint(0, 32)
     .storeStringTail(payloadId)
     .endCell();
   const boc = cell.toBoc();

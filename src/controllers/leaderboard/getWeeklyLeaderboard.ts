@@ -24,7 +24,6 @@ export const getWeeklyLeaderboard = async (req: Request, res: Response) => {
       range: entry.range,
       volume: entry.volume,
       user: {
-        id: entry.user.id,
         first_name: entry.user.first_name,
         photo_url: entry.user.photo_url,
       },
@@ -48,7 +47,6 @@ export const getWeeklyLeaderboard = async (req: Request, res: Response) => {
         range: myEntry.range,
         volume: myEntry.volume,
         user: {
-          id: myEntry.user.id,
           first_name: myEntry.user.first_name,
           photo_url: myEntry.user.photo_url,
         },
@@ -56,7 +54,7 @@ export const getWeeklyLeaderboard = async (req: Request, res: Response) => {
     } else {
       const user = await userRepo.findOne({
         where: { id: userId },
-        select: ['id', 'first_name', 'photo_url'],
+        select: ['first_name', 'photo_url'],
       });
 
       my = {
@@ -64,7 +62,6 @@ export const getWeeklyLeaderboard = async (req: Request, res: Response) => {
         range: '-',
         volume: '0',
         user: {
-          id: user?.id || userId,
           first_name: user?.first_name || null,
           photo_url: user?.photo_url || null,
         },
