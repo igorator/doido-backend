@@ -62,16 +62,31 @@ async function markBatchAndLogsAsFailed(
   logs: WithdrawLog[],
   reason: string,
 ) {
+  const failedAt = Math.floor(Date.now() / 1000);
+
   for (const log of logs) {
-    log.status = 'failed';
-    log.processedAt = Math.floor(Date.now() / 1000);
-    await withdrawLogRepository.save(log);
-    await refundUserBalanceIfNeeded(log);
+    await withdrawLogRepository.update(
+      { id: log.id },
+      {
+        status: 'failed',
+        processedAt: failedAt,
+      },
+    );
+
+    await refundUserBalanceIfNeeded({
+      ...log,
+      status: 'failed',
+      processedAt: failedAt,
+    });
   }
 
-  batch.status = 'failed';
-  batch.processedAt = Math.floor(Date.now() / 1000);
-  await withdrawBatchRepository.save(batch);
+  await withdrawBatchRepository.update(
+    { id: batch.id },
+    {
+      status: 'failed',
+      processedAt: failedAt,
+    },
+  );
 
   console.error(
     `[TON Withdraw Watcher] ❌ Batch #${batch.id} failed: ${reason}`,
