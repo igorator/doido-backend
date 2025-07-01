@@ -191,7 +191,7 @@ async function batchAndSendWithdrawals() {
       const refillAmountNano = BigInt(Math.floor(WITHDRAW_REFILL_AMOUNT * 1e9));
       let refillSuccess = false;
 
-      for (let attempt = 1; attempt <= 5; attempt++) {
+      for (let attempt = 1; attempt <= 2; attempt++) {
         try {
           const ok = await refillWithdrawWalletIfNeeded(
             wallet.address.toString(),
