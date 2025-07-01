@@ -32,6 +32,11 @@ export const editGiftPriceById = async (
     return;
   }
 
+  if (Number(price) <= 0 || Number(price_with_fee) <= 0) {
+    res.status(400).json({ error: 'Price must be positive' });
+    return;
+  }
+
   try {
     const gift = await giftRepository.findOne({
       where: { id: gift_id },
