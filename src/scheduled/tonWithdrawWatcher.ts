@@ -68,6 +68,7 @@ async function markBatchAndLogsAsFailed(
     await withdrawLogRepository.save(log);
     await refundUserBalanceIfNeeded(log);
   }
+
   batch.status = 'failed';
   batch.processedAt = Math.floor(Date.now() / 1000);
   await withdrawBatchRepository.save(batch);
@@ -80,7 +81,7 @@ async function markBatchAndLogsAsFailed(
 async function refillWithdrawWalletIfNeeded(
   targetAddress: string,
   refillAmountNano: bigint,
-) {
+): Promise<boolean> {
   const depositWallet = WalletContractV5R1.create({
     publicKey: depositPublicKey,
     walletId: {
@@ -93,9 +94,10 @@ async function refillWithdrawWalletIfNeeded(
     Address.parse(depositWallet.address.toString()),
   );
   if (depositBalance < refillAmountNano) {
-    throw new Error(
-      '[TON Withdraw Watcher] Not enough balance on DEPOSIT wallet for refill',
+    console.warn(
+      `[TON Withdraw Watcher] ❌ Not enough balance on DEPOSIT wallet`,
     );
+    return false;
   }
 
   const provider = tonClient.provider(depositWallet.address);
@@ -118,6 +120,7 @@ async function refillWithdrawWalletIfNeeded(
   console.log(
     `[TON Withdraw Watcher] Sent refill of ${WITHDRAW_REFILL_AMOUNT} TON to ${targetAddress}`,
   );
+  return true;
 }
 
 async function batchAndSendWithdrawals() {
@@ -167,7 +170,7 @@ async function batchAndSendWithdrawals() {
 
     if (withdrawWalletBalance < totalBatchNano) {
       console.log(
-        '[TON Withdraw Watcher] Not enough balance for batch, attempting refill...',
+        `[TON Withdraw Watcher] Not enough balance for batch, attempting refill...`,
       );
 
       const refillAmountNano = BigInt(Math.floor(WITHDRAW_REFILL_AMOUNT * 1e9));
@@ -175,11 +178,19 @@ async function batchAndSendWithdrawals() {
 
       for (let attempt = 1; attempt <= 5; attempt++) {
         try {
-          await refillWithdrawWalletIfNeeded(
+          const ok = await refillWithdrawWalletIfNeeded(
             wallet.address.toString(),
             refillAmountNano,
           );
+          if (!ok) {
+            console.warn(
+              `[TON Withdraw Watcher] ❌ Refill attempt ${attempt} failed: insufficient DEPOSIT balance`,
+            );
+            continue;
+          }
+
           await sleep(5000);
+
           withdrawWalletBalance = await tonClient.getBalance(
             Address.parse(wallet.address.toString()),
           );
@@ -187,8 +198,9 @@ async function batchAndSendWithdrawals() {
             refillSuccess = true;
             break;
           }
+
           console.warn(
-            `[TON Withdraw Watcher] 🕐 Refill attempt ${attempt} did not reach required balance.`,
+            `[TON Withdraw Watcher] 🕐 Refill attempt ${attempt} did not reach required balance`,
           );
         } catch (err) {
           console.warn(
