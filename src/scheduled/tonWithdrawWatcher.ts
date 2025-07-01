@@ -35,6 +35,13 @@ const { publicKey: depositPublicKey } = keyPairFromSecretKey(depositSecretKey);
 const inFlightBatches = new Set<number>();
 
 async function refundUserBalanceIfNeeded(log: WithdrawLog) {
+  if (log.status === 'failed' && log.processedAt) {
+    console.warn(
+      `[TON Withdraw Watcher] ⏩ Skip refund: already failed and refunded userId=${log.userId}`,
+    );
+    return;
+  }
+
   try {
     await plusUserBalance(log.userId, new Decimal(log.amount));
     console.log(
@@ -72,9 +79,8 @@ async function markBatchAndLogsAsFailed(
 
 async function refillWithdrawWalletIfNeeded(
   targetAddress: string,
-  requiredNano: bigint,
+  refillAmountNano: bigint,
 ) {
-  const refillAmountNano = BigInt(Math.floor(WITHDRAW_REFILL_AMOUNT * 1e9));
   const depositWallet = WalletContractV5R1.create({
     publicKey: depositPublicKey,
     walletId: {
@@ -112,18 +118,6 @@ async function refillWithdrawWalletIfNeeded(
   console.log(
     `[TON Withdraw Watcher] Sent refill of ${WITHDRAW_REFILL_AMOUNT} TON to ${targetAddress}`,
   );
-
-  let retries = 0;
-  while (retries < 15) {
-    const updatedBalance = await tonClient.getBalance(
-      Address.parse(targetAddress),
-    );
-    if (updatedBalance >= requiredNano) return;
-    await sleep(5000);
-    retries++;
-  }
-
-  throw new Error('[TON Withdraw Watcher] Refill balance wait timeout');
 }
 
 async function batchAndSendWithdrawals() {
@@ -170,31 +164,45 @@ async function batchAndSendWithdrawals() {
     let withdrawWalletBalance = await tonClient.getBalance(
       Address.parse(wallet.address.toString()),
     );
+
     if (withdrawWalletBalance < totalBatchNano) {
       console.log(
         '[TON Withdraw Watcher] Not enough balance for batch, attempting refill...',
       );
-      try {
-        await refillWithdrawWalletIfNeeded(
-          wallet.address.toString(),
-          totalBatchNano,
-        );
-        withdrawWalletBalance = await tonClient.getBalance(
-          Address.parse(wallet.address.toString()),
-        );
-        if (withdrawWalletBalance < totalBatchNano) {
-          await markBatchAndLogsAsFailed(
-            batch,
-            pending,
-            'Insufficient funds after refill',
+
+      const refillAmountNano = BigInt(Math.floor(WITHDRAW_REFILL_AMOUNT * 1e9));
+      let refillSuccess = false;
+
+      for (let attempt = 1; attempt <= 5; attempt++) {
+        try {
+          await refillWithdrawWalletIfNeeded(
+            wallet.address.toString(),
+            refillAmountNano,
           );
-          return;
+          await sleep(5000);
+          withdrawWalletBalance = await tonClient.getBalance(
+            Address.parse(wallet.address.toString()),
+          );
+          if (withdrawWalletBalance >= totalBatchNano) {
+            refillSuccess = true;
+            break;
+          }
+          console.warn(
+            `[TON Withdraw Watcher] 🕐 Refill attempt ${attempt} did not reach required balance.`,
+          );
+        } catch (err) {
+          console.warn(
+            `[TON Withdraw Watcher] ❌ Refill attempt ${attempt} failed:`,
+            err,
+          );
         }
-      } catch (err) {
+      }
+
+      if (!refillSuccess) {
         await markBatchAndLogsAsFailed(
           batch,
           pending,
-          `Refill failed: ${err instanceof Error ? err.message : 'Unknown'}`,
+          'Refill failed after 5 attempts',
         );
         return;
       }
