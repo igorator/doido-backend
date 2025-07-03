@@ -38,6 +38,9 @@ export class User {
   is_admin: boolean;
 
   @Column('boolean', { default: false })
+  is_banned: boolean;
+
+  @Column('boolean', { default: false })
   is_influencer: boolean;
 
   @Column('decimal', {
