@@ -19,13 +19,17 @@ async function buildTextPayload(payloadId: string): Promise<string> {
 
 export async function depositTon(req: Request, res: Response) {
   try {
-    const { userId, amountTon } = req.body;
+    const { amountTon } = req.body;
+    const telegramUser = (req as any).telegramUser;
 
-    if (!userId || !amountTon || Number(amountTon) <= 0) {
-      res.status(400).json({ message: 'userId and valid amountTon required' });
+    if (!telegramUser?.id || !amountTon || Number(amountTon) <= 0) {
+      res
+        .status(400)
+        .json({ message: 'Valid amountTon and authorized user required' });
       return;
     }
 
+    const userId = String(telegramUser.id);
     const timestamp = Math.floor(Date.now() / 1000);
     const amountNano = toNano(amountTon).toString();
     const payloadId = uuidv4();
