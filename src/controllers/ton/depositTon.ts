@@ -4,6 +4,7 @@ import { beginCell, toNano } from '@ton/core';
 
 import { DepositLog } from '../../models/ton/DepositLog';
 import { AppDataSource } from '../../database/db';
+import { User } from '../../models/User';
 
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 const EXPIRATION_SECONDS = 300;
@@ -30,6 +31,14 @@ export async function depositTon(req: Request, res: Response) {
     }
 
     const userId = String(telegramUser.id);
+
+    const userRepo = AppDataSource.getRepository(User);
+    const user = await userRepo.findOneBy({ id: telegramUser.id });
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+
     const timestamp = Math.floor(Date.now() / 1000);
     const amountNano = toNano(amountTon).toString();
     const payloadId = uuidv4();
