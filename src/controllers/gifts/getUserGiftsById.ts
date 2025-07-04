@@ -95,7 +95,13 @@ export const getGiftsByUserId = async (
       giftRepository.find({ where: buildWhereClause('unlisted'), order }),
     ]);
 
-    res.json({ listedGifts, unlistedGifts });
+    res.json({
+      listedGifts,
+      unlistedGifts,
+      listedCount: listedGifts.length,
+      unlistedCount: unlistedGifts.length,
+      total: listedGifts.length + unlistedGifts.length,
+    });
   } catch (err) {
     console.error('❌ Error fetching user gifts:', err);
     res.status(500).json({

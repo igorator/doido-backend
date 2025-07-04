@@ -5,9 +5,11 @@ import { beginCell, toNano } from '@ton/core';
 import { DepositLog } from '../../models/ton/DepositLog';
 import { AppDataSource } from '../../database/db';
 import { User } from '../../models/User';
+import { MIN_DEPOSIT_AMOUNT } from '../../shared/constants';
 
 const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
 const EXPIRATION_SECONDS = 300;
+const MIN_TON_DEPOSIT_AMOUNT = MIN_DEPOSIT_AMOUNT;
 
 async function buildTextPayload(payloadId: string): Promise<string> {
   const cell = beginCell()
@@ -22,11 +24,31 @@ export async function depositTon(req: Request, res: Response) {
   try {
     const { amountTon } = req.body;
     const telegramUser = (req as any).telegramUser;
+    const parsedAmount = Number(amountTon);
 
-    if (!telegramUser?.id || !amountTon || Number(amountTon) <= 0) {
+    if (!telegramUser?.id) {
+      res
+        .status(401)
+        .json({ message: 'Unauthorized: Telegram user not found' });
+      return;
+    }
+
+    if (!amountTon) {
+      res.status(400).json({ message: 'Deposit amount is required' });
+      return;
+    }
+
+    if (isNaN(parsedAmount) || parsedAmount <= 0) {
       res
         .status(400)
-        .json({ message: 'Valid amountTon and authorized user required' });
+        .json({ message: 'Deposit amount must be a valid positive number' });
+      return;
+    }
+
+    if (parsedAmount < MIN_TON_DEPOSIT_AMOUNT) {
+      res.status(400).json({
+        message: `Minimum deposit amount is ${MIN_TON_DEPOSIT_AMOUNT} TON. Amount: ${amountTon}`,
+      });
       return;
     }
 
