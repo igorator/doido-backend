@@ -43,15 +43,15 @@ export const transferGiftById = async (
       return;
     }
 
-    await minusUserBalance(owner.id, transferFee);
-    sendBalanceUpdate(owner.id);
-
-    await incrementMarketProfit('gift_transfer', transferFee); // 👈 учёт в прибыли
-
     await transferGift({
       giftId: gift.id,
       newOwnerId: telegramUser.id,
     });
+
+    await minusUserBalance(owner.id, transferFee);
+    sendBalanceUpdate(owner.id);
+
+    await incrementMarketProfit('gift_transfer', transferFee);
 
     await giftRepository.delete(gift.id);
 
