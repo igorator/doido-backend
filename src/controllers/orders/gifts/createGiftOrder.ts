@@ -19,6 +19,29 @@ export const createGiftOrder = async (req: Request, res: Response) => {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
+  const invalidArrayFields = [
+    collectionName,
+    modelName,
+    backdropName,
+    patternName,
+  ].some((v) => Array.isArray(v));
+
+  if (invalidArrayFields) {
+    return res.status(400).json({
+      error: 'Each category field must contain only one item (not array)',
+    });
+  }
+
+  const isFilterProvided =
+    collectionName || modelName || backdropName || patternName || maxPrice;
+
+  if (!isFilterProvided) {
+    return res.status(400).json({
+      error:
+        'At least one filter must be provided (collection, model, backdrop, pattern, or maxPrice)',
+    });
+  }
+
   if (!maxPrice || isNaN(Number(maxPrice)) || !quantity || quantity <= 0) {
     return res.status(400).json({ error: 'Invalid maxPrice or quantity' });
   }
