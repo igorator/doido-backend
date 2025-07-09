@@ -4,7 +4,7 @@ import { tonClient } from '../ton/tonClient';
 import { WalletContractV5R1, SendMode, internal, toNano } from '@ton/ton';
 import { Address } from '@ton/core';
 import Decimal from 'decimal.js';
-
+import { logger } from '../shared/lib/logger';
 import { WithdrawLog } from '../models/ton/WithdrawLog';
 import { WithdrawBatch } from '../models/ton/WithdrawBatch';
 import { plusUserBalance } from '../services/user/updateUserBalance';
@@ -53,7 +53,7 @@ function createWallet(publicKey: Buffer) {
 // 💸 Возврат баланса пользователю
 async function refundUserBalanceIfNeeded(log: WithdrawLog) {
   if (!log.wasDebited) return;
-  if (log.status === 'failed' && log.processedAt) return;
+  if (log.status !== 'failed') return;
 
   try {
     await plusUserBalance(log.userId, new Decimal(log.amount));
@@ -69,7 +69,6 @@ async function refundUserBalanceIfNeeded(log: WithdrawLog) {
     sendBalanceUpdate(log.userId.toString());
   }
 }
-
 // ❌ Обработка ошибки батча
 async function markBatchAndLogsAsFailed(
   batch: WithdrawBatch,
@@ -83,17 +82,18 @@ async function markBatchAndLogsAsFailed(
       { id: log.id },
       { status: 'failed', processedAt: failedAt },
     );
-    await refundUserBalanceIfNeeded({
-      ...log,
-      status: 'failed',
-      processedAt: failedAt,
-    });
+
+    const freshLog = await withdrawLogRepository.findOneBy({ id: log.id });
+    if (freshLog) {
+      await refundUserBalanceIfNeeded(freshLog);
+    }
   }
 
   await withdrawBatchRepository.update(
     { id: batch.id },
     { status: 'failed', processedAt: failedAt },
   );
+
   console.error(`[Withdraw Watcher] ❌ Batch #${batch.id} failed: ${reason}`);
 }
 
@@ -108,7 +108,9 @@ async function refillWithdrawWalletIfNeeded(
   );
 
   if (depositBalance < refillAmountNano) {
-    console.warn(`[Withdraw Watcher] ❌ Not enough balance on DEPOSIT wallet`);
+    console.warn(
+      `[Withdraw Watcher] ❌ Not enough balance on DEPOSIT wallet. Needed ${refillAmountNano}, got ${depositBalance}`,
+    );
     return false;
   }
 
