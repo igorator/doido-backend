@@ -1,53 +1,82 @@
 import { Request, Response } from 'express';
 import Decimal from 'decimal.js';
-import { getUserById } from '../../services/user/getUserById';
-import { minusUserBalance } from '../../services/user/updateUserBalance';
-import { WithdrawLog } from '../../models/ton/WithdrawLog';
 import { AppDataSource } from '../../database/db';
+import { userRepository } from '../../database/repositories/userRepository';
+import { WithdrawLog } from '../../models/ton/WithdrawLog';
 
 const withdrawLogRepository = AppDataSource.getRepository(WithdrawLog);
 
+const WITHDRAW_RATE_LIMIT_SECONDS = 30;
+const WITHDRAW_RATE_LIMIT_MS = WITHDRAW_RATE_LIMIT_SECONDS * 1000;
+
 export async function withdrawTon(req: Request, res: Response) {
+  const { amountTon, to } = req.body;
+  const telegramUser = (req as any).telegramUser;
+
+  if (
+    !telegramUser?.id ||
+    !to ||
+    typeof amountTon !== 'number' ||
+    isNaN(amountTon) ||
+    amountTon <= 0
+  ) {
+    res.status(400).json({ message: 'Invalid withdraw request' });
+    return;
+  }
+
+  const userId = String(telegramUser.id);
+
   try {
-    const { amountTon, to } = req.body;
-    const telegramUser = (req as any).telegramUser;
+    await AppDataSource.transaction(async (manager) => {
+      const user = await manager
+        .getRepository(userRepository.target)
+        .createQueryBuilder('user')
+        .setLock('pessimistic_write')
+        .where('user.id = :userId', { userId })
+        .getOne();
 
-    if (
-      !telegramUser?.id ||
-      !to ||
-      typeof amountTon !== 'number' ||
-      amountTon <= 0
-    ) {
-      res.status(400).json({ message: 'Invalid withdraw request' });
-      return;
-    }
+      if (!user) throw { code: 404, message: 'User not found' };
 
-    const userId = String(telegramUser.id);
-    const user = await getUserById(userId);
+      const now = Date.now();
+      const last = Number(user.last_withdraw_time ?? 0);
+      const timeSinceLast = now - last;
 
-    if (!user) {
-      res.status(404).json({ message: 'User not found' });
-      return;
-    }
+      if (timeSinceLast < WITHDRAW_RATE_LIMIT_MS) {
+        throw {
+          code: 429,
+          message: `Withdraw allowed only once per ${WITHDRAW_RATE_LIMIT_SECONDS} seconds. Please wait ${Math.ceil(
+            (WITHDRAW_RATE_LIMIT_MS - timeSinceLast) / 1000,
+          )}s.`,
+        };
+      }
 
-    if (new Decimal(user.ton_balance).lt(amountTon)) {
-      res.status(403).json({ message: 'Insufficient balance' });
-      return;
-    }
+      const balance = new Decimal(user.ton_balance);
+      if (balance.lt(amountTon)) {
+        throw { code: 403, message: 'Insufficient balance' };
+      }
 
-    await minusUserBalance(userId, new Decimal(amountTon));
+      user.ton_balance = balance.minus(amountTon);
+      user.last_withdraw_time = now;
+      await manager.save(user);
 
-    const withdrawLog = await withdrawLogRepository.save({
-      userId,
-      to,
-      amount: amountTon.toString(),
-      status: 'pending',
-      createdAt: Date.now(),
+      const withdrawLog = withdrawLogRepository.create({
+        userId,
+        to,
+        amount: amountTon.toString(),
+        status: 'pending',
+        wasDebited: true,
+        createdAt: now,
+      });
+
+      await manager.save(withdrawLog);
+      res.json({ success: true, withdrawId: withdrawLog.id });
     });
-
-    res.json({ success: true, withdrawId: withdrawLog.id });
-  } catch (err) {
-    console.error('❌ withdrawTonRequest error:', err);
-    res.status(500).json({ message: 'Internal error' });
+  } catch (err: any) {
+    if (err?.code === 403 || err?.code === 404 || err?.code === 429) {
+      res.status(err.code).json({ message: err.message });
+    } else {
+      console.error('❌ withdrawTonRequest error:', err);
+      res.status(500).json({ message: 'Internal error' });
+    }
   }
 }

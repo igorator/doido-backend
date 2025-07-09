@@ -48,4 +48,7 @@ export class WithdrawLog {
 
   @Column({ type: 'int', nullable: true })
   batchId?: number;
+
+  @Column({ type: 'boolean', default: false })
+  wasDebited: boolean;
 }

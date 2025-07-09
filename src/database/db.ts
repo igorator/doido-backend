@@ -45,5 +45,5 @@ export const AppDataSource = new DataSource({
   ],
   ssl: { rejectUnauthorized: false },
   logging: false,
-  synchronize: false,
+  synchronize: true,
 });

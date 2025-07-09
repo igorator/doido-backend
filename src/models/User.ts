@@ -8,6 +8,7 @@ import {
   ManyToOne,
   JoinColumn,
   CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Gift } from './Gift';
 
@@ -86,8 +87,14 @@ export class User {
   @OneToMany(() => Gift, (gift) => gift.owner)
   gifts: Gift[];
 
+  @Column({ type: 'bigint', nullable: true })
+  last_withdraw_time?: number;
+
   @CreateDateColumn({ type: 'timestamp with time zone' })
   created_at: Date;
+
+  @UpdateDateColumn({ type: 'time without time zone' })
+  updated_at: Date;
 
   toJSON() {
     return {

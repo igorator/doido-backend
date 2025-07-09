@@ -1,18 +1,19 @@
-import { WithdrawBatch } from '../models/ton/WithdrawBatch';
-import { WithdrawLog } from '../models/ton/WithdrawLog';
 import { AppDataSource } from '../database/db';
-import { internal, toNano, WalletContractV5R1, SendMode } from '@ton/ton';
-import { tonClient } from '../ton/tonClient';
 import { keyPairFromSecretKey } from '@ton/crypto';
-import { plusUserBalance } from '../services/user/updateUserBalance';
+import { tonClient } from '../ton/tonClient';
+import { WalletContractV5R1, SendMode, internal, toNano } from '@ton/ton';
 import { Address } from '@ton/core';
 import Decimal from 'decimal.js';
+
+import { WithdrawLog } from '../models/ton/WithdrawLog';
+import { WithdrawBatch } from '../models/ton/WithdrawBatch';
+import { plusUserBalance } from '../services/user/updateUserBalance';
 import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
 
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+const withdrawLogRepository = AppDataSource.getRepository(WithdrawLog);
+const withdrawBatchRepository = AppDataSource.getRepository(WithdrawBatch);
 
+// 🔐 Secrets & config
 const WITHDRAW_SECRET_KEY = process.env.TON_WITHDRAW_WALLET_SECRET_KEY!;
 const DEPOSIT_SECRET_KEY = process.env.TON_DEPOSIT_WALLET_SECRET_KEY!;
 const MAX_BATCH_SIZE = Number(process.env.TON_WITHDRAW_MAX_BATCH_SIZE) || 20;
@@ -22,34 +23,46 @@ const TON_SUBWALLET_NUMBER = Number(process.env.TON_SUBWALLET_NUMBER) || 0;
 const WITHDRAW_REFILL_AMOUNT =
   Number(process.env.TON_WITHDRAW_REFILL_AMOUNT) || 50;
 
-const withdrawLogRepository = AppDataSource.getRepository(WithdrawLog);
-const withdrawBatchRepository = AppDataSource.getRepository(WithdrawBatch);
-
 const withdrawSecretKey = Buffer.from(WITHDRAW_SECRET_KEY, 'hex');
+const depositSecretKey = Buffer.from(DEPOSIT_SECRET_KEY, 'hex');
 const { publicKey: withdrawPublicKey } =
   keyPairFromSecretKey(withdrawSecretKey);
-
-const depositSecretKey = Buffer.from(DEPOSIT_SECRET_KEY, 'hex');
 const { publicKey: depositPublicKey } = keyPairFromSecretKey(depositSecretKey);
 
 const inFlightBatches = new Set<number>();
 
+// 🛠 Helpers
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function createWallet(publicKey: Buffer) {
+  return WalletContractV5R1.create({
+    publicKey,
+    walletId: {
+      networkGlobalId: -239,
+      context: {
+        walletVersion: 'v5r1',
+        workchain: 0,
+        subwalletNumber: TON_SUBWALLET_NUMBER,
+      },
+    },
+  });
+}
+
+// 💸 Возврат баланса пользователю
 async function refundUserBalanceIfNeeded(log: WithdrawLog) {
-  if (log.status === 'failed' && log.processedAt) {
-    console.warn(
-      `[TON Withdraw Watcher] ⏩ Skip refund: already failed and refunded userId=${log.userId}`,
-    );
-    return;
-  }
+  if (!log.wasDebited) return;
+  if (log.status === 'failed' && log.processedAt) return;
 
   try {
     await plusUserBalance(log.userId, new Decimal(log.amount));
     console.log(
-      `[TON Withdraw Watcher] Refunded ${log.amount} TON to userId=${log.userId}`,
+      `[Withdraw Watcher] Refunded ${log.amount} TON to userId=${log.userId}`,
     );
   } catch (err) {
     console.error(
-      `[TON Withdraw Watcher] ❌ Failed to refund userId=${log.userId}:`,
+      `[Withdraw Watcher] ❌ Refund failed for userId=${log.userId}:`,
       err,
     );
   } finally {
@@ -57,22 +70,19 @@ async function refundUserBalanceIfNeeded(log: WithdrawLog) {
   }
 }
 
+// ❌ Обработка ошибки батча
 async function markBatchAndLogsAsFailed(
   batch: WithdrawBatch,
   logs: WithdrawLog[],
   reason: string,
 ) {
-  const failedAt = Math.floor(Date.now() / 1000);
+  const failedAt = (Date.now() / 1000) | 0;
 
   for (const log of logs) {
     await withdrawLogRepository.update(
       { id: log.id },
-      {
-        status: 'failed',
-        processedAt: failedAt,
-      },
+      { status: 'failed', processedAt: failedAt },
     );
-
     await refundUserBalanceIfNeeded({
       ...log,
       status: 'failed',
@@ -82,36 +92,23 @@ async function markBatchAndLogsAsFailed(
 
   await withdrawBatchRepository.update(
     { id: batch.id },
-    {
-      status: 'failed',
-      processedAt: failedAt,
-    },
+    { status: 'failed', processedAt: failedAt },
   );
-
-  console.error(
-    `[TON Withdraw Watcher] ❌ Batch #${batch.id} failed: ${reason}`,
-  );
+  console.error(`[Withdraw Watcher] ❌ Batch #${batch.id} failed: ${reason}`);
 }
 
+// ➕ Пополнение withdraw-кошелька
 async function refillWithdrawWalletIfNeeded(
-  targetAddress: string,
+  toAddress: string,
   refillAmountNano: bigint,
 ): Promise<boolean> {
-  const depositWallet = WalletContractV5R1.create({
-    publicKey: depositPublicKey,
-    walletId: {
-      networkGlobalId: -239,
-      context: { walletVersion: 'v5r1', workchain: 0, subwalletNumber: 0 },
-    },
-  });
-
+  const depositWallet = createWallet(depositPublicKey);
   const depositBalance = await tonClient.getBalance(
     Address.parse(depositWallet.address.toString()),
   );
+
   if (depositBalance < refillAmountNano) {
-    console.warn(
-      `[TON Withdraw Watcher] ❌ Not enough balance on DEPOSIT wallet`,
-    );
+    console.warn(`[Withdraw Watcher] ❌ Not enough balance on DEPOSIT wallet`);
     return false;
   }
 
@@ -122,34 +119,26 @@ async function refillWithdrawWalletIfNeeded(
     seqno,
     secretKey: depositSecretKey,
     messages: [
-      internal({
-        to: targetAddress,
-        value: refillAmountNano,
-        bounce: true,
-      }),
+      internal({ to: toAddress, value: refillAmountNano, bounce: true }),
     ],
     sendMode: SendMode.PAY_GAS_SEPARATELY | SendMode.IGNORE_ERRORS,
   });
 
-  await tonClient.sendExternalMessage(depositWallet, transfer);
-  console.log(
-    `[TON Withdraw Watcher] Sent refill of ${WITHDRAW_REFILL_AMOUNT} TON to ${targetAddress}`,
-  );
-  return true;
+  try {
+    await tonClient.sendExternalMessage(depositWallet, transfer);
+    console.log(
+      `[Withdraw Watcher] 🔄 Sent refill of ${WITHDRAW_REFILL_AMOUNT} TON to ${toAddress}`,
+    );
+    return true;
+  } catch (err) {
+    console.error(`[Withdraw Watcher] ❌ Refill send failed:`, err);
+    return false;
+  }
 }
 
+// 📦 Основная логика: группировка и отправка
 async function batchAndSendWithdrawals() {
-  const wallet = WalletContractV5R1.create({
-    publicKey: withdrawPublicKey,
-    walletId: {
-      networkGlobalId: -239,
-      context: {
-        walletVersion: 'v5r1',
-        workchain: 0,
-        subwalletNumber: TON_SUBWALLET_NUMBER,
-      },
-    },
-  });
+  const wallet = createWallet(withdrawPublicKey);
 
   const pending = await withdrawLogRepository.find({
     where: { status: 'pending', batchId: null },
@@ -157,85 +146,65 @@ async function batchAndSendWithdrawals() {
     take: MAX_BATCH_SIZE,
   });
 
-  if (!pending.length) return;
+  const valid = pending.filter((log) => log.wasDebited);
+  if (!valid.length) {
+    console.warn('[Withdraw Watcher] ⚠️ No valid debited logs to process');
+    return;
+  }
 
   const batch = withdrawBatchRepository.create({
     status: 'processing',
-    createdAt: Math.floor(Date.now() / 1000),
-    withdraws: pending,
+    createdAt: (Date.now() / 1000) | 0,
+    withdraws: valid,
   });
   await withdrawBatchRepository.save(batch);
   inFlightBatches.add(batch.id);
 
   try {
-    for (const log of pending) {
+    for (const log of valid) {
       log.batchId = batch.id;
       log.status = 'processing';
       await withdrawLogRepository.save(log);
     }
 
-    const totalBatchNano = pending.reduce(
+    const totalNano = valid.reduce(
       (acc, log) => acc + BigInt(toNano(log.amount).toString()),
       BigInt(0),
     );
 
-    let withdrawWalletBalance = await tonClient.getBalance(
+    let walletBalance = await tonClient.getBalance(
       Address.parse(wallet.address.toString()),
     );
+    if (walletBalance < totalNano) {
+      console.log('[Withdraw Watcher] 💰 Not enough balance, trying refill...');
+      const refillNano = BigInt(Math.floor(WITHDRAW_REFILL_AMOUNT * 1e9));
 
-    if (withdrawWalletBalance < totalBatchNano) {
-      console.log(
-        `[TON Withdraw Watcher] Not enough balance for batch, attempting refill...`,
-      );
-
-      const refillAmountNano = BigInt(Math.floor(WITHDRAW_REFILL_AMOUNT * 1e9));
       let refillSuccess = false;
-
-      for (let attempt = 1; attempt <= 2; attempt++) {
-        try {
-          const ok = await refillWithdrawWalletIfNeeded(
+      for (let i = 0; i < 2; i++) {
+        if (
+          await refillWithdrawWalletIfNeeded(
             wallet.address.toString(),
-            refillAmountNano,
-          );
-          if (!ok) {
-            console.warn(
-              `[TON Withdraw Watcher] ❌ Refill attempt ${attempt} failed: insufficient DEPOSIT balance`,
-            );
-            continue;
-          }
-
+            refillNano,
+          )
+        ) {
           await sleep(5000);
-
-          withdrawWalletBalance = await tonClient.getBalance(
+          walletBalance = await tonClient.getBalance(
             Address.parse(wallet.address.toString()),
           );
-          if (withdrawWalletBalance >= totalBatchNano) {
+          if (walletBalance >= totalNano) {
             refillSuccess = true;
             break;
           }
-
-          console.warn(
-            `[TON Withdraw Watcher] 🕐 Refill attempt ${attempt} did not reach required balance`,
-          );
-        } catch (err) {
-          console.warn(
-            `[TON Withdraw Watcher] ❌ Refill attempt ${attempt} failed:`,
-            err,
-          );
         }
       }
 
       if (!refillSuccess) {
-        await markBatchAndLogsAsFailed(
-          batch,
-          pending,
-          'Refill failed after 5 attempts',
-        );
+        await markBatchAndLogsAsFailed(batch, valid, 'Refill failed');
         return;
       }
     }
 
-    const messages = pending.map((log) =>
+    const messages = valid.map((log) =>
       internal({ to: log.to, value: toNano(log.amount), bounce: true }),
     );
 
@@ -251,53 +220,41 @@ async function batchAndSendWithdrawals() {
 
     await tonClient.sendExternalMessage(wallet, transfer);
 
+    const txHash = transfer.hash().toString('hex');
     batch.status = 'confirmed';
-    batch.txHash = transfer.hash().toString('hex');
-    batch.processedAt = Math.floor(Date.now() / 1000);
+    batch.txHash = txHash;
+    batch.processedAt = (Date.now() / 1000) | 0;
     await withdrawBatchRepository.save(batch);
 
-    const isoTimestamp = new Date(batch.processedAt * 1000).toISOString();
-
-    for (const log of pending) {
+    for (const log of valid) {
       log.status = 'confirmed';
-      log.txHash = batch.txHash;
+      log.txHash = txHash;
       log.processedAt = batch.processedAt;
       await withdrawLogRepository.save(log);
 
       console.log(
-        `[TON Withdraw Watcher] ✅ Confirmed transfer: userId=${log.userId}, to=${log.to}, amount=${log.amount} TON, at=${isoTimestamp}`,
+        `[Withdraw Watcher] ✅ Sent: userId=${log.userId}, amount=${log.amount} TON`,
       );
     }
 
-    console.log(
-      `[TON Withdraw Watcher] ✅ Batch #${batch.id} confirmed, tx: ${batch.txHash}`,
-    );
+    console.log(`[Withdraw Watcher] ✅ Batch #${batch.id} confirmed`);
   } catch (err) {
     await markBatchAndLogsAsFailed(
       batch,
-      pending,
-      `Transfer failed: ${err instanceof Error ? err.message : 'Unknown'}`,
+      valid,
+      `Transfer error: ${err instanceof Error ? err.message : 'unknown'}`,
     );
   } finally {
     inFlightBatches.delete(batch.id);
   }
 }
 
+// 🔁 Воркера
 export function runTonWithdrawWatcher() {
-  const wallet = WalletContractV5R1.create({
-    publicKey: withdrawPublicKey,
-    walletId: {
-      networkGlobalId: -239,
-      context: {
-        walletVersion: 'v5r1',
-        workchain: 0,
-        subwalletNumber: TON_SUBWALLET_NUMBER,
-      },
-    },
-  });
-
+  const wallet = createWallet(withdrawPublicKey);
+  console.log(`[Withdraw Watcher] 🚀 Started at ${wallet.address.toString()}`);
   console.log(
-    `[TON Withdraw Watcher] 🚀 Запущен. Адрес: ${wallet.address.toString()} | Batch: ${MAX_BATCH_SIZE} | Interval: ${WITHDRAW_INTERVAL_MS}ms`,
+    `[Withdraw Watcher] Config: batchSize=${MAX_BATCH_SIZE}, interval=${WITHDRAW_INTERVAL_MS}ms`,
   );
 
   let isProcessing = false;
@@ -309,13 +266,11 @@ export function runTonWithdrawWatcher() {
     });
 
     console.log(
-      `[TON Withdraw Watcher] Working at ${now} | pending: ${pendingCount}`,
+      `[Withdraw Watcher] Tick at ${now} | pending logs: ${pendingCount}`,
     );
 
     if (isProcessing) {
-      console.log(
-        '[TON Withdraw Watcher] ⚠️ Пропуск тика: уже обрабатывается.',
-      );
+      console.log('[Withdraw Watcher] ⏩ Skip tick: already processing');
       return;
     }
 
@@ -325,11 +280,11 @@ export function runTonWithdrawWatcher() {
         await batchAndSendWithdrawals();
       } else {
         console.log(
-          `[TON Withdraw Watcher] ℹ️ Batch в работе (${inFlightBatches.size}), ждём...`,
+          `[Withdraw Watcher] ⏳ Waiting: ${inFlightBatches.size} batch in flight`,
         );
       }
     } catch (err) {
-      console.error('[TON Withdraw Watcher] ❌ Ошибка в тикере:', err);
+      console.error('[Withdraw Watcher] ❌ Tick error:', err);
     } finally {
       isProcessing = false;
     }
