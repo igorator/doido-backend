@@ -10,12 +10,15 @@ const WITHDRAW_RATE_LIMIT_SECONDS = 30;
 const WITHDRAW_RATE_LIMIT_MS = WITHDRAW_RATE_LIMIT_SECONDS * 1000;
 
 export async function withdrawTon(req: Request, res: Response) {
-  const { amountTon, to } = req.body;
+  const body = req.body ?? {};
+  const amountTon = body.amountTon;
+  const to = body.to;
   const telegramUser = (req as any).telegramUser;
 
   if (
     !telegramUser?.id ||
-    !to ||
+    typeof to !== 'string' ||
+    !to.trim() ||
     typeof amountTon !== 'number' ||
     isNaN(amountTon) ||
     amountTon <= 0

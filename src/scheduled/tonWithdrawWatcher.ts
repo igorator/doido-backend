@@ -150,7 +150,6 @@ async function batchAndSendWithdrawals() {
 
   const valid = pending.filter((log) => log.wasDebited);
   if (!valid.length) {
-    console.warn('[Withdraw Watcher] ⚠️ No valid debited logs to process');
     return;
   }
 
