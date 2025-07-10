@@ -93,7 +93,7 @@ export class User {
   @CreateDateColumn({ type: 'timestamp with time zone' })
   created_at: Date;
 
-  @UpdateDateColumn({ type: 'time without time zone' })
+  @UpdateDateColumn({ type: 'timestamp with time zone' })
   updated_at: Date;
 
   toJSON() {
