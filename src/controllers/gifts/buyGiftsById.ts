@@ -46,9 +46,9 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
         const gifts = await manager
           .getRepository(giftRepository.target)
           .createQueryBuilder('gift')
-          .leftJoinAndSelect('gift.owner', 'owner')
+          .innerJoinAndSelect('gift.owner', 'owner') // 👈 фикс
           .where('gift.id IN (:...ids)', { ids: uniqueGiftIds })
-          .setLock('pessimistic_write') // 👈 ЛОК НА ПОДАРКИ
+          .setLock('pessimistic_write') // теперь можно
           .getMany();
 
         if (gifts.length !== uniqueGiftIds.length) {
