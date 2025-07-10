@@ -31,19 +31,27 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
     return;
   }
 
+  const uniqueGiftIds = Array.from(new Set(gift_ids));
+
   try {
     const { boughtGifts, updatedBalance, activities } =
       await AppDataSource.transaction(async (manager) => {
-        const buyer = await manager.findOneOrFail(userRepository.target, {
-          where: { id: String(telegramUser.id) },
-        });
+        const buyer = await manager
+          .getRepository(userRepository.target)
+          .createQueryBuilder('user')
+          .setLock('pessimistic_write')
+          .where('user.id = :id', { id: String(telegramUser.id) })
+          .getOneOrFail();
 
-        const gifts = await manager.find(giftRepository.target, {
-          where: gift_ids.map((id) => ({ id })),
-          relations: ['owner'],
-        });
+        const gifts = await manager
+          .getRepository(giftRepository.target)
+          .createQueryBuilder('gift')
+          .leftJoinAndSelect('gift.owner', 'owner')
+          .where('gift.id IN (:...ids)', { ids: uniqueGiftIds })
+          .setLock('pessimistic_write') // 👈 ЛОК НА ПОДАРКИ
+          .getMany();
 
-        if (gifts.length !== gift_ids.length) {
+        if (gifts.length !== uniqueGiftIds.length) {
           throw new Error('Some of gifts not found or invalid');
         }
 
@@ -51,7 +59,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           (sum, gift) => sum.plus(gift.sell_price_with_fee),
           new Decimal(0),
         );
-        /////////////////////    ОЧЕНЬ ВАЖНЫЙ КОД, НЕ УДАЛЯТЬ КОММЕНТ ////////////////////////////////////////
+
         if (
           !totalCost.isFinite() ||
           totalCost.isZero() ||
@@ -61,11 +69,17 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
         ) {
           throw new Error(`Insufficient balance.`);
         }
-        ////////////////////////////////////////
-        let sellerId: string | null = null;
+
+        buyer.ton_balance = buyer.ton_balance.minus(totalCost);
+        buyer.total_market_amount = buyer.total_market_amount.plus(totalCost);
+        buyer.weekly_market_amount = buyer.weekly_market_amount.plus(totalCost);
+        await manager.save(buyer);
+
+        const sellerIds = new Set<string>();
         const createdActivities: Activity[] = [];
         let totalCommission = new Decimal(0);
         let referralBonuses = new Decimal(0);
+        let buyerWasUpdated = false;
 
         for (const gift of gifts) {
           const seller = gift.owner;
@@ -78,17 +92,18 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             throw new Error(`Invalid gift ID: ${gift?.id}`);
           }
 
-          if (sellerId === null) {
-            sellerId = seller.id;
-          }
+          sellerIds.add(seller.id);
 
           const sellPrice = gift.sell_price;
           const sellPriceWithFee = gift.sell_price_with_fee;
           const commission = sellPriceWithFee.minus(sellPrice);
           totalCommission = totalCommission.plus(commission);
 
-          buyer.ton_balance = buyer.ton_balance.minus(sellPriceWithFee);
           seller.ton_balance = seller.ton_balance.plus(sellPrice);
+          seller.total_market_amount =
+            seller.total_market_amount.plus(sellPriceWithFee);
+          seller.weekly_market_amount =
+            seller.weekly_market_amount.plus(sellPriceWithFee);
 
           const sellerRef = await manager.findOne(userRepository.target, {
             where: { id: seller.id },
@@ -112,6 +127,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             if (ref.id === buyer.id) {
               buyer.ton_balance = buyer.ton_balance.plus(bonusAmount);
               buyer.referred_profit = buyer.referred_profit.plus(bonusAmount);
+              buyerWasUpdated = true;
             } else {
               ref.ton_balance = oldRefBalance.plus(bonusAmount);
               ref.referred_profit = oldRefProfit.plus(bonusAmount);
@@ -137,16 +153,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
             )} → ${newRefProfit.toFixed(3)}]`;
           }
 
-          buyer.total_market_amount =
-            buyer.total_market_amount.plus(sellPriceWithFee);
-          buyer.weekly_market_amount =
-            buyer.weekly_market_amount.plus(sellPriceWithFee);
-          seller.total_market_amount =
-            seller.total_market_amount.plus(sellPriceWithFee);
-          seller.weekly_market_amount =
-            seller.weekly_market_amount.plus(sellPriceWithFee);
-
-          await manager.save(buyer);
           await manager.save(seller);
 
           const activity = manager.create(Activity, {
@@ -194,6 +200,10 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           );
         }
 
+        if (buyerWasUpdated) {
+          await manager.save(buyer);
+        }
+
         await manager.save(createdActivities);
 
         const marketInfoRepo = manager.getRepository(MarketInfo);
@@ -202,7 +212,6 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
 
         const netProfit = totalCommission.minus(referralBonuses);
         marketInfo.profit = marketInfo.profit.plus(netProfit);
-
         await marketInfoRepo.save(marketInfo);
 
         log(
@@ -213,7 +222,7 @@ export const buyGiftsByIds = async (req: Request, res: Response) => {
           )} TON | Referral bonuses: ${referralBonuses.toFixed(6)} TON`,
         );
 
-        if (sellerId) sendBalanceUpdate(sellerId);
+        for (const id of sellerIds) sendBalanceUpdate(id);
         sendBalanceUpdate(buyer.id);
 
         return {

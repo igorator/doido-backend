@@ -13,6 +13,7 @@ import { getGiftsCollections } from '../controllers/assets/gifts/getGiftsCollect
 import { getGiftsBackdrops } from '../controllers/assets/gifts/getGiftsBackdrops';
 import { getGiftsPatterns } from '../controllers/assets/gifts/getGiftsPatterns';
 import { getGiftsModelsByCollections } from '../controllers/assets/gifts/getGiftsModelsByCollections';
+import { checkUserNotBanned } from '../middleware/checkUserNotBanned';
 
 const router = Router();
 
@@ -23,7 +24,7 @@ router.get('/models', getGiftsModelsByCollections);
 
 router.get('/', getGifts);
 router.get('/user', verifyTelegramAuth, getGiftsByUserId);
-router.post('/buy', verifyTelegramAuth, buyGiftsByIds);
+router.post('/buy', verifyTelegramAuth, checkUserNotBanned, buyGiftsByIds);
 router.get('/:gift_id', getGiftById);
 
 router.patch(
@@ -47,6 +48,7 @@ router.patch(
 router.get(
   '/:gift_id/transfer',
   verifyTelegramAuth,
+  checkUserNotBanned,
   verifyGiftOwnerMatch,
   transferGiftById,
 );

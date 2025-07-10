@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
+import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
-import { minusUserBalance } from '../../services/user/updateUserBalance';
-import Decimal from 'decimal.js';
 import { transferGift } from '../../services/gifts/transferGift';
 import { sendBalanceUpdate } from '../../sockets/sendBalanceUpdate';
 import { GIFT_TRANSFER_FEE } from '../../shared/constants';
 import { incrementMarketProfit } from '../../services/market/incrementMarketProfit';
+import Decimal from 'decimal.js';
 
 export const transferGiftById = async (
   req: Request,
@@ -32,41 +32,58 @@ export const transferGiftById = async (
       return;
     }
 
-    const owner = await userRepository.findOneBy({ id: gift.owner.id });
-    if (!owner) {
-      res.status(400).json({ error: 'Owner not found' });
-      return;
-    }
+    await AppDataSource.transaction(async (manager) => {
+      const owner = await manager
+        .getRepository(userRepository.target)
+        .createQueryBuilder('user')
+        .setLock('pessimistic_write')
+        .where('user.id = :id', { id: gift.owner.id })
+        .getOne();
 
-    if (owner.ton_balance.lt(transferFee)) {
-      res.status(402).json({ error: 'Insufficient TON balance' });
-      return;
-    }
+      if (!owner) {
+        throw new Error('Owner not found');
+      }
 
-    await transferGift({
-      giftId: gift.id,
-      newOwnerId: telegramUser.id,
+      if (owner.ton_balance.lt(transferFee)) {
+        throw new Error('Insufficient TON balance');
+      }
+
+      owner.ton_balance = owner.ton_balance.minus(transferFee);
+      await manager.save(owner);
+
+      // 💰 Увеличиваем профит маркета
+      await incrementMarketProfit('gift_transfer', transferFee);
+
+      // 🔁 Выполняем передачу
+      await transferGift({
+        giftId: gift.id,
+        newOwnerId: telegramUser.id,
+      });
+
+      // 🗑 Удаляем подарок (если надо)
+      await manager.getRepository(giftRepository.target).delete(gift.id);
+
+      // 🔄 Обновление баланса на клиенте
+      sendBalanceUpdate(owner.id);
+
+      const timestamp = new Date().toISOString();
+      console.log(
+        `🛒🎁 [${timestamp}] ПЕРЕДАЧА ПОДАРКА: ${owner.username || owner.id} (${
+          owner.id
+        }) передал ${gift.collection_name} #${gift.number} → ${
+          telegramUser.username || telegramUser.id
+        } (${telegramUser.id}) | Списано: ${transferFee.toFixed(3)} TON`,
+      );
     });
 
-    await minusUserBalance(owner.id, transferFee);
-    sendBalanceUpdate(owner.id);
-
-    await incrementMarketProfit('gift_transfer', transferFee);
-
-    await giftRepository.delete(gift.id);
-
-    const timestamp = new Date().toISOString();
-    console.log(
-      `🛒🎁 [${timestamp}] ПЕРЕДАЧА ПОДАРКА: ${owner.username || owner.id} (${
-        owner.id
-      }) передал ${gift.collection_name} #${gift.number} → ${
-        telegramUser.username || telegramUser.id
-      } (${telegramUser.id}) | Списано: ${transferFee.toFixed(3)} TON`,
-    );
-
     res.json({ success: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error('❌ Error during gift transfer:', err);
-    res.status(500).json({ error: 'Internal server error' });
+    const message =
+      err?.message === 'Insufficient TON balance'
+        ? err.message
+        : 'Internal server error';
+    const status = err?.message === 'Insufficient TON balance' ? 402 : 500;
+    res.status(status).json({ error: message });
   }
 };

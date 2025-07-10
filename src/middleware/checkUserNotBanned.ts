@@ -24,8 +24,10 @@ export async function checkUserNotBanned(
     }
 
     if (user.is_banned) {
-      console.warn(`🚫 Заблокированный пользователь: ${user.username}`);
-      res.status(403).json({ error: 'сори ты в бане, без негатива.' });
+      // 👇 Возвращаем мягкую заглушку
+      res
+        .status(400)
+        .json({ error: 'Temporary access issue. Please try again later.' });
       return;
     }
 

@@ -5,11 +5,12 @@ import { getTonBalance } from '../controllers/ton/getTonBalance';
 import { verifyTelegramAuth } from '../middleware';
 import { depositTon } from '../controllers/ton/depositTon';
 import { getDepositWithdrawLimits } from '../controllers/ton/getDepositWithdrawLimits';
+import { checkUserNotBanned } from '../middleware/checkUserNotBanned';
 
 const router = Router();
 
 router.post('/deposit', verifyTelegramAuth, depositTon);
-router.post('/withdraw', verifyTelegramAuth, withdrawTon);
+router.post('/withdraw', verifyTelegramAuth, checkUserNotBanned, withdrawTon);
 router.get('/wallet-balance/:address', getTonBalance);
 router.get('/deposit-withdraw-limits', getDepositWithdrawLimits);
 
