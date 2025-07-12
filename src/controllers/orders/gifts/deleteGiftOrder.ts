@@ -7,11 +7,13 @@ export const deleteGiftOrder = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
 
   if (!telegramUser?.id) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
   }
 
   if (!id) {
-    return res.status(400).json({ error: 'Order ID is required' });
+    res.status(400).json({ error: 'Order ID is required' });
+    return;
   }
 
   try {
@@ -19,24 +21,27 @@ export const deleteGiftOrder = async (req: Request, res: Response) => {
     const order = await repo.findOneBy({ id });
 
     if (!order) {
-      return res.status(404).json({ error: 'Order not found' });
+      res.status(404).json({ error: 'Order not found' });
+      return;
     }
 
     if (order.userId !== String(telegramUser.id)) {
-      return res.status(403).json({ error: 'Forbidden: not your order' });
+      res.status(403).json({ error: 'Forbidden: not your order' });
+      return;
     }
 
     if (order.status !== GiftOrderStatus.ACTIVE) {
-      return res
-        .status(400)
-        .json({ error: 'Only active orders can be deleted' });
+      res.status(400).json({ error: 'Only active orders can be deleted' });
+      return;
     }
 
     await repo.remove(order);
 
-    return res.status(200).json({ success: true, id: order.id });
+    res.status(200).json({ success: true, id: order.id });
+    return;
   } catch (error) {
     console.error('❌ Ошибка при удалении заказа:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error' });
+    return;
   }
 };

@@ -12,6 +12,7 @@ import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
 import leaderboardRouter from './routes/leaderboardRoutes';
+import ordersRouter from './routes/orderRoutes';
 import { setupSockets } from './sockets/initSocketServer';
 console.log('🔔 Загрузка server.ts');
 
@@ -54,6 +55,7 @@ app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
 app.use('/leaderboard', leaderboardRouter);
+app.use('/orders', ordersRouter);
 
 app.get('/', (_req, res) => {
   res.send('🐣 HELLO 🐣');
@@ -85,3 +87,15 @@ export function startServer() {
     }
   });
 }
+
+app.use(
+  (
+    err: any,
+    _req: express.Request,
+    res: express.Response,
+    _next: express.NextFunction,
+  ) => {
+    console.error('💥 Uncaught error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  },
+);

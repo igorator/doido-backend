@@ -16,7 +16,8 @@ export const createGiftOrder = async (req: Request, res: Response) => {
   const telegramUser = (req as any).telegramUser;
 
   if (!telegramUser?.id) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
   }
 
   const invalidArrayFields = [
@@ -27,47 +28,87 @@ export const createGiftOrder = async (req: Request, res: Response) => {
   ].some((v) => Array.isArray(v));
 
   if (invalidArrayFields) {
-    return res.status(400).json({
+    res.status(400).json({
       error: 'Each category field must contain only one item (not array)',
     });
+    return;
   }
 
   const isFilterProvided =
     collectionName || modelName || backdropName || patternName || maxPrice;
 
   if (!isFilterProvided) {
-    return res.status(400).json({
+    res.status(400).json({
       error:
         'At least one filter must be provided (collection, model, backdrop, pattern, or maxPrice)',
     });
+    return;
   }
 
   if (!maxPrice || isNaN(Number(maxPrice)) || !quantity || quantity <= 0) {
-    return res.status(400).json({ error: 'Invalid maxPrice or quantity' });
+    res.status(400).json({ error: 'Invalid maxPrice or quantity' });
+    return;
   }
 
   const maxPriceDecimal = new Decimal(maxPrice);
   const balanceLocked = maxPriceDecimal.mul(quantity);
 
   try {
-    const giftOrderRepo = AppDataSource.getRepository(GiftOrder);
+    const result = await AppDataSource.transaction(async (manager) => {
+      await manager
+        .getRepository(GiftOrder)
+        .createQueryBuilder('order')
+        .setLock('pessimistic_write')
+        .where('order.userId = :userId', { userId: String(telegramUser.id) })
+        .andWhere('order.status = :status', { status: GiftOrderStatus.ACTIVE })
+        .getMany();
 
-    const order = giftOrderRepo.create({
-      userId: String(telegramUser.id),
-      collectionName: collectionName || null,
-      modelName: modelName || null,
-      backdropName: backdropName || null,
-      patternName: patternName || null,
-      maxPrice: maxPriceDecimal.toFixed(8),
-      quantity,
-      filledQuantity: 0,
-      balanceLocked: balanceLocked.toFixed(8),
-      status: GiftOrderStatus.ACTIVE,
+      // 🔍 Проверка на дубликат
+      const existing = await manager.findOne(GiftOrder, {
+        where: {
+          userId: String(telegramUser.id),
+          collectionName: collectionName || null,
+          modelName: modelName || null,
+          backdropName: backdropName || null,
+          patternName: patternName || null,
+          maxPrice: maxPriceDecimal.toFixed(8),
+          quantity,
+          status: GiftOrderStatus.ACTIVE,
+        },
+      });
+
+      if (existing) {
+        return { conflict: true, existing };
+      }
+
+      const order = manager.create(GiftOrder, {
+        userId: String(telegramUser.id),
+        collectionName: collectionName || null,
+        modelName: modelName || null,
+        backdropName: backdropName || null,
+        patternName: patternName || null,
+        maxPrice: maxPriceDecimal.toFixed(8),
+        quantity,
+        filledQuantity: 0,
+        balanceLocked: balanceLocked.toFixed(8),
+        status: GiftOrderStatus.ACTIVE,
+      });
+
+      const saved = await manager.save(order);
+      return { conflict: false, saved };
     });
 
-    const saved = await giftOrderRepo.save(order);
+    if (result.conflict) {
+      res.status(409).json({
+        error: 'You already have an active identical order.',
+        orderId: result.existing.id,
+      });
+      return;
+    }
 
-    return res.status(201).json({
+    const saved = result.saved;
+
+    res.status(201).json({
       id: saved.id,
       userId: saved.userId,
       quantity: saved.quantity,
@@ -75,8 +116,10 @@ export const createGiftOrder = async (req: Request, res: Response) => {
       status: saved.status,
       createdAt: saved.createdAt,
     });
+    return;
   } catch (error) {
     console.error('❌ Ошибка при создании заказа:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error' });
+    return;
   }
 };

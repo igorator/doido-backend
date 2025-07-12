@@ -9,6 +9,10 @@ export const GIFT_LISTING_PERCENT_FEE = Number(
 export const GIFT_TRANSFER_FEE = Number(process.env.GIFT_TRANSFER_FEE || 0.1);
 export const SELL_FEE = Number(process.env.SELL_FEE || MARKET_PERCENT_FEE);
 
+export const GIFT_ORDER_PLACE_FEE = Number(
+  process.env.GIFT_ORDER_PLACE_FEE || 0.1,
+);
+
 export const MIN_SELL_PRICE = Number(process.env.MIN_SELL_PRICE || 0.5);
 export const MAX_SELL_PRICE = Number(process.env.MAX_SELL_PRICE || 50000.0);
 
