@@ -1,3 +1,4 @@
+import { MARKET_PERCENT_FEE } from './../../shared/constants';
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
@@ -5,25 +6,18 @@ import { GiftStatus } from '../../models/Gift';
 import Decimal from 'decimal.js';
 
 export const editGiftPriceById = async (
-  req: Request<
-    { gift_id: string },
-    any,
-    { price: string; price_with_fee: string }
-  >,
+  req: Request<{ gift_id: string }, any, { price: string }>,
   res: Response,
 ): Promise<void> => {
   const { gift_id } = req.params;
-  const { price, price_with_fee } = req.body;
+  const { price } = req.body;
   const telegramUser = (req as any).telegramUser;
 
-  if (
-    !price ||
-    isNaN(Number(price)) ||
-    !price_with_fee ||
-    isNaN(Number(price_with_fee))
-  ) {
-    console.warn('🚫 Invalid input:', { price, price_with_fee });
-    res.status(400).json({ error: 'Invalid price or price_with_fee' });
+  const MARKET_FEE = new Decimal(MARKET_PERCENT_FEE);
+
+  if (!price || isNaN(Number(price))) {
+    console.warn('🚫 Invalid input:', { price });
+    res.status(400).json({ error: 'Invalid price' });
     return;
   }
 
@@ -32,10 +26,15 @@ export const editGiftPriceById = async (
     return;
   }
 
-  if (Number(price) <= 0 || Number(price_with_fee) <= 0) {
+  const basePrice = new Decimal(price);
+  if (basePrice.lte(0)) {
     res.status(400).json({ error: 'Price must be positive' });
     return;
   }
+
+  const priceWithFee = basePrice
+    .mul(MARKET_FEE.add(1))
+    .toDecimalPlaces(3, Decimal.ROUND_HALF_UP);
 
   try {
     const gift = await giftRepository.findOne({
@@ -70,8 +69,8 @@ export const editGiftPriceById = async (
       return;
     }
 
-    gift.sell_price = new Decimal(price);
-    gift.sell_price_with_fee = new Decimal(price_with_fee);
+    gift.sell_price = basePrice;
+    gift.sell_price_with_fee = priceWithFee;
 
     const updatedGift = await giftRepository.save(gift);
 
@@ -88,7 +87,7 @@ export const editGiftPriceById = async (
       gift.owner.id,
       `✏️ You updated price of <b>${updatedGift.collection_name} #${
         updatedGift.number
-      }</b> 💰 to <code>${Number(price).toFixed(3)} TON</code>`,
+      }</b> 💰 to <code>${updatedGift.sell_price.toFixed(3)} TON</code>`,
       'HTML',
     );
 

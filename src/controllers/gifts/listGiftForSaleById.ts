@@ -7,6 +7,7 @@ import { GiftStatus } from '../../models/Gift';
 import Decimal from 'decimal.js';
 import {
   GIFT_LISTING_PERCENT_FEE,
+  MARKET_PERCENT_FEE,
   MAX_FREE_GIFTS_LISTINGS,
 } from '../../shared/constants';
 import { incrementMarketProfit } from '../../services/market/incrementMarketProfit';
@@ -16,16 +17,27 @@ export const listGiftForSaleById = async (
   res: Response,
 ): Promise<void> => {
   const { gift_id } = req.params;
-  const { price, price_with_fee } = req.body;
+  const { price } = req.body;
   const telegramUser = (req as any).telegramUser;
 
+  const MARKET_FEE = new Decimal(MARKET_PERCENT_FEE);
   const GIFT_LISTING_FEE = new Decimal(GIFT_LISTING_PERCENT_FEE);
   const MAX_FREE_LISTINGS = MAX_FREE_GIFTS_LISTINGS;
 
-  if (!price || isNaN(price) || !price_with_fee || isNaN(price_with_fee)) {
-    res.status(400).json({ error: 'Invalid price or price_with_fee' });
+  if (!price || isNaN(price)) {
+    res.status(400).json({ error: 'Invalid price' });
     return;
   }
+
+  const basePrice = new Decimal(price);
+  if (basePrice.lessThanOrEqualTo(0)) {
+    res.status(400).json({ error: 'Price must be greater than 0' });
+    return;
+  }
+
+  const priceWithFee = basePrice
+    .mul(MARKET_FEE.add(1))
+    .toDecimalPlaces(3, Decimal.ROUND_HALF_UP);
 
   if (!gift_id) {
     res.status(404).json({ error: 'Gift_id not found' });
@@ -34,7 +46,6 @@ export const listGiftForSaleById = async (
 
   try {
     await AppDataSource.transaction(async (manager) => {
-      // 🎁 Загружаем подарок с владельцем
       const gift = await manager.findOne(giftRepository.target, {
         where: { id: gift_id },
         relations: ['owner'],
@@ -72,7 +83,6 @@ export const listGiftForSaleById = async (
 
         owner.ton_balance = owner.ton_balance.minus(GIFT_LISTING_FEE);
         await manager.save(owner);
-
         await incrementMarketProfit('gift_listing', GIFT_LISTING_FEE);
 
         feeApplied = true;
@@ -80,8 +90,8 @@ export const listGiftForSaleById = async (
 
       gift.free_listings_used += 1;
       gift.status = GiftStatus.LISTED;
-      gift.sell_price = new Decimal(price);
-      gift.sell_price_with_fee = new Decimal(price_with_fee);
+      gift.sell_price = basePrice;
+      gift.sell_price_with_fee = priceWithFee;
       gift.listed_date = new Date();
 
       const updatedGift = await manager.save(gift);
@@ -101,7 +111,6 @@ export const listGiftForSaleById = async (
         },
       });
 
-      // 🔔 Уведомление продавцу
       await botSendMessage(
         owner.id,
         `🛒 You listed <b>${updatedGift.collection_name} #${
