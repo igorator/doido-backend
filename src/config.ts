@@ -81,8 +81,6 @@ export const config = {
     giftListing: num(process.env.GIFT_LISTING_FEE, 0.1),
     /** Flat fee in TON for transferring a gift (default 0.1) */
     giftTransfer: num(process.env.GIFT_TRANSFER_FEE, 0.1),
-    /** Flat fee in TON for placing a limit order (default 0.1) */
-    giftOrderPlace: num(process.env.GIFT_ORDER_PLACE_FEE, 0.1),
     /** Sell-side fee — defaults to marketPercent */
     sell: num(process.env.SELL_FEE, _marketFee),
   },

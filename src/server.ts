@@ -12,7 +12,6 @@ import activityRouter from './routes/activityRoutes';
 import serverRouter from './routes/serverRoutes';
 import tonRouter from './routes/tonRoutes';
 import leaderboardRouter from './routes/leaderboardRoutes';
-import ordersRouter from './routes/orderRoutes';
 import { setupSockets } from './sockets/initSocketServer';
 import { config } from './config';
 
@@ -55,7 +54,6 @@ app.use('/gifts', giftRouter);
 app.use('/pricing', pricingRouter);
 app.use('/activity', activityRouter);
 app.use('/leaderboard', leaderboardRouter);
-app.use('/orders', ordersRouter);
 
 app.get('/', (_req, res) => {
   res.send('🐣 HELLO 🐣');

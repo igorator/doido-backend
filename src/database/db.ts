@@ -10,8 +10,6 @@ import { LeaderboardEntry } from '../models/leaderboard/Leaderboard';
 import { LeaderboardTier } from '../models/leaderboard/LeaderboardTier';
 import { AppSettings } from '../models/AppSettings';
 import { MarketInfo } from '../models/MarketInfo';
-import { GiftOrder } from '../models/orders/GiftOrder';
-
 const { host, port, user, password, database } = config.postgres;
 
 if (!host || !user || !password || !database) {
@@ -39,7 +37,6 @@ export const AppDataSource = new DataSource({
     LeaderboardTier,
     AppSettings,
     MarketInfo,
-    GiftOrder,
   ],
   ssl: { rejectUnauthorized: false },
   logging: false,

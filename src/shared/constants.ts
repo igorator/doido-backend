@@ -10,7 +10,6 @@ export const INFLUENCER_REFERRAL_PERCENT_FEE = config.fees.influencerReferralPer
 export const GIFT_LISTING_PERCENT_FEE = config.fees.giftListing;
 export const GIFT_TRANSFER_FEE = config.fees.giftTransfer;
 export const SELL_FEE = config.fees.sell;
-export const GIFT_ORDER_PLACE_FEE = config.fees.giftOrderPlace;
 
 export const MIN_SELL_PRICE = config.limits.minSellPrice;
 export const MAX_SELL_PRICE = config.limits.maxSellPrice;

@@ -3,7 +3,7 @@ import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
-import { Gift, GiftStatus } from '../../models/Gift';
+import { GiftStatus } from '../../models/Gift';
 import Decimal from 'decimal.js';
 import {
   GIFT_LISTING_PERCENT_FEE,
@@ -13,7 +13,6 @@ import {
   MAX_SELL_PRICE,
 } from '../../shared/constants';
 import { incrementMarketProfit } from '../../services/market/incrementMarketProfit';
-import { tryMatchOrders } from '../../services/gifts/orders/tryMatchGiftsOrders';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -53,8 +52,6 @@ export const listGiftForSaleById = async (
     res.status(404).json({ error: 'Gift_id not found' });
     return;
   }
-
-  let listedGift: Gift | null = null;
 
   try {
     await AppDataSource.transaction(async (manager) => {
@@ -107,7 +104,6 @@ export const listGiftForSaleById = async (
       gift.listed_date = new Date();
 
       const updatedGift = await manager.save(gift);
-      listedGift = updatedGift;
 
       res.json({
         id: updatedGift.id,
@@ -148,10 +144,4 @@ export const listGiftForSaleById = async (
     res.status(500).json({ error: 'Internal server error' });
   }
 
-  // After transaction commits — fire order-match check (non-blocking)
-  if (listedGift) {
-    tryMatchOrders(listedGift).catch((err) =>
-      console.error('[Order Match] ❌ Error after listing:', err),
-    );
-  }
 };
