@@ -37,7 +37,6 @@ DOIDO is a peer-to-peer marketplace where Telegram users can **buy, sell, and tr
 ## Features
 
 - 🎁 **Gift Marketplace** — list, unlist, buy, and transfer Telegram gifts with configurable fees
-- 📋 **Limit Orders** — place buy orders for specific gift collections / models / backdrops / patterns; auto-matched on listing
 - 💎 **TON Deposits & Withdrawals** — on-chain watchers poll TonCenter and batch-process payouts via `WalletV5R1`
 - 📊 **Leaderboard** — weekly & all-time rankings refreshed on a cron schedule
 - 🔗 **Referral System** — tiered referral bonuses (standard users & influencers)
@@ -63,7 +62,6 @@ src/
 │   ├── assets/               # Static asset manifests (collections, backdrops, etc.)
 │   ├── gifts/                # CRUD + buy / list / unlist / transfer / price edit
 │   ├── leaderboard/          # Weekly & all-time endpoints
-│   ├── orders/               # Limit order CRUD
 │   ├── pricing/              # Fee calculators
 │   ├── server/               # Health / maintenance check
 │   ├── ton/                  # Deposit, withdraw, balance
@@ -82,7 +80,6 @@ src/
 │   ├── AppSettings.ts
 │   ├── MarketInfo.ts
 │   ├── leaderboard/
-│   ├── orders/
 │   └── ton/
 │
 ├── routes/                   # Express routers
@@ -95,7 +92,7 @@ src/
 │   └── tonWithdrawWatcher.ts # Batches pending withdrawals on-chain
 │
 ├── services/                 # Business logic
-│   ├── gifts/                # Buy, save, delete, transfer, order matching
+│   ├── gifts/                # Buy, save, delete, transfer
 │   ├── leaderboard/
 │   ├── market/
 │   ├── messages/
@@ -150,13 +147,6 @@ All protected routes require an `Authorization: Telegram <initData>` header.
 | `POST` | `/ton/withdraw` | ✅ | Request a withdrawal |
 | `GET` | `/ton/wallet-balance/:address` | — | Get on-chain balance |
 | `GET` | `/ton/deposit-withdraw-limits` | — | Get limit constants |
-
-### Orders
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/orders/gifts` | ✅ | List user's active orders |
-| `POST` | `/orders/gifts/create` | ✅ | Place a limit buy order |
-| `DELETE` | `/orders/gifts/:orderId` | ✅ | Cancel an order |
 
 ### Leaderboard
 | Method | Path | Description |
@@ -243,7 +233,6 @@ All fee constants are env-overridable (see `src/shared/constants.ts`):
 | `SELL_FEE` | `= MARKET_PERCENT_FEE` | Applied to sell price |
 | `GIFT_LISTING_PERCENT_FEE` | `0.1` (10%) | Charged when listing |
 | `GIFT_TRANSFER_FEE` | `0.1` TON | Flat transfer fee |
-| `GIFT_ORDER_PLACE_FEE` | `0.1` TON | Flat order placement fee |
 | `REFERRAL_PERCENT_FEE` | `0.2` (20%) | Referral cut of commission |
 | `INFLUENCER_REFERRAL_PERCENT_FEE` | `0.01` (1%) | Influencer cut of commission |
 | `MIN_SELL_PRICE` | `0.5` TON | |
