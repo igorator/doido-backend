@@ -1,71 +1,83 @@
 import { MoreThanOrEqual } from 'typeorm';
 import { Gift, GiftStatus } from '../../../models/Gift';
-import { GiftOrder } from '../../../models/orders/GiftOrder';
+import { GiftOrder, GiftOrderStatus } from '../../../models/orders/GiftOrder';
 import { AppDataSource } from '../../../database/db';
-import Decimal from 'decimal.js';
+import { buyGiftsService } from '../buyGiftsByIds';
 
-const giftRepository = AppDataSource.getRepository(Gift);
 const giftOrderRepository = AppDataSource.getRepository(GiftOrder);
 
+/**
+ * Attempts to fill pending limit orders for a newly listed gift.
+ * Called after a gift is listed for sale — runs outside the listing transaction.
+ * On a successful match, delegates to buyGiftsService for balance transfer,
+ * activity logging and WebSocket notifications.
+ */
 export const tryMatchOrders = async (gift: Gift): Promise<void> => {
   if (gift.status !== GiftStatus.LISTED) {
     console.warn(
-      `⚠ Попытка матчить подарок ${gift.id}, который не в статусе LISTED`,
+      `⚠ tryMatchOrders: gift ${gift.id} is not LISTED (status=${gift.status}), skipping`,
     );
     return;
   }
 
-  const orders = await giftOrderRepository.find({
-    where: [
-      {
-        status: 'active',
-        maxPrice: MoreThanOrEqual(gift.sell_price_with_fee.toString()),
-        collectionName: gift.collection_name ?? null,
-        modelName: gift.model?.name ?? null,
-        backdropName: gift.backdrop?.name ?? null,
-        patternName: gift.pattern?.name ?? null,
-      },
-    ],
+  const candidates = await giftOrderRepository.find({
+    where: {
+      status: GiftOrderStatus.ACTIVE,
+      maxPrice: MoreThanOrEqual(gift.sell_price_with_fee.toString()),
+      collectionName: gift.collection_name ?? null,
+      modelName: gift.model?.name ?? null,
+      backdropName: gift.backdrop?.name ?? null,
+      patternName: gift.pattern?.name ?? null,
+    },
     order: { createdAt: 'ASC' },
   });
 
-  if (orders.length === 0) {
-    console.log(`ℹ Нет подходящих ордеров для подарка ${gift.id}`);
+  if (!candidates.length) {
+    console.log(`ℹ [Order Match] No matching orders for gift ${gift.id}`);
     return;
   }
 
-  for (const order of orders) {
-    if (order.filledQuantity >= order.quantity) {
-      console.warn(`⚠ Ордер ${order.id} уже выполнен`);
-      continue;
-    }
+  for (const order of candidates) {
+    if (order.filledQuantity >= order.quantity) continue;
 
-    const price = new Decimal(gift.sell_price_with_fee);
-    const balanceLocked = new Decimal(order.balanceLocked);
+    try {
+      await AppDataSource.transaction(async (manager) => {
+        // Re-fetch with pessimistic lock to prevent concurrent fills
+        const lockedOrder = await manager
+          .getRepository(GiftOrder)
+          .createQueryBuilder('o')
+          .setLock('pessimistic_write')
+          .where('o.id = :id', { id: order.id })
+          .getOne();
 
-    if (balanceLocked.lessThan(price)) {
+        if (
+          !lockedOrder ||
+          lockedOrder.status !== GiftOrderStatus.ACTIVE ||
+          lockedOrder.filledQuantity >= lockedOrder.quantity
+        ) {
+          return; // Already fulfilled by a concurrent request
+        }
+
+        // Execute the purchase — balance transfer, activity log, WS updates
+        await buyGiftsService(manager, Number(lockedOrder.userId), [gift.id]);
+
+        lockedOrder.filledQuantity += 1;
+        if (lockedOrder.filledQuantity >= lockedOrder.quantity) {
+          lockedOrder.status = GiftOrderStatus.COMPLETED;
+        }
+
+        await manager.save(lockedOrder);
+      });
+
+      console.log(`🎯 [Order Match] Order ${order.id} filled by gift ${gift.id}`);
+      break; // Gift sold — stop looking
+    } catch (err) {
       console.warn(
-        `⚠ Недостаточно заблокированного баланса по ордеру ${order.id}`,
+        `⚠ [Order Match] Could not fill order ${order.id} for gift ${gift.id}: ${
+          err instanceof Error ? err.message : String(err)
+        }`,
       );
-      continue;
+      // Try next order
     }
-
-    order.filledQuantity += 1;
-    order.balanceLocked = balanceLocked.minus(price).toString();
-
-    if (order.filledQuantity >= order.quantity) {
-      order.status = 'completed';
-    }
-
-    gift.status = GiftStatus.SOLD;
-
-    await AppDataSource.transaction(async (manager) => {
-      await manager.save(order);
-      await manager.save(gift);
-    });
-
-    console.log(`🎯 Ордер ${order.id} выполнен подарком ${gift.id}`);
-
-    break;
   }
 };

@@ -1,9 +1,10 @@
 import cron from 'node-cron';
 import { User } from '../models/User';
 import { AppDataSource } from '../database/db';
+import { config } from '../config';
 
 export const resetWeeklyMarketVolume = (
-  cronExpr = process.env.RESET_WEEKLY_MARKET_CRON || '0 0 * * 1',
+  cronExpr = config.cron.resetWeeklyMarket,
 ) => {
   cron.schedule(cronExpr, async () => {
     console.log('🔁 Сброс weekly_market_amount...');

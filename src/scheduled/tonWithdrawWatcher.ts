@@ -9,19 +9,18 @@ import { WithdrawLog } from '../models/ton/WithdrawLog';
 import { WithdrawBatch } from '../models/ton/WithdrawBatch';
 import { plusUserBalance } from '../services/user/updateUserBalance';
 import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
+import { config } from '../config';
 
 const withdrawLogRepository = AppDataSource.getRepository(WithdrawLog);
 const withdrawBatchRepository = AppDataSource.getRepository(WithdrawBatch);
 
-// 🔐 Secrets & config
-const WITHDRAW_SECRET_KEY = process.env.TON_WITHDRAW_WALLET_SECRET_KEY!;
-const DEPOSIT_SECRET_KEY = process.env.TON_DEPOSIT_WALLET_SECRET_KEY!;
-const MAX_BATCH_SIZE = Number(process.env.TON_WITHDRAW_MAX_BATCH_SIZE) || 20;
-const WITHDRAW_INTERVAL_MS =
-  Number(process.env.TON_WITHDRAW_INTERVAL_MS) || 15000;
-const TON_SUBWALLET_NUMBER = Number(process.env.TON_SUBWALLET_NUMBER) || 0;
-const WITHDRAW_REFILL_AMOUNT =
-  Number(process.env.TON_WITHDRAW_REFILL_AMOUNT) || 50;
+// 🔐 Secrets & config (read from single config)
+const WITHDRAW_SECRET_KEY = config.ton.withdrawSecretKey;
+const DEPOSIT_SECRET_KEY = config.ton.depositSecretKey;
+const MAX_BATCH_SIZE = config.ton.withdrawMaxBatchSize;
+const WITHDRAW_INTERVAL_MS = config.ton.withdrawIntervalMs;
+const TON_SUBWALLET_NUMBER = config.ton.subwalletNumber;
+const WITHDRAW_REFILL_AMOUNT = config.ton.withdrawRefillAmount;
 
 const withdrawSecretKey = Buffer.from(WITHDRAW_SECRET_KEY, 'hex');
 const depositSecretKey = Buffer.from(DEPOSIT_SECRET_KEY, 'hex');

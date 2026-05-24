@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
 import { DataSource } from 'typeorm';
+import { config } from '../config';
 import { Gift } from '../models/Gift';
 import { User } from '../models/User';
 import { Activity } from '../models/Activity';
@@ -10,27 +10,24 @@ import { LeaderboardEntry } from '../models/leaderboard/Leaderboard';
 import { LeaderboardTier } from '../models/leaderboard/LeaderboardTier';
 import { AppSettings } from '../models/AppSettings';
 import { MarketInfo } from '../models/MarketInfo';
+import { GiftOrder } from '../models/orders/GiftOrder';
 
-dotenv.config({
-  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
-});
+const { host, port, user, password, database } = config.postgres;
 
-if (
-  !process.env.POSTGRES_HOST ||
-  !process.env.POSTGRES_USER ||
-  !process.env.POSTGRES_PASSWORD ||
-  !process.env.POSTGRES_DB
-) {
-  throw new Error('Переменные окружения для базы данных не заданы полностью');
+if (!host || !user || !password || !database) {
+  throw new Error(
+    'Переменные окружения для базы данных не заданы полностью ' +
+      '(POSTGRES_HOST, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB)',
+  );
 }
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
-  host: process.env.POSTGRES_HOST,
-  port: parseInt(process.env.POSTGRES_PORT || '5432', 10),
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
+  host,
+  port,
+  username: user,
+  password,
+  database,
   entities: [
     Gift,
     User,
@@ -42,6 +39,7 @@ export const AppDataSource = new DataSource({
     LeaderboardTier,
     AppSettings,
     MarketInfo,
+    GiftOrder,
   ],
   ssl: { rejectUnauthorized: false },
   logging: false,

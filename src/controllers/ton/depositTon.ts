@@ -5,11 +5,11 @@ import { beginCell, toNano } from '@ton/core';
 import { DepositLog } from '../../models/ton/DepositLog';
 import { AppDataSource } from '../../database/db';
 import { User } from '../../models/User';
-import { MIN_DEPOSIT_AMOUNT } from '../../shared/constants';
+import { config } from '../../config';
 
-const DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
+const DEPOSIT_WALLET_ADDRESS = config.ton.depositWalletAddress;
 const EXPIRATION_SECONDS = 300;
-const MIN_TON_DEPOSIT_AMOUNT = MIN_DEPOSIT_AMOUNT;
+const MIN_TON_DEPOSIT_AMOUNT = config.limits.minDeposit;
 
 async function buildTextPayload(payloadId: string): Promise<string> {
   const cell = beginCell()

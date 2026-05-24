@@ -1,12 +1,12 @@
-import 'dotenv/config';
 import { TonClient } from '@ton/ton';
+import { config } from '../config';
 
-if (!process.env.TONCENTER_API_ENDPOINT) {
+if (!config.ton.toncenterEndpoint) {
   throw new Error('❌ TONCENTER_API_ENDPOINT is not defined');
 }
 
 export const tonClient = new TonClient({
-  endpoint: process.env.TONCENTER_API_ENDPOINT!,
-  apiKey: process.env.TONCENTER_API_KEY,
-  timeout: 20000,
+  endpoint: config.ton.toncenterEndpoint,
+  apiKey: config.ton.toncenterApiKey,
+  timeout: 20_000,
 });

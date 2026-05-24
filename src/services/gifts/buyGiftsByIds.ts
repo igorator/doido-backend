@@ -46,7 +46,7 @@ export async function buyGiftsService(
     throw new Error('Insufficient balance.');
   }
 
-  let sellerId: string | null = null;
+  const sellerIds = new Set<string>();
   const createdActivities: Activity[] = [];
   let totalCommission = new Decimal(0);
   let referralBonuses = new Decimal(0);
@@ -61,7 +61,7 @@ export async function buyGiftsService(
       throw new Error(`Invalid gift ID: ${gift?.id}`);
     }
 
-    if (sellerId === null) sellerId = seller.id;
+    sellerIds.add(seller.id);
 
     const sellPrice = gift.sell_price;
     const sellPriceWithFee = gift.sell_price_with_fee;
@@ -174,7 +174,7 @@ export async function buyGiftsService(
     )} TON | Referral bonuses: ${referralBonuses.toFixed(6)} TON`,
   );
 
-  if (sellerId) sendBalanceUpdate(sellerId);
+  sellerIds.forEach((id) => sendBalanceUpdate(id));
   sendBalanceUpdate(buyer.id);
 
   return {

@@ -1,4 +1,5 @@
 import { Bot, Context, InlineKeyboard } from 'grammy';
+import { config } from '../../config';
 
 export const onStart = (bot: Bot) => {
   bot.command('start', async (ctx: Context) => {
@@ -18,7 +19,7 @@ export const onStart = (bot: Bot) => {
           .row(
             InlineKeyboard.url(
               '📢 Check latest news',
-              process.env.TELEGRAM_CHANNEL_URL || 'https://t.me/doido_ann',
+              config.telegram.channelUrl,
             ),
           ),
       },

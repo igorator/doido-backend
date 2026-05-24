@@ -1,12 +1,14 @@
 import { Bot } from 'grammy';
-import { config } from 'dotenv';
 import { limit } from '@grammyjs/ratelimiter';
 import { autoRetry } from '@grammyjs/auto-retry';
 import { setupBotHandlers } from './handlers/setupHandlers';
+import { config } from '../config';
 
-config();
+if (!config.telegram.botToken) {
+  throw new Error('❌ TELEGRAM_BOT_TOKEN is not defined');
+}
 
-export const bot = new Bot(process.env.TELEGRAM_BOT_TOKEN!);
+export const bot = new Bot(config.telegram.botToken);
 
 bot.api.config.use(autoRetry());
 bot.use(limit());

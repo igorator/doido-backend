@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { config } from '../../config';
 
-const TONCENTER_API_ENDPOINT = process.env.TONCENTER_API_ENDPOINT!;
-const TONCENTER_API_KEY = process.env.TONCENTER_API_KEY!;
+const TONCENTER_API_ENDPOINT = config.ton.toncenterEndpoint;
+const TONCENTER_API_KEY = config.ton.toncenterApiKey;
 
 /**
  * Получить баланс TON-кошелька.

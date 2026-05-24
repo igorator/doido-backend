@@ -6,14 +6,14 @@ import { plusUserBalance } from '../services/user/updateUserBalance';
 import Decimal from 'decimal.js';
 import { IsNull, Not, LessThan } from 'typeorm';
 import { sendBalanceUpdate } from '../sockets/sendBalanceUpdate';
+import { config } from '../config';
 
-const TON_DEPOSIT_WALLET_ADDRESS = process.env.TON_DEPOSIT_WALLET_ADDRESS!;
-const WATCHER_INTERVAL_MS =
-  Number(process.env.TON_DEPOSIT_WATCHER_INTERVAL_MS) || 15000;
+const TON_DEPOSIT_WALLET_ADDRESS = config.ton.depositWalletAddress;
+const WATCHER_INTERVAL_MS = config.ton.depositWatcherIntervalMs;
 
 const tonClient = new TonClient({
-  endpoint: process.env.TONCENTER_API_ENDPOINT!,
-  apiKey: process.env.TONCENTER_API_KEY,
+  endpoint: config.ton.toncenterEndpoint,
+  apiKey: config.ton.toncenterApiKey,
 });
 
 function formatNanoToTon(nanoValue: bigint | string | number): string {

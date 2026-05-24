@@ -1,8 +1,9 @@
 import { Bot, Context } from 'grammy';
 import { userRepository } from '../../../database/repositories/userRepository';
 import { saveGiftToDatabase } from '../../../services/gifts/saveGiftToDatabase';
+import { config } from '../../../config';
 
-const BUSINESS_CONNECTION_ID = process.env.TELEGRAM_BUSINESS_CONNECTION_ID;
+const BUSINESS_CONNECTION_ID = config.telegram.businessConnectionId;
 
 export const onGiftRouter = (bot: Bot) => {
   bot.on('business_message', async (ctx: Context) => {

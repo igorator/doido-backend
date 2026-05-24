@@ -1,8 +1,9 @@
 import type { RequestHandler } from 'express';
 import { checkTelegramInitData } from '../shared/lib/auth/checkTelegramInitData';
+import { config } from '../config';
 
 export const verifyTelegramAuth: RequestHandler = (req, res, next) => {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const token = config.telegram.botToken;
   if (!token) {
     console.error('❌ TELEGRAM_BOT_TOKEN is not defined');
     res.status(500).json({ error: 'Server configuration error' });
@@ -28,7 +29,7 @@ export const verifyTelegramAuth: RequestHandler = (req, res, next) => {
   const { valid, reason, user } = checkTelegramInitData(params, token);
 
   if (!valid || !user) {
-    if (process.env.NODE_ENV !== 'production') {
+    if (!config.server.isProd) {
       console.warn('❌ Invalid Telegram initData:', reason);
     }
     res.status(401).json({ error: 'Unauthorized: invalid initData' });

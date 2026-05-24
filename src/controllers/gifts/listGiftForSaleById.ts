@@ -3,14 +3,17 @@ import { AppDataSource } from '../../database/db';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { userRepository } from '../../database/repositories/userRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
-import { GiftStatus } from '../../models/Gift';
+import { Gift, GiftStatus } from '../../models/Gift';
 import Decimal from 'decimal.js';
 import {
   GIFT_LISTING_PERCENT_FEE,
   MARKET_PERCENT_FEE,
   MAX_FREE_GIFTS_LISTINGS,
+  MIN_SELL_PRICE,
+  MAX_SELL_PRICE,
 } from '../../shared/constants';
 import { incrementMarketProfit } from '../../services/market/incrementMarketProfit';
+import { tryMatchOrders } from '../../services/gifts/orders/tryMatchGiftsOrders';
 
 export const listGiftForSaleById = async (
   req: Request,
@@ -22,16 +25,23 @@ export const listGiftForSaleById = async (
 
   const MARKET_FEE = new Decimal(MARKET_PERCENT_FEE);
   const GIFT_LISTING_FEE = new Decimal(GIFT_LISTING_PERCENT_FEE);
-  const MAX_FREE_LISTINGS = MAX_FREE_GIFTS_LISTINGS;
 
-  if (!price || isNaN(price)) {
+  if (!price || isNaN(Number(price))) {
     res.status(400).json({ error: 'Invalid price' });
     return;
   }
 
   const basePrice = new Decimal(price);
-  if (basePrice.lessThanOrEqualTo(0)) {
-    res.status(400).json({ error: 'Price must be greater than 0' });
+  if (basePrice.lt(MIN_SELL_PRICE)) {
+    res
+      .status(400)
+      .json({ error: `Price must be at least ${MIN_SELL_PRICE} TON` });
+    return;
+  }
+  if (basePrice.gt(MAX_SELL_PRICE)) {
+    res
+      .status(400)
+      .json({ error: `Price must not exceed ${MAX_SELL_PRICE} TON` });
     return;
   }
 
@@ -43,6 +53,8 @@ export const listGiftForSaleById = async (
     res.status(404).json({ error: 'Gift_id not found' });
     return;
   }
+
+  let listedGift: Gift | null = null;
 
   try {
     await AppDataSource.transaction(async (manager) => {
@@ -73,7 +85,7 @@ export const listGiftForSaleById = async (
 
       let feeApplied = false;
 
-      if (gift.free_listings_used >= MAX_FREE_LISTINGS) {
+      if (gift.free_listings_used >= MAX_FREE_GIFTS_LISTINGS) {
         if (owner.ton_balance.lessThan(GIFT_LISTING_FEE)) {
           res
             .status(402)
@@ -95,6 +107,7 @@ export const listGiftForSaleById = async (
       gift.listed_date = new Date();
 
       const updatedGift = await manager.save(gift);
+      listedGift = updatedGift;
 
       res.json({
         id: updatedGift.id,
@@ -133,5 +146,12 @@ export const listGiftForSaleById = async (
   } catch (error) {
     console.error('❌ Ошибка при листинге подарка:', error);
     res.status(500).json({ error: 'Internal server error' });
+  }
+
+  // After transaction commits — fire order-match check (non-blocking)
+  if (listedGift) {
+    tryMatchOrders(listedGift).catch((err) =>
+      console.error('[Order Match] ❌ Error after listing:', err),
+    );
   }
 };

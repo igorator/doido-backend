@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Decimal from 'decimal.js';
+import { Address } from '@ton/core';
 import { AppDataSource } from '../../database/db';
 import { userRepository } from '../../database/repositories/userRepository';
 import { WithdrawLog } from '../../models/ton/WithdrawLog';
@@ -24,6 +25,13 @@ export async function withdrawTon(req: Request, res: Response) {
     amountTon <= 0
   ) {
     res.status(400).json({ message: 'Invalid withdraw request' });
+    return;
+  }
+
+  try {
+    Address.parse(to);
+  } catch {
+    res.status(400).json({ message: 'Invalid TON address' });
     return;
   }
 

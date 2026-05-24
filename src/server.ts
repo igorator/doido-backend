@@ -14,21 +14,21 @@ import tonRouter from './routes/tonRoutes';
 import leaderboardRouter from './routes/leaderboardRoutes';
 import ordersRouter from './routes/orderRoutes';
 import { setupSockets } from './sockets/initSocketServer';
+import { config } from './config';
+
 console.log('🔔 Загрузка server.ts');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PORT = process.env.PORT || process.env.SERVER_PORT || 8080;
 const assetsPath = path.resolve(__dirname, '../assets');
 
 const app = express();
 
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === 'development'
-        ? true
-        : ['https://doido-market.com', 'https://www.doido-market.com'],
+    origin: config.server.isDev
+      ? true
+      : ['https://doido-market.com', 'https://www.doido-market.com'],
     credentials: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -64,11 +64,12 @@ app.get('/', (_req, res) => {
 export function startServer() {
   const server = setupSockets(app);
 
-  server.listen(PORT, async () => {
-    console.log(`🚀 Express + Socket.IO server running on ${PORT}`);
+  server.listen(config.server.port, async () => {
+    console.log(
+      `🚀 Express + Socket.IO server running on ${config.server.port}`,
+    );
 
-    const externalUrl =
-      process.env.BOT_WEBHOOK_URL || 'https://api.doido-market.com';
+    const externalUrl = config.telegram.webhookUrl;
 
     if (!externalUrl) {
       console.warn(

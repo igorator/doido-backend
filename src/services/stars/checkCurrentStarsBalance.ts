@@ -1,8 +1,9 @@
 import { botSendMessage } from '../messages/botSendMessage';
 import { getStarsBalance } from './getStarsBalance';
+import { config } from '../../config';
 
-const STARS_DEPOSITER_ID = Number(process.env.TELEGRAM_STARS_DEPOSITER_ID);
-const MIN_STARS_THRESHOLD = Number(process.env.TELEGRAM_MIN_STARS_THRESHOLD);
+const STARS_DEPOSITER_ID = config.telegram.starsDepositerId;
+const MIN_STARS_THRESHOLD = config.telegram.minStarsThreshold;
 const CHECK_BALANCE_COOLDOWN_MS = 120_000;
 
 const lastCheckTimestamps = new Map<string, number>();

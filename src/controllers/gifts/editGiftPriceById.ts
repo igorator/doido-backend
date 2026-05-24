@@ -1,4 +1,8 @@
-import { MARKET_PERCENT_FEE } from './../../shared/constants';
+import {
+  MARKET_PERCENT_FEE,
+  MAX_SELL_PRICE,
+  MIN_SELL_PRICE,
+} from '../../shared/constants';
 import { Request, Response } from 'express';
 import { giftRepository } from '../../database/repositories/giftRepository';
 import { botSendMessage } from '../../services/messages/botSendMessage';
@@ -27,8 +31,16 @@ export const editGiftPriceById = async (
   }
 
   const basePrice = new Decimal(price);
-  if (basePrice.lte(0)) {
-    res.status(400).json({ error: 'Price must be positive' });
+  if (basePrice.lt(MIN_SELL_PRICE)) {
+    res
+      .status(400)
+      .json({ error: `Price must be at least ${MIN_SELL_PRICE} TON` });
+    return;
+  }
+  if (basePrice.gt(MAX_SELL_PRICE)) {
+    res
+      .status(400)
+      .json({ error: `Price must not exceed ${MAX_SELL_PRICE} TON` });
     return;
   }
 
