@@ -151,13 +151,6 @@ All protected routes require an `Authorization: Telegram <initData>` header.
 | `GET` | `/ton/wallet-balance/:address` | — | Get on-chain balance |
 | `GET` | `/ton/deposit-withdraw-limits` | — | Get limit constants |
 
-### Orders
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/orders/gifts` | ✅ | List user's active orders |
-| `POST` | `/orders/gifts/create` | ✅ | Place a limit buy order |
-| `DELETE` | `/orders/gifts/:orderId` | ✅ | Cancel an order |
-
 ### Leaderboard
 | Method | Path | Description |
 |--------|------|-------------|
