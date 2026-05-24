@@ -258,7 +258,3 @@ All fee constants are env-overridable (see `src/shared/constants.ts`):
 ## Author
 
 **Ihor Kliushnyk**
-
----
-
-> DOIDO — *do it, do it, do it* 🐣
