@@ -20,13 +20,13 @@ export class LeaderboardTier {
   type: LeaderboardType;
 
   @Column('varchar', { length: 20 })
-  label: string; // например '101-200' или '501+'
+  label: string;
 
   @Column('decimal', { precision: 20, scale: 8 })
-  min_volume: string; // volume >= min_volume
+  min_volume: string;
 
   @Column('decimal', { precision: 20, scale: 8, nullable: true })
-  max_volume: string | null; // volume < max_volume (или NULL для open-ended)
+  max_volume: string | null;
 
   @CreateDateColumn({ type: 'timestamp with time zone' })
   created_at: Date;

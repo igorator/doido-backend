@@ -36,9 +36,7 @@ export const onGiftRouter = (bot: Bot) => {
     }
 
     if (connection.id !== BUSINESS_CONNECTION_ID) {
-      console.warn(
-        `${logPrefix} | ❌ unexpected connection_id=${connection.id}`,
-      );
+      console.warn(`${logPrefix} | ❌ unexpected connection_id=${connection.id}`);
       return;
     }
 
@@ -46,9 +44,7 @@ export const onGiftRouter = (bot: Bot) => {
 
     if (!user) {
       if (userId === String(botId)) {
-        console.warn(
-          `${logPrefix} | 🔁 Skipped: duplicate delivery event from bot`,
-        );
+        console.warn(`${logPrefix} | 🔁 Skipped: duplicate delivery event from bot`);
         return;
       }
 
@@ -63,21 +59,21 @@ export const onGiftRouter = (bot: Bot) => {
         number: giftNumber,
         model: {
           name: gift.model.name,
-          rarity: gift.model.rarity_per_mille,
-          emoji: gift.model.sticker.emoji,
+          rarity: gift.model.rarity_per_mille / 10,
+          emoji: gift.model.sticker.emoji ?? '',
         },
         pattern: {
           name: gift.symbol.name,
-          rarity: gift.symbol.rarity_per_mille,
-          emoji: gift.symbol.sticker.emoji,
+          rarity: gift.symbol.rarity_per_mille / 10,
+          emoji: gift.symbol.sticker.emoji ?? '',
         },
         backdrop: {
           name: gift.backdrop.name,
-          rarity: gift.backdrop.rarity_per_mille,
-          center_color: gift.backdrop.colors.center_color,
-          edge_color: gift.backdrop.colors.edge_color,
-          symbol_color: gift.backdrop.colors.symbol_color,
-          text_color: gift.backdrop.colors.text_color,
+          rarity: gift.backdrop.rarity_per_mille / 10,
+          center_color: `#${gift.backdrop.colors.center_color.toString(16).padStart(6, '0')}`,
+          edge_color: `#${gift.backdrop.colors.edge_color.toString(16).padStart(6, '0')}`,
+          symbol_color: `#${gift.backdrop.colors.symbol_color.toString(16).padStart(6, '0')}`,
+          text_color: `#${gift.backdrop.colors.text_color.toString(16).padStart(6, '0')}`,
         },
         owner: user,
       });
@@ -85,7 +81,6 @@ export const onGiftRouter = (bot: Bot) => {
       console.log(`${logPrefix} | ✅ saved | connection_id=${connection.id}`);
     } catch (err) {
       console.error(`${logPrefix} | ❌ fail=saveError: ${err}`);
-      await ctx.reply('⛔️ Ошибка при сохранении подарка.');
     }
   });
 };

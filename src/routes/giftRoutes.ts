@@ -27,25 +27,10 @@ router.get('/user', verifyTelegramAuth, getGiftsByUserId);
 router.post('/buy', verifyTelegramAuth, checkUserNotBanned, buyGiftsByIds);
 router.get('/:gift_id', getGiftById);
 
-router.patch(
-  '/:gift_id/list',
-  verifyTelegramAuth,
-  verifyGiftOwnerMatch,
-  listGiftForSaleById,
-);
-router.patch(
-  '/:gift_id/edit-price',
-  verifyTelegramAuth,
-  verifyGiftOwnerMatch,
-  editGiftPriceById,
-);
-router.patch(
-  '/:gift_id/unlist',
-  verifyTelegramAuth,
-  verifyGiftOwnerMatch,
-  unlistGiftFromSaleById,
-);
-router.get(
+router.patch('/:gift_id/list', verifyTelegramAuth, verifyGiftOwnerMatch, listGiftForSaleById);
+router.patch('/:gift_id/edit-price', verifyTelegramAuth, verifyGiftOwnerMatch, editGiftPriceById);
+router.patch('/:gift_id/unlist', verifyTelegramAuth, verifyGiftOwnerMatch, unlistGiftFromSaleById);
+router.post(
   '/:gift_id/transfer',
   verifyTelegramAuth,
   checkUserNotBanned,

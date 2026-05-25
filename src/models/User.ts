@@ -9,10 +9,13 @@ import {
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  Index,
 } from 'typeorm';
 import { Gift } from './Gift';
 
 @Entity()
+@Index('idx_user_weekly_volume', ['weekly_market_amount'])
+@Index('idx_user_total_volume', ['total_market_amount'])
 export class User {
   @PrimaryColumn('varchar', { length: 20 })
   id: string;

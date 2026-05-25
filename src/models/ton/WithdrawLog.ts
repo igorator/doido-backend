@@ -1,18 +1,7 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { WithdrawBatch } from './WithdrawBatch';
 
-export type WithdrawStatus =
-  | 'pending'
-  | 'processing'
-  | 'confirmed'
-  | 'failed'
-  | 'waiting_refill';
+export type WithdrawStatus = 'pending' | 'processing' | 'confirmed' | 'failed' | 'waiting_refill';
 
 @Entity()
 export class WithdrawLog {

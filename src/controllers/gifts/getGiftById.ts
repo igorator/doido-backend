@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import { AppDataSource } from '../../database/db';
-import { Gift, GiftStatus } from '../../models/Gift';
+import { giftRepository } from '../../database/repositories/giftRepository';
+import { GiftStatus } from '../../models/Gift';
+import { handleHttpError } from '../../shared/lib/handleHttpError';
 
-export const getGiftById = async (req: Request, res: Response) => {
+export const getGiftById = async (req: Request, res: Response): Promise<void> => {
   const { gift_id } = req.params;
 
   if (!gift_id) {
@@ -11,13 +12,12 @@ export const getGiftById = async (req: Request, res: Response) => {
   }
 
   try {
-    const giftRepo = AppDataSource.getRepository(Gift);
-
-    const gift = await giftRepo.findOne({
+    const gift = await giftRepository.findOne({
       where: {
         id: gift_id,
         status: GiftStatus.LISTED,
       },
+      relations: ['owner'],
     });
 
     if (!gift) {
@@ -27,14 +27,9 @@ export const getGiftById = async (req: Request, res: Response) => {
 
     res.json({
       ...gift.toJSON(),
-      owner: gift.owner
-        ? { id: gift.owner.id, username: gift.owner.username }
-        : null,
+      owner: gift.owner ? { id: gift.owner.id, username: gift.owner.username } : null,
     });
-    return;
   } catch (err) {
-    console.error('❌ Error fetching gift:', err);
-    res.status(500).json({ error: 'Internal server error' });
-    return;
+    handleHttpError(res, err, 'getGiftById');
   }
 };

@@ -23,7 +23,7 @@ DOIDO is a peer-to-peer marketplace where Telegram users can **buy, sell, and tr
 
 | Layer | Technology |
 |---|---|
-| Language | TypeScript 5.8 (ESM, `tsx`) |
+| Language | TypeScript 5.8 (strict, ESM, `tsx`) |
 | HTTP Server | Express 5 |
 | Telegram Bot | [Grammy](https://grammy.dev/) + webhook |
 | ORM | TypeORM 0.3 + PostgreSQL |
@@ -50,31 +50,44 @@ DOIDO is a peer-to-peer marketplace where Telegram users can **buy, sell, and tr
 
 ```
 src/
-├── app.ts                    # Bootstrap: DB connect → bot → server → scheduled jobs
-├── server.ts                 # Express app setup, routes, webhook, Socket.IO init
+├── app.ts                    # Bootstrap: DB → bot → server → scheduled jobs
+├── server.ts                 # Express app, middleware, routes, Socket.IO
 │
 ├── bot/                      # Grammy bot
 │   ├── bot.ts
-│   └── handlers/             # /start, gift-related handlers
+│   └── handlers/             # /start, gift-received handler
 │
-├── controllers/              # Route handlers (thin layer — delegate to services)
-│   ├── activity/             # Feed & per-user activity
-│   ├── assets/               # Static asset manifests (collections, backdrops, etc.)
-│   ├── gifts/                # CRUD + buy / list / unlist / transfer / price edit
-│   ├── leaderboard/          # Weekly & all-time endpoints
-│   ├── pricing/              # Fee calculators
-│   ├── server/               # Health / maintenance check
-│   ├── ton/                  # Deposit, withdraw, balance
-│   └── user/                 # Auth & referral
+├── config/                   # Configuration — split by domain
+│   ├── index.ts              # Assembles and exports `config`
+│   ├── env.ts                # dotenv init (side-effect, loaded first)
+│   ├── server.ts             # Port, NODE_ENV
+│   ├── telegram.ts           # Bot token, webhook, business connection
+│   ├── postgres.ts           # DB connection params
+│   ├── ton.ts                # Wallets, TonCenter, batch settings
+│   ├── fees.ts               # Market, referral, listing, transfer fees
+│   ├── limits.ts             # Price and amount limits
+│   ├── stars.ts              # Stars threshold & transfer count
+│   ├── cron.ts               # Cron expressions
+│   └── _helpers.ts           # num() env parser
+│
+├── controllers/              # Route handlers — thin layer, delegate to services
+│   ├── activity/
+│   ├── assets/
+│   ├── gifts/
+│   ├── leaderboard/
+│   ├── pricing/
+│   ├── server/
+│   ├── ton/
+│   └── user/
 │
 ├── database/
 │   ├── db.ts                 # TypeORM DataSource
-│   └── repositories/         # Thin repo wrappers
+│   └── repositories/
 │
 ├── middleware/               # verifyTelegramAuth, verifyGiftOwnerMatch, checkUserNotBanned
 │
 ├── models/                   # TypeORM entities
-│   ├── Gift.ts
+│   ├── Gift.ts               # Embedded: Model, Pattern, Backdrop (colors as #RRGGBB, rarity as %)
 │   ├── User.ts
 │   ├── Activity.ts
 │   ├── AppSettings.ts
@@ -83,118 +96,45 @@ src/
 │   └── ton/
 │
 ├── routes/                   # Express routers
+│   ├── index.ts              # Barrel export of all routers
+│   ├── giftRoutes.ts
+│   ├── userRoutes.ts
+│   ├── tonRoutes.ts
+│   ├── activityRoutes.ts
+│   ├── pricingRoutes.ts
+│   ├── leaderboardRoutes.ts
+│   └── serverRoutes.ts
 │
 ├── scheduled/                # Cron / interval workers
 │   ├── setupScheduledEvents.ts
 │   ├── leaderboardRefresher.ts
 │   ├── resetWeeklyMarketVolume.ts
-│   ├── tonDepositWatcher.ts  # Polls TonCenter, credits balances
-│   └── tonWithdrawWatcher.ts # Batches pending withdrawals on-chain
+│   ├── tonDepositWatcher.ts
+│   └── tonWithdrawWatcher.ts
 │
 ├── services/                 # Business logic
-│   ├── gifts/                # Buy, save, delete, transfer
+│   ├── gifts/
 │   ├── leaderboard/
 │   ├── market/
 │   ├── messages/
+│   ├── notifications/        # All notification functions
+│   │   ├── giftNotifications.ts
+│   │   ├── marketNotifications.ts
+│   │   └── starsNotifications.ts
 │   ├── stars/
 │   ├── ton/
 │   └── user/
 │
 ├── shared/
-│   ├── constants.ts          # Fee & limit defaults (env-overridable)
 │   └── lib/
 │       ├── auth/             # checkTelegramInitData HMAC
-│       ├── logger.ts
+│       ├── handleHttpError.ts
+│       ├── httpError.ts
 │       └── transformers/     # Decimal ↔ number TypeORM transformer
 │
-├── sockets/                  # Socket.IO server init & balance push helper
+├── sockets/                  # Socket.IO server & balance push
 └── ton/                      # TonClient singleton
 ```
-
----
-
-## API Reference
-
-All protected routes require an `Authorization: Telegram <initData>` header.
-
-### Users
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/users/auth` | ✅ | Authenticate / upsert Telegram user |
-| `PATCH` | `/users/:id/referral` | ✅ | Set referrer |
-
-### Gifts
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/gifts` | — | List marketplace gifts |
-| `GET` | `/gifts/user` | ✅ | Get current user's gifts |
-| `GET` | `/gifts/:gift_id` | — | Get single gift |
-| `POST` | `/gifts/buy` | ✅ | Buy one or more gifts |
-| `PATCH` | `/gifts/:gift_id/list` | ✅ | List gift for sale |
-| `PATCH` | `/gifts/:gift_id/unlist` | ✅ | Remove gift from sale |
-| `PATCH` | `/gifts/:gift_id/edit-price` | ✅ | Update sell price |
-| `GET` | `/gifts/:gift_id/transfer` | ✅ | Transfer gift to another user |
-| `POST` | `/gifts/is-in-stock` | — | Batch stock check |
-| `GET` | `/gifts/collections` | — | Gift collection manifest |
-| `GET` | `/gifts/backdrops` | — | Backdrop assets |
-| `GET` | `/gifts/patterns` | — | Pattern assets |
-| `GET` | `/gifts/models` | — | Model assets by collection |
-
-### TON
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `POST` | `/ton/deposit` | ✅ | Create a deposit transaction payload |
-| `POST` | `/ton/withdraw` | ✅ | Request a withdrawal |
-| `GET` | `/ton/wallet-balance/:address` | — | Get on-chain balance |
-| `GET` | `/ton/deposit-withdraw-limits` | — | Get limit constants |
-
-### Leaderboard
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/leaderboard/weekly` | Weekly top 100 + caller's rank |
-| `GET` | `/leaderboard/alltime` | All-time top 100 + caller's rank |
-
-### Activity
-| Method | Path | Auth | Description |
-|--------|------|------|-------------|
-| `GET` | `/activity/gifts` | — | Global gift sale feed |
-| `GET` | `/activity/gifts/user` | ✅ | User's personal trade history |
-
-### Pricing
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/pricing/fees` | Current fee config |
-| `GET` | `/pricing/buyer-pays` | Buyer total given seller price |
-| `GET` | `/pricing/seller-receives` | Seller net given buyer price |
-| `GET` | `/pricing/sell-price-limits` | Min / max sell price |
-
-### Server
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/server/status` | Liveness check |
-| `GET` | `/server/maintenance` | Maintenance mode flag |
-
----
-
-## WebSocket
-
-Connect with `?userId=<telegramId>`. The client is automatically joined to room `user_<userId>`.
-
-| Event | Direction | Payload |
-|-------|-----------|---------|
-| `balance_update` | Server → Client | `{ ton_balance: number }` |
-
----
-
-## Configuration
-
-Copy `.env.example` to `.env` and fill in the values:
-
-```bash
-cp .env.example .env
-```
-
-See [`.env.example`](.env.example) for all available variables and their defaults.
 
 ---
 
@@ -223,24 +163,64 @@ npm start
 
 ---
 
+## Configuration
+
+All config lives in `src/config/` — split by domain. Every value is env-overridable via `.env`.
+
+Copy `.env.example` to `.env` and fill in the values:
+
+```bash
+cp .env.example .env
+```
+
+| Domain | File | Key variables |
+|--------|------|---------------|
+| Server | `config/server.ts` | `PORT`, `NODE_ENV` |
+| Telegram | `config/telegram.ts` | `TELEGRAM_BOT_TOKEN`, `BOT_WEBHOOK_URL`, `TELEGRAM_BUSINESS_CONNECTION_ID` |
+| PostgreSQL | `config/postgres.ts` | `POSTGRES_HOST`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` |
+| TON | `config/ton.ts` | `TON_DEPOSIT_WALLET_ADDRESS`, `TON_DEPOSIT_WALLET_SECRET_KEY`, `TON_WITHDRAW_WALLET_SECRET_KEY`, `TONCENTER_API_ENDPOINT` |
+| Fees | `config/fees.ts` | `DEFAULT_FEE`, `REFERRAL_FEE`, `GIFT_LISTING_FEE`, `GIFT_TRANSFER_FEE`, `SELL_FEE` |
+| Limits | `config/limits.ts` | `MIN_SELL_PRICE`, `MAX_SELL_PRICE`, `MIN_WITHDRAW_AMOUNT`, `MAX_WITHDRAW_AMOUNT` |
+
+---
+
 ## Fee System
 
-All fee constants are env-overridable (see `src/shared/constants.ts`):
+| Fee | Default | Description |
+|-----|---------|-------------|
+| `fees.marketPercent` | `0.01` (1%) | Base marketplace sell fee |
+| `fees.sell` | `= marketPercent` | Applied to sell price |
+| `fees.giftListing` | `0.1` TON | Charged after free listings are used up |
+| `fees.giftTransfer` | `0.1` TON | Flat fee per gift transfer |
+| `fees.referralPercent` | `0.2` (20%) | Referral cut of commission |
+| `fees.influencerReferralPercent` | `0.01` (1%) | Influencer cut of commission |
+| `limits.maxFreeListings` | `5` | Free listings per gift |
+| `limits.minSellPrice` | `0.5` TON | |
+| `limits.maxSellPrice` | `50 000` TON | |
+| `limits.minWithdraw` | `0.1` TON | |
+| `limits.maxWithdraw` | `50` TON | |
 
-| Constant | Default | Description |
-|----------|---------|-------------|
-| `MARKET_PERCENT_FEE` | `0.01` (1%) | Base marketplace sell fee |
-| `SELL_FEE` | `= MARKET_PERCENT_FEE` | Applied to sell price |
-| `GIFT_LISTING_PERCENT_FEE` | `0.1` (10%) | Charged when listing |
-| `GIFT_TRANSFER_FEE` | `0.1` TON | Flat transfer fee |
-| `REFERRAL_PERCENT_FEE` | `0.2` (20%) | Referral cut of commission |
-| `INFLUENCER_REFERRAL_PERCENT_FEE` | `0.01` (1%) | Influencer cut of commission |
-| `MIN_SELL_PRICE` | `0.5` TON | |
-| `MAX_SELL_PRICE` | `50 000` TON | |
-| `MIN_DEPOSIT_AMOUNT` | `0.1` TON | |
-| `MIN_WITHDRAW_AMOUNT` | `0.1` TON | |
-| `MAX_WITHDRAW_AMOUNT` | `50` TON | |
-| `MAX_FREE_GIFTS_LISTINGS` | `5` | Free listings per gift |
+---
+
+## Gift Data Model
+
+Backdrop colors are stored as **hex strings** (`#RRGGBB`), converted from the Telegram API's RGB integer on ingestion. Rarity is stored as a **percentage** (`rarity_per_mille / 10`), e.g. `500‰ → 50.0%`.
+
+---
+
+## WebSocket
+
+Connect with `?userId=<telegramId>`. The client is automatically joined to room `user_<userId>`.
+
+| Event | Direction | Payload |
+|-------|-----------|---------|
+| `balance_update` | Server → Client | `{ ton_balance: number }` |
+
+---
+
+## API
+
+See [`API.md`](API.md) for the full endpoint reference with request/response shapes.
 
 ---
 

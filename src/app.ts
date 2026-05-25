@@ -3,27 +3,24 @@ import { AppDataSource } from './database/db';
 import { startServer } from './server';
 import { setupScheduledEvents } from './scheduled/setupScheduledEvents';
 
-const DB = {
-  maxAttempts: 10,
-  retryMs: 3_000,
-  outerRetryMs: 15_000,
-} as const;
+const DB_MAX_ATTEMPTS = 10;
+const DB_RETRY_MS = 3_000;
+const DB_OUTER_MAX_ATTEMPTS = 5;
+const DB_OUTER_RETRY_MS = 15_000;
 
 const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
-const isRetryableDbError = (error: unknown): boolean => {
+class DbRetryExhaustedError extends Error {}
+
+function isRetryableDbError(error: unknown): boolean {
   if (!(error instanceof Error)) return false;
-  return (
-    error.message.includes('starting up') ||
-    error.message.includes('ECONNREFUSED') ||
-    error.message.includes('self-signed certificate')
-  );
-};
+  return error.message.includes('starting up') || error.message.includes('ECONNREFUSED');
+}
 
 async function connectToDatabase(): Promise<void> {
-  for (let attempt = 1; attempt <= DB.maxAttempts; attempt++) {
+  for (let attempt = 1; attempt <= DB_MAX_ATTEMPTS; attempt++) {
     try {
-      console.log(`🔄 Connecting to database (attempt ${attempt}/${DB.maxAttempts})...`);
+      console.log(`🔄 Connecting to database (attempt ${attempt}/${DB_MAX_ATTEMPTS})...`);
       await AppDataSource.initialize();
       console.log('📦 Database connected');
       return;
@@ -34,22 +31,37 @@ async function connectToDatabase(): Promise<void> {
       }
 
       const message = error instanceof Error ? error.message : String(error);
-      console.warn(`⏳ DB not ready: ${message}. Retrying in ${DB.retryMs / 1_000}s...`);
-      await sleep(DB.retryMs);
+      console.warn(`⏳ DB not ready: ${message}. Retrying in ${DB_RETRY_MS / 1_000}s...`);
+      await sleep(DB_RETRY_MS);
     }
   }
 
-  throw new Error(`💥 Could not connect to database after ${DB.maxAttempts} attempts`);
+  throw new DbRetryExhaustedError(
+    `💥 Could not connect to database after ${DB_MAX_ATTEMPTS} attempts`,
+  );
 }
 
-async function connectWithRetryLoop(): Promise<void> {
-  while (true) {
+async function connectWithRetry(): Promise<void> {
+  for (let outerAttempt = 1; outerAttempt <= DB_OUTER_MAX_ATTEMPTS; outerAttempt++) {
     try {
       await connectToDatabase();
       return;
-    } catch {
-      console.error('💥 DB still unavailable. Retrying in 15s...');
-      await sleep(DB.outerRetryMs);
+    } catch (err) {
+      if (!(err instanceof DbRetryExhaustedError)) {
+        throw err;
+      }
+
+      if (outerAttempt >= DB_OUTER_MAX_ATTEMPTS) {
+        throw new Error(
+          `💥 Database unavailable after ${DB_OUTER_MAX_ATTEMPTS} outer retries. Exiting.`,
+        );
+      }
+
+      console.error(
+        `💥 DB still unavailable. Outer attempt ${outerAttempt}/${DB_OUTER_MAX_ATTEMPTS}.` +
+          ` Retrying in ${DB_OUTER_RETRY_MS / 1_000}s...`,
+      );
+      await sleep(DB_OUTER_RETRY_MS);
     }
   }
 }
@@ -71,7 +83,7 @@ function registerShutdownHandlers(): void {
 async function bootstrap(): Promise<void> {
   registerShutdownHandlers();
 
-  await connectWithRetryLoop();
+  await connectWithRetry();
 
   await import('./bot/bot');
   console.log('✅ Telegram bot loaded');

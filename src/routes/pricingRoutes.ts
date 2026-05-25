@@ -1,13 +1,11 @@
 import { Router } from 'express';
-import { getSellerReceivesByBuyerPrice } from '../controllers/pricing/getSellerReceivesByBuyerPrice';
-import { getBuyerPaysBySellerPrice } from '../controllers/pricing/getBuyerPaysBySellerPrice';
+import { calculatePrice } from '../controllers/pricing/calculatePrice';
 import { getSellPriceLimits } from '../controllers/pricing/getSellPriceLimits';
 import { getFees } from '../controllers/pricing/getFees';
 
 const router = Router();
 
-router.get('/buyer-pays', getBuyerPaysBySellerPrice);
-router.get('/seller-receives', getSellerReceivesByBuyerPrice);
+router.get('/calculate', calculatePrice);
 router.get('/limits', getSellPriceLimits);
 router.get('/fees', getFees);
 

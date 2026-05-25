@@ -16,9 +16,7 @@ bot.use(limit());
 setupBotHandlers(bot);
 
 bot.catch((err) => {
-  console.error(
-    `❌ Error in update ${err.ctx?.update?.update_id ?? 'unknown update'}`,
-  );
+  console.error(`❌ Error in update ${err.ctx?.update?.update_id ?? 'unknown update'}`);
   if (err.error instanceof Error) {
     console.error('→', err.error.message);
   } else {

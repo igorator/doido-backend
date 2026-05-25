@@ -1,18 +1,12 @@
 import { Request, Response } from 'express';
-import { AppDataSource } from '../../database/db';
-import { AppSettings } from '../../models/AppSettings';
+import { getMaintenanceStatusService } from '../../services/server/getMaintenanceStatusService';
+import { handleHttpError } from '../../shared/lib/handleHttpError';
 
-export const checkIsMaintenance = async (_req: Request, res: Response) => {
+export const checkIsMaintenance = async (_req: Request, res: Response): Promise<void> => {
   try {
-    const repo = AppDataSource.getRepository(AppSettings);
-
-    const settings = await repo.findOne({
-      where: { id: 1 },
-    });
-
-    res.json({ status: settings?.is_maintenance ?? false });
+    const status = await getMaintenanceStatusService();
+    res.json({ status });
   } catch (err) {
-    console.error('❌ Failed to check maintenance status:', err);
-    res.status(500).json({ error: 'Failed to check maintenance status' });
+    handleHttpError(res, err, 'checkIsMaintenance');
   }
 };

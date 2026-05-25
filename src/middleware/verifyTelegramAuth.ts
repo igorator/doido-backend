@@ -36,7 +36,7 @@ export const verifyTelegramAuth: RequestHandler = (req, res, next) => {
     return;
   }
 
-  (req as any).telegramUser = user;
+  req.telegramUser = user;
 
   next();
 };

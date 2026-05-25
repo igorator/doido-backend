@@ -7,12 +7,12 @@ export const botSendMessage = async (
   message: string,
   parseMode?: ParseMode,
 ): Promise<void> => {
-  chatId = Number(chatId);
+  const numericChatId = Number(chatId);
   try {
-    await bot.api.sendMessage(chatId, message, {
+    await bot.api.sendMessage(numericChatId, message, {
       parse_mode: parseMode,
     });
   } catch (error) {
-    console.error(`❌ Ошибка при отправке сообщения в чат ${chatId}:`, error);
+    console.error(`❌ Error sending message to chat ${numericChatId}:`, error);
   }
 };

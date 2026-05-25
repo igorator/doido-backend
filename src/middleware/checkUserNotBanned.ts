@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import { userRepository } from '../database/repositories/userRepository';
+import { handleHttpError } from '../shared/lib/handleHttpError';
 
 export async function checkUserNotBanned(
   req: Request,
   res: Response,
   next: NextFunction,
 ): Promise<void> {
-  const telegramUser = (req as any).telegramUser;
+  const telegramUser = req.telegramUser;
 
   if (!telegramUser?.id) {
     res.status(401).json({ error: 'Unauthorized' });
@@ -15,7 +16,7 @@ export async function checkUserNotBanned(
 
   try {
     const user = await userRepository.findOneBy({
-      id: telegramUser.id,
+      id: String(telegramUser.id),
     });
 
     if (!user) {
@@ -24,16 +25,12 @@ export async function checkUserNotBanned(
     }
 
     if (user.is_banned) {
-      // 👇 Возвращаем мягкую заглушку
-      res
-        .status(400)
-        .json({ error: 'Temporary access issue. Please try again later.' });
+      res.status(403).json({ error: 'Access denied' });
       return;
     }
 
     next();
   } catch (err) {
-    console.error('❌ Ошибка при проверке is_banned:', err);
-    res.status(500).json({ error: 'Internal server error' });
+    handleHttpError(res, err, 'checkUserNotBanned');
   }
 }

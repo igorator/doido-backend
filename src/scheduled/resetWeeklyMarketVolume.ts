@@ -3,12 +3,8 @@ import { User } from '../models/User';
 import { AppDataSource } from '../database/db';
 import { config } from '../config';
 
-export const resetWeeklyMarketVolume = (
-  cronExpr = config.cron.resetWeeklyMarket,
-) => {
+export const resetWeeklyMarketVolume = (cronExpr = config.cron.resetWeeklyMarket) => {
   cron.schedule(cronExpr, async () => {
-    console.log('🔁 Сброс weekly_market_amount...');
-
     try {
       await AppDataSource.createQueryBuilder()
         .update(User)
@@ -17,7 +13,7 @@ export const resetWeeklyMarketVolume = (
 
       console.log('✅ Weekly market amounts reset');
     } catch (err) {
-      console.error('❌ Ошибка при сбросе weekly_market_amount:', err);
+      console.error('❌ Error resetting weekly_market_amount:', err);
     }
   });
 };

@@ -1,7 +1,3 @@
-/**
- * Re-exports from `config` for backward compatibility.
- * Prefer importing directly from `config` in new code.
- */
 import { config } from '../config';
 
 export const MARKET_PERCENT_FEE = config.fees.marketPercent;

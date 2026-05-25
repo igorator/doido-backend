@@ -4,6 +4,7 @@ import {
   Column,
   ManyToOne,
   CreateDateColumn,
+  Index,
 } from 'typeorm';
 import { User } from './User';
 import { DecimalTransformer } from '../shared/lib/transformers/decimalToNumber';
@@ -15,6 +16,8 @@ export enum ActivityItemType {
 }
 
 @Entity()
+@Index('idx_activity_created_at', ['created_at'])
+@Index('idx_activity_item_type_created', ['item_type', 'created_at'])
 export class Activity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -25,7 +28,6 @@ export class Activity {
   @Column('varchar', { length: 20 })
   item_id: string;
 
-  // 🎁 Gift metadata (всё отдельными полями)
   @Column('varchar', { length: 50, nullable: true })
   gift_collection_name?: string;
 
@@ -35,11 +37,7 @@ export class Activity {
   @Column('varchar', { length: 50, nullable: true })
   gift_model_name?: string;
 
-  @Column('decimal', {
-    precision: 10,
-    scale: 6,
-    nullable: true,
-  })
+  @Column('decimal', { precision: 10, scale: 6, nullable: true })
   gift_model_rarity?: number;
 
   @Column('varchar', { length: 8, nullable: true })
@@ -48,11 +46,7 @@ export class Activity {
   @Column('varchar', { length: 50, nullable: true })
   gift_pattern_name?: string;
 
-  @Column('decimal', {
-    precision: 10,
-    scale: 6,
-    nullable: true,
-  })
+  @Column('decimal', { precision: 10, scale: 6, nullable: true })
   gift_pattern_rarity?: number;
 
   @Column('varchar', { length: 8, nullable: true })
@@ -61,33 +55,27 @@ export class Activity {
   @Column('varchar', { length: 50, nullable: true })
   gift_backdrop_name?: string;
 
-  @Column('decimal', {
-    precision: 10,
-    scale: 6,
-    nullable: true,
-  })
+  @Column('decimal', { precision: 10, scale: 6, nullable: true })
   gift_backdrop_rarity?: number;
 
-  @Column('varchar', { length: 12, nullable: true })
+  @Column('varchar', { length: 7, nullable: true })
   gift_backdrop_center_color?: string;
 
-  @Column('varchar', { length: 12, nullable: true })
+  @Column('varchar', { length: 7, nullable: true })
   gift_backdrop_edge_color?: string;
 
-  @Column('varchar', { length: 12, nullable: true })
+  @Column('varchar', { length: 7, nullable: true })
   gift_backdrop_symbol_color?: string;
 
-  @Column('varchar', { length: 12, nullable: true })
+  @Column('varchar', { length: 7, nullable: true })
   gift_backdrop_text_color?: string;
 
-  // 🧑‍🤝‍🧑 Users
   @ManyToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
   seller: User;
 
   @ManyToOne(() => User, { nullable: false, onDelete: 'CASCADE' })
   buyer: User;
 
-  // 💰 Amount
   @Column('decimal', {
     precision: 20,
     scale: 8,
@@ -100,16 +88,14 @@ export class Activity {
   created_at: Date;
 
   toJSON() {
-    const { seller, buyer, amount, ...rest } = this;
-
     return {
       id: this.id,
       item_type: this.item_type,
       item_id: this.item_id,
-      amount: amount?.toNumber() ?? 0,
+      amount: this.amount?.toNumber() ?? 0,
       created_at: this.created_at,
-      seller_id: seller?.id,
-      buyer_id: buyer?.id,
+      seller_id: this.seller?.id,
+      buyer_id: this.buyer?.id,
       gift: {
         collection_name: this.gift_collection_name,
         number: this.gift_number,

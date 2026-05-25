@@ -1,12 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { WithdrawLog } from './WithdrawLog';
 
-export type BatchStatus =
-  | 'pending'
-  | 'processing'
-  | 'confirmed'
-  | 'failed'
-  | 'waiting_refill';
+export type BatchStatus = 'pending' | 'processing' | 'confirmed' | 'failed' | 'waiting_refill';
 
 @Entity()
 export class WithdrawBatch {

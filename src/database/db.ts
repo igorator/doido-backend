@@ -10,12 +10,12 @@ import { LeaderboardEntry } from '../models/leaderboard/Leaderboard';
 import { LeaderboardTier } from '../models/leaderboard/LeaderboardTier';
 import { AppSettings } from '../models/AppSettings';
 import { MarketInfo } from '../models/MarketInfo';
+
 const { host, port, user, password, database } = config.postgres;
 
 if (!host || !user || !password || !database) {
   throw new Error(
-    'Переменные окружения для базы данных не заданы полностью ' +
-      '(POSTGRES_HOST, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB)',
+    'Missing required database env vars: POSTGRES_HOST, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB',
   );
 }
 

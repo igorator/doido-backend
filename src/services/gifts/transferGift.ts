@@ -12,7 +12,11 @@ export const transferGift = async ({
   giftId: string;
   newOwnerId: string | number;
 }) => {
-  newOwnerId = Number(newOwnerId);
+  if (!BUSINESS_CONNECTION_ID) {
+    throw new Error('TELEGRAM_BUSINESS_CONNECTION_ID is not configured');
+  }
+
+  const numericOwnerId = Number(newOwnerId);
 
   await checkCurrentStarsBalance(BUSINESS_CONNECTION_ID);
 
@@ -20,13 +24,13 @@ export const transferGift = async ({
     const result = await bot.api.transferGift(
       BUSINESS_CONNECTION_ID,
       giftId,
-      newOwnerId,
+      numericOwnerId,
       TRANSFER_STARS_COUNT,
     );
-    console.log('✅ Подарок успешно передан:', result);
+    console.log('✅ Gift transferred successfully:', result);
     return result;
   } catch (error) {
-    console.error('❌ Ошибка при передаче подарка:', error);
+    console.error('❌ Error transferring gift:', error);
     throw error;
   }
 };

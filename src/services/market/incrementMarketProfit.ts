@@ -2,27 +2,15 @@ import { AppDataSource } from '../../database/db';
 import Decimal from 'decimal.js';
 import { MarketInfo } from '../../models/MarketInfo';
 
-export const incrementMarketProfit = async (
-  _reason: string,
-  amount: Decimal,
-): Promise<void> => {
-  if (!amount || !(amount instanceof Decimal)) {
-    console.warn(
-      '❌ incrementMarketProfit: неверное или пустое значение amount:',
-      amount?.toString?.(),
-    );
+export const incrementMarketProfit = async (reason: string, amount: Decimal): Promise<void> => {
+  if (!(amount instanceof Decimal) || !amount.isFinite() || amount.lte(0)) {
+    console.warn(`incrementMarketProfit(${reason}): invalid amount`, amount?.toString());
     return;
   }
 
-  const repo = AppDataSource.getRepository(MarketInfo);
-
-  await repo.increment({ id: 1 }, 'profit', amount.toNumber());
-
-  const updated = await repo.findOneBy({ id: 1 });
+  await AppDataSource.getRepository(MarketInfo).increment({ id: 1 }, 'profit', amount.toNumber());
 
   console.log(
-    `💰 incrementMarketProfit: добавлено ${amount.toFixed(
-      3,
-    )} TON. Профит на данный момент: ${updated?.profit.toFixed(3)} TON`,
+    `[${new Date().toISOString()}] 💰 Market profit +${amount.toFixed(3)} TON (${reason})`,
   );
 };

@@ -1,15 +1,35 @@
 import { giftRepository } from '../../database/repositories/giftRepository';
-import { GiftStatus } from '../../models/Gift';
+import { Gift, GiftStatus } from '../../models/Gift';
+import { User } from '../../models/User';
 
-export const saveGiftToDatabase = async ({
-  giftId,
-  collectionName,
-  number,
-  model,
-  pattern,
-  backdrop,
-  owner,
-}) => {
+interface SaveGiftInput {
+  giftId: string;
+  collectionName: string;
+  number: number;
+  model: {
+    name: string;
+    rarity: number;
+    emoji: string;
+  };
+  pattern: {
+    name: string;
+    rarity: number;
+    emoji: string;
+  };
+  backdrop: {
+    name: string;
+    rarity: number;
+    center_color: string;
+    edge_color: string;
+    symbol_color: string;
+    text_color: string;
+  };
+  owner: User;
+}
+
+export const saveGiftToDatabase = async (input: SaveGiftInput): Promise<Gift> => {
+  const { giftId, collectionName, number, model, pattern, backdrop, owner } = input;
+
   const existing = await giftRepository.findOneBy({ id: giftId });
   if (existing) {
     throw new Error(`Gift with id ${giftId} already exists`);
@@ -29,5 +49,5 @@ export const saveGiftToDatabase = async ({
     listed_date: null,
   });
 
-  return await giftRepository.save(gift);
+  return giftRepository.save(gift);
 };

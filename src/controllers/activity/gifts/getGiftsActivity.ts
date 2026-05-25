@@ -1,8 +1,14 @@
 import { Request, Response } from 'express';
-import { AppDataSource } from '../../../database/db';
-import { Activity, ActivityItemType } from '../../../models/Activity';
+import { getGiftsActivityService } from '../../../services/activity/getGiftsActivityService';
+import { handleHttpError } from '../../../shared/lib/handleHttpError';
 
-export const getGiftsActivity = async (req: Request, res: Response) => {
+const toArray = (value: unknown): string[] => {
+  if (Array.isArray(value)) return value as string[];
+  if (value) return [value as string];
+  return [];
+};
+
+export const getGiftsActivity = async (req: Request, res: Response): Promise<void> => {
   try {
     const {
       collection,
@@ -16,82 +22,24 @@ export const getGiftsActivity = async (req: Request, res: Response) => {
       take = '10',
     } = req.query;
 
-    const skipNum = Number(skip);
-    const takeNum = Number(take);
-
-    const normalizeArray = (value: any): string[] =>
-      Array.isArray(value) ? value : value ? [value] : [];
-
-    const collections = normalizeArray(collection);
-    const models = normalizeArray(model);
-    const backdrops = normalizeArray(backdrop);
-    const patterns = normalizeArray(pattern);
-
-    const activityRepo = AppDataSource.getRepository(Activity);
-    const qb = activityRepo
-      .createQueryBuilder('activity')
-      .leftJoinAndSelect('activity.seller', 'seller')
-      .leftJoinAndSelect('activity.buyer', 'buyer')
-      .where('activity.item_type = :itemType', {
-        itemType: ActivityItemType.GIFT,
-      });
-
-    // 🎯 Фильтры
-    if (collections.length > 0) {
-      qb.andWhere('activity.gift_collection_name IN (:...collections)', {
-        collections,
-      });
-    }
-
-    if (models.length > 0) {
-      qb.andWhere('activity.gift_model_name IN (:...models)', { models });
-    }
-
-    if (backdrops.length > 0) {
-      qb.andWhere('activity.gift_backdrop_name IN (:...backdrops)', {
-        backdrops,
-      });
-    }
-
-    if (patterns.length > 0) {
-      qb.andWhere('activity.gift_pattern_name IN (:...patterns)', {
-        patterns,
-      });
-    }
-
+    const skipNum = Math.max(0, Number(skip) || 0);
+    const takeNum = Math.min(Math.max(1, Number(take) || 10), 100);
     const giftIdNum = Number(gift_id);
-    if (!isNaN(giftIdNum)) {
-      qb.andWhere('activity.gift_number = :giftId', { giftId: giftIdNum });
-    }
 
-    if (min_price && max_price) {
-      qb.andWhere('activity.amount BETWEEN :min AND :max', {
-        min: parseFloat(min_price as string),
-        max: parseFloat(max_price as string),
-      });
-    } else if (min_price) {
-      qb.andWhere('activity.amount >= :min', {
-        min: parseFloat(min_price as string),
-      });
-    } else if (max_price) {
-      qb.andWhere('activity.amount <= :max', {
-        max: parseFloat(max_price as string),
-      });
-    }
-
-    qb.orderBy('activity.created_at', 'DESC');
-
-    qb.skip(skipNum).take(takeNum);
-
-    const [activities, total] = await qb.getManyAndCount();
-    const hasMore = skipNum + takeNum < total;
-
-    res.json({ activities, total, hasMore });
-  } catch (err) {
-    console.error('❌ Ошибка при получении активности:', err);
-    res.status(500).json({
-      message: 'Ошибка при получении активности',
-      error: (err as Error).message,
+    const result = await getGiftsActivityService({
+      collections: toArray(collection),
+      models: toArray(model),
+      backdrops: toArray(backdrop),
+      patterns: toArray(pattern),
+      giftNumber: !isNaN(giftIdNum) && gift_id ? giftIdNum : undefined,
+      minPrice: min_price ? parseFloat(min_price as string) : undefined,
+      maxPrice: max_price ? parseFloat(max_price as string) : undefined,
+      skip: skipNum,
+      take: takeNum,
     });
+
+    res.json(result);
+  } catch (err) {
+    handleHttpError(res, err, 'getGiftsActivity');
   }
 };

@@ -1,7 +1,12 @@
 import { Request, Response } from 'express';
-import { Like, In, MoreThanOrEqual, LessThanOrEqual, Between } from 'typeorm';
-import { giftRepository } from '../../database/repositories/giftRepository';
-import { GiftStatus } from '../../models/Gift';
+import { getGiftsService } from '../../services/gifts/getGiftsService';
+import { handleHttpError } from '../../shared/lib/handleHttpError';
+
+const toArray = (value: unknown): string[] => {
+  if (Array.isArray(value)) return value as string[];
+  if (value) return [value as string];
+  return [];
+};
 
 export const getGifts = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -18,85 +23,21 @@ export const getGifts = async (req: Request, res: Response): Promise<void> => {
       take = 20,
     } = req.query;
 
-    const skipNum = Number(skip);
-    const takeNum = Number(take);
-
-    const collections = Array.isArray(collection)
-      ? collection
-      : collection
-      ? [collection]
-      : [];
-    const models = Array.isArray(model) ? model : model ? [model] : [];
-    const backdrops = Array.isArray(backdrop)
-      ? backdrop
-      : backdrop
-      ? [backdrop]
-      : [];
-    const patterns = Array.isArray(pattern)
-      ? pattern
-      : pattern
-      ? [pattern]
-      : [];
-
-    const baseFilters: any = {
-      status: GiftStatus.LISTED,
-      ...(gift_id && { number: Number(gift_id) }),
-    };
-
-    if (min_price && max_price) {
-      baseFilters.sell_price_with_fee = Between(min_price, max_price);
-    } else if (min_price) {
-      baseFilters.sell_price_with_fee = MoreThanOrEqual(min_price);
-    } else if (max_price) {
-      baseFilters.sell_price_with_fee = LessThanOrEqual(max_price);
-    }
-
-    const where = collections.length
-      ? collections.map((col) => ({
-          ...baseFilters,
-          collection_name: Like(`%${col}%`),
-          ...(models.length && { model: { name: In(models) } }),
-          ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
-          ...(patterns.length && { pattern: { name: In(patterns) } }),
-        }))
-      : [
-          {
-            ...baseFilters,
-            ...(models.length && { model: { name: In(models) } }),
-            ...(backdrops.length && { backdrop: { name: In(backdrops) } }),
-            ...(patterns.length && { pattern: { name: In(patterns) } }),
-          },
-        ];
-
-    const order: any =
-      sort === 'price-asc'
-        ? { sell_price: 'asc' }
-        : sort === 'price-desc'
-        ? { sell_price: 'desc' }
-        : sort === 'latest'
-        ? { updated_at: 'desc' }
-        : sort === 'id-asc'
-        ? { number: 'asc' }
-        : sort === 'id-desc'
-        ? { number: 'desc' }
-        : {};
-
-    const [gifts, total] = await giftRepository.findAndCount({
-      where,
-      order,
-      relations: ['owner'],
-      skip: skipNum,
-      take: takeNum,
+    const result = await getGiftsService({
+      collections: toArray(collection),
+      models: toArray(model),
+      backdrops: toArray(backdrop),
+      patterns: toArray(pattern),
+      minPrice: min_price as string | undefined,
+      maxPrice: max_price as string | undefined,
+      sort: String(sort),
+      giftNumber: gift_id ? Number(gift_id) : undefined,
+      skip: Math.max(0, Number(skip) || 0),
+      take: Math.min(Math.max(1, Number(take) || 20), 100),
     });
 
-    const hasMore = skipNum + takeNum < total;
-
-    res.json({ gifts, total, hasMore });
+    res.json(result);
   } catch (err) {
-    console.error('❌ Ошибка при получении подарков:', err);
-    res.status(500).json({
-      message: 'Ошибка при получении подарков',
-      error: (err as Error).message,
-    });
+    handleHttpError(res, err, 'getGifts');
   }
 };
