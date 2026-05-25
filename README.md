@@ -1,52 +1,54 @@
-<img src="doido-backend-banner.png" alt="DOIDO Backend Banner" width="100%" />
+<img src="doido-backend-banner.png" alt="DOIDO Backend" width="100%" />
 
-# DOIDO Backend
+<div align="center">
 
-> Backend for the **DOIDO** Telegram gift marketplace — built on TON blockchain.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white&style=flat-square)](https://www.typescriptlang.org)
+[![Express](https://img.shields.io/badge/Express-5-000000?logo=express&logoColor=white&style=flat-square)](https://expressjs.com)
+[![Grammy](https://img.shields.io/badge/Grammy-1.x-2CA5E0?logo=telegram&logoColor=white&style=flat-square)](https://grammy.dev)
+[![TON](https://img.shields.io/badge/TON_Connect-0098EA?logo=ton&logoColor=white&style=flat-square)](https://ton.org)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-TypeORM-336791?logo=postgresql&logoColor=white&style=flat-square)](https://typeorm.io)
+[![Socket.IO](https://img.shields.io/badge/Socket.IO-4-010101?logo=socket.io&logoColor=white&style=flat-square)](https://socket.io)
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Express](https://img.shields.io/badge/Express-5.x-000000?logo=express&logoColor=white)](https://expressjs.com/)
-[![Grammy](https://img.shields.io/badge/Grammy-1.x-blue)](https://grammy.dev/)
-[![TON](https://img.shields.io/badge/TON-Blockchain-0098EA?logo=telegram)](https://ton.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-TypeORM-336791?logo=postgresql&logoColor=white)](https://typeorm.io/)
-[![Socket.IO](https://img.shields.io/badge/Socket.IO-4.x-010101?logo=socket.io)](https://socket.io/)
+**REST API, Telegram Bot & TON blockchain backend for the DOIDO gift marketplace**
 
----
+[About](#-about) · [Tech Stack](#-tech-stack) · [Structure](#-project-structure) · [Getting Started](#-getting-started) · [Environment Variables](#-environment-variables)
 
-## Overview
-
-DOIDO is a peer-to-peer marketplace where Telegram users can **buy, sell, and trade Telegram gifts** directly inside a Telegram Mini App. This repository contains the full backend — the REST API, the Telegram bot, the TON on-chain watchers, and the real-time WebSocket layer.
+</div>
 
 ---
 
-## Tech Stack
+## 🦆 About
 
-| Layer | Technology |
-|---|---|
-| Language | TypeScript 5.8 (strict, ESM, `tsx`) |
-| HTTP Server | Express 5 |
-| Telegram Bot | [Grammy](https://grammy.dev/) + webhook |
-| ORM | TypeORM 0.3 + PostgreSQL |
-| Blockchain | TON (`@ton/ton`, `@ton/core`, `@ton/crypto`) |
-| Real-time | Socket.IO 4 |
-| Scheduling | `node-cron` |
-| Auth | Telegram `initData` HMAC verification |
+**DOIDO** is a peer-to-peer Telegram gift marketplace running as a Telegram Mini App. This repository contains the full backend — the REST API, the Telegram bot, the TON on-chain watchers, and the real-time WebSocket layer.
 
----
-
-## Features
+### Features
 
 - 🎁 **Gift Marketplace** — list, unlist, buy, and transfer Telegram gifts with configurable fees
 - 💎 **TON Deposits & Withdrawals** — on-chain watchers poll TonCenter and batch-process payouts via `WalletV5R1`
 - 📊 **Leaderboard** — weekly & all-time rankings refreshed on a cron schedule
 - 🔗 **Referral System** — tiered referral bonuses (standard users & influencers)
 - 🔔 **Real-time Balance Updates** — Socket.IO pushes balance changes to connected clients
-- 🛡️ **Security** — Helmet, CORS allow-list, Telegram initData auth, ban checks on sensitive routes
+- 🛡️ **Security** — Helmet, CORS allow-list, Telegram `initData` HMAC auth, ban checks on sensitive routes
 - 🤖 **Telegram Bot** — rate-limited, auto-retry Grammy bot with a `/start` flow and gift handlers
 
 ---
 
-## Project Structure
+## 🛠 Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Language** | TypeScript 5.8 (strict, ESM, `tsx`) |
+| **HTTP Server** | Express 5 |
+| **Telegram Bot** | Grammy 1 + webhook |
+| **ORM** | TypeORM 0.3 + PostgreSQL |
+| **Blockchain** | TON (`@ton/ton`, `@ton/core`, `@ton/crypto`) |
+| **Real-time** | Socket.IO 4 |
+| **Scheduling** | node-cron |
+| **Auth** | Telegram `initData` HMAC verification |
+
+---
+
+## 📁 Project Structure
 
 ```
 src/
@@ -117,7 +119,7 @@ src/
 │   ├── leaderboard/
 │   ├── market/
 │   ├── messages/
-│   ├── notifications/        # All notification functions
+│   ├── notifications/
 │   │   ├── giftNotifications.ts
 │   │   ├── marketNotifications.ts
 │   │   └── starsNotifications.ts
@@ -138,7 +140,7 @@ src/
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -147,15 +149,29 @@ src/
 - A Telegram bot token
 - A TonCenter API key + deposit wallet
 
-### Install & run
+### Install
 
 ```bash
+cd doido-backend
 npm install
+```
 
-# Development (hot-reload)
+### Environment
+
+```bash
+cp .env.example .env
+# fill in the values
+```
+
+### Development
+
+```bash
 npm run dev
+```
 
-# Production
+### Production
+
+```bash
 npm start
 ```
 
@@ -163,28 +179,56 @@ npm start
 
 ---
 
-## Configuration
-
-All config lives in `src/config/` — split by domain. Every value is env-overridable via `.env`.
+## ⚙️ Environment Variables
 
 Copy `.env.example` to `.env` and fill in the values:
 
-```bash
-cp .env.example .env
-```
-
-| Domain | File | Key variables |
-|--------|------|---------------|
-| Server | `config/server.ts` | `PORT`, `NODE_ENV` |
-| Telegram | `config/telegram.ts` | `TELEGRAM_BOT_TOKEN`, `BOT_WEBHOOK_URL`, `TELEGRAM_BUSINESS_CONNECTION_ID` |
-| PostgreSQL | `config/postgres.ts` | `POSTGRES_HOST`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` |
-| TON | `config/ton.ts` | `TON_DEPOSIT_WALLET_ADDRESS`, `TON_DEPOSIT_WALLET_SECRET_KEY`, `TON_WITHDRAW_WALLET_SECRET_KEY`, `TONCENTER_API_ENDPOINT` |
-| Fees | `config/fees.ts` | `DEFAULT_FEE`, `REFERRAL_FEE`, `GIFT_LISTING_FEE`, `GIFT_TRANSFER_FEE`, `SELL_FEE` |
-| Limits | `config/limits.ts` | `MIN_SELL_PRICE`, `MAX_SELL_PRICE`, `MIN_WITHDRAW_AMOUNT`, `MAX_WITHDRAW_AMOUNT` |
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `PORT` | ☐ | HTTP server port (default `3000`) |
+| `NODE_ENV` | ☐ | Runtime environment (`development` / `production`) |
+| `TELEGRAM_BOT_TOKEN` | ✅ | Grammy bot token from [@BotFather](https://t.me/BotFather) |
+| `BOT_WEBHOOK_URL` | ✅ | Public HTTPS URL for the Telegram webhook |
+| `TELEGRAM_BUSINESS_CONNECTION_ID` | ✅ | Business connection ID for gift operations |
+| `POSTGRES_HOST` | ✅ | PostgreSQL host |
+| `POSTGRES_USER` | ✅ | PostgreSQL user |
+| `POSTGRES_PASSWORD` | ✅ | PostgreSQL password |
+| `POSTGRES_DB` | ✅ | PostgreSQL database name |
+| `TON_DEPOSIT_WALLET_ADDRESS` | ✅ | Wallet address for receiving TON deposits |
+| `TON_DEPOSIT_WALLET_SECRET_KEY` | ✅ | Secret key for the deposit wallet |
+| `TON_WITHDRAW_WALLET_SECRET_KEY` | ✅ | Secret key for the withdrawal wallet |
+| `TONCENTER_API_ENDPOINT` | ✅ | TonCenter API URL |
+| `DEFAULT_FEE` | ☐ | Base marketplace fee (default `0.01`) |
+| `REFERRAL_FEE` | ☐ | Referral bonus fraction (default `0.2`) |
+| `GIFT_LISTING_FEE` | ☐ | Listing fee in TON after free listings (default `0.1`) |
+| `GIFT_TRANSFER_FEE` | ☐ | Transfer fee in TON (default `0.1`) |
+| `MIN_SELL_PRICE` | ☐ | Minimum listing price in TON (default `0.5`) |
+| `MAX_SELL_PRICE` | ☐ | Maximum listing price in TON (default `50 000`) |
+| `MIN_WITHDRAW_AMOUNT` | ☐ | Minimum withdrawal in TON (default `0.1`) |
+| `MAX_WITHDRAW_AMOUNT` | ☐ | Maximum withdrawal in TON (default `50`) |
 
 ---
 
-## Fee System
+## 🔑 Architecture Notes
+
+### Config — domain split
+
+All configuration lives in `src/config/` and is split by concern. Each file reads env vars and exports typed constants. `config/index.ts` assembles and re-exports the full `config` object. `config/env.ts` is a side-effect module that must be imported first to call `dotenv.config()`.
+
+### Request lifecycle
+
+Requests flow through: CORS → Helmet → JSON body parser → `verifyTelegramAuth` (HMAC check) → route handler → controller (parses & validates input) → service (business logic + DB) → response. Error handling is centralised in `handleHttpError`.
+
+### TON Watchers
+
+Two scheduled workers run at configurable intervals:
+
+- **Deposit watcher** — polls TonCenter for incoming transactions to the deposit wallet, credits user balances, and emits `balance_update` via Socket.IO.
+- **Withdraw watcher** — scans pending withdrawal records, batches them into a single `WalletV5R1` transfer message, and marks records as processed.
+
+Both watchers are skipped when `NODE_ENV=development`.
+
+### Fee System
 
 | Fee | Default | Description |
 |-----|---------|-------------|
@@ -200,15 +244,11 @@ cp .env.example .env
 | `limits.minWithdraw` | `0.1` TON | |
 | `limits.maxWithdraw` | `50` TON | |
 
----
-
-## Gift Data Model
+### Gift Data Model
 
 Backdrop colors are stored as **hex strings** (`#RRGGBB`), converted from the Telegram API's RGB integer on ingestion. Rarity is stored as a **percentage** (`rarity_per_mille / 10`), e.g. `500‰ → 50.0%`.
 
----
-
-## WebSocket
+### WebSocket
 
 Connect with `?userId=<telegramId>`. The client is automatically joined to room `user_<userId>`.
 
@@ -216,14 +256,12 @@ Connect with `?userId=<telegramId>`. The client is automatically joined to room 
 |-------|-----------|---------|
 | `balance_update` | Server → Client | `{ ton_balance: number }` |
 
----
-
-## API
+### API Reference
 
 See [`API.md`](API.md) for the full endpoint reference with request/response shapes.
 
 ---
 
-## Author
+## 👤 Author
 
 **Ihor Kliushnyk**
